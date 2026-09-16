@@ -7,7 +7,7 @@ the AZ repo (and, later, an AZ chatbot/KB) never has to reach into the restauran
 to know what's been built.
 
 **Why it exists:** the two businesses live in two separate repos on purpose
-(`abbas-MyPeople/WokAndKarahiTexas.com` = the restaurant; `abbas-MyPeople/Abbas` = AZ). Before this
+(`abbas-MyPeople/WokAndKarahiTexas.com` = the restaurant; `abbas-MyPeople/AZ` = AZ). Before this
 folder, the "proven at the restaurant → productized here" flow was manual — Abbas had to point each
 session at the right files or synthesize across repos by hand. This folder + the ledger make that
 flow durable and low-effort.

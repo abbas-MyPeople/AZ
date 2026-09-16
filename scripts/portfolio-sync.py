@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PJSON = ROOT / "command" / "portfolio.json"
-SLUG = {"wok": "abbas-MyPeople/WokAndKarahiTexas.com", "az": "abbas-MyPeople/Abbas"}
+SLUG = {"wok": "abbas-MyPeople/WokAndKarahiTexas.com", "az": "abbas-MyPeople/AZ"}
 
 
 def gh(*args):

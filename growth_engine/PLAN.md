@@ -16,7 +16,7 @@ reply-ingestion). We **port and retarget** it to the AZ site. Almost every crede
 - **Dashboard** → **Hugging Face Space** (Docker, private, Basic-auth). Reads **GA4** for the AZ property
   (`G-3GEL1D477G`) + optional Search Console. Auto-deployed from this repo's `analytics/` folder by a
   GitHub Action (mirror of `sync-hf-space.yml`). *(No Clover for AZ — AZ has no POS; MEASURE = web analytics.)*
-- **Growth loop** → **GitHub Actions cron in THIS repo** (`abbas-MyPeople/Abbas`). Because the AZ site
+- **Growth loop** → **GitHub Actions cron in THIS repo** (`abbas-MyPeople/AZ`). Because the AZ site
   *is* this repo (GitHub Pages serves root on `main`), the engine commits approved changes straight to
   `main` → Pages redeploys. Same-repo = uses the built-in `GITHUB_TOKEN`; **no PAT needed.**
 - **Email loop** → the existing engine Gmail (`WK_ENGINE_EMAIL`/`WK_ENGINE_APP_PASSWORD`) sends the brief

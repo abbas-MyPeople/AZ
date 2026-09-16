@@ -7,7 +7,7 @@
 ## The two repos
 - **Restaurant (the lab):** `abbas-MyPeople/WokAndKarahiTexas.com` — where capabilities are built and
   proven on Abbas's own restaurant, Wok & Karahi.
-- **AZ (the product):** `abbas-MyPeople/Abbas` (this repo) — where proven capabilities become named,
+- **AZ (the product):** `abbas-MyPeople/AZ` (this repo) — where proven capabilities become named,
   priced offerings sold to other restaurants.
 
 They stay **separate repos** (different deploy targets, different brands). The bridge is

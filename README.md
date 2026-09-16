@@ -13,7 +13,7 @@ few tools that pay off, transparently and done-for-you, and you only pay once yo
 Wok & Karahi is Abbas's **test business**. Capabilities are built and proven there, then productized
 and sold here. The two live in **separate repos on purpose**:
 - **Restaurant (the lab):** `abbas-MyPeople/WokAndKarahiTexas.com`
-- **AZ (the product):** `abbas-MyPeople/Abbas` (this repo)
+- **AZ (the product):** `abbas-MyPeople/AZ` (this repo)
 
 The proof that flows between them lives in **[`flagship/`](flagship/)** — start at
 [`flagship/CAPABILITY-LEDGER.md`](flagship/CAPABILITY-LEDGER.md) (what we've proven → what we sell →
