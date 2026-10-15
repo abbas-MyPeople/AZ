@@ -388,63 +388,6 @@
       }
     },
     {
-      "id": "sale-kit",
-      "name": "Business Exit Prep (private)",
-      "repo": "wok",
-      "location": "selling-restaurant/",
-      "branch": "claude/restaurant-sale-research-uphkxd",
-      "status": "in-build",
-      "health": "amber",
-      "percent": 88,
-      "role": "CONFIDENTIAL — toolkit to sell Wok & Karahi (target close Aug 31), asset-led. Reframes the mission: the replicable platform is the durable asset. (Financials/PII kept OUT of this dashboard.)",
-      "stage": "Research corpus + buyer data-room + outreach CRM ~90% done; owner-side assembly + landlord/attorney steps remain. Stranded on branch (never publish).",
-      "components": [
-        {
-          "name": "Valuation research + market comps",
-          "pct": 95,
-          "status": "built"
-        },
-        {
-          "name": "Buyer data room + listing kit",
-          "pct": 90,
-          "status": "built"
-        },
-        {
-          "name": "Outreach CRM + landing + cadence",
-          "pct": 75,
-          "status": "built"
-        }
-      ],
-      "blockers": [
-        "Owner-side: assemble data room (tax/P&L/lease)",
-        "Landlord lease-assignment talk (#1 close risk)",
-        "Attorney review"
-      ],
-      "manual_steps": [
-        "Fill outreach config",
-        "Landlord conversation",
-        "Attorney flat-fee NDA/term-sheet review"
-      ],
-      "overlaps": [
-        {
-          "with": "analytics",
-          "what": "shares Clover/books data as an INPUT only — no duplicated tooling",
-          "severity": "none"
-        }
-      ],
-      "next": [
-        "Owner runbook (OWNER-ACTION-PLAN.md)",
-        "Keep private — never a public deploy path"
-      ],
-      "az_offering": "n/a — but validates that AZ (the product) is the asset that outlives one location",
-      "git": {
-        "ahead": 36,
-        "behind": 11,
-        "last_commit": "2026-07-03",
-        "open_prs": 0
-      }
-    },
-    {
       "id": "instagram",
       "name": "Instagram Content System",
       "repo": "wok",
