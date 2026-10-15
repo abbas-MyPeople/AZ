@@ -159,7 +159,7 @@
   <main class="demo-wrap">
     <p class="kicker">One restaurant, fully deployed — nothing staged</p>
     <h1 class="h2" style="font-size:clamp(1.8rem,4vw,2.4rem)">This is what an FDE engagement looks like.</h1>
-    <p class="lead" style="margin-top:12px">We embed in an independent restaurant, find where money and time are leaking, and engineer each one away — in a strict order of preference: <strong>existing tools first</strong> (we don't reinvent what exists), <strong>customized to the restaurant's own workflow</strong> (no two run alike, even with the same menu), <strong>custom-built only when the shelf runs out</strong> — and <strong>behavioral</strong> where the answer isn't software at all. This page walks the engagement at our own restaurant — <strong>Wok &amp; Karahi</strong>, Spring TX (4.6★, 872 Google reviews; sales doubled in 18 months) — pain by pain. Everything is production. Every number is real, from our POS (absolute $ redacted, nothing else).</p>
+    <p class="lead" style="margin-top:12px">We embed in an independent restaurant, find where money and time are leaking, and engineer each one away — in a strict order of preference: <strong>existing tools first</strong> (we don't reinvent what exists), <strong>customized to the restaurant's own workflow</strong> (no two run alike, even with the same menu), <strong>custom-built only when the shelf runs out</strong> — and <strong>behavioral</strong> where the answer isn't software at all. This page walks the engagement at our own restaurant — <strong>Wok &amp; Karahi</strong>, Spring TX (4.5★, 941 Google reviews; sales doubled in 18 months) — pain by pain. Everything is production. Every number is real, from our POS (absolute $ redacted, nothing else).</p>
     <div class="hero-strip">
       <a href="tel:+19036024012" class="btn btn--primary">Call the live agent — (903) 602-4012</a>
       <span style="font-size:.85rem;color:#6f685c">2 of 5 founding pilots signed</span>
@@ -393,7 +393,7 @@
       <h2>One founder, AI-leveraged — and the architecture is reusable.</h2>
       <p style="max-width:760px">~21,000 lines of production Python, 8 scheduled pipelines, 7 deployed apps — built and operated by one person using AI agents as the engineering team. The next restaurant is <strong>data + config</strong>. Also in this deployment:</p>
       <div class="also">
-        <div class="also__item"><span class="chip chip--run">Behavioral · running 1+ yr</span><strong>Review engine — ~400 → 872 Google reviews at 4.6★ in a year</strong>A "scan me" card only when a guest is visibly happy; unhappy guests get the owner's personal card before Google does. $2 of cardstock, our highest-ROI play. <em>(Verifiable on Google now.)</em></div>
+        <div class="also__item"><span class="chip chip--run">Behavioral · running 1+ yr</span><strong>Review engine — ~400 → 941 Google reviews at 4.5★ in a year</strong>A "scan me" card only when a guest is visibly happy; unhappy guests get the owner's personal card before Google does. $2 of cardstock, our highest-ROI play. <em>(Verifiable on Google now.)</em></div>
         <div class="also__item"><span class="chip chip--built">Built</span><strong>No-shows &amp; reservations</strong>The agent books tables against the restaurant's real seating rules, confirms by text, and reminders cut the empty-table problem — no host stand required.</div>
         <div class="also__item"><span class="chip chip--run">Advisory + audit</span><strong>The apps quietly short you</strong>Wrong charges, bogus refunds, missed payouts — we audit the delivery apps' statements and claw back what's actually owed, then keep watching.</div>
         <div class="also__item"><span class="chip chip--run">Deployed</span><strong>Staff questions at 6pm on a Saturday</strong>An employee handbook Q&amp;A assistant, a conversational POS assistant, and an MCP server exposing the restaurant to AI tools — the small tools that keep a shift smooth.</div>
@@ -458,7 +458,7 @@
     /* AI answer toggle */
     var ANSWERS = {
       before: 'Here are some options near Spring, TX:<br/>1. <span class="hit">Competitor A</span> — halal-friendly menu…<br/>2. <span class="hit">Competitor B</span> — well reviewed…<br/>3. <span class="hit">Competitor C</span> — Pakistani cuisine…<br/><br/><span class="miss">Wok &amp; Karahi: absent.</span> Its site returned HTTP 403 to crawlers — the assistant has never read its menu, hours, or reviews.',
-      after: 'Here are some options near Spring, TX:<br/>1. <span class="hit">Wok &amp; Karahi</span> — rare halal Chinese + Indian/Pakistani under one roof; 4.6★ across 800+ reviews; known for the Crispy Beef; full menu and hours available.<br/>2. Competitor A…<br/>3. Competitor B…<br/><br/>Structured data, a statically-rendered menu and llms.txt make every fact machine-readable.'
+      after: 'Here are some options near Spring, TX:<br/>1. <span class="hit">Wok &amp; Karahi</span> — rare halal Chinese + Indian/Pakistani under one roof; 4.5★ across 900+ reviews; known for the Crispy Beef; full menu and hours available.<br/>2. Competitor A…<br/>3. Competitor B…<br/><br/>Structured data, a statically-rendered menu and llms.txt make every fact machine-readable.'
     };
     var aitogA = document.getElementById('aitogA');
     aitogA.innerHTML = ANSWERS.before;
