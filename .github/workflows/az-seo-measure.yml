@@ -1,0 +1,62 @@
+name: AZ SEO measure - weekly Search Console + AI-answer probe
+
+# The weekly MEASURE step for azrestaurantpartners.com (growth_engine/seo_measure.py).
+# Sunday night it reads Search Console (28 days, by page and query), asks a fixed panel of owner
+# questions to every AI engine we hold a key for (is AZ named? which of our URLs is cited?), and
+# picks up to 3 guide/compare pages to rewrite. The Monday Mac job reads growth_engine/state/seo-weekly.json.
+#
+# NOTE: scheduled + manual only. It must NOT trigger on push (it writes to
+# growth_engine/state/**, which would self-trigger a loop).
+# Missing keys are fine: each engine without a key is skipped and listed as skipped. Nothing is faked.
+
+on:
+  schedule:
+    - cron: "0 22 * * 0"     # Sundays 22:00 UTC (~5 PM US Central)
+  workflow_dispatch:
+
+concurrency:
+  group: az-growth
+  cancel-in-progress: false
+
+permissions:
+  contents: write            # to commit the weekly state back to the repo
+
+env:
+  GA4_SA_JSON:        ${{ secrets.GA4_SA_JSON }}
+  ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+  GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
+  OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r growth_engine/requirements.txt
+
+      - name: MEASURE - Search Console + AI-answer probe + weakest pages
+        run: python -m growth_engine.seo_measure
+
+      - name: Commit weekly state
+        if: always()
+        run: |
+          git config user.name  "growth-engine[bot]"
+          git config user.email "growth-engine@users.noreply.github.com"
+          git add growth_engine/state/seo-weekly.json growth_engine/state/seo-history.jsonl
+          if git diff --cached --quiet; then
+            echo "No state change."
+          else
+            git commit -m "growth-engine: weekly seo measure [skip ci]"
+            git pull --rebase --autostash origin main || true
+            git push origin main || echo "push skipped"
+          fi

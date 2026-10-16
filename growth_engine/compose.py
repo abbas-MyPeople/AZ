@@ -132,6 +132,15 @@ def _performance_data(signals) -> dict:
     return d
 
 
+def _seo_weekly_line():
+    """One short line from the weekly measure step (seo_measure.py). Never raises."""
+    try:
+        from . import seo_measure
+        return seo_measure.score_line()
+    except Exception:
+        return None
+
+
 def _performance(signals) -> list[str]:
     """The 'how the site performed' summary as plain-text lines (fallback)."""
     d = _performance_data(signals)
@@ -347,6 +356,9 @@ def _build_html(subject, kind, perf, alerts, surface, watching, overflow, exp_da
     parts.append(f'<tr><td style="padding:18px 24px 6px;"><div style="font-family:{_SERIF};color:{_INK};font-size:13px;'
                  f'font-weight:700;letter-spacing:.08em;text-transform:uppercase;">How we\'re doing</div></td></tr>')
     parts.append(_scorecard_html(perf))
+    _seo = _seo_weekly_line()
+    if _seo:
+        parts.append(f'<tr><td style="padding:2px 24px 8px;color:{_BODY};font-size:13px;font-family:{_SANS};">{_esc(_seo)}</td></tr>')
     parts.append(_next_html(wl))       # what's building next
     parts.append(_continuity(True))    # "Since your last reply" recap
     # alerts
@@ -409,6 +421,9 @@ def render_email(findings, signals=None) -> dict:
     surface = proposals[:3]
     overflow = proposals[3:]
     perf = _performance(signals)
+    seo_line = _seo_weekly_line()
+    if seo_line:
+        perf = perf + [f"• {seo_line}"]
     perf_data = _performance_data(signals)
     exp_data = _experiments_data()
     wl = _worklog()
