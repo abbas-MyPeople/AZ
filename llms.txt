@@ -84,3 +84,11 @@ than any city in the US or Canada, Harris County leading every county
 - Deal: no vendor commissions, no equity, no percentage of sales. No price list: we learn
   the restaurant's problem first, then price by what the owner wants implemented (pick
   modules, or have us do all of it). Month-to-month, and the owner keeps everything built.
+
+## Comparisons (vendor facts checked on their own pages, Oct 2026)
+- [AI phone ordering compared: Maple, Slang.ai, Loman, Serviio, Kea, Revmo, Yelp Host and AZ](https://azrestaurantpartners.com/compare-ai-phone-host.html) - POS ordering, payment, published languages, Clover support and published prices, checked on vendor pages Oct 2026
+- [Table QR order and pay compared: Toast, Sunday, me&u, Clover, Square, DoorDash Tableside and AZ](https://azrestaurantpartners.com/compare-table-ordering.html) - order and pay at table, shared tabs, guest languages, POS, published prices
+- [Commission-free online ordering compared: Owner.com, ChowNow, Menufy, BentoBox, Toast, Square and AZ](https://azrestaurantpartners.com/compare-online-ordering.html) - what the restaurant pays, what the guest pays, contracts, POS
+- [Restaurant marketing, CRM and loyalty compared: Owner.com, Popmenu, Toast IQ Grow, Thanx, Bikky, SevenRooms and AZ](https://azrestaurantpartners.com/compare-restaurant-marketing.html) - what each does, who it is built for, POS, published prices
+- [Done-for-you vs software, consultants and hiring](https://azrestaurantpartners.com/compare-done-for-you.html) - who does the work, published cost, commitment, what you keep
+- [What a forward-deployed engineer does for a restaurant](https://azrestaurantpartners.com/restaurant-technology-consultant-houston.html) - week by week, what gets automated by department, proof from our own restaurant
