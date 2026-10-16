@@ -1,0 +1,6503 @@
+{
+  "date": "2026-10-16",
+  "generated_at": "2026-10-16T03:36:06Z",
+  "gsc": {
+    "gsc": "ok",
+    "sa": "ga4-reader@ga4-reader-500818.iam.gserviceaccount.com",
+    "property": "https://azrestaurantpartners.com/",
+    "start": "2026-09-17",
+    "end": "2026-10-14",
+    "totals": {
+      "impressions": 3711,
+      "clicks": 13,
+      "ctr": 0.0035
+    },
+    "pages": [
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-houston-tx.html",
+        "impressions": 17,
+        "clicks": 2,
+        "ctr": 0.1176,
+        "position": 24.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/incentivio.html",
+        "impressions": 14,
+        "clicks": 2,
+        "ctr": 0.1429,
+        "position": 7.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/delivery-commission-calculator.html",
+        "impressions": 60,
+        "clicks": 1,
+        "ctr": 0.0167,
+        "position": 20.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/do-restaurants-lose-money-on-doordash.html",
+        "impressions": 276,
+        "clicks": 1,
+        "ctr": 0.0036,
+        "position": 6.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "impressions": 224,
+        "clicks": 1,
+        "ctr": 0.0045,
+        "position": 5.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/itsacheckmate.html",
+        "impressions": 10,
+        "clicks": 1,
+        "ctr": 0.1,
+        "position": 6.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/miso-robotics-flippy.html",
+        "impressions": 37,
+        "clicks": 1,
+        "ctr": 0.027,
+        "position": 7.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/otter.html",
+        "impressions": 17,
+        "clicks": 1,
+        "ctr": 0.0588,
+        "position": 8.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/precitaste.html",
+        "impressions": 5,
+        "clicks": 1,
+        "ctr": 0.2,
+        "position": 2.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/qsr-automations-connectsmart.html",
+        "impressions": 2,
+        "clicks": 1,
+        "ctr": 0.5,
+        "position": 1.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/spoton.html",
+        "impressions": 46,
+        "clicks": 1,
+        "ctr": 0.0217,
+        "position": 42.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/",
+        "impressions": 7,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.4
+      },
+      {
+        "page": "https://azrestaurantpartners.com/AZ-Restaurant-Partners.pdf",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/ai-phone-answering-cost.html",
+        "impressions": 44,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/ai-phone-answering-houston-restaurants.html",
+        "impressions": 24,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 88.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/ai-phone-answering-restaurants.html",
+        "impressions": 24,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "impressions": 278,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 61.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/case-study.html",
+        "impressions": 47,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/chownow-vs-owner.html",
+        "impressions": 66,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 31.9
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-houston.html",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 37.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "impressions": 81,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 47.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/cut-delivery-commissions.html",
+        "impressions": 13,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 20.9
+      },
+      {
+        "page": "https://azrestaurantpartners.com/details.html",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "impressions": 288,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.9
+      },
+      {
+        "page": "https://azrestaurantpartners.com/first-party-ordering-roi-calculator.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-restaurant-on-google-maps.html",
+        "impressions": 56,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-your-restaurant-recommended-by-ai.html",
+        "impressions": 60,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/glossary.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/glossary/average-order-value-aov.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/glossary/chargeback.html",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/glossary/delivery-commission.html",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/glossary/effective-processing-rate.html",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/glossary/first-party-vs-third-party-ordering.html",
+        "impressions": 19,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 12.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/glossary/prime-cost.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/glossary/restaurant-pos.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/guides.html",
+        "impressions": 9,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "impressions": 74,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 28.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/investors.html",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/multi-location-visibility.html",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 15.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/online-ordering-without-doordash.html",
+        "impressions": 10,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "impressions": 218,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 20.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-email-sms-marketing.html",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 92.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-inventory-food-cost.html",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-local-seo-houston.html",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 54.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-loyalty-winback.html",
+        "impressions": 11,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-online-ordering-cost.html",
+        "impressions": 68,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "impressions": 245,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 62.9
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-houston.html",
+        "impressions": 13,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 30.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-conroe-tx.html",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-consultant-houston.html",
+        "impressions": 26,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 32.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-cypress-tx.html",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 12.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-humble-kingwood-tx.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-katy-tx.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-magnolia-montgomery-tx.html",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-pearland-tx.html",
+        "impressions": 10,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-spring-tx.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-sugar-land-tx.html",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-tomball-tx.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 25.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-website-cost.html",
+        "impressions": 8,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 31.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-website-houston.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "impressions": 96,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 15.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "impressions": 75,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 71.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "impressions": 95,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 26.4
+      },
+      {
+        "page": "https://azrestaurantpartners.com/stop-restaurant-no-shows.html",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 68.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "impressions": 140,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 22.4
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "impressions": 132,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toolbox.html",
+        "impressions": 91,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.9
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/7shifts.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/agilence.html",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/agot-ai.html",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/attentive.html",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 22.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/avero.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/bear-robotics-servi.html",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/bentobox.html",
+        "impressions": 9,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/bikky.html",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/bluecart.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/chatfood-deliverect.html",
+        "impressions": 11,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/chef-robotics.html",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/chowly.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/chownow.html",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/cloudkitchens.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/compliancemate.html",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/conversenow.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/crunchtime.html",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/davo-by-avalara.html",
+        "impressions": 33,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/delaget.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/deliverect.html",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/dtiq.html",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/ecotrak.html",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/fresh-kds.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/freshcheq.html",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/goodcall.html",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/gridpoint.html",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/gusto.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/hi-auto.html",
+        "impressions": 7,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/hyphen-makeline.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/jolt.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/lineup-ai.html",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 24.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/loman-ai.html",
+        "impressions": 34,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.9
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/loop-ai.html",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/marginedge.html",
+        "impressions": 17,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/marketman.html",
+        "impressions": 8,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/marqii.html",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/meez.html",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/mirus.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/newo-ai.html",
+        "impressions": 14,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 30.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/notch.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/olo.html",
+        "impressions": 25,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 43.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/opentable.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/owner-com.html",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/parsley.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/paytronix.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/popmenu.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/powerhouse-dynamics-open-kitchen.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/recipal.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/restaurant365.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 15.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/resy.html",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/revel-systems.html",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/sevenrooms.html",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 17.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/slang-ai.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/slice.html",
+        "impressions": 16,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/sling.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/smartsense-by-digi.html",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/solink.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/squadle.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/square-for-restaurants.html",
+        "impressions": 8,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 20.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/tattle.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/tenzo-bi.html",
+        "impressions": 20,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.4
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/thanx.html",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/therma.html",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/tillster.html",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast-kds.html",
+        "impressions": 19,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast-payroll.html",
+        "impressions": 37,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.4
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast-sous-chef.html",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast-square-loyalty.html",
+        "impressions": 20,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.4
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "impressions": 88,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 70.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/tock.html",
+        "impressions": 8,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/voosh.html",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/xtrachef-by-toast.html",
+        "impressions": 9,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 18.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/yelp-guest-manager.html",
+        "impressions": 28,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/win-more-catering-orders.html",
+        "impressions": 26,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 56.1
+      }
+    ],
+    "queries": [
+      {
+        "query": "yes i would",
+        "impressions": 1,
+        "clicks": 1,
+        "ctr": 1.0,
+        "position": 4.0
+      },
+      {
+        "query": "2",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "query": "3rd party delivery fee calculator",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.0
+      },
+      {
+        "query": "ads and seo for restaurants in houston",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 82.0
+      },
+      {
+        "query": "affordable qsr software for independent restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "query": "affordable restaurant pos systems",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 53.0
+      },
+      {
+        "query": "ai phone ordering pricing",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 84.0
+      },
+      {
+        "query": "all in one restaurant pos systems",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 57.0
+      },
+      {
+        "query": "alternatives to bikky",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.5
+      },
+      {
+        "query": "alternatives to opentable",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 75.0
+      },
+      {
+        "query": "attentive pricing sms",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 47.0
+      },
+      {
+        "query": "average doordash order cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 55.0
+      },
+      {
+        "query": "bar pos system cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.0
+      },
+      {
+        "query": "best analytics tools for restaurant delivery performance",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 13.0
+      },
+      {
+        "query": "best cloud based restaurant pos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 89.0
+      },
+      {
+        "query": "best cloud pos for restaurant",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 87.5
+      },
+      {
+        "query": "best cloud restaurant pos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 82.0
+      },
+      {
+        "query": "best delivery order aggregation software for restaurants in the us",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.0
+      },
+      {
+        "query": "best middleware to connect delivery apps to a restaurant epos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "query": "best online restaurant pos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 28.0
+      },
+      {
+        "query": "best pizza pos",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.0
+      },
+      {
+        "query": "best point of sale for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 81.0
+      },
+      {
+        "query": "best pos for restaurant",
+        "impressions": 15,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 61.3
+      },
+      {
+        "query": "best pos for restaurant salem oh",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 75.0
+      },
+      {
+        "query": "best pos for restaurants",
+        "impressions": 23,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 77.3
+      },
+      {
+        "query": "best pos for restaurants youngstown oh",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 55.8
+      },
+      {
+        "query": "best pos system for large restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 82.0
+      },
+      {
+        "query": "best pos system for restaurant and bar",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 79.0
+      },
+      {
+        "query": "best pos system for restaurant columbiana oh",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 59.5
+      },
+      {
+        "query": "best pos system for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 86.0
+      },
+      {
+        "query": "best pos system for restaurants youngstown oh",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.3
+      },
+      {
+        "query": "best pos system restaurant",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 81.0
+      },
+      {
+        "query": "best pos systems for restaurants",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 62.0
+      },
+      {
+        "query": "best rated restaurant pos systems",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 83.0
+      },
+      {
+        "query": "best restaurant computer systems",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 40.5
+      },
+      {
+        "query": "best restaurant delivery near me doordash vs grubhub",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.7
+      },
+      {
+        "query": "best restaurant pos",
+        "impressions": 25,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 69.3
+      },
+      {
+        "query": "best restaurant pos hardware",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 75.5
+      },
+      {
+        "query": "best restaurant pos square vs toast",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 25.8
+      },
+      {
+        "query": "best restaurant pos system",
+        "impressions": 24,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 66.2
+      },
+      {
+        "query": "best restaurant pos system 2022",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 82.0
+      },
+      {
+        "query": "best restaurant pos systems",
+        "impressions": 54,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 56.0
+      },
+      {
+        "query": "best restaurant pos systems boardman oh",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 31.5
+      },
+      {
+        "query": "best restaurant pos systems usa",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 68.5
+      },
+      {
+        "query": "best restaurant touchscreen",
+        "impressions": 7,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 79.7
+      },
+      {
+        "query": "best restaurants pos systems",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 47.5
+      },
+      {
+        "query": "best system for commission-free delivery?",
+        "impressions": 10,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.6
+      },
+      {
+        "query": "best texting solution for restaurant flash deals",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.0
+      },
+      {
+        "query": "bikky vs olo",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 73.5
+      },
+      {
+        "query": "bookingninja vs resy",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 22.0
+      },
+      {
+        "query": "both",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "query": "buy restaurant map",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "query": "cheapest food delivery",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "query": "checkmate vs deliverect for multi-location restaurant groups",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "query": "checkmate vs deliverect for pos integration — which is better?",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.8
+      },
+      {
+        "query": "cheddar up vs clover",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 63.0
+      },
+      {
+        "query": "chope vs resy",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 28.3
+      },
+      {
+        "query": "chownow competitors",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 78.5
+      },
+      {
+        "query": "chownow pricing",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 55.0
+      },
+      {
+        "query": "chownow vs owner",
+        "impressions": 8,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 14.1
+      },
+      {
+        "query": "cloud kitchen management solutions that consolidate doordash, uber eats, and proprietary app orders into a single kitchen display system",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.5
+      },
+      {
+        "query": "clover counter service restaurant vs essentials",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 62.0
+      },
+      {
+        "query": "clover fees vs square",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 84.0
+      },
+      {
+        "query": "clover or square",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 85.0
+      },
+      {
+        "query": "clover pos vs square",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 77.5
+      },
+      {
+        "query": "clover vs",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 51.0
+      },
+      {
+        "query": "clover vs square",
+        "impressions": 9,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 90.3
+      },
+      {
+        "query": "clover vs square cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 79.0
+      },
+      {
+        "query": "clover vs square fees",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 73.0
+      },
+      {
+        "query": "clover vs square for small businesses",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 84.0
+      },
+      {
+        "query": "clover vs square pos",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 86.2
+      },
+      {
+        "query": "clover vs square vs toast",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 71.0
+      },
+      {
+        "query": "clover vs toast",
+        "impressions": 41,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 21.3
+      },
+      {
+        "query": "clover vs toast restaurant pos",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 19.7
+      },
+      {
+        "query": "clover vs toast reviews",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 57.0
+      },
+      {
+        "query": "commission free delivery for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 88.0
+      },
+      {
+        "query": "commission free delivery mobile ordering app",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 99.0
+      },
+      {
+        "query": "commission free online ordering",
+        "impressions": 9,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 88.8
+      },
+      {
+        "query": "commission free online ordering for restaurants",
+        "impressions": 13,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 92.1
+      },
+      {
+        "query": "commission free online ordering system for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 50.0
+      },
+      {
+        "query": "commission free ordering for restaunts",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 90.5
+      },
+      {
+        "query": "commission free ordering system",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 38.7
+      },
+      {
+        "query": "commission-free delivery",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "query": "commission-free online ordering",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 89.3
+      },
+      {
+        "query": "commission-free online ordering system",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 64.5
+      },
+      {
+        "query": "commission-free ordering",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 88.0
+      },
+      {
+        "query": "common pos systems restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 72.0
+      },
+      {
+        "query": "compare food delivery fees and commissions",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.5
+      },
+      {
+        "query": "cost of doordash",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 56.0
+      },
+      {
+        "query": "cost of pos system for restaurants",
+        "impressions": 7,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 89.4
+      },
+      {
+        "query": "cost of restaurant pos system",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 87.5
+      },
+      {
+        "query": "cost of toast pos",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 76.0
+      },
+      {
+        "query": "cover manager vs resy",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 23.7
+      },
+      {
+        "query": "craver vs owner.com",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 50.0
+      },
+      {
+        "query": "davo",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 26.0
+      },
+      {
+        "query": "davo avalara",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 28.0
+      },
+      {
+        "query": "davo cost",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 17.0
+      },
+      {
+        "query": "davo pricing",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.2
+      },
+      {
+        "query": "davo sales tax vs avalara for small business tax filing",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.0
+      },
+      {
+        "query": "deliverect pricing",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.0
+      }
+    ],
+    "page_queries": [
+      {
+        "page": "https://azrestaurantpartners.com/tools/miso-robotics-flippy.html",
+        "query": "yes i would",
+        "impressions": 1,
+        "clicks": 1,
+        "ctr": 1.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/ai-phone-answering-cost.html",
+        "query": "ai phone ordering pricing",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 84.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/ai-phone-answering-cost.html",
+        "query": "how much does this cost monthly",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/ai-phone-answering-cost.html",
+        "query": "phone restaurant price",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/ai-phone-answering-cost.html",
+        "query": "restaurant phone price",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/ai-phone-answering-cost.html",
+        "query": "restaurant price phone",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/ai-phone-answering-houston-restaurants.html",
+        "query": "never miss a call restaurant",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 89.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/ai-phone-answering-houston-restaurants.html",
+        "query": "restaurant answering service",
+        "impressions": 21,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 95.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/ai-phone-answering-restaurants.html",
+        "query": "never miss a call restaurant",
+        "impressions": 13,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 14.9
+      },
+      {
+        "page": "https://azrestaurantpartners.com/ai-phone-answering-restaurants.html",
+        "query": "never miss a phone order",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.4
+      },
+      {
+        "page": "https://azrestaurantpartners.com/ai-phone-answering-restaurants.html",
+        "query": "phone error restaurant",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "affordable qsr software for independent restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "affordable restaurant pos systems",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 53.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "all in one restaurant pos systems",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 57.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best cloud based restaurant pos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 89.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best cloud pos for restaurant",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 87.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best cloud restaurant pos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 82.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best online restaurant pos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 28.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best pizza pos",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best point of sale for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 81.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best pos for restaurant",
+        "impressions": 15,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 61.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best pos for restaurant salem oh",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 75.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best pos for restaurants",
+        "impressions": 23,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 77.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best pos for restaurants youngstown oh",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 55.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best pos system for large restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 82.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best pos system for restaurant and bar",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 79.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best pos system for restaurant columbiana oh",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 59.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best pos system for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 86.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best pos system for restaurants youngstown oh",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best pos system restaurant",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 81.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best pos systems for restaurants",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 62.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best rated restaurant pos systems",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 83.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best restaurant computer systems",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 40.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best restaurant pos",
+        "impressions": 25,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 69.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best restaurant pos hardware",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 75.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best restaurant pos system",
+        "impressions": 24,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 66.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best restaurant pos system 2022",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 82.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best restaurant pos systems",
+        "impressions": 54,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 56.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best restaurant pos systems boardman oh",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 31.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best restaurant pos systems usa",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 68.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best restaurant touchscreen",
+        "impressions": 7,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 79.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "best restaurants pos systems",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 47.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "common pos systems restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 72.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "full service restaurant pos systems",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 84.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "highest rated restaurant pos for independent restaurants seeking reliable payment processing and ease",
+        "impressions": 7,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "popular restaurant pos systems",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 72.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "pos for casual dining restaurant",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "pos for restaurant",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 74.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "pos for restaurants",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 61.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "pos machine for restaurant",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 75.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "pos system for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 72.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "pos systems for restaurants",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 38.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "purchase restaurant pos system",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 71.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "restaurant pos best",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 80.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "restaurant pos no contract",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 64.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "restaurant pos provider",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 76.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "restaurant pos solutions",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 64.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "restaurant pos systems",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 45.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "restaurant pos systems list",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 80.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "restaurants pos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 63.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "restaurants pos systems",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 55.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "top 10 restaurant pos systems",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 45.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "top pos systems for restaurants",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 89.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "top rated restaurant pos systems",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 58.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "top restaurant pos",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 80.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "top restaurant pos software",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 41.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "top restaurant pos system",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 64.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "top restaurant pos systems",
+        "impressions": 21,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 51.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "what is a hardware-agnostic pos system for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 55.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "what is the best pos for independent restaurants?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "what is the best pos system for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 85.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "what is the best restaurant pos system for fast casual restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 95.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "what's the best restaurant pos for delivery and takeout?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "which pos system is best for restaurants?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 81.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/best-restaurant-pos.html",
+        "query": "which pos system works best for hotels with an independent restaurant brand?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/case-study.html",
+        "query": "wok & karahi - halal chinese indian pakistani",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/chownow-vs-owner.html",
+        "query": "chownow competitors",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 78.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/chownow-vs-owner.html",
+        "query": "chownow pricing",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 55.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/chownow-vs-owner.html",
+        "query": "chownow vs owner",
+        "impressions": 8,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 14.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/chownow-vs-owner.html",
+        "query": "craver vs owner.com",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 50.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/chownow-vs-owner.html",
+        "query": "is owner or chownow better for restaurants that want their own branded app?",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/chownow-vs-owner.html",
+        "query": "owner.com alternatives",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 83.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/chownow-vs-owner.html",
+        "query": "owner.com competitors",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 76.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/chownow-vs-owner.html",
+        "query": "owner.com cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 78.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/chownow-vs-owner.html",
+        "query": "owner.com pricing",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 82.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-houston.html",
+        "query": "online ordering system houston",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 24.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-houston.html",
+        "query": "online ordering without commission",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 99.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "best system for commission-free delivery?",
+        "impressions": 10,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "commission free delivery for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 88.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "commission free delivery mobile ordering app",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 99.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "commission free online ordering",
+        "impressions": 9,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 88.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "commission free online ordering for restaurants",
+        "impressions": 13,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 92.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "commission free online ordering system for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 50.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "commission free ordering for restaunts",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 90.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "commission free ordering system",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 38.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "commission-free delivery",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "commission-free online ordering",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 89.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "commission-free online ordering system",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 64.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "commission-free ordering",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 88.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "first delivery alternatives for small pizza shops looking to reduce third-party delivery commissions and manage their own fleet",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "online ordering without commission",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 89.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "pizza online ordering without commission",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "restaurant online ordering system no commission",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 96.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "what are commission-free online ordering systems?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/commission-free-online-ordering-systems.html",
+        "query": "zero commission ordering",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 94.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/cut-delivery-commissions.html",
+        "query": "doordash commission calculator",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 65.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/cut-delivery-commissions.html",
+        "query": "trim doordash",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 22.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/delivery-commission-calculator.html",
+        "query": "3rd party delivery fee calculator",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/delivery-commission-calculator.html",
+        "query": "delivery app commission calculator",
+        "impressions": 12,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 14.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/delivery-commission-calculator.html",
+        "query": "delivery commission",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/delivery-commission-calculator.html",
+        "query": "doordash commission calculator",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 56.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/delivery-commission-calculator.html",
+        "query": "doordash fees calculator",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 55.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/delivery-commission-calculator.html",
+        "query": "food delivery charge calculator",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 88.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/delivery-commission-calculator.html",
+        "query": "grubhub profit calculator",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 68.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/do-restaurants-lose-money-on-doordash.html",
+        "query": "do restaurants lose money on doordash",
+        "impressions": 29,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/do-restaurants-lose-money-on-doordash.html",
+        "query": "do restaurants lose money with doordash",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/do-restaurants-lose-money-on-doordash.html",
+        "query": "do restaurants lose money with doordash refunds",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/do-restaurants-lose-money-on-doordash.html",
+        "query": "how much does doordash lose from refunds",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/do-restaurants-lose-money-on-doordash.html",
+        "query": "how much money does doordash lose to refunds",
+        "impressions": 11,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/do-restaurants-lose-money-on-doordash.html",
+        "query": "if you get a refund from doordash does the restaurant lose money",
+        "impressions": 10,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "best restaurant delivery near me doordash vs grubhub",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "cheapest food delivery",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "compare food delivery fees and commissions",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "doordash or grubhub cheaper",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 54.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "doordash vs grubhub",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "doordash vs uber eats price",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 19.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "doordash vs uber eats vs grubhub",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "doordash vs ubereats price",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 17.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "grubhub or doordash cheaper",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 50.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "grubhub vs doordash vs uber eats: which delivery app should i use?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "grubhub vs uber eats",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 28.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "how do delivery and service fees compare between grubhub, doordash, and uber eats for the same restaurant order?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "how does doordash compare with uber eats?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "how does doordash pricing compare to industry average?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "how does grubhub's fee transparency compare with doordash and uber eats?",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "i'm picking a food delivery app for the first time. what matters most to me is that my local restaurants are on it and i don't get blindsided by fees at checkout. which one should i go with?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "is doordash more expensive than uber eats",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 30.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "is grubhub a good delivery app for ordering from local independent restaurants?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "is grubhub cheaper than doordash",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 51.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "is grubhub or ubereats cheaper",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 53.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "is uber eats or doordash cheaper",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 46.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "is uber eats or doordash more expensive",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 25.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "is uber eats or grubhub cheaper",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 56.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "is ubereats cheaper than doordash",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 31.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "my friends all use doordash but i keep hearing other apps are cheaper. i get lunch on weekdays and dinner on weekends. which delivery app actually gives me the most for my money at that rate?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "uber eats cheaper than doordash",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 34.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "uber eats vs doordash cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 22.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "uber eats vs doordash fees comparison 2026",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "uber eats vs doordash price",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 20.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "uber eats vs doordash prices",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 20.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "uber eats vs grubhub",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 15.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "uber eats vs grubhub who pays more",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 21.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "uber eats vs grubhub: who pays more",
+        "impressions": 8,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 21.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "ubereats vs doordash price",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 34.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "ubereats vs doordash vs grubhub - which to pick",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "ubereats vs grubhub",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 25.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "what is cheaper doordash or grubhub",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 60.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "what restaurant partnership platform has the most competitive commission rates?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "what should i consider when choosing between grubhub and doordash?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "what's cheaper grubhub or doordash",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 28.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "what's more expensive uber eats or doordash",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 46.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which app can you save the most money with for restaurant delivery in newark, nj?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which app can you save the most money with for starbucks delivery in newark, nj?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which company in the food delivery industry offers the best service fees?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which delivery platform is most cost-effective for a small independent restaurant?",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which food delivery app has the lowest fees?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which food delivery app is best if i mostly order from local restaurants?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which food delivery app is cheapest for a large family order?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which food delivery app is cheapest for ordering lunch every weekday?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which food delivery app is cheapest with current promotions applied?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which food delivery app offers the best overall value for regular orders?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which food delivery integration for deliverect has the lowest fees?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which food delivery service has the best pricing for deliveries?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which food delivery service keeps service fees the most reasonable?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which is cheaper grubhub or uber eats",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 62.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which is cheaper uber eats or grubhub",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 46.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which is more expensive uber eats or doordash",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 25.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which nearby sandwich delivery has the lowest fees for a small single order?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which restaurant delivery app can you save the most money with in houston, tx?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which restaurant delivery app can you save the most money with in los angeles, ca?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which restaurant delivery app can you save the most money with in miami, fl?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which restaurant delivery app should i use in newark, nj if i'm trying to save money?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which restaurant delivery app should i use in washington, dc if i'm trying to save money?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which restaurant delivery partner offers the best commission tiers?",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "which wingstop delivery app can you save the most money with in miami, fl?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "who is cheaper doordash or grubhub",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 57.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "who is cheaper grubhub or doordash",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 86.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "who pays more uber eats or doordash or grubhub",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "who provides the most competitive service fees in the food delivery sector?",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "yes",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "да",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/doordash-vs-ubereats-vs-grubhub.html",
+        "query": "美国哪个送餐平台抽成低",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-restaurant-on-google-maps.html",
+        "query": "buy restaurant map",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-restaurant-on-google-maps.html",
+        "query": "google for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 29.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-restaurant-on-google-maps.html",
+        "query": "google maps food near me",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-restaurant-on-google-maps.html",
+        "query": "how can i get my restaurant to appear in order online searches?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-restaurant-on-google-maps.html",
+        "query": "how to add my restaurant in google maps",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-restaurant-on-google-maps.html",
+        "query": "how to get google maps to show all restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 25.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-restaurant-on-google-maps.html",
+        "query": "map restaurant buy",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-restaurant-on-google-maps.html",
+        "query": "map restaurant online",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-restaurant-on-google-maps.html",
+        "query": "map restaurant tutorial",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-restaurant-on-google-maps.html",
+        "query": "restaurant buy map",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-restaurant-on-google-maps.html",
+        "query": "restaurant error map",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/get-restaurant-on-google-maps.html",
+        "query": "restaurant map how",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/glossary/first-party-vs-third-party-ordering.html",
+        "query": "first party ordering system",
+        "impressions": 7,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 18.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/glossary/first-party-vs-third-party-ordering.html",
+        "query": "restaurant first party ordering",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 19.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/glossary/first-party-vs-third-party-ordering.html",
+        "query": "what's the difference between first-party and third-party restaurant ordering?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/guides.html",
+        "query": "fix guide restaurant",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/guides.html",
+        "query": "restaurant free guide",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "average doordash order cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 55.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "cost of doordash",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 56.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "do restaurants pay doordash",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 66.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "does doordash charge restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 49.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "doordash commission",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 67.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "doordash commission calculator",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 68.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "doordash commission rate",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 65.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "doordash commission rates",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 66.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "doordash cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 46.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "doordash fees",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 63.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "doordash fees calculator",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 65.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "doordash fees for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 71.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "doordash merchant fees",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 72.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "doordash merchant pricing",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 64.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "doordash prices",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 65.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "doordash pricing",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 72.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "how expensive is doordash",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 53.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "how much does doordash charge restaurants",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 58.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "how much does doordash charge restaurants for pickup",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 55.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "how much does doordash cost",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 54.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "how much does doordash take from restaurants",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 26.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "how much does it cost to doordash food",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 64.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "how much doordash charge restaurants",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 59.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "how much percent does doordash take from restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "what about doordash",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "what does doordash charge",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 59.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "what percentage does doordash take from restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 59.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/how-much-does-doordash-cost-restaurants.html",
+        "query": "what should local businesses know before advertising with doordash ads?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/multi-location-visibility.html",
+        "query": "how to see reports for multiple locations",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 45.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/multi-location-visibility.html",
+        "query": "looking to get restaurant data visibility across units",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/online-ordering-without-doordash.html",
+        "query": "how to take online orders without doordash",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.4
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "2",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "alternatives to opentable",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 75.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "bookingninja vs resy",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 22.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "both",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "chope vs resy",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 28.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "cover manager vs resy",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 23.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "dineplan vs resy",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 25.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "does resy cost money",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 41.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "find me polished upscale-casual and occasion dining chain options that usually have short wait times.",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "formitable vs resy",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 28.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "guestplan vs resy",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 27.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "hostme vs resy",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 23.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "how much does resy charge restaurants",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 22.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "how much does resy cost",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 69.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "is open table and resy the same",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "is resy and opentable the same",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 62.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "is resy legit",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "open table resy",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable alternative",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 80.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable competition",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 81.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable competitors",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 81.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable or resy",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable resy",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable valuation",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable vs",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 29.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable vs nextable",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 34.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable vs resdiary",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 49.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable vs reservation genie",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 27.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable vs reserveout",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 30.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable vs resy vs tock",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 78.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable vs rezku",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 24.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable vs seatme",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 21.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable vs servme",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 26.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable vs wisely",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 29.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "opentable vs yelp reservations",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 52.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "reservation genie vs resy",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 21.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "reserveout vs resy",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 28.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "resos vs resy",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 25.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "resy",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "resy alternative",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 83.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "resy cost",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 78.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "resy cost for restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 79.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "resy fees",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 30.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "resy pricing",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 76.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "resy restaurants",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "resy vs open table",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 67.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "resy vs opentable reddit",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 40.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "resy vs tableo",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 30.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "resy vs wisely",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 30.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "tock vs opentable",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 72.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "which is better: resy vs. opentable",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "who owns resy",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "why choose opentable over resy",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/opentable-vs-resy.html",
+        "query": "yelp vs resy",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 38.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "best analytics tools for restaurant delivery performance",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 13.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "best delivery order aggregation software for restaurants in the us",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "best middleware to connect delivery apps to a restaurant epos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "checkmate vs deliverect for multi-location restaurant groups",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "checkmate vs deliverect for pos integration — which is better?",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "cloud kitchen management solutions that consolidate doordash, uber eats, and proprietary app orders into a single kitchen display system",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "deliverect pricing",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "delivery management platforms consolidating orders from door dash, uber eats, and native channels",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 12.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "highest rated cloud kitchen management software for independent restaurant brands wanting to launch ghost kitchen operations within 30 days",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "how do leading online ordering integration systems compare when handling complex menu updates across various platforms?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "how does otter compare to other restaurant order aggregation software?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "how much do restaurant delivery integration platforms cost in the us?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "how much is it",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "is otter or deliverect better for a multi-location restaurant group?",
+        "impressions": 29,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.9
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "is otter's ai better than deliverect ai?",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "leading solutions for restaurant order consolidation?",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "most reliable cloud kitchen management platforms handling peak dinner rush (100+ simultaneous orders) without system slowdown or order drops",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "otter vs deliverect for a virtual brand operator",
+        "impressions": 22,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "price model",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "recommend a tool to help my eatery handle incoming delivery orders.",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "tools to manage delivery menus centrally for 100+ locations",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "top cloud kitchen management platforms for independent restaurant chains managing 20+ locations across multiple delivery apps",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "top tools to consolidate third-party delivery orders onto one screen",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "what are typical migration costs and downtime when switching a franchise from multiple delivery aggregators to one omnichannel provider?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/otter-vs-deliverect-vs-itsacheckmate.html",
+        "query": "which delivery integration vendor is most trusted by restaurant franchises?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-email-sms-marketing.html",
+        "query": "best texting solution for restaurant flash deals",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-email-sms-marketing.html",
+        "query": "restaurant sms marketing tools",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 100.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-local-seo-houston.html",
+        "query": "ads and seo for restaurants in houston",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 82.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-local-seo-houston.html",
+        "query": "seo restaurant",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 77.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-loyalty-winback.html",
+        "query": "is restaurant winback software worth it for restaurants losing digital sales?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-loyalty-winback.html",
+        "query": "lapsed customers restaurant",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 15.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-loyalty-winback.html",
+        "query": "what restaurant winback software helps recover customers who stopped ordering online?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-online-ordering-cost.html",
+        "query": "how much does a restaurant app cost",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 81.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-online-ordering-cost.html",
+        "query": "how much does owner.com cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 71.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-online-ordering-cost.html",
+        "query": "online restaurant price",
+        "impressions": 11,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-online-ordering-cost.html",
+        "query": "price online restaurant",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-online-ordering-cost.html",
+        "query": "price restaurant online",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-online-ordering-cost.html",
+        "query": "restaurant app cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 88.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-online-ordering-cost.html",
+        "query": "restaurant me price",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-online-ordering-cost.html",
+        "query": "restaurant online price",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "bar pos system cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "cost of pos system for restaurants",
+        "impressions": 7,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 89.4
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "cost of restaurant pos system",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 87.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "gaap contact number",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "how much do restaurant pos systems cost",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 41.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "how much does a pos system cost for a restaurant",
+        "impressions": 16,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 59.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "how much does a restaurant pos cost",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 54.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "how much does a restaurant pos system cost",
+        "impressions": 14,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 79.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "how much does a restaurant pos system cost in 2026, and are the payment processing fees worth it?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "how much does a restaurant pos system cost?",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "how much does restaurant pos cost",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 55.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "how much is a pos system for a restaurant",
+        "impressions": 17,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 44.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "how much money do they take",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "pizza pos system cost",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 71.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "pos price",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 43.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "pos restaurant price",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 57.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "pos system restaurant cost",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 86.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "pos system restaurant price",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 56.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant hardware cost",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 47.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant point of sale systems cost",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant pos cost",
+        "impressions": 18,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 80.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant pos hardware cost",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 56.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant pos hardware price",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 46.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant pos price",
+        "impressions": 8,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 58.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant pos pricing",
+        "impressions": 14,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 83.9
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant pos system cost",
+        "impressions": 37,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 88.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant pos system price",
+        "impressions": 12,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 61.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant pos systems cost",
+        "impressions": 16,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 84.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant pos systems prices",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 59.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant pos sytems cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 85.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant terminal cost",
+        "impressions": 9,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 50.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restaurant terminal price",
+        "impressions": 10,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 49.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-cost.html",
+        "query": "restuarent pos system cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 87.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-houston.html",
+        "query": "houston pos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 78.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-houston.html",
+        "query": "restaurant payment & pos solutions houston",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-pos-houston.html",
+        "query": "restaurant point of sale systems houston",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 81.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-consultant-houston.html",
+        "query": "restaurant technology consultant",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 27.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-consultant-houston.html",
+        "query": "restaurant technology consulting",
+        "impressions": 7,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 33.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-consultant-houston.html",
+        "query": "restaurant technology contractor",
+        "impressions": 12,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 37.9
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-houston-tx.html",
+        "query": "restaurant technology contractor",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 99.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-houston-tx.html",
+        "query": "technology restaurant",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-technology-houston-tx.html",
+        "query": "technology+restaurant",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-website-cost.html",
+        "query": "how much does a restaurant website cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 65.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-website-cost.html",
+        "query": "restaurant website cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 81.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/restaurant-website-cost.html",
+        "query": "restaurant website pricing",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 86.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "evaluate the pos company spoton on toast pos pricing",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "evaluate the pos company toast on toast vs spoton",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "how do toast and spoton compare for restaurant loyalty, guest data, and marketing automation?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "how does toast compare to spoton for restaurants?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "should i choose toast or spoton for my full-service restaurant?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "spoton pos pros cons",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 75.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "spoton vs skytab pos",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 20.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "spoton vs toast",
+        "impressions": 38,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 19.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "spoton vs toast pos",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 14.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "toast on",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 41.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "toast pos vs spoton",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 13.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "toast pos vs union pos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 23.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "toast vs groupon",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 57.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "toast vs spot on",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 20.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "toast vs spoton",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 13.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "which is easier to use - toast or spoton?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/spoton-vs-toast.html",
+        "query": "which offers better value - toast or spoton?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "cheddar up vs clover",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 63.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "clover counter service restaurant vs essentials",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 62.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "clover fees vs square",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 84.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "clover or square",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 85.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "clover pos vs square",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 77.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "clover vs square",
+        "impressions": 9,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 90.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "clover vs square cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 79.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "clover vs square fees",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 73.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "clover vs square for small businesses",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 84.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "clover vs square pos",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 86.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "difference between clover and square",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 87.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "is square better than clover for restaurants?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "square or clover",
+        "impressions": 10,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 84.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "square vs clover",
+        "impressions": 14,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 86.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "square vs clover fees",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 89.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "square vs clover for small business",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 84.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "square vs clover pos",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 79.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "square vs. clover for restaurants",
+        "impressions": 7,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-clover.html",
+        "query": "which is better square or clover",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 82.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "best restaurant pos square vs toast",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 25.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "how do toast and square compare for restaurant payments, reconciliation, and financial reporting?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "square for restaurants vs toast pos for restaurant point-of-sale, online ordering, and front-of-house management features compared, which is better?",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "square toast",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 69.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "square vs toast",
+        "impressions": 29,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 21.9
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "square vs toast pos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 25.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "toast or square",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 25.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "toast pos vs slice",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 26.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "toast pos vs square",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 26.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "toast pos vs square for restaurants",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 25.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "toast vs square",
+        "impressions": 12,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 69.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "what is the difference between toast and square",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 26.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "which is better for small restaurants - toast or square?",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "which is better: square pos vs. toast",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/square-vs-toast.html",
+        "query": "which is better: square vs. toast",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "clover vs",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 51.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "clover vs square vs toast",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 71.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "clover vs toast",
+        "impressions": 41,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 21.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "clover vs toast restaurant pos",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 19.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "clover vs toast reviews",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 57.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "evaluate the pos company clover on toast vs oracle micros",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 45.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "evaluate the pos company clover on toast vs revel",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 46.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "otter vs clover",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 28.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "square vs toast vs clover",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 74.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "toast pos vs clover",
+        "impressions": 17,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 20.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "toast v clover",
+        "impressions": 10,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 15.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "toast vs clover",
+        "impressions": 24,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 20.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "toast vs square vs clover",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 74.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "what are the pros and cons of toast versus clover?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "what's the difference between toast and clover pos?",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-clover.html",
+        "query": "which has more restaurant-specific features - toast or clover?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "eagleeye vs touchbistro",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 12.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "evaluate the pos company doordash on toast vs touchbistro",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "evaluate the pos company genius/heartland on toast vs touchbistro",
+        "impressions": 7,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "evaluate the pos company homebase on toast vs touchbistro",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "evaluate the pos company owner.com on toast vs touchbistro",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "evaluate the pos company restaurant365 on toast vs touchbistro",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "evaluate the pos company skytab on toast vs touchbistro",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 25.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "evaluate the pos company toast on toast vs touchbistro",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "evaluate the pos company touchbistro on toast vs owner.com",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 1.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "evaluate the pos company touchbistro on toast vs touchbistro",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "evaluate the pos company webstaurant store on toast vs touchbistro",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "is touchbistro or toast better for full-service restaurants?",
+        "impressions": 21,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "toast pos vs touchbistro",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "toast vs touchbistro",
+        "impressions": 30,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "toast vs touchbistro pricing — which is more affordable for independent restaurants?",
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "toast vs touchbistro — which restaurant pos has better reporting?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "touchbistro vs",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 18.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "touchbistro vs eagleeye",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 12.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toast-vs-touchbistro.html",
+        "query": "touchbistro vs toast",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toolbox.html",
+        "query": "bikky vs olo",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 73.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toolbox.html",
+        "query": "free restaurant fix",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toolbox.html",
+        "query": "olo restaurant cdp",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 90.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toolbox.html",
+        "query": "pilot food menu location 293",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 29.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toolbox.html",
+        "query": "restaurant cdp like bikky",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 45.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toolbox.html",
+        "query": "restaurant supply store surprise az",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 53.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toolbox.html",
+        "query": "restaurant tool",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 6.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toolbox.html",
+        "query": "restaurant toolbox",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toolbox.html",
+        "query": "restaurant toolkit",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toolbox.html",
+        "query": "what are the top restaurant loss prevention systems today",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/toolbox.html",
+        "query": "where to buy enterprise restaurant analytics tools?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/attentive.html",
+        "query": "attentive pricing sms",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 47.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/bikky.html",
+        "query": "alternatives to bikky",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/crunchtime.html",
+        "query": "how much does crunchtime cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/davo-by-avalara.html",
+        "query": "davo",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 26.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/davo-by-avalara.html",
+        "query": "davo avalara",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 28.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/davo-by-avalara.html",
+        "query": "davo cost",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 17.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/davo-by-avalara.html",
+        "query": "davo pricing",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/davo-by-avalara.html",
+        "query": "davo sales tax vs avalara for small business tax filing",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 8.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/davo-by-avalara.html",
+        "query": "does davo sales tax set aside collected tax daily from pos data?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 3.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/dtiq.html",
+        "query": "pricing models",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/goodcall.html",
+        "query": "goodcallapp",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/hi-auto.html",
+        "query": "is hi auto worth it compared to presto for a 300+ location restaurant chain?",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 9.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/itsacheckmate.html",
+        "query": "what are the best order aggregation tools like otter or chowly for restaurants?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/lineup-ai.html",
+        "query": "lineup.ai features",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 68.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/lineup-ai.html",
+        "query": "lineup.ai pricing",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 11.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/marginedge.html",
+        "query": "does marginedge integrate with toast, quickbooks, sage intacct, and other pos and accounting platforms for restaurants?",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/miso-robotics-flippy.html",
+        "query": "flippy by miso price",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/miso-robotics-flippy.html",
+        "query": "flippy miso robotics price",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/miso-robotics-flippy.html",
+        "query": "flippy robot price",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 20.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/miso-robotics-flippy.html",
+        "query": "miso robotic",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/newo-ai.html",
+        "query": "newo ai pricing",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 39.2
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/olo.html",
+        "query": "olo customer data platform pricing",
+        "impressions": 8,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 59.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/olo.html",
+        "query": "olo customer data platform reviews",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 52.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/olo.html",
+        "query": "olo guest data platform pricing",
+        "impressions": 8,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 53.1
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/otter.html",
+        "query": "what are the best order aggregation tools like otter or chowly for restaurants?",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/sevenrooms.html",
+        "query": "sevenrooms platform features pricing 2024 2025",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 30.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/spoton.html",
+        "query": "evaluate the pos company spoton on new restaurant opening",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/spoton.html",
+        "query": "spot on pos system",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 64.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/spoton.html",
+        "query": "spoton",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 2.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/spoton.html",
+        "query": "spoton point of sale hardware",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 92.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/spoton.html",
+        "query": "spoton pos",
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 63.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/spoton.html",
+        "query": "spoton pos system",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 57.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/spoton.html",
+        "query": "spoton pricing",
+        "impressions": 19,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 48.6
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/spoton.html",
+        "query": "spoton restaurant pos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 58.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/spoton.html",
+        "query": "what is spoton",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 77.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/square-for-restaurants.html",
+        "query": "square for restaurant",
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 28.3
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/square-for-restaurants.html",
+        "query": "square restaurant pos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 45.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/square-for-restaurants.html",
+        "query": "toolbox-pos",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 15.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/tenzo-bi.html",
+        "query": "tenzo pricing",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 7.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "cost of toast pos",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 76.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "how much does toast cost",
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 79.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "how much does toast cost per month",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 70.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "how much does toast payroll cost",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 78.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "how much does toast pos cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 77.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "how much is a toast",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 51.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "how much is a toast pos system",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 51.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "how much is toast pos",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 76.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "how much is toast pos system",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 78.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 75.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast fees",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 66.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast monthly fees",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 74.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast payroll cost",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 80.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast payroll pricing",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 91.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast pos cost",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 78.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast pos price",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 78.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast pos pricing",
+        "impressions": 30,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 74.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast pos rates",
+        "impressions": 15,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 78.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast pricing",
+        "impressions": 7,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 75.7
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast rate",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 76.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast self ordering kiosk price",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 75.5
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast self-ordering kiosk price",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 73.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/toast.html",
+        "query": "toast system cost",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 83.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/yelp-guest-manager.html",
+        "query": "yelp guest manager",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 5.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/tools/yelp-guest-manager.html",
+        "query": "yelp user reviews guest access",
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 39.0
+      },
+      {
+        "page": "https://azrestaurantpartners.com/win-more-catering-orders.html",
+        "query": "how to get more catering orders",
+        "impressions": 15,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 48.8
+      },
+      {
+        "page": "https://azrestaurantpartners.com/win-more-catering-orders.html",
+        "query": "increase catering order value",
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 65.5
+      }
+    ]
+  },
+  "aeo": {
+    "panel_size": 20,
+    "geo": "Houston, Texas",
+    "engines": {
+      "sonar": {
+        "engine": "sonar",
+        "display": "Perplexity Sonar",
+        "mode": "live web answer",
+        "results": [
+          {
+            "q": "best AI phone answering for restaurants that speaks Urdu",
+            "page": "guide-multilingual-phone-ordering.html",
+            "answered": false,
+            "named": null,
+            "error": "key rejected (401) - the OpenRouter key is invalid or expired"
+          }
+        ],
+        "errors": 1,
+        "error": "key rejected (401) - the OpenRouter key is invalid or expired",
+        "answered": 0,
+        "named": 0,
+        "named_pct": null
+      },
+      "gpt_web": {
+        "engine": "gpt_web",
+        "display": "ChatGPT (GPT-4o mini + live web)",
+        "mode": "live web answer",
+        "results": [
+          {
+            "q": "best AI phone answering for restaurants that speaks Urdu",
+            "page": "guide-multilingual-phone-ordering.html",
+            "answered": false,
+            "named": null,
+            "error": "key rejected (401) - the OpenRouter key is invalid or expired"
+          }
+        ],
+        "errors": 1,
+        "error": "key rejected (401) - the OpenRouter key is invalid or expired",
+        "answered": 0,
+        "named": 0,
+        "named_pct": null
+      },
+      "gemini_web": {
+        "engine": "gemini_web",
+        "display": "Gemini 2.5 Flash (+ live web)",
+        "mode": "live web answer",
+        "results": [
+          {
+            "q": "best AI phone answering for restaurants that speaks Urdu",
+            "page": "guide-multilingual-phone-ordering.html",
+            "answered": false,
+            "named": null,
+            "error": "key rejected (401) - the OpenRouter key is invalid or expired"
+          }
+        ],
+        "errors": 1,
+        "error": "key rejected (401) - the OpenRouter key is invalid or expired",
+        "answered": 0,
+        "named": 0,
+        "named_pct": null
+      },
+      "claude_web": {
+        "engine": "claude_web",
+        "display": "Claude (claude-haiku-5-5, Anthropic direct, live web)",
+        "mode": "live web answer",
+        "results": [
+          {
+            "q": "best AI phone answering for restaurants that speaks Urdu",
+            "page": "guide-multilingual-phone-ordering.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "Google Cloud Dialogflow CX",
+              "Loman",
+              "Loman AI",
+              "Microsoft Azure AI Speech",
+              "Slang",
+              "Slang.ai",
+              "Vapi"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "AI phone ordering for a restaurant that can take orders in Spanish and Hindi",
+            "page": "guide-multilingual-phone-ordering.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "ConverseNow",
+              "Retell AI",
+              "Slang",
+              "Slang.ai",
+              "SoundHound",
+              "SoundHound Restaurants",
+              "Vapi"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "who can automate my restaurant's back office in Houston",
+            "page": "smb-back-office-automation-cost.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "7shifts",
+              "MarginEdge",
+              "QuickBooks Online",
+              "Restaurant365",
+              "Toast"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "Maple alternatives for restaurants",
+            "page": "vs-maple-alternatives.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "Lyle's Golden Syrup",
+              "maple",
+              "Steen's Pure Cane Syrup",
+              "Sysco",
+              "US Foods",
+              "Wholesome Sweeteners Organic Agave Nectar"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "forward deployed engineer for small restaurants",
+            "page": "smb-forward-deployed-engineer-vs-agency-vs-saas.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "Lightspeed Restaurant",
+              "Olo",
+              "Restaurant365",
+              "Square",
+              "Square for Restaurants",
+              "Toast"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "best AI phone answering service for restaurants",
+            "page": "vs-best-ai-phone-answering-restaurants.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "Presto",
+              "Rosie",
+              "Slang",
+              "Slang.ai",
+              "SoundHound",
+              "SoundHound Restaurants"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "how much does AI phone answering cost for a restaurant",
+            "page": "ai-phone-answering-cost.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "ConverseNow",
+              "Goodcall",
+              "Ruby",
+              "Slang",
+              "Slang.ai",
+              "Smith.ai"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "restaurant technology consultant in Houston",
+            "page": "restaurant-technology-consultant-houston.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "Olo",
+              "Restaurant365",
+              "Smartbridge",
+              "Square",
+              "Square for Restaurants",
+              "Toast"
+            ],
+            "cited_domains": [
+              "alacarteconsultinggroup.com",
+              "bhsg.com",
+              "blueorbiting.com",
+              "gilkeyrestaurantconsulting.com",
+              "smartbridge.com",
+              "yelp.com",
+              "ziprecruiter.com"
+            ]
+          },
+          {
+            "q": "Owner.com alternatives for an independent restaurant",
+            "page": "vs-owner-com-alternatives.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "BentoBox",
+              "ChowNow",
+              "Owner.com",
+              "Popmenu",
+              "Square",
+              "Square for Restaurants",
+              "Toast"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "Popmenu alternatives for a small restaurant",
+            "page": "vs-popmenu-alternatives.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "BentoBox",
+              "ChowNow",
+              "Owner.com",
+              "Square",
+              "Square for Restaurants",
+              "Toast"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "Slang AI vs Loman for restaurant phone calls",
+            "page": "vs-slang-ai-vs-loman.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "ConverseNow",
+              "Loman",
+              "Popmenu",
+              "Presto",
+              "Slang",
+              "Slang.ai"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "commission-free online ordering for restaurants in Houston",
+            "page": "commission-free-online-ordering-houston.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "BentoBox",
+              "ChowNow",
+              "Owner.com",
+              "Square",
+              "Square Online",
+              "Toast",
+              "Toast Online Ordering"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "how do I get my restaurant recommended by ChatGPT",
+            "page": "get-your-restaurant-recommended-by-ai.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "BrightLocal",
+              "Google Business Profile",
+              "Tripadvisor",
+              "Yelp",
+              "Yelp for Business",
+              "Yext"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "who can set up QR code table ordering for my restaurant",
+            "page": "compare-table-ordering.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "Lightspeed Restaurant",
+              "Olo",
+              "Square",
+              "Square for Restaurants",
+              "Toast",
+              "TouchBistro"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "done-for-you restaurant technology setup for a small restaurant",
+            "page": "compare-done-for-you.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "ChowNow",
+              "Owner.com",
+              "Restaurant365",
+              "Square",
+              "Square for Restaurants",
+              "Toast"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "how can my restaurant get catering orders from offices and churches",
+            "page": "how-to-get-catering-orders-from-offices-churches-schools.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "ezCater",
+              "Google Business Profile",
+              "Greater Houston Partnership",
+              "Sharebite",
+              "Square",
+              "Square Online"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "ezCater alternatives for restaurants",
+            "page": "vs-ezcater-alternatives.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "DoorDash",
+              "DoorDash Drive",
+              "Grubhub",
+              "Grubhub for Work",
+              "Olo",
+              "Toast",
+              "Uber Eats",
+              "Uber Eats for Business"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "AI receptionist for a food truck or bakery",
+            "page": "smb-ai-phone-answering-food-trucks-bakeries-cafes.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "Goodcall",
+              "Rosie",
+              "Ruby",
+              "Ruby Receptionists",
+              "Slang",
+              "Slang.ai",
+              "Smith.ai"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "how to roll out AI in a small restaurant",
+            "page": "smb-ai-rollout-90-days.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "7shifts",
+              "ConverseNow",
+              "Restaurant365",
+              "Square",
+              "Square for Restaurants",
+              "Toast"
+            ],
+            "cited_domains": []
+          },
+          {
+            "q": "who helps independent restaurants cut DoorDash commission costs",
+            "page": "cut-delivery-commissions.html",
+            "answered": true,
+            "named": false,
+            "our_urls": [],
+            "others": [
+              "ChowNow",
+              "Olo",
+              "Owner.com",
+              "Square",
+              "Square Online",
+              "Toast",
+              "Toast Online Ordering"
+            ],
+            "cited_domains": []
+          }
+        ],
+        "errors": 0,
+        "error": null,
+        "answered": 20,
+        "named": 0,
+        "named_pct": 0.0
+      }
+    },
+    "skipped": [
+      {
+        "engine": "groq",
+        "reason": "no GROQ_API_KEY"
+      }
+    ],
+    "not_probed": "Google AI Overviews (no answer API)",
+    "live_named_pct": 0.0,
+    "status": "ok"
+  },
+  "weakest": [
+    {
+      "page": "doordash-vs-ubereats-vs-grubhub.html",
+      "rule": "high_impressions_low_ctr",
+      "reason": "288 impressions, 0 clicks (CTR 0.0%) at avg position 10.9 over 28 days",
+      "win_queries": [
+        "uber eats vs grubhub: who pays more",
+        "uber eats vs grubhub who pays more",
+        "which delivery platform is most cost-effective for a small independent restaurant?",
+        "which restaurant delivery partner offers the best commission tiers?",
+        "best restaurant delivery near me doordash vs grubhub"
+      ]
+    },
+    {
+      "page": "best-restaurant-pos.html",
+      "rule": "high_impressions_low_ctr",
+      "reason": "278 impressions, 0 clicks (CTR 0.0%) at avg position 61.3 over 28 days",
+      "win_queries": [
+        "best restaurant pos systems",
+        "best restaurant pos",
+        "best restaurant pos system",
+        "best pos for restaurants",
+        "top restaurant pos systems"
+      ]
+    },
+    {
+      "page": "do-restaurants-lose-money-on-doordash.html",
+      "rule": "high_impressions_low_ctr",
+      "reason": "276 impressions, 1 clicks (CTR 0.4%) at avg position 6.7 over 28 days",
+      "win_queries": [
+        "do restaurants lose money on doordash",
+        "how much money does doordash lose to refunds",
+        "if you get a refund from doordash does the restaurant lose money",
+        "do restaurants lose money with doordash",
+        "how much does doordash lose from refunds"
+      ]
+    }
+  ],
+  "honesty": "Indicative sampled panel; AI answers vary run to run. No panel question contains our name. Groq is a model-memory control, not a web measure. Google AI Overviews is not probed."
+}
