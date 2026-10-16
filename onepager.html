@@ -1,130 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AZ Restaurant Partners — leave-behind</title>
-  <meta name="description" content="AZ Restaurant Partners — the technology team built around your restaurant, run by an ex-Google engineer who owns his own award-winning restaurant. One-page overview." />
-  <meta name="robots" content="noindex" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root{ --paper:#f4eee2; --ink:#1b1a17; --muted:#6f685c; --accent:#c0492b; --accent-deep:#97361e; --card:#fbf7ee; --line:rgba(27,26,23,.14); }
-    *{ box-sizing:border-box; margin:0; padding:0; }
-    html,body{ background:#fff; color:var(--ink); font-family:"Inter",system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
-    .page{ width:8.5in; height:11in; padding:0.5in 0.55in; margin:0 auto; background:var(--paper); display:flex; flex-direction:column; overflow:hidden; }
-    h1,h2,h3,.brand{ font-family:"Fraunces",Georgia,serif; line-height:1.05; }
-    em{ font-style:italic; color:var(--accent); }
-
-    .top{ display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid var(--ink); padding-bottom:10px; }
-    .brand{ font-size:21pt; font-weight:600; letter-spacing:-.01em; }
-    .tag{ font-size:10.5pt; font-style:italic; color:var(--accent-deep); font-family:"Fraunces",serif; }
-
-    .hero{ display:flex; gap:20px; align-items:center; margin-top:16px; }
-    .hero__photo{ width:1.4in; height:1.4in; border-radius:14px; object-fit:cover; flex:none; box-shadow:0 8px 20px -10px rgba(0,0,0,.4); }
-    .hero h1{ font-size:23pt; font-weight:600; }
-    .hero .who{ margin-top:8px; font-size:10pt; color:var(--muted); line-height:1.4; }
-    .hero .who strong{ color:var(--ink); }
-
-    .problem{ margin-top:16px; font-size:11pt; line-height:1.5; color:var(--ink); }
-    .problem strong{ font-weight:600; }
-
-    .leaks{ margin-top:14px; }
-    .leaks__head{ font-size:9.5pt; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
-    .leak{ display:flex; gap:12px; align-items:flex-start; padding:8px 0; border-top:1px solid var(--line); }
-    .leak:last-child{ border-bottom:1px solid var(--line); }
-    .leak__n{ font-family:"Fraunces",serif; font-size:13pt; font-weight:600; color:#fff; background:var(--accent); width:27px; height:27px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex:none; }
-    .leak__t{ font-size:11pt; line-height:1.38; }
-    .leak__t b{ font-weight:600; }
-
-    .deal{ margin-top:16px; background:var(--ink); color:#f1e9da; border-radius:14px; padding:16px 18px; }
-    .deal h2{ font-size:15pt; color:#fff; margin-bottom:6px; }
-    .deal h2 em{ color:#f0a888; }
-    .deal p{ font-size:10.5pt; line-height:1.46; color:#d9d0c0; }
-    .deal p strong{ color:#fff; }
-
-    .offer{ margin-top:14px; display:flex; gap:16px; }
-    .offer__col{ flex:1; }
-    .offer__head{ font-size:9.5pt; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-deep); margin-bottom:6px; }
-    .offer ul{ list-style:none; }
-    .offer li{ font-size:10pt; line-height:1.34; padding:3px 0 3px 15px; position:relative; color:var(--ink); }
-    .offer li::before{ content:"›"; position:absolute; left:0; color:var(--accent); font-weight:700; }
-    .offer li b{ font-weight:600; }
-
-    .cta{ margin-top:auto; padding-top:16px; display:flex; gap:20px; align-items:center; }
-    .cta__qr{ width:1.3in; height:1.3in; flex:none; border:1px solid var(--line); border-radius:12px; padding:7px; background:#fff; }
-    .cta__txt h3{ font-size:14pt; font-weight:600; }
-    .cta__txt h3 em{ color:var(--accent); }
-    .cta__txt p{ font-size:10.5pt; color:var(--muted); margin-top:5px; line-height:1.45; }
-    .cta__url{ font-weight:600; color:var(--accent-deep); }
-    .cta__contact{ margin-top:8px; font-size:10.5pt; color:var(--ink); }
-    .cta__contact b{ font-weight:600; }
-
-    .foot{ margin-top:12px; padding-top:9px; border-top:1px solid var(--line); font-size:8.5pt; color:var(--muted); display:flex; justify-content:space-between; }
-
-    @media print{ @page{ size:Letter; margin:0; } html,body{ background:#fff; } .page{ box-shadow:none; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AZ Restaurant Partners - Leave-Behind</title>
+<meta name="description" content="AZ Restaurant Partners sets up AI staff for independent restaurants. One-page overview with real numbers from our own restaurant.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="https://azrestaurantpartners.com/assets/brand/logo-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#f4efe6;--paper:#fffdf8;--ink:#17130e;--muted:#675e51;--line:#e2d9c9;--accent:#c2410c;--green:#17694d;--chip:#ece3d4;--dark:#16130f;--darkfg:#f2ebdf;--darkmuted:#b6ab9b;
+--display:"Fraunces",Georgia,serif;--body:"Instrument Sans",-apple-system,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#d9d2c6;color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+.page{width:8.5in;min-height:11in;margin:24px auto;padding:.5in .55in;background:var(--bg);display:flex;flex-direction:column;gap:16px}
+.top{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.logo{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:800;font-size:17pt}
+.logo img{width:30px;height:30px;border-radius:50%}
+.eyebrow{font-family:var(--mono);font-size:8.5pt;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+.hero{display:grid;grid-template-columns:1fr 1.25in;gap:22px;align-items:center}
+h1{font-family:var(--display);font-weight:800;font-size:38pt;line-height:.98;letter-spacing:-.02em;margin:6px 0 10px}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:12pt;color:var(--muted);line-height:1.45}
+.lede b{color:var(--ink);font-weight:600}
+.hero img{width:1.25in;height:1.25in;border-radius:14px;object-fit:cover}
+.who{font-size:8.5pt;color:var(--muted);margin-top:6px;line-height:1.35}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line);border-top:2px solid var(--ink)}
+.stat{padding:10px 12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat b{display:block;font-family:var(--display);font-size:22pt;line-height:1;letter-spacing:-.02em}
+.stat span{display:block;font-size:9pt;color:var(--muted);margin-top:5px;line-height:1.35}
+.jobs{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}
+.job{border-top:1px solid var(--line);padding-top:7px}
+.job h3{font-family:var(--display);font-size:12pt;margin-bottom:2px}
+.job p{font-size:9.5pt;color:var(--muted);line-height:1.38}
+.deal{background:var(--dark);color:var(--darkfg);border-radius:14px;padding:14px 18px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.deal h2{font-family:var(--display);font-size:14pt;margin-bottom:4px}
+.deal p{font-size:9.5pt;color:var(--darkmuted);line-height:1.42}
+.cta{margin-top:auto;display:flex;gap:18px;align-items:center;border-top:2px solid var(--ink);padding-top:14px}
+.cta img{width:1.15in;height:1.15in;background:#fff;border:1px solid var(--line);border-radius:10px;padding:5px;flex:none}
+.cta h2{font-family:var(--display);font-size:15pt}
+.cta p{font-size:10pt;color:var(--muted);margin-top:4px;line-height:1.45}
+.cta p b{color:var(--ink)}
+@media print{html,body{background:#fff}.page{margin:0;width:8.5in;height:11in;overflow:hidden}@page{size:letter;margin:0}}
+@media screen and (max-width:860px){.page{width:auto;min-height:0;margin:0;padding:22px 16px}.hero,.jobs,.deal{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}h1{font-size:30pt}.cta{flex-direction:column;align-items:flex-start}}
+</style>
 </head>
 <body>
-  <div class="page">
-    <div class="top">
-      <span class="brand">AZ&nbsp;Restaurant&nbsp;Partners</span>
-      <span class="tag">Keep more of what you earn.</span>
+<main class="page">
+  <div class="top"><div class="logo"><img src="assets/brand/logo-180.png" alt="" width="30" height="30">AZ Restaurant Partners</div><div class="eyebrow">Houston, Texas</div></div>
+
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Proven in our own restaurant</div>
+      <h1>Let AI replace your restaurant <em>staff.</em></h1>
+      <p class="lede">Our restaurant runs with <b>no server, no cashier and no phone person.</b> We'll set up the same in yours.</p>
     </div>
+    <div><img src="assets/abbas-800.jpg" alt="Abbas Zoeb"><p class="who"><b>Abbas Zoeb</b>, former Google engineer. His family owns Wok &amp; Karahi, Spring TX.</p></div>
+  </div>
 
-    <div class="hero">
-      <img class="hero__photo" src="assets/abbas-800.jpg" alt="Abbas Zoeb" />
-      <div>
-        <h1>The technology team built around <em>your</em> restaurant — <em>one mind, every layer. A to Z.</em></h1>
-        <p class="who"><strong>Abbas Zoeb</strong> — an <strong>ex-Google engineer</strong> who owns his own award-winning restaurant, Wok &amp; Karahi (Spring, TX), so he's lived both sides — with a full team behind him. Our own place: <strong>4.5★ across 941 Google reviews</strong>, and a Top 10 halal restaurant of 2024.</p>
-      </div>
-    </div>
-
-    <p class="problem">You're working harder than ever — so why is someone else keeping the profit? The apps take <strong>15–30% of every order</strong> and own the customer you earned, calls go to voicemail in the rush, a dozen tools don't talk to each other, and you can't see your real numbers. You're one person against a system built for giants. <strong>We even the odds.</strong></p>
-
-    <div class="leaks">
-      <p class="leaks__head">One connected system, every layer — built around how your place actually runs</p>
-      <div class="leak"><span class="leak__n">1</span><p class="leak__t"><b>Stop the bleed.</b> Cut the apps' 15–30% commissions, answer every call 24/7, end the tablet chaos, and claw back the money the apps quietly owe you.</p></div>
-      <div class="leak"><span class="leak__n">2</span><p class="leak__t"><b>Win back &amp; grow.</b> Turn app guests into your own repeat customers, climb your reviews the smart way, get found on Google <em>and</em> AI search, and open a high-margin catering channel.</p></div>
-      <div class="leak"><span class="leak__n">3</span><p class="leak__t"><b>See clearly &amp; stay ahead.</b> One real view of your numbers, an actual strategy like the chains run, and a team that keeps you ahead as everything changes. <b>We don't sell a fixed package:</b> we study how your place runs, use the best of 100+ tools where they fit, connect what you have — and build what's missing, ourselves.</p></div>
-    </div>
-
-    <div class="deal">
-      <h2>We make you money <em>before</em> we take a dollar.</h2>
-      <p>We come to you, walk your whole operation, and do all the work — finding not just where money leaks, but what the right system could unlock. <strong>You only pay once you're saving — we don't get paid until you keep more. Guaranteed.</strong> No commissions from any vendor — our only side is yours.</p>
-    </div>
-
-    <div class="offer">
-      <div class="offer__col">
-        <p class="offer__head">Founding 5 — 5 restaurants only</p>
-        <ul>
-          <li><b>Money back first</b> — if we don't deliver, you pay nothing</li>
-          <li><b>Founding pricing locked for life</b> — it never goes up</li>
-        </ul>
-      </div>
-      <div class="offer__col">
-        <p class="offer__head">What you also get</p>
-        <ul>
-          <li>A <b>direct line to the founder</b>, not a support queue</li>
-          <li>First access to everything we build</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="cta">
-      <img class="cta__qr" src="assets/finder-qr.svg" alt="Scan to find your money leaks" />
-      <div class="cta__txt">
-        <h3>Scan it. See your money leaks in <em>2 minutes</em> — free.</h3>
-        <p>Point your phone camera at the code, or go to<br><span class="cta__url">azrestaurantpartners.com/toolbox.html</span></p>
-        <p class="cta__contact"><b>Call or text Abbas:</b> (408) 393-6716 &nbsp;·&nbsp; azoeb27@gmail.com</p>
-      </div>
-    </div>
-
-    <div class="foot">
-      <span>AZ Restaurant Partners · For independent, family-run restaurants · Spring &amp; Greater Houston, TX</span>
-      <span>You only pay after you save.</span>
+  <div>
+    <div class="eyebrow" style="margin-bottom:6px">Real numbers from Wok &amp; Karahi, Oct 2026</div>
+    <div class="stats">
+      <div class="stat"><b>98 of 99</b><span>dine-in orders placed and paid by guests on their phones</span></div>
+      <div class="stat"><b>Every call</b><span>answered by AI. More than 1 in 4 come while we're closed.</span></div>
+      <div class="stat"><b>94%</b><span>of direct orders with no staff member taking them. In August: 17%.</span></div>
+      <div class="stat"><b>317 of 317</b><span>app orders paid before cooking</span></div>
+      <div class="stat"><b>400 → 941</b><span>Google reviews since we took over, 4.5 stars</span></div>
+      <div class="stat"><b>2x</b><span>sales in 18 months under the current family</span></div>
     </div>
   </div>
+
+  <div class="jobs">
+    <div class="job"><h3>The server and cashier</h3><p>Guests scan, order in their language and pay at the table. Tickets print themselves.</p></div>
+    <div class="job"><h3>The phone person</h3><p>An AI host takes the order into your register, texts a pay link and knows your regulars.</p></div>
+    <div class="job"><h3>The delivery apps' 30%</h3><p>Your own ordering at your own prices. You keep the customer.</p></div>
+    <div class="job"><h3>The marketing agency</h3><p>Found on Google and in AI answers. Reviews and texts that bring regulars back.</p></div>
+    <div class="job"><h3>The manager on call</h3><p>One text a morning, an alert when it matters, menu changes by voice.</p></div>
+    <div class="job"><h3>Your POS stays</h3><p>We work with what you have. Ours runs on Clover.</p></div>
+  </div>
+
+  <div class="deal">
+    <div><h2>Priced by what you want replaced</h2><p>We learn your problem first. You pick the jobs, from just the phone to the whole front of house, and we price it on that. No long contract.</p></div>
+    <div><h2>It ramps, then it runs</h2><p>The phone AI runs hybrid for about three months, with your staff taking the calls it doesn't. After that, about 99% hands-free.</p></div>
+  </div>
+
+  <div class="cta">
+    <img src="assets/start-qr.svg" alt="QR code to azrestaurantpartners.com">
+    <div><h2>Scan it and pick what to replace.</h2><p>Or go to <b>azrestaurantpartners.com</b><br>Call or text Abbas: <b>(408) 393-6716</b> · azoeb27@gmail.com</p></div>
+  </div>
+</main>
 </body>
 </html>

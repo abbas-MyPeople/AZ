@@ -1,527 +1,463 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Step Inside Our Restaurant — the Wok &amp; Karahi Pilot | AZ Restaurant Partners</title>
-  <meta name="description" content="Walk through our own restaurant — Wok &amp; Karahi in Spring, TX. The week it used to have, the leaks we found, and exactly how each fix was made: an existing tool set up right, software we built ourselves, or a $2 card on a table. With the real numbers." />
-  <meta name="theme-color" content="#f4eee2" />
-  <link rel="canonical" href="https://azrestaurantpartners.com/case-study.html" />
-  <meta property="og:title" content="Step inside our restaurant — the pilot behind AZ" />
-  <meta property="og:description" content="An award-winning halal kitchen in Spring, TX: reviews more than doubled to 941 at 4.5★, a live AI phone agent taking orders into the POS, and the 30% apps' own customers converted to direct. Walk through exactly how." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://azrestaurantpartners.com/case-study.html" />
-  <meta property="og:image" content="https://azrestaurantpartners.com/assets/og.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Step inside our restaurant — the pilot behind AZ" />
-  <meta name="twitter:description" content="Reviews more than doubled to 941 at 4.5★, a live AI phone agent on the real line, app customers converted to direct — walk through exactly how it was done." />
-  <meta name="twitter:image" content="https://azrestaurantpartners.com/assets/og.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="https://azrestaurantpartners.com/assets/brand/logo-32.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Case Study: A Restaurant Run by AI Staff | AZ Restaurant Partners</title>
+<meta name="description" content="Wok & Karahi in Spring, Texas runs with no server, no cashier and no phone person. Guests order and pay at the table, an AI host answers every call into Clover, and 94% of direct orders need no staff. The real screens and numbers.">
+<link rel="canonical" href="https://azrestaurantpartners.com/case-study.html">
+<meta name="theme-color" content="#f4efe6">
+<link rel="icon" type="image/png" sizes="32x32" href="https://azrestaurantpartners.com/assets/brand/logo-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="https://azrestaurantpartners.com/assets/brand/logo-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="https://azrestaurantpartners.com/assets/brand/logo-180.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Article",
-      "headline": "Step inside our restaurant — the Wok & Karahi pilot behind AZ Restaurant Partners",
-      "description": "A walkthrough of AZ's own restaurant, Wok & Karahi in Spring, TX: the problems every independent recognizes — missed calls, tablet chaos, invisibility to AI assistants, margin leaking to 30% delivery apps — and exactly how each was fixed: existing tools set up right, custom-built software including a live AI phone agent, and behavioral plays like a $2 review card. With real numbers.",
-      "author": { "@type": "Organization", "name": "AZ Restaurant Partners" },
-      "publisher": { "@type": "Organization", "name": "AZ Restaurant Partners" },
-      "about": { "@type": "Restaurant", "name": "Wok & Karahi", "servesCuisine": ["Pakistani", "Indian", "Chinese", "Halal"], "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.5", "reviewCount": "941" }, "address": { "@type": "PostalAddress", "streetAddress": "3422 FM 2920 Rd Unit #120", "addressLocality": "Spring", "addressRegion": "TX", "postalCode": "77388", "addressCountry": "US" } },
-      "mainEntityOfPage": "https://azrestaurantpartners.com/case-study.html",
-      "inLanguage": "en-US"
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "Is this a real restaurant or a demo?", "acceptedAnswer": { "@type": "Answer", "text": "It's a real, operating restaurant: Wok & Karahi, a halal Chinese-Indian-Pakistani kitchen at 3422 FM 2920 Rd Unit #120, Spring, TX 77388, owned by AZ's founder Abbas Zoeb, an ex-Google software engineer. It carries 4.5 stars across 941 Google reviews and was named to You Had Me At Halal's Top 10 Halal Restaurants of 2024. Every method AZ sells was proven here first — and when a restaurant needs something AZ hasn't built yet, AZ builds it the same way." } },
-        { "@type": "Question", "name": "What does 'the site was 403 to bots' mean, and why does it matter?", "acceptedAnswer": { "@type": "Answer", "text": "The old site returned an HTTP 403 error to automated crawlers, so ChatGPT, Gemini, Perplexity, Claude and other AI assistants literally could not read the menu, hours or address. In the era where people increasingly ask an AI 'where should I eat,' that means being invisible in the fastest-growing discovery channel. The rebuilt, code-built site is now fully machine-readable, with full Restaurant/Menu/FAQ schema and a statically-rendered menu." } },
-        { "@type": "Question", "name": "Can I actually talk to the AI phone agent?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. It's live — call (903) 602-4012 and you're talking to the exact system AZ builds and tunes for client restaurants. Place an order, ask what's in a dish, ask about catering. It answers in a locked human-sounding voice and knows the full 78-dish menu with real POS item IDs; in production the same confirmed order writes straight into the Clover POS (the demo line runs in safe mode)." } },
-        { "@type": "Question", "name": "Why does ordering direct instead of through the apps matter so much?", "acceptedAnswer": { "@type": "Answer", "text": "Third-party delivery apps take roughly 30% of every order plus fees, and they own the customer. Ordering direct from the restaurant costs a fraction of that. At Wok & Karahi, direct orders run about 8.8% of the mix against 20%+ on the 30%-fee apps — which is exactly the margin-recovery opportunity: move even part of that app volume to direct and the difference drops to the bottom line." } },
-        { "@type": "Question", "name": "Can you prove the same results at my restaurant?", "acceptedAnswer": { "@type": "Answer", "text": "We prove it in your real numbers — sales tracked month over month straight from your POS and the delivery apps, not a spreadsheet. And with strategy work you only start paying once the savings show up. We built and validated every play on our own restaurant so you get an enterprise-grade setup without being the experiment." } }
-      ]
-    }
-  ]
-}
-  </script>
-  <style>
-    /* ---- page-scoped components (design tokens inherited from styles.css) ---- */
-    .cs-hero{ padding:120px 0 26px; }
-    .cs-hero__grid{ display:grid; grid-template-columns:1.25fr .75fr; gap:44px; align-items:center; }
-    @media (max-width:820px){ .cs-hero__grid{ grid-template-columns:1fr; } }
-    .cs-hero__photo{ border-radius:18px; overflow:hidden; box-shadow:0 24px 48px -24px rgba(27,26,23,.45); }
-    .cs-hero__photo img{ width:100%; height:auto; display:block; }
-    .cs-hero__photo figcaption{ font-size:.82rem; color:#6f685c; padding:10px 4px 0; }
-    .bigstats{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:26px 0 6px; }
-    @media (max-width:820px){ .bigstats{ grid-template-columns:repeat(2,1fr); } }
-    .bigstat{ border:1px solid rgba(27,26,23,.14); border-radius:16px; padding:18px 16px; background:#fbf7ee; }
-    .bigstat strong{ display:block; font-family:"Fraunces",Georgia,serif; font-size:1.6rem; line-height:1.1; color:#97361e; }
-    .bigstat span{ font-size:.86rem; color:#6f685c; line-height:1.35; display:block; margin-top:6px; }
-    .vignettes{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:26px; }
-    @media (max-width:820px){ .vignettes{ grid-template-columns:1fr; } }
-    .vignette{ border:1px solid rgba(27,26,23,.14); border-left:4px solid #c0492b; border-radius:14px; padding:20px 22px; background:#fff; }
-    .vignette h3{ font-family:"Fraunces",Georgia,serif; font-size:1.08rem; margin-bottom:8px; }
-    .vignette p{ font-size:.95rem; line-height:1.55; color:#3d3a33; }
-    .vignette .cost{ display:inline-block; margin-top:12px; font-size:.8rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:#97361e; }
-    .modepill{ display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border-radius:999px; margin-bottom:10px; }
-    .modepill--connected{ background:rgba(27,26,23,.08); color:#1b1a17; }
-    .modepill--built{ background:#1b1a17; color:#f1e9da; }
-    .modepill--behavioral{ background:rgba(192,73,43,.12); color:#97361e; }
-    .fix{ padding:34px 0; border-top:1px solid rgba(27,26,23,.12); }
-    .fix__grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:38px; align-items:center; }
-    .fix__grid--flip{ grid-template-columns:.9fr 1.1fr; }
-    @media (max-width:820px){ .fix__grid, .fix__grid--flip{ grid-template-columns:1fr; } }
-    .fix h3{ font-family:"Fraunces",Georgia,serif; font-size:1.45rem; line-height:1.15; margin-bottom:12px; }
-    .fix p{ line-height:1.6; color:#3d3a33; margin-bottom:10px; }
-    .fix .num{ font-family:"Fraunces",Georgia,serif; font-size:2rem; color:#97361e; display:block; margin-bottom:4px; }
-    .cardmock{ background:#fff; border:1px solid rgba(27,26,23,.16); border-radius:14px; padding:22px; box-shadow:0 18px 36px -20px rgba(27,26,23,.4); max-width:340px; margin:0 auto; transform:rotate(-1.2deg); }
-    .cardmock--alt{ transform:rotate(1.4deg); margin-top:14px; background:#fbf7ee; }
-    .cardmock h4{ font-family:"Fraunces",Georgia,serif; font-size:1.05rem; margin-bottom:6px; }
-    .cardmock p{ font-size:.88rem; line-height:1.45; color:#3d3a33; margin-bottom:0; }
-    .cardmock .qr{ width:56px; height:56px; border:2px solid #1b1a17; border-radius:8px; display:grid; place-items:center; font-size:.6rem; font-weight:700; letter-spacing:.05em; margin:10px 0 4px; }
-    .depth{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px; }
-    @media (max-width:820px){ .depth{ grid-template-columns:1fr; } }
-    .depth__item{ border:1px solid rgba(27,26,23,.14); border-radius:14px; padding:18px; background:#fbf7ee; font-size:.92rem; line-height:1.5; color:#3d3a33; }
-    .depth__item strong{ display:block; color:#1b1a17; margin-bottom:6px; }
-    .cycle{ display:flex; flex-direction:column; gap:8px; }
-    .cyc{ border:1px solid rgba(27,26,23,.14); border-left:4px solid rgba(27,26,23,.14); border-radius:10px; background:#fff; padding:10px 14px; transition:all .35s; opacity:.55; }
-    .cyc.on{ opacity:1; border-left-color:#c0492b; background:#fbf7ee; transform:translateX(4px); }
-    .cyc strong{ font-size:.72rem; letter-spacing:.12em; }
-    .cyc span{ display:block; font-size:.82rem; color:#6f685c; line-height:1.4; margin-top:2px; }
-    .gcard,.catcalc{ background:#fff; border:1px solid rgba(27,26,23,.16); border-radius:16px; padding:18px; max-width:360px; margin:0 auto; }
-    .gcard__row,.catcalc__row{ display:flex; justify-content:space-between; gap:10px; padding:9px 4px; border-top:1px solid rgba(27,26,23,.08); font-size:.85rem; opacity:0; transform:translateY(6px); transition:opacity .4s, transform .4s; }
-    .gcard__row--head{ border-top:none; opacity:1; transform:none; font-size:.8rem; color:#6f685c; }
-    .gcard__row span,.catcalc__row span{ color:#6f685c; }
-    .gcard__row.show,.catcalc__row.show{ opacity:1; transform:none; }
-    .gcard__row--ok,.catcalc__row--ok{ background:#eaf5ee; border-radius:8px; border-top:none; color:#1e5c38; font-size:.8rem; }
-    .catcalc__q{ font-size:.9rem; padding-bottom:8px; }
-    .phone{ width:min(320px,88vw); margin:0 auto; border:2px solid #1b1a17; border-radius:26px; background:#f4eee2; padding:16px 12px; min-height:340px; }
-    .phone__top{ text-align:center; font-size:.7rem; color:#6f685c; margin-bottom:10px; }
-    .phone__feed{ display:flex; flex-direction:column; gap:10px; }
-    .notif{ background:#fff; border:1px solid rgba(27,26,23,.12); border-radius:12px; padding:10px 12px; font-size:.78rem; line-height:1.4; opacity:0; transform:translateY(8px); transition:opacity .4s, transform .4s; }
-    .notif.show{ opacity:1; transform:none; }
-    .notif .app{ font-size:.64rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#97361e; display:block; margin-bottom:3px; }
-    .notif .approve{ display:inline-block; margin-top:6px; background:#1b1a17; color:#f1e9da; border-radius:999px; padding:3px 12px; font-size:.7rem; font-weight:600; }
-    .callout-live{ display:flex; gap:16px; align-items:center; flex-wrap:wrap; background:#1b1a17; color:#f1e9da; border-radius:16px; padding:22px 24px; margin-top:22px; }
-    .callout-live p{ color:#d9d0c0; margin:0; font-size:.95rem; line-height:1.5; flex:1; min-width:240px; }
-    .callout-live p strong{ color:#fff; }
-  </style>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AZ Restaurant Partners">
+<meta property="og:title" content="Case study: a restaurant run by AI staff">
+<meta property="og:description" content="Wok & Karahi, Spring TX: 98 of 99 dine-in orders placed by guests, every call answered by AI, 317 of 317 app orders paid before cooking.">
+<meta property="og:url" content="https://azrestaurantpartners.com/case-study.html">
+<meta property="og:image" content="https://azrestaurantpartners.com/assets/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Case study: a restaurant run by AI staff">
+<meta name="twitter:description" content="Wok & Karahi, Spring TX: 98 of 99 dine-in orders placed by guests, every call answered by AI.">
+<meta name="twitter:image" content="https://azrestaurantpartners.com/assets/og.png">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="geo.region" content="US-TX"><meta name="geo.placename" content="Spring, Texas">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":["Organization","ProfessionalService"],"@id":"https://azrestaurantpartners.com/#org","name":"AZ Restaurant Partners","url":"https://azrestaurantpartners.com","logo":"https://azrestaurantpartners.com/assets/brand/logo-512.png","email":"abbas@azrestaurantpartners.com","telephone":"+1-408-393-6716"},
+{"@type":"Restaurant","@id":"https://wokandkarahitexas.com/#restaurant","name":"Wok & Karahi","url":"https://wokandkarahitexas.com","servesCuisine":["Chinese","Indian","Pakistani","Halal"],"address":{"@type":"PostalAddress","addressLocality":"Spring","addressRegion":"TX","addressCountry":"US"}},
+{"@type":"Article","@id":"https://azrestaurantpartners.com/case-study.html#article","headline":"Case study: a restaurant run by AI staff","about":{"@id":"https://wokandkarahitexas.com/#restaurant"},"author":{"@type":"Person","name":"Abbas Zoeb"},"publisher":{"@id":"https://azrestaurantpartners.com/#org"},"datePublished":"2026-10-15","dateModified":"2026-10-15","image":"https://azrestaurantpartners.com/assets/proof/table-menu.jpg","mainEntityOfPage":"https://azrestaurantpartners.com/case-study.html"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is Wok & Karahi a real restaurant or a demo?","acceptedAnswer":{"@type":"Answer","text":"A real, operating halal Chinese, Indian and Pakistani restaurant in Spring, Texas, owned by the family of AZ's founder, Abbas Zoeb. Every system AZ sets up runs there first."}},
+{"@type":"Question","name":"How many orders do guests place themselves?","acceptedAnswer":{"@type":"Answer","text":"98 of the last 99 dine-in orders were placed and paid by guests on their own phones, and 94% of the restaurant's direct orders arrive with no staff member taking them, up from 17% in August 2026."}},
+{"@type":"Question","name":"Does the AI phone host work from day one at a new restaurant?","acceptedAnswer":{"@type":"Answer","text":"It ramps. For about the first three months it runs hybrid, with some calls going to the AI and the rest to staff. After that it reaches about 99% hands-free."}}]}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Shared v3 styles. Copied from v3/home-src.html so every v3 page matches the home.
+   If you change the home's look, change it here too. Injected by build.py into each page. */
+:root{--bg:#f4efe6;--paper:#fffdf8;--ink:#17130e;--muted:#675e51;--line:#e2d9c9;--accent:#c2410c;--accent-ink:#fff;--green:#17694d;--chip:#ece3d4;--dark:#16130f;--darkfg:#f2ebdf;--darkmuted:#b6ab9b;
+--display:"Fraunces",Georgia,serif;--body:"Instrument Sans",-apple-system,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.in{max-width:1160px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);padding:14px 22px;border-radius:999px;text-decoration:none;font-weight:600;font-size:16px;border:0;cursor:pointer;font-family:inherit}
+.btn.dark{background:var(--ink);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .in{display:flex;align-items:center;gap:22px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:19px;text-decoration:none;margin-right:auto}
+.logo img{width:30px;height:30px;border-radius:50%}
+nav .links a{text-decoration:none;font-size:15px;color:var(--muted)}
+nav .links{display:flex;gap:20px}
+nav .btn{padding:10px 16px;font-size:14px}
+@media (max-width:820px){nav .links{display:none}}
+@media (max-width:520px){.logo{font-size:16px}.logo img{width:26px;height:26px}nav .btn{padding:9px 14px;font-size:14px}.ctas .btn{width:100%;justify-content:center}}
+/* hero */
+.hero{padding-block:56px 28px}
+.hero .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,7.6vw,96px);line-height:.95;letter-spacing:-.03em;margin:14px 0 22px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:clamp(18px,2.1vw,22px);color:var(--muted);max-width:34ch;margin:0 0 28px;line-height:1.45}
+.lede b{color:var(--ink);font-weight:600}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.phone{border-radius:34px;border:8px solid var(--ink);overflow:hidden;background:var(--ink);box-shadow:0 30px 60px -30px rgba(23,19,14,.45);max-width:300px;margin-inline:auto}
+.phone img{width:100%}
+.caption{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
+@media (max-width:860px){.hero .grid{grid-template-columns:1fr;gap:32px}.lede{max-width:none}}
+/* proof */
+.proof{padding-block:28px 64px}
+.ptitle{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.ptitle h2{font-family:var(--display);font-size:22px;margin:0}
+.ptitle span{font-family:var(--mono);font-size:12px;color:var(--green)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line)}
+.stat{padding:22px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;gap:6px;align-content:start}
+.stat .rank{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.stat b{font-family:var(--display);font-size:clamp(34px,4.6vw,52px);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat p{margin:0;font-size:15px;color:var(--muted)}
+.stat p strong{color:var(--ink);font-weight:600}
+@media (max-width:860px){.stats{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.stats{grid-template-columns:1fr}}
+/* sections */
+.sec{padding-block:80px}
+h2.big{font-family:var(--display);font-weight:800;font-size:clamp(32px,5vw,58px);line-height:1.02;letter-spacing:-.02em;margin:10px 0 14px;text-wrap:balance}
+.sub{color:var(--muted);max-width:60ch;margin:0;font-size:18px}
+.roles{display:grid;gap:18px;margin-top:40px}
+.role{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:34px}
+.role:nth-child(even) .shot{order:-1}
+.role h3{font-family:var(--display);font-size:clamp(26px,3.2vw,36px);line-height:1.08;margin:6px 0 10px}
+.role h3 s{color:var(--muted);text-decoration-thickness:2px;text-decoration-color:var(--accent)}
+.role p{margin:0 0 14px;color:var(--muted)}
+.role .facts{display:flex;flex-wrap:wrap;gap:8px}
+.role .facts span{font-size:13px;background:var(--chip);border-radius:6px;padding:5px 10px}
+.role .facts span b{font-variant-numeric:tabular-nums}
+.shots{display:flex;gap:14px;justify-content:center}
+.shots .phone{max-width:210px;border-width:6px;border-radius:26px}
+.wide{border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+@media (max-width:860px){.role{grid-template-columns:1fr;padding:24px}.role:nth-child(even) .shot{order:0}.shots .phone{max-width:46%}}
+/* listen */
+.listen{background:var(--dark);color:var(--darkfg)}
+.listen .sub{color:var(--darkmuted)}
+.clips{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.clip{background:#221d17;border:1px solid #352e25;border-radius:14px;padding:22px;display:grid;gap:12px;align-content:start}
+.clip .who{font-family:var(--mono);font-size:12px;color:#e9895c;letter-spacing:.05em}
+.clip q{font-family:var(--display);font-size:22px;line-height:1.25;quotes:"\201C" "\201D"}
+.clip .tr{font-size:14px;color:var(--darkmuted)}
+.clip audio{width:100%;height:40px}
+.clip .note{font-size:12px;color:var(--darkmuted)}
+@media (max-width:860px){.clips{grid-template-columns:1fr}}
+/* day */
+.day{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:36px;border-top:2px solid var(--ink)}
+.mo{padding:22px 22px 22px 0;border-bottom:1px solid var(--line)}
+.mo .t{font-family:var(--mono);color:var(--accent);font-size:14px}
+.mo h4{font-family:var(--display);font-size:21px;margin:6px 0 6px;line-height:1.2}
+.mo p{margin:0;font-size:15px;color:var(--muted)}
+@media (max-width:860px){.day{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.day{grid-template-columns:1fr}}
+/* inquiry */
+.ask{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,4vw,48px);display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+.ask h2{margin-top:6px}
+.picks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0 18px}
+.pick{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;cursor:pointer;font-size:15px;line-height:1.3;background:var(--bg)}
+.pick input{margin-top:2px;accent-color:var(--accent);width:17px;height:17px;flex:none}
+.pick:has(input:checked){border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--bg))}
+.pick.all{grid-column:1/-1}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fields label{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+.fields .full{grid-column:1/-1}
+.fields input,.fields textarea,.fields select{font:inherit;font-size:16px;padding:12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+.honey{position:absolute;left:-9999px;opacity:0}
+.formnote{font-size:14px;color:var(--muted);margin:10px 0 0}
+.formnote.ok{color:var(--green);font-weight:600}.formnote.err{color:var(--accent)}
+.steps{display:grid;gap:14px;margin-top:22px}
+.steps div{display:grid;grid-template-columns:34px 1fr;gap:10px;font-size:15px;color:var(--muted)}
+.steps b{font-family:var(--mono);color:var(--accent);font-size:13px}
+@media (max-width:900px){.ask{grid-template-columns:1fr}.picks,.fields{grid-template-columns:1fr}}
+/* investors */
+.inv{background:var(--dark);color:var(--darkfg);border-radius:22px;padding:clamp(24px,4vw,52px);display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center}
+.inv .sub{color:var(--darkmuted)}
+.inv .btn{background:var(--darkfg);color:var(--dark)}
+.inv ul{margin:0;padding-left:18px;display:grid;gap:8px;color:var(--darkfg)}
+@media (max-width:860px){.inv{grid-template-columns:1fr}}
+/* faq */
+.faq{display:grid;gap:0;margin-top:30px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{font-family:var(--display);font-size:21px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";color:var(--accent);font-family:var(--body)}
+.faq details[open] summary::after{content:"\2212"}
+.faq p{margin:10px 0 0;color:var(--muted);max-width:70ch}
+footer{border-top:1px solid var(--line);padding-block:40px;font-size:14px;color:var(--muted)}
+footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:24px}
+footer h5{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 10px;font-family:var(--mono)}
+footer a{display:block;text-decoration:none;padding:3px 0}
+footer a:hover{color:var(--ink)}
+@media (max-width:860px){footer .cols{grid-template-columns:1fr 1fr}}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px max(14px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));background:var(--ink);display:none;transition:transform .2s}
+.sticky .btn{width:100%;justify-content:center}
+.sticky.away{transform:translateY(110%)}
+@media (max-width:700px){.sticky{display:block}body{padding-bottom:70px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky{transition:none}}
+
+/* case study */
+.ba{display:grid;gap:0;margin-top:36px;border-top:2px solid var(--ink)}
+.ba .r{display:grid;grid-template-columns:200px 1fr 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);align-items:start}
+.ba .job{font-family:var(--display);font-size:21px;line-height:1.2}
+.ba .was,.ba .now{font-size:15px;color:var(--muted);margin:0}
+.ba .lab{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.ba .was .lab{color:var(--muted)}
+.ba .now .lab{color:var(--green)}
+.ba .now b{color:var(--ink);font-weight:600}
+@media (max-width:760px){.ba .r{grid-template-columns:1fr;gap:8px}}
+.cta-band{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,4vw,40px)}
+.cta-band h2{margin:6px 0 0}
+.honest{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.honest div{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px}
+.honest h3{font-family:var(--display);font-size:22px;margin:0 0 10px}
+.honest ul{margin:0;padding-left:18px;display:grid;gap:8px;color:var(--muted);font-size:16px}
+@media (max-width:760px){.honest{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <header class="nav scrolled" id="nav">
-    <div class="wrap nav__inner">
-      <a href="index.html" class="brand" aria-label="AZ Restaurant Partners">AZ&nbsp;Restaurant&nbsp;Partners</a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="index.html#platform">One system</a>
-        <a href="toolbox.html">Find your fit</a>
-        <a href="details.html">Pricing &amp; FAQ</a>
-        <a href="index.html#contact" class="nav__cta">Book a free call</a>
-      </nav>
-      <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+
+<nav><div class="in">
+  <a class="logo" href="/"><img src="/assets/brand/logo-180.png" alt="" width="30" height="30">AZ Restaurant Partners</a>
+  <div class="links"><a href="/#replace">What it replaces</a><a href="#listen">Hear it</a><a href="/details.html">How it works</a><a href="/investors.html">Investors</a></div>
+  <a class="btn" href="/#start" data-track="cta_click" data-track-where="nav">Get started</a>
+</div></nav>
+
+<header class="hero"><div class="in grid">
+  <div>
+    <div class="eyebrow">Case study · Wok &amp; Karahi · Spring, Texas</div>
+    <h1>A restaurant run by AI <em>staff.</em></h1>
+    <p class="lede">Our family's halal Chinese, Indian and Pakistani restaurant runs with <b>no server, no cashier and no phone person.</b> Here is what each job looked like before, and what does it now.</p>
+    <div class="ctas">
+      <a class="btn" href="/#start" data-track="cta_click" data-track-where="hero">Pick what to replace</a>
+      <a class="btn ghost" href="#jobs" data-track="cta_click" data-track-where="hero_see">Before and after</a>
     </div>
-  </header>
-
-  <main id="top">
-    <!-- HERO -->
-    <section class="cs-hero">
-      <div class="wrap cs-hero__grid">
-        <div>
-          <p class="kicker">Our pilot restaurant · the proof behind everything we sell</p>
-          <h1 class="h2" style="font-size:clamp(1.9rem,4vw,2.6rem)">Step inside our restaurant.</h1>
-          <p class="lead" style="margin-top:14px">This is <strong>Wok &amp; Karahi</strong> — our family's halal Chinese-Indian-Pakistani kitchen in Spring, TX. It had the same problems yours does: calls dying in the rush, three delivery tablets beeping, invisible to ChatGPT, and a 30% commission bill every month. This page walks you through <strong>exactly what we found, exactly how we fixed it, and what each fix was made of</strong> — so you can see your own restaurant in every step.</p>
-          <p class="guide__meta" style="margin-top:12px">Wok &amp; Karahi · Spring, TX · 4.5★ across 941 Google reviews · ~8 min walk-through</p>
-        </div>
-        <figure class="cs-hero__photo">
-          <picture>
-            <source srcset="assets/family-413.webp" type="image/webp" />
-            <img src="assets/family-413.jpg" alt="Abbas and his father Zoeb at their restaurant, Wok &amp; Karahi in Spring, TX" width="413" height="715" loading="eager" />
-          </picture>
-          <figcaption>Abbas &amp; his father, Zoeb — the family behind the restaurant, and behind AZ.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- BIG NUMBERS -->
-    <section class="section" style="padding-top:10px">
-      <div class="wrap">
-        <div class="bigstats reveal">
-          <div class="bigstat"><strong>2× sales</strong><span>we took over a declining restaurant and doubled its sales in 18 months</span></div>
-          <div class="bigstat"><strong>~400 → 941</strong><span>Google reviews in about a year — now 4.5★</span></div>
-          <div class="bigstat"><strong>Top 10 Halal</strong><span>named by You Had Me At Halal, 2024 · 100% Zabihah-certified</span></div>
-          <div class="bigstat"><strong>Live AI line</strong><span>an AI phone agent answers the real line and writes orders into the POS — call it yourself</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- THE WEEK IT USED TO HAVE -->
-    <section class="section section--alt">
-      <div class="wrap">
-        <div class="section__head reveal">
-          <p class="kicker">Sound familiar?</p>
-          <h2 class="h2">The week this restaurant used to have.</h2>
-          <p class="lead" style="margin-top:14px">None of this made us a bad restaurant — the food was winning awards. It's just what happens to every independent when nobody has time to step back. See how many you recognize:</p>
-        </div>
-        <div class="vignettes reveal">
-          <div class="vignette">
-            <h3>7:40 PM, Friday. The phone rings. Nobody can answer.</h3>
-            <p>The kitchen's slammed, the counter has a line, and the caller — who wanted a $60 family order — gets voicemail. Most callers never call back; they just order from whoever picks up.</p>
-            <span class="cost">Cost: orders lost in the busiest hours, invisibly</span>
-          </div>
-          <div class="vignette">
-            <h3>Three tablets, all beeping, all night.</h3>
-            <p>DoorDash, Uber Eats, and Grubhub each on their own tablet. Staff accepted each order, then <em>re-typed it into the POS by hand</em>. In a rush, orders came out late, wrong — or vanished.</p>
-            <span class="cost">Cost: lost & wrong orders · staff hours every shift</span>
-          </div>
-          <div class="vignette">
-            <h3>Invisible to the newest front door.</h3>
-            <p>Ask ChatGPT "best halal food near Spring, TX" and we weren't in the answer — our website literally blocked AI crawlers (an HTTP 403), so no assistant could read our menu, hours, or address. Worse: AI thought we were <em>two different restaurants</em>.</p>
-            <span class="cost">Cost: absent from where discovery is moving fastest</span>
-          </div>
-          <div class="vignette">
-            <h3>The month-end commission bill.</h3>
-            <p>The delivery apps took ~30% of every order they touched — and kept the customer's name, number, and habits for themselves. Direct orders ran just ~8.8% of our mix while 20%+ sat on the 30%-fee apps.</p>
-            <span class="cost">Cost: thousands per year, plus the customer relationship</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- THE FIXES -->
-    <section class="section">
-      <div class="wrap">
-        <div class="section__head reveal">
-          <p class="kicker">What we did — and what each fix was made of</p>
-          <h2 class="h2">Watch the shape of each fix. That's the real method.</h2>
-          <p class="lead" style="margin-top:14px">For every problem we asked the same questions: does a good existing tool already solve this? Can we connect what we already have? Only where nothing off the shelf was good enough did we <strong>build it ourselves</strong> — and where the highest-ROI fix wasn't software at all, we designed the moment. Each fix below is tagged with what it was made of.</p>
-        </div>
-
-        <div class="fix reveal">
-          <div class="fix__grid">
-            <div>
-              <span class="modepill modepill--connected">Connected · an existing tool, set up right</span>
-              <h3>Three tablets became one POS.</h3>
-              <p>This didn't need custom software — it needed someone who knew which of the 100+ integration tools actually works, and how to wire it into Clover properly. Now every delivery order flows straight into the POS and prints to the kitchen. No re-typing, no misses.</p>
-              <p><strong>Live for over a year.</strong> The entire manual step — and the lost, late, wrong orders that came with it — is gone.</p>
-            </div>
-            <div style="text-align:center">
-              <span class="num">3 → 1</span>
-              <p style="font-size:.9rem;color:#6f685c">tablets on the counter → one POS, one kitchen printer</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="fix reveal">
-          <div class="fix__grid fix__grid--flip">
-            <div>
-              <div class="cardmock">
-                <h4>Loved it? Scan me ⭐</h4>
-                <div class="qr">QR</div>
-                <p>Brought to the table <em>only</em> when a guest is clearly happy — at the exact moment they'd say yes.</p>
-              </div>
-              <div class="cardmock cardmock--alt">
-                <h4>Something wrong? Call me — Abbas</h4>
-                <p>The owner's personal card, handed to an unhappy guest <em>before</em> they go home and post about it.</p>
-              </div>
-            </div>
-            <div>
-              <span class="modepill modepill--behavioral">Behavioral · a $2 card and the right words</span>
-              <h3>Reviews doubled — without touching a line of code.</h3>
-              <p>The highest-ROI fix in this whole story cost about $2. Two cards, one rule: happy guests get a "scan me" review card at the peak of their happiness; unhappy guests get the owner's personal card — so the complaint comes to us, not to Google.</p>
-              <p><span class="num">~400 → 941</span> Google reviews in about a year, now <strong>4.5★</strong>. For an independent, research puts each star at roughly 5–9% of revenue. <em>(Verifiable live on Google right now.)</em></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="fix reveal">
-          <div class="fix__grid">
-            <div>
-              <span class="modepill modepill--behavioral">Behavioral · the apps deliver our message for us</span>
-              <h3>The delivery apps' own customers, converted to direct.</h3>
-              <p>Every third-party order leaves our kitchen with a thank-you note tuned to that order type: <em>"Paying up to 50% extra?? Order on our website — save big."</em> Because the apps mark our prices up and stack fees, while direct means cheaper prices and $7.99 delivery within 5 miles.</p>
-              <p>Think about the mechanics: <strong>DoorDash's own drivers hand-deliver our customer-acquisition channel</strong>, order after order, at zero marketing cost. The opportunity it works against: ~8.8% direct today versus 20%+ sitting on the 30% apps.</p>
-            </div>
-            <div>
-              <div class="cardmock">
-                <h4>Thank you! 🙏</h4>
-                <p><strong>Paying up to 50% extra??</strong><br/>Order direct at wokandkarahitexas.com — cheaper prices, real deals, $7.99 delivery within 5 miles.</p>
-                <div class="qr">QR</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="fix reveal">
-          <div class="fix__grid">
-            <div>
-              <span class="modepill modepill--built">Built · nothing off the shelf was good enough</span>
-              <h3>A website AI assistants can actually read.</h3>
-              <p>We rebuilt the site in code as an AEO-native site: full Restaurant/Menu/FAQ structured data, every one of the <strong>78 dishes statically rendered with its real POS item ID</strong>, local landing pages, and an <code>llms.txt</code>. The 403-to-bots problem is gone — and we consolidated the "two restaurants" identity confusion into one clean entity that every AI describes correctly.</p>
-              <p>So when someone asks ChatGPT or Gemini where to eat halal near Spring, <strong>we're in the answer.</strong> <em>(Check it: <a href="https://wokandkarahitexas.com" target="_blank" rel="noopener">wokandkarahitexas.com</a>.)</em></p>
-            </div>
-            <div style="text-align:center">
-              <span class="num">403 → readable</span>
-              <p style="font-size:.9rem;color:#6f685c">blocked to every AI crawler → fully machine-readable, one consistent identity</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="fix reveal">
-          <div class="fix__grid fix__grid--flip">
-            <div style="text-align:center">
-              <span class="num">+63%</span>
-              <p style="font-size:.9rem;color:#6f685c">higher ticket when a guest orders from both cuisines — now actively steered</p>
-            </div>
-            <div>
-              <span class="modepill modepill--built">Built · found in our own sales data</span>
-              <h3>Our data found money we didn't know we had.</h3>
-              <p>We analyzed ~1,500 of our own POS orders and found that guests who order from <em>both</em> cuisines — Chinese <em>and</em> Indian/Pakistani — spend a <strong>63% higher ticket</strong>. Nothing was steering anyone there. Now the menu, the website, and the phone agent all nudge toward the pairing.</p>
-              <p>That's what "analytics" means here: not a dashboard for its own sake, but your own numbers finding your next dollar.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="fix reveal">
-          <div class="fix__grid">
-            <div>
-              <span class="modepill modepill--built">Built · our deepest piece of engineering</span>
-              <h3>An AI employee on the phone — live, right now.</h3>
-              <p>Nothing we could buy would say our dish names right, speak our guests' languages, or write a clean order into Clover. So we built it: a locked, human-sounding voice (English + Urdu/Hindi) that answers every call, takes the whole order, sizes catering from a headcount, remembers regulars, and handles an upset caller with genuine care.</p>
-              <p>Under the hood — because this is where demos die and real systems live: <strong>28 integrated tools</strong>, the full 78-dish menu grounded in real POS IDs so it can never invent a price or a dish, a <strong>15-persona adversarial test gate</strong> and 206 automated checks, and gated order-writing so it can never place a bad order. And it <strong>never falsely confirms</strong> — if something fails, it says so.</p>
-              <div class="callout-live">
-                <p><strong>Don't take our word for it.</strong> That's the live line — order something, ask what's in the Crispy Beef, ask about catering for 40. You're talking to the exact system we build for client restaurants.</p>
-                <a href="tel:+19036024012" class="btn btn--primary">Call it now — (903)&nbsp;602-4012</a>
-              </div>
-            </div>
-            <div>
-              <div class="callcard">
-                <div class="callcard__top"><span class="callcard__dot"></span> Live call · 8:52 PM</div>
-                <div class="bubble bubble--agent">Thanks for calling Wok &amp; Karahi — good to hear from you again, Priya! The usual butter chicken, extra naan?</div>
-                <div class="bubble bubble--caller">Yes please — and is the karahi spicy tonight?</div>
-                <div class="bubble bubble--agent">I can have the kitchen make it mild for you — perfect chilly night for it. Want a mango lassi to cool it down?</div>
-                <p class="callcard__cap">Knows the regular · speaks their language · knows the menu · writes the order into the POS — the same, on every call.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="fix reveal">
-          <div class="fix__grid">
-            <div>
-              <span class="modepill modepill--built">Built · the site that improves itself</span>
-              <h3>8. A website that runs its own growth loop.</h3>
-              <p>Most restaurant sites are built once and rot. Ours watches its own data — what people search, what AI assistants rank us for, what the POS says actually sells — and proposes its own improvements: new local pages, article drafts, sharper calls-to-action aimed at the goals that matter (calls, catering forms, direct orders). We approve by replying to an email; it ships itself, revertible; live A/B tests decide what stays.</p>
-              <p><strong>Running on a schedule today, for ~$10–35/month all-in.</strong></p>
-            </div>
-            <div class="cycle" aria-hidden="true">
-              <div class="cyc on"><strong>MEASURE</strong><span>searches · AI rankings · POS sales</span></div>
-              <div class="cyc"><strong>DECIDE</strong><span>what would move calls, catering &amp; direct orders most</span></div>
-              <div class="cyc"><strong>PROPOSE</strong><span>new pages, articles, better CTAs — by email</span></div>
-              <div class="cyc"><strong>APPROVE</strong><span>we reply APPROVE — nothing ships without a yes</span></div>
-              <div class="cyc"><strong>SHIP</strong><span>deployed automatically, revertible</span></div>
-              <div class="cyc"><strong>VERIFY</strong><span>real A/B tests — winners stay, losers roll back</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="fix reveal">
-          <div class="fix__grid fix__grid--flip">
-            <div>
-              <div class="gcard" id="gcard">
-                <div class="gcard__row gcard__row--head"><strong>Incoming call · (832) ···-··41</strong></div>
-                <div class="gcard__row" data-i="1"><span>Name</span><strong>Priya S. — returning caller</strong></div>
-                <div class="gcard__row" data-i="2"><span>The usual</span><strong>Butter chicken · extra naan</strong></div>
-                <div class="gcard__row" data-i="3"><span>Prefers</span><strong>Mild · pickup · last visit 12 days ago</strong></div>
-                <div class="gcard__row gcard__row--ok" data-i="4"><strong>“Good to hear from you again, Priya! The usual?” ✓</strong></div>
-              </div>
-            </div>
-            <div>
-              <span class="modepill modepill--built">Built · a guest memory we own</span>
-              <h3>9. The restaurant remembers its regulars now.</h3>
-              <p>The apps kept our customers' names and habits for themselves — only 32 identifiable repeat customers in 1,501 orders. Now the phone recognizes a returning caller and offers "the usual," and a receipt-scan spin-the-wheel turns an app customer into a known, direct one on the spot. Loyalty in the first ten seconds of the second call.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="fix reveal">
-          <div class="fix__grid">
-            <div>
-              <span class="modepill modepill--built">Built · found by the data, not a hunch</span>
-              <h3>10. The data found a catering business hiding inside the restaurant.</h3>
-              <p>43 orders over $150 in 90 days — feast demand nothing was tracking, at margins far above dine-in. So we built it a door: the phone agent sizes catering from a headcount, a portion calculator turns people into exact trays, occasion pages catch the searches, and real inquiries route to a human.</p>
-            </div>
-            <div>
-              <div class="catcalc" id="catcalc">
-                <div class="catcalc__q">“We're feeding about <strong>40 people</strong> — what do we need?”</div>
-                <div class="catcalc__row" data-i="1"><span>Chicken Chow Mein</span><strong>2 full trays</strong></div>
-                <div class="catcalc__row" data-i="2"><span>Chicken Karahi</span><strong>1 full + 1 half tray</strong></div>
-                <div class="catcalc__row" data-i="3"><span>Naan</span><strong>50 pieces</strong></div>
-                <div class="catcalc__row catcalc__row--ok" data-i="4"><strong>Quote routed to a human ✓</strong></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="fix reveal">
-          <div class="fix__grid fix__grid--flip">
-            <div>
-              <div class="phone">
-                <div class="phone__top">the owner's morning — the real reports the system sends</div>
-                <div class="phone__feed" id="phoneFeed"></div>
-              </div>
-            </div>
-            <div>
-              <span class="modepill modepill--built">Built · command &amp; control from the inbox</span>
-              <h3>11. The whole system reports to the owner — and asks permission.</h3>
-              <p>A daily sales report before the kitchen opens. Website improvements proposed by email and shipped on an APPROVE reply. An alert the moment something fails — heard from the system, never from an angry customer. A weekly digest of everything the phone captured. <strong>Nothing that matters happens without a yes</strong> — which is why the restaurant runs mostly without us standing in it.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW DEEP IT GOES -->
-    <section class="section section--alt">
-      <div class="wrap">
-        <div class="section__head reveal">
-          <p class="kicker">How deep it actually goes</p>
-          <h2 class="h2">This isn't a bag of tricks. It's one system that keeps improving.</h2>
-          <p class="lead" style="margin-top:14px">Every piece above shares the same data and reinforces the others — the phone agent recommends what the sales data says actually sells; the website ranks for the dishes people actually order. And it doesn't go stale:</p>
-        </div>
-        <div class="depth reveal">
-          <div class="depth__item"><strong>A website that improves itself — with your approval</strong>Every week, an engine watches our numbers and what people ask AI assistants, proposes specific site changes by email, and automatically ships only the ones the owner approves. Running on a schedule at our own restaurant today.</div>
-          <div class="depth__item"><strong>Nothing irreversible without a human</strong>Order-writing started in dry-run and went live only after real verified transactions. Every risky action is gated and double-checked. That discipline is the difference between a demo and something on your real phone line.</div>
-          <div class="depth__item"><strong>You own everything</strong>Your customers, your data, your website, your phone number. No lock-in, no vendor commissions, month to month. If we ever part ways, everything stays yours.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HONEST SCOREBOARD -->
-    <section class="section">
-      <div class="wrap wrap--narrow">
-        <div class="section__head reveal">
-          <p class="kicker">The honest scoreboard</p>
-          <h2 class="h2">What's proven, and what's still being measured.</h2>
-        </div>
-        <div class="guide__body reveal">
-          <p><strong>Proven, verifiable today:</strong></p>
-          <ul>
-            <li><strong>4.5★ across 941 Google reviews</strong> — more than double a year ago. <em>(Check Google now.)</em></li>
-            <li><strong>Sales doubled in 18 months</strong> after we took the restaurant over.</li>
-            <li><strong>Tablet chaos eliminated</strong> — 1+ year live, zero manual re-entry.</li>
-            <li><strong>403-to-bots → fully AI-readable</strong>, one consolidated identity. <em>(Check wokandkarahitexas.com.)</em></li>
-            <li><strong>The AI phone agent is live</strong> — call <a href="tel:+19036024012">(903)&nbsp;602-4012</a>.</li>
-            <li><strong>+63% ticket</strong> on dual-cuisine orders, found in ~1,500 real POS orders — now actively steered.</li>
-          </ul>
-          <p><strong>Still maturing (we won't claim what we can't show yet):</strong> the rebuilt site and phone agent went live recently, so clean before/after revenue windows on those two are still accumulating. The commission-recovery shift (~8.8% direct → the 20%+ on apps) is the open opportunity being worked with the thank-you-note engine. When we publish those numbers, they'll be real ones — that's the same standard we'll hold for your restaurant.</p>
-          <div class="guide__callout">
-            <p><strong>The takeaway:</strong> if these leaks were real at our own award-winning, 4.5★ restaurant, they're almost certainly worse at yours. The difference now: you don't have to be the experiment. <strong>Problem → what exists → customize → connect → build → measure.</strong> That's what we bring to your restaurant — including the problems we've never seen before.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section section--alt">
-      <div class="wrap wrap--narrow">
-        <div class="section__head reveal">
-          <p class="kicker">Good questions</p>
-          <h2 class="h2">What owners ask about the pilot.</h2>
-        </div>
-        <div class="guide__body guide__faq reveal">
-          <details><summary>Is this a real restaurant or a demo?</summary><p>It's a real, operating restaurant: <strong>Wok &amp; Karahi</strong>, a halal Chinese-Indian-Pakistani kitchen in Spring, TX, owned by AZ's founder Abbas Zoeb — an ex-Google software engineer. 4.5★ across 941 Google reviews; Top 10 Halal 2024 (You Had Me At Halal). Every method AZ sells was proven here first — and when your restaurant needs something we haven't built yet, we build it the same way we built these.</p></details>
-          <details><summary>Can I actually talk to the AI phone agent?</summary><p>Yes — it's live. Call <a href="tel:+19036024012">(903)&nbsp;602-4012</a>, place an order, ask about a dish or catering. You're talking to the exact system we build and tune for client restaurants.</p></details>
-          <details><summary>What does "the site was 403 to bots" mean, and why does it matter?</summary><p>The old site returned an HTTP 403 error to crawlers, so ChatGPT, Gemini, Perplexity and Claude couldn't read the menu, hours or address — invisible in the fastest-growing discovery channel. The rebuilt, code-built site is now fully machine-readable, with full schema and a statically-rendered menu.</p></details>
-          <details><summary>Why does ordering direct instead of through the apps matter so much?</summary><p>The apps take ~30% per order plus fees, and they own the customer. Direct ordering costs a fraction. At our place, direct runs ~8.8% of the mix against 20%+ on the 30%-fee apps — move even part of that to direct and the difference drops straight to the bottom line.</p></details>
-          <details><summary>Can you prove the same results at my restaurant?</summary><p>We prove it in your real numbers — sales tracked month over month straight from your POS and the apps, not a spreadsheet. And with strategy work you only start paying once the savings show up. We built and validated every play on our own restaurant so you get an enterprise-grade setup without being the experiment.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="ctaband">
-      <div class="wrap ctaband__inner">
-        <p>Your restaurant is the next walkthrough. <strong>2 of 5 founding spots are taken</strong> — founding restaurants lock the lowest rate for life, and only pay once they're saving.</p>
-        <a href="index.html#contact" class="btn btn--primary">Book your free call</a>
-      </div>
-    </section>
-
-    <div class="wrap" style="padding:26px 0 40px">
-      <div class="guide__next">
-        <p class="guide__next-label">Go deeper</p>
-        <a href="details.html">The plays, the toolbox, and pricing in full detail →</a>
-        <a href="cut-delivery-commissions.html">How to cut DoorDash &amp; delivery commissions →</a>
-        <a href="get-your-restaurant-recommended-by-ai.html">How to get recommended by ChatGPT &amp; Gemini →</a>
-        <a href="index.html#contact">Book your free call — we'll walk your restaurant too →</a>
-      </div>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap footer__inner">
-      <span class="brand">AZ&nbsp;Restaurant&nbsp;Partners</span>
-      <p><strong>Keep more of what you earn.</strong> For independent, family-run restaurants — a restaurant family + an engineering team · Spring &amp; Greater Houston, TX.</p>
-      <p class="footer__copy">© <span id="year"></span> AZ Restaurant Partners · <a href="index.html">Home</a> · <a href="details.html">Pricing &amp; FAQ</a> · <a href="guides.html">Guides</a></p>
-    </div>
-  </footer>
-
-  <div class="mobilecta" id="mobilecta">
-    <a href="index.html#contact" class="btn btn--primary btn--full">Book your free call</a>
   </div>
+  <div>
+    <div class="phone"><img src="/assets/proof/table-haniya.jpg" alt="The table ordering screen at Wok & Karahi with Haniya, the AI host" width="600" height="1021" fetchpriority="high"></div>
+    <p class="caption">The real table screen at Wok &amp; Karahi</p>
+  </div>
+</div></header>
 
-  <script src="script.js"></script>
-  <script>
-  (function(){
-    var CYC = document.querySelectorAll('.cyc');
-    if(CYC.length){
-      var ci = 0;
-      setInterval(function(){
-        CYC.forEach(function(c){ c.classList.remove('on'); });
-        CYC[ci].classList.add('on');
-        ci = (ci + 1) % CYC.length;
-      }, 1900);
+<section class="proof" aria-label="Proof"><div class="in">
+  <div class="ptitle"><h2>The numbers today</h2><span>● Real numbers from the restaurant, Oct 2026</span></div>
+  <div class="stats">
+    <div class="stat"><span class="rank">01 · No server needed</span><b>98 of 99</b><p>dine-in orders <strong>placed and paid by guests</strong> on their own phones</p></div>
+    <div class="stat"><span class="rank">02 · No order-takers</span><b>94%</b><p>of direct orders arrive with <strong>no staff member taking them</strong>. In August: 17%.</p></div>
+    <div class="stat"><span class="rank">03 · No missed calls</span><b>273</b><p>real calls answered by AI in 3 weeks. <strong>40 became paid orders.</strong></p></div>
+    <div class="stat"><span class="rank">04 · No unpaid tickets</span><b>317 of 317</b><p>app orders <strong>paid before cooking</strong></p></div>
+    <div class="stat"><span class="rank">05 · Found in AI answers</span><b>~7 of 10</b><p>AI-assistant answers to local food questions <strong>name the restaurant</strong> (4 engines, Oct 14)</p></div>
+    <div class="stat"><span class="rank">06 · Customers you own</span><b>1,988</b><p>guests known <strong>by name</strong>, 90% reachable by phone</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="jobs" style="padding-top:20px"><div class="in">
+  <div class="eyebrow">Before and after</div>
+  <h2 class="big">Six jobs. Who did them then, what does them now.</h2>
+  <p class="sub">The same problems most independents have: a phone nobody can answer in the rush, apps taking a cut of every order, and an owner who has to be there for anything to happen.</p>
+  <div class="ba">
+    <div class="r"><div class="job">Taking dine-in orders</div><p class="was"><span class="lab">Before</span>A server walked every order to the register.</p><p class="now"><span class="lab">Now</span>Guests scan the table code, order in their language and pay. <b>98 of 99</b> dine-in orders in the last 14 days.</p></div>
+    <div class="r"><div class="job">Answering the phone</div><p class="was"><span class="lab">Before</span>Calls rang out in the rush.</p><p class="now"><span class="lab">Now</span>Haniya, the AI host, answers every call, writes the order into Clover and texts a pay link. <b>273</b> real calls in 3 weeks.</p></div>
+    <div class="r"><div class="job">The cashier</div><p class="was"><span class="lab">Before</span>A person on the register, and pay at the counter.</p><p class="now"><span class="lab">Now</span>Every order is paid before it cooks. <b>317 of 317</b> app orders, 6 in 10 with Apple Pay or Google Pay.</p></div>
+    <div class="r"><div class="job">Delivery apps</div><p class="was"><span class="lab">Before</span>Three tablets, orders re-typed into the register, about 30% gone to the app.</p><p class="now"><span class="lab">Now</span>One register for every channel. The restaurant's own ordering at its own prices, with <b>94%</b> of direct orders self-placed.</p></div>
+    <div class="r"><div class="job">Marketing</div><p class="was"><span class="lab">Before</span>A website AI assistants couldn't read, and a guest list the apps kept.</p><p class="now"><span class="lab">Now</span>Named in about <b>7 of 10</b> AI answers to local food questions. <b>1,988</b> guests known by name. Reviews <b>400 → 941</b>, 4.5 stars.</p></div>
+    <div class="r"><div class="job">The manager on call</div><p class="was"><span class="lab">Before</span>The owner had to be in the building.</p><p class="now"><span class="lab">Now</span>A 10 AM text, alerts only when something needs him, and menu changes by voice. <b>20</b> watchers run all day.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="in">
+  <div class="roles">
+    <article class="role">
+      <div>
+        <div class="eyebrow">At the table</div>
+        <h3>Order, pay, done.</h3>
+        <p>Older guests tap Haniya and say what they want. The ticket prints in the kitchen with the table and every note.</p>
+      </div>
+      <div class="shot shots">
+        <div class="phone"><img src="/assets/proof/table-menu.jpg" alt="Table ordering menu" loading="lazy" width="600" height="1021"></div>
+        <div class="phone"><img src="/assets/proof/table-haniya-listening.jpg" alt="Haniya listening at the table" loading="lazy" width="600" height="1021"></div>
+      </div>
+    </article>
+    <article class="role">
+      <div>
+        <div class="eyebrow">In the back office</div>
+        <h3>Where every order came from.</h3>
+        <p>The owner's dashboard splits orders by table, phone, website and apps, and shows every call Haniya took today.</p>
+      </div>
+      <div class="shot" style="display:grid;gap:12px"><div class="wide"><img src="/assets/proof/dash-order-sources.jpg" alt="Owner dashboard: order sources over 30 days, money blurred" loading="lazy" width="1440" height="682"></div><div class="wide"><img src="/assets/proof/dash-phone.jpg" alt="Owner dashboard phone page, numbers blurred" loading="lazy" width="1440" height="682"></div><p class="caption" style="text-align:left;margin:0">Dollar amounts and caller numbers blurred.</p></div>
+    </article>
+  </div>
+</div></section>
+
+<section class="sec listen" id="listen"><div class="in">
+  <div class="eyebrow" style="color:#e9895c">Hear it</div>
+  <h2 class="big">Real calls. Real restaurant.</h2>
+  <p class="sub">The owner's father runs the menu by voice, in English and in Urdu. Pauses shortened, nothing else edited.</p>
+  <div class="clips">
+    <div class="clip"><span class="who">OWNER · ENGLISH · 11 S</span><q>Haniya, remove lemonade for today.</q><p class="tr">"Done. Lemonade is off everywhere for today and will be back on at 9 PM tonight."</p><audio controls preload="none" src="/assets/audio/admin-remove-en.mp3"></audio></div>
+    <div class="clip"><span class="who">OWNER · URDU · 10 S</span><q>Haniya, lemonade menu mein phir se daal do.</q><p class="tr">Put lemonade back on the menu. She puts it back on the phone line, the menu and Clover.</p><audio controls preload="none" src="/assets/audio/admin-putback-ur.mp3"></audio></div>
+    <div class="clip"><span class="who">A REAL CALLER · OCT 14, 2026</span><q>I love this AI. It works really well.</q><p class="tr">Said unprompted, at the end of a paid pickup order.</p><p class="note">Recording kept private for the caller's privacy.</p></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="in">
+  <div class="eyebrow">What it takes in your restaurant</div>
+  <h2 class="big">It ramps. Then it runs.</h2>
+  <div class="honest">
+    <div><h3>The first three months</h3><ul><li>The phone AI runs hybrid: some calls go to Haniya, the rest still go to your staff.</li><li>We tune her to your menu, your regulars and your rules every week.</li><li>Table ordering and pay-first go live on day one.</li></ul></div>
+    <div><h3>After that</h3><ul><li>The phone is about 99% hands-free.</li><li>You get one text a morning and an alert only when something needs you.</li><li>You keep the customers, the data and the phone number.</li></ul></div>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="in">
+  <div class="cta-band">
+    <div><div class="eyebrow">Your restaurant next</div><h2 class="big" style="font-size:clamp(26px,3.4vw,40px)">Pick the jobs you want replaced.</h2></div>
+    <a class="btn" href="/#start" data-track="cta_click" data-track-where="band">Pick what to replace</a>
+  </div>
+</div></section>
+
+<section class="sec" id="faq" style="padding-top:0"><div class="in">
+  <div class="eyebrow">Questions</div>
+  <h2 class="big" style="font-size:clamp(28px,3.6vw,44px)">What owners ask about this restaurant</h2>
+  <div class="faq">
+    <details><summary>Is this a real restaurant or a demo?</summary><p>A real, operating halal Chinese, Indian and Pakistani restaurant in Spring, Texas, owned by the family of AZ's founder, Abbas Zoeb. Every system we set up runs there first.</p></details>
+    <details><summary>How many orders do guests place themselves?</summary><p>98 of the last 99 dine-in orders were placed and paid by guests on their own phones. 94% of direct orders arrive with no staff member taking them, up from 17% in August.</p></details>
+    <details><summary>Does the phone AI work from day one?</summary><p>It ramps. For about three months it runs hybrid, with some calls going to the AI and the rest to your staff. After that it reaches about 99% hands-free.</p></details>
+  </div>
+</div></section>
+
+<footer><div class="in cols">
+  <div><a class="logo" href="/" style="font-size:17px"><img src="/assets/brand/logo-180.png" alt="" width="26" height="26">AZ Restaurant Partners</a><p style="margin:10px 0 0">Houston, Texas<br>abbas@azrestaurantpartners.com<br>(408) 393-6716</p></div>
+  <div><h5>AI staff</h5><a href="/ai-phone-answering-restaurants.html">AI phone answering for restaurants</a><a href="/ai-phone-answering-houston-restaurants.html">AI phone answering, Houston</a><a href="/ai-phone-answering-cost.html">What AI phone answering costs</a><a href="/cut-labor-costs.html">Cut labor costs</a><a href="/case-study.html">Case study: Wok &amp; Karahi</a></div>
+  <div><h5>Own your orders</h5><a href="/online-ordering-without-doordash.html">Online ordering without DoorDash</a><a href="/commission-free-online-ordering-systems.html">Commission-free ordering</a><a href="/cut-delivery-commissions.html">Cut delivery commissions</a><a href="/delivery-commission-calculator.html">Commission calculator</a><a href="/restaurant-loyalty-winback.html">Loyalty and win-back</a></div>
+  <div><h5>Get found</h5><a href="/get-your-restaurant-recommended-by-ai.html">Get recommended by AI</a><a href="/local-seo-for-restaurants.html">Local SEO for restaurants</a><a href="/get-more-restaurant-reviews.html">Get more reviews</a><a href="/guides.html">All guides</a><a href="/investors.html">Investors</a></div>
+</div></footer>
+
+<div class="sticky" id="sticky"><a class="btn" href="/#start" data-track="cta_click" data-track-where="sticky">Pick what to replace</a></div>
+
+<script>
+/* ══ MEASUREMENT ═══════════════════════════════════════════════════════════
+   Shared by every v2 page. Built to match what v1's script.js already does, so
+   nothing that works today stops working at cutover:
+
+     - GA4 loads directly (data flows with no container setup)
+     - GTM loads too, because pixels added in the GTM UI live there, and a page
+       that quietly drops the container silently stops every one of them
+     - campaign attribution is captured once and rides on every event, under
+       the same sessionStorage key v1 uses, so a visitor crossing between a v1
+       page and a v2 page keeps one attribution
+     - one delegated listener: any element with data-track fires an event, and
+       every data-track-* becomes a parameter, so a new button is measured the
+       moment it is added
+
+   Beyond v1 it also records how far people read, which sections were truly
+   seen and for how long, and total time on page.
+
+   Do NOT add a GA4 Configuration tag inside GTM while GA4 also loads directly
+   here — GA4 would double-count.                                            */
+(function(){
+  var GA4_ID = "G-3GEL1D477G";      /* azrestaurantpartners.com — runs directly */
+  var GTM_ID = "GTM-K6GTGXP9";      /* container for pixels added in the GTM UI */
+  var PAGE   = "case_study_v3";
+
+  /* ── attribution: captured once, kept for the whole visit ──────────────── */
+  var ATTR = (function(){
+    var KEY="azattr", saved={};
+    try{ saved=JSON.parse(sessionStorage.getItem(KEY)||"{}"); }catch(e){}
+    var qs=new URLSearchParams(location.search), changed=false;
+    ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){
+      var v=qs.get(k); if(v&&!saved[k]){ saved[k]=v; changed=true; }
+    });
+    if(!saved.landing){ saved.landing=(location.pathname.split("/").pop()||"index.html"); changed=true; }
+    if(!saved.referrer && document.referrer && document.referrer.indexOf(location.host)===-1){
+      saved.referrer=document.referrer; changed=true;
     }
-    function stagedReveal(rootId){
-      var root = document.getElementById(rootId);
-      if(!root) return;
-      var seen=false;
-      new IntersectionObserver(function(es){ es.forEach(function(e){
-        if(!e.isIntersecting || seen) return; seen=true;
-        root.querySelectorAll('[data-i]').forEach(function(r){
-          setTimeout(function(){ r.classList.add('show'); }, 400 + parseInt(r.dataset.i,10)*900);
-        });
-      }); }, {threshold:.4}).observe(root);
-    }
-    stagedReveal('gcard');
-    stagedReveal('catcalc');
-    var NOTIFS = [
-      ['email · 7:00 am', "<strong>Daily sales report — yesterday</strong><br/>Orders, revenue vs last week, top dishes, channel mix — straight from the POS."],
-      ['email · monday', "<strong>This week I propose:</strong><br/>1) new page: “halal catering near The Woodlands”<br/>2) sharper catering call-to-action<br/><span class='approve'>reply: APPROVE → it ships itself</span>"],
-      ['text message', "⚠ <strong>Heads up:</strong> an online order failed → auto-retried ✓."],
-      ['email · weekly', "<strong>What the phone captured</strong> — 2 catering leads, 3 complaints handled &amp; logged, 14 regulars greeted by name."]
-    ];
-    var pFeed = document.getElementById('phoneFeed');
-    if(pFeed){
-      var phSeen=false;
-      new IntersectionObserver(function(es){ es.forEach(function(e){
-        if(!e.isIntersecting || phSeen) return; phSeen=true;
-        NOTIFS.forEach(function(n,i){
-          setTimeout(function(){
-            var d=document.createElement('div'); d.className='notif';
-            d.innerHTML = '<span class="app">'+n[0]+'</span>'+n[1];
-            pFeed.appendChild(d);
-            requestAnimationFrame(function(){ requestAnimationFrame(function(){ d.classList.add('show'); }); });
-          }, 400 + i*1400);
-        });
-      }); }, {threshold:.35}).observe(pFeed);
-    }
+    if(changed){ try{ sessionStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){} }
+    return saved;
   })();
-  </script>
+
+  /* ── GA4 and GTM ───────────────────────────────────────────────────────── */
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+
+  var s=document.createElement("script");
+  s.async=true; s.src="https://www.googletagmanager.com/gtag/js?id="+GA4_ID;
+  document.head.appendChild(s);
+  gtag("js", new Date());
+  gtag("config", GA4_ID, { transport_type:"beacon" });
+
+  window.dataLayer.push({ "gtm.start": new Date().getTime(), event:"gtm.js" });
+  var g=document.createElement("script");
+  g.async=true; g.src="https://www.googletagmanager.com/gtm.js?id="+GTM_ID;
+  document.head.appendChild(g);
+
+  function track(name, params){
+    var p={ page:PAGE, path:location.pathname };
+    ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","referrer","landing"]
+      .forEach(function(k){ if(ATTR[k]) p[k]=ATTR[k]; });
+    if(params) for(var k in params) if(Object.prototype.hasOwnProperty.call(params,k)) p[k]=params[k];
+    try{ gtag("event", name, p); }catch(e){}
+  }
+  window.azTrack = track;
+
+  /* The lead email should say where the lead came from — v1 sends this and a
+     lead that arrives with no source is a lead you cannot attribute. */
+  window.azSource = function(){
+    var parts=[];
+    ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){
+      if(ATTR[k]) parts.push(k.replace("utm_","")+"="+ATTR[k]);
+    });
+    if(ATTR.referrer) parts.push("referrer="+ATTR.referrer);
+    if(ATTR.landing)  parts.push("landing="+ATTR.landing);
+    return parts.length ? parts.join(" \u00b7 ") : "direct / none";
+  };
+
+  function sectionOf(el){
+    var s = el.closest && el.closest("section[id], section");
+    if(!s) return "";
+    if(s.id) return s.id;
+    var k = s.querySelector(".kick");
+    return k ? k.textContent.trim().toLowerCase().replace(/\s+/g,"_").slice(0,40) : "";
+  }
+
+  /* 1 — anything carrying data-track, with its data-track-* parameters */
+  document.addEventListener("click", function(e){
+    var el=e.target.closest("[data-track]"); if(!el) return;
+    var p={};
+    for(var i=0;i<el.attributes.length;i++){
+      var a=el.attributes[i];
+      if(a.name.indexOf("data-track-")===0) p[a.name.slice(11).replace(/-/g,"_")]=a.value;
+    }
+    p.section = sectionOf(el);
+    track(el.getAttribute("data-track"), p);
+  }, true);
+
+  /* 2 — every other link and button, classified, with no markup required */
+  document.addEventListener("click", function(e){
+    var el=e.target.closest("a, button");
+    if(!el || el.hasAttribute("data-track")) return;
+    var h=el.getAttribute("href")||"", name="click";
+    if(/^tel:/i.test(h)) name="call_click";
+    else if(/^mailto:/i.test(h)) name="email_click";
+    else if(/wa\.me|whatsapp/i.test(h)) name="whatsapp_click";
+    else if(/\.pdf($|\?)/i.test(h)) name="pdf_download";
+    else if(/^https?:/i.test(h) && h.indexOf(location.host)===-1) name="outbound_click";
+    else if(h.charAt(0)==="#") name="anchor_click";
+    track(name, {
+      text:(el.textContent||el.getAttribute("aria-label")||"").trim().replace(/\s+/g," ").slice(0,60),
+      href:h.slice(0,120),
+      section:sectionOf(el)
+    });
+  }, true);
+
+  /* 3 — how far they actually read */
+  (function(){
+    var hit={};
+    addEventListener("scroll", function(){
+      var d=document.documentElement,
+          pct=Math.round((scrollY+innerHeight)/d.scrollHeight*100);
+      [25,50,75,90].forEach(function(m){ if(pct>=m&&!hit[m]){ hit[m]=1; track("scroll_depth",{percent:m}); } });
+    }, {passive:true});
+  })();
+
+  /* 4 — which sections were genuinely seen, and for how long */
+  (function(){
+    if(!("IntersectionObserver" in window)) return;
+    var seen={}, since={};
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        var id=sectionOf(en.target)||"section";
+        if(en.isIntersecting){
+          since[id]=Date.now();
+          if(!seen[id]){ seen[id]=1; track("section_view",{section:id}); }
+        }else if(since[id]){
+          var secs=Math.round((Date.now()-since[id])/1000); since[id]=0;
+          if(secs>=3) track("section_dwell",{section:id,seconds:secs});
+        }
+      });
+    }, {threshold:.35});
+    [].forEach.call(document.querySelectorAll("section"), function(s){ io.observe(s); });
+  })();
+
+  /* 5 — total time, reported once on the way out */
+  (function(){
+    var t0=Date.now(), sent=false;
+    function bye(){ if(sent) return; sent=true; track("time_on_page",{seconds:Math.round((Date.now()-t0)/1000)}); }
+    addEventListener("visibilitychange", function(){ if(document.visibilityState==="hidden") bye(); });
+    addEventListener("pagehide", bye);
+  })();
+})();
+
+</script>
 </body>
 </html>

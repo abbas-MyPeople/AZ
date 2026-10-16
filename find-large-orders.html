@@ -134,7 +134,7 @@
         <a href="toolbox.html">Toolbox</a>
         <a href="guides.html">Guides</a>
         <a href="details.html">Full details</a>
-        <a href="index.html#contact" class="nav__cta">Book a free call</a>
+        <a href="index.html#start" class="nav__cta">Get started</a>
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
     </div>
@@ -172,7 +172,7 @@
           <div class="bridge">
             <h3>Found some worth pursuing?</h3>
             <p>AZ Restaurant Partners helps independent restaurants turn opportunities like these into repeatable systems — catering funnels, ordering flows, outreach and the automation around them.</p>
-            <a href="index.html#contact" class="btn btn--primary"
+            <a href="index.html#start" class="btn btn--primary"
                data-track="az_help_cta_clicked" data-track-source="find_large_orders">Help me turn these into orders</a>
           </div>
         </div>
@@ -331,7 +331,7 @@
         if (r) {
           showState(r[0], r[1] +
             '<p>If you want us to look at what\'s around your restaurant in the meantime, ' +
-            '<a href="index.html#contact">tell us where you are</a> and we\'ll do it by hand.</p>');
+            '<a href="index.html#start">tell us where you are</a> and we\'ll do it by hand.</p>');
           track("opportunity_search_failed", { reason: data.reason });
           return;
         }
@@ -343,7 +343,7 @@
           "<p>We looked, but nothing nearby cleared the bar with evidence behind it. " +
           "That happens in quieter areas and in slow weeks for local events.</p>" +
           "<p>Rather than pad the list with offices you already know about, we'd rather show you nothing. Try again in a week, or " +
-          '<a href="index.html#contact">talk to us</a> and we\'ll look properly.</p>');
+          '<a href="index.html#start">talk to us</a> and we\'ll look properly.</p>');
         return;
       }
 
@@ -398,7 +398,7 @@
           "<p>The search service behind it isn't connected, so there is nothing real to show you — " +
           "and we won't show you a made-up list to fill the space.</p>" +
           '<p>If you want us to look at what\'s around your restaurant in the meantime, ' +
-          '<a href="index.html#contact">tell us where you are</a> and we\'ll do it by hand.</p>');
+          '<a href="index.html#start">tell us where you are</a> and we\'ll do it by hand.</p>');
         track("opportunity_search_failed", { reason: "endpoint_not_configured" });
         return;
       }
@@ -419,7 +419,7 @@
           stopStages();
           showState("That didn't go through",
             "<p>We couldn't finish the search. It's us, not you — try again in a moment.</p>" +
-            '<p>If it keeps failing, <a href="index.html#contact">let us know</a> and we\'ll look at your area by hand.</p>');
+            '<p>If it keeps failing, <a href="index.html#start">let us know</a> and we\'ll look at your area by hand.</p>');
           track("opportunity_search_failed", { reason: String(err && err.message || "unknown") });
         })
         .then(function () { submit.disabled = false; });
