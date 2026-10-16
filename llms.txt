@@ -98,7 +98,7 @@ than any city in the US or Canada, Harris County leading every county
   modules, or have us do all of it). Month-to-month, and the owner keeps everything built.
 
 ## Comparisons (vendor facts checked on their own pages, Oct 2026)
-- [AI phone ordering compared: Maple, Slang.ai, Loman, Serviio, Kea, Revmo, Yelp Host and AZ](https://azrestaurantpartners.com/compare-ai-phone-host.html) - POS ordering, payment, published languages, Clover support and published prices, checked on vendor pages Oct 2026
+- [Best AI phone ordering for restaurants (2026): Haniya vs Maple, Loman, Kea, Slang, Square](https://azrestaurantpartners.com/compare-ai-phone-host.html) - features, prices, setup fees, contracts and trials for 9 restaurant phone AIs, from their own pages, Oct 16 2026. Haniya: $100/mo per location, no setup fee, no contract, 15-day free trial, Clover
 - [Table QR order and pay compared: Toast, Sunday, me&u, Clover, Square, DoorDash Tableside and AZ](https://azrestaurantpartners.com/compare-table-ordering.html) - order and pay at table, shared tabs, guest languages, POS, published prices
 - [Commission-free online ordering compared: Owner.com, ChowNow, Menufy, BentoBox, Toast, Square and AZ](https://azrestaurantpartners.com/compare-online-ordering.html) - what the restaurant pays, what the guest pays, contracts, POS
 - [Restaurant marketing, CRM and loyalty compared: Owner.com, Popmenu, Toast IQ Grow, Thanx, Bikky, SevenRooms and AZ](https://azrestaurantpartners.com/compare-restaurant-marketing.html) - what each does, who it is built for, POS, published prices
