@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "generated_at": "2026-10-16T03:36:06Z",
+  "generated_at": "2026-10-16T03:38:15Z",
   "gsc": {
     "gsc": "ok",
     "sa": "ga4-reader@ga4-reader-500818.iam.gserviceaccount.com",
@@ -6115,10 +6115,10 @@
             "named": false,
             "our_urls": [],
             "others": [
-              "Google Cloud Dialogflow CX",
+              "Bland AI",
               "Loman",
               "Loman AI",
-              "Microsoft Azure AI Speech",
+              "Retell AI",
               "Slang",
               "Slang.ai",
               "Vapi"
@@ -6132,12 +6132,13 @@
             "named": false,
             "our_urls": [],
             "others": [
-              "ConverseNow",
+              "Loman",
+              "Loman AI",
               "Retell AI",
               "Slang",
               "Slang.ai",
               "SoundHound",
-              "SoundHound Restaurants",
+              "SoundHound Restaurant AI",
               "Vapi"
             ],
             "cited_domains": []
@@ -6151,8 +6152,9 @@
             "others": [
               "7shifts",
               "MarginEdge",
-              "QuickBooks Online",
               "Restaurant365",
+              "Square",
+              "Square for Restaurants",
               "Toast"
             ],
             "cited_domains": []
@@ -6164,12 +6166,13 @@
             "named": false,
             "our_urls": [],
             "others": [
-              "Lyle's Golden Syrup",
-              "maple",
-              "Steen's Pure Cane Syrup",
-              "Sysco",
-              "US Foods",
-              "Wholesome Sweeteners Organic Agave Nectar"
+              "ChowNow",
+              "DoorDash",
+              "Grubhub",
+              "Maple",
+              "Toast",
+              "Toast Online Ordering",
+              "Uber Eats"
             ],
             "cited_domains": []
           },
@@ -6181,7 +6184,7 @@
             "our_urls": [],
             "others": [
               "Lightspeed Restaurant",
-              "Olo",
+              "Local Houston IT or POS consultancies",
               "Restaurant365",
               "Square",
               "Square for Restaurants",
@@ -6196,12 +6199,12 @@
             "named": false,
             "our_urls": [],
             "others": [
-              "Presto",
-              "Rosie",
+              "ConverseNow",
+              "Goodcall",
+              "Hostie",
+              "Loman",
               "Slang",
-              "Slang.ai",
-              "SoundHound",
-              "SoundHound Restaurants"
+              "Slang.ai"
             ],
             "cited_domains": []
           },
@@ -6212,8 +6215,9 @@
             "named": false,
             "our_urls": [],
             "others": [
-              "ConverseNow",
-              "Goodcall",
+              "GoodCall",
+              "Loman",
+              "Loman AI",
               "Ruby",
               "Slang",
               "Slang.ai",
@@ -6228,22 +6232,14 @@
             "named": false,
             "our_urls": [],
             "others": [
+              "Lightspeed Restaurant",
               "Olo",
-              "Restaurant365",
-              "Smartbridge",
+              "Owner.com",
               "Square",
               "Square for Restaurants",
               "Toast"
             ],
-            "cited_domains": [
-              "alacarteconsultinggroup.com",
-              "bhsg.com",
-              "blueorbiting.com",
-              "gilkeyrestaurantconsulting.com",
-              "smartbridge.com",
-              "yelp.com",
-              "ziprecruiter.com"
-            ]
+            "cited_domains": []
           },
           {
             "q": "Owner.com alternatives for an independent restaurant",
@@ -6254,10 +6250,10 @@
             "others": [
               "BentoBox",
               "ChowNow",
+              "GloriaFood",
               "Owner.com",
-              "Popmenu",
               "Square",
-              "Square for Restaurants",
+              "Square Online",
               "Toast"
             ],
             "cited_domains": []
@@ -6269,8 +6265,8 @@
             "named": false,
             "our_urls": [],
             "others": [
-              "BentoBox",
               "ChowNow",
+              "GloriaFood",
               "Owner.com",
               "Square",
               "Square for Restaurants",
@@ -6287,7 +6283,6 @@
             "others": [
               "ConverseNow",
               "Loman",
-              "Popmenu",
               "Presto",
               "Slang",
               "Slang.ai"
@@ -6318,12 +6313,12 @@
             "named": false,
             "our_urls": [],
             "others": [
-              "BrightLocal",
+              "Bing Places for Business",
+              "Eater Houston",
               "Google Business Profile",
-              "Tripadvisor",
+              "TripAdvisor",
               "Yelp",
-              "Yelp for Business",
-              "Yext"
+              "Yelp for Business"
             ],
             "cited_domains": []
           },
@@ -6334,8 +6329,8 @@
             "named": false,
             "our_urls": [],
             "others": [
-              "Lightspeed Restaurant",
-              "Olo",
+              "Presto",
+              "SpotOn",
               "Square",
               "Square for Restaurants",
               "Toast",
@@ -6350,9 +6345,10 @@
             "named": false,
             "our_urls": [],
             "others": [
-              "ChowNow",
-              "Owner.com",
-              "Restaurant365",
+              "Clover",
+              "Clover (Fiserv)",
+              "Lightspeed Restaurant",
+              "SpotOn",
               "Square",
               "Square for Restaurants",
               "Toast"
@@ -6368,10 +6364,11 @@
             "others": [
               "ezCater",
               "Google Business Profile",
-              "Greater Houston Partnership",
               "Sharebite",
-              "Square",
-              "Square Online"
+              "Toast",
+              "Toast Online Ordering",
+              "Yelp",
+              "Yelp for Business"
             ],
             "cited_domains": []
           },
@@ -6382,14 +6379,14 @@
             "named": false,
             "our_urls": [],
             "others": [
+              "Cater2.me",
               "DoorDash",
               "DoorDash Drive",
               "Grubhub",
-              "Grubhub for Work",
-              "Olo",
+              "Grubhub for Business",
               "Toast",
-              "Uber Eats",
-              "Uber Eats for Business"
+              "Toast Online Ordering",
+              "Uber Eats"
             ],
             "cited_domains": []
           },
@@ -6401,9 +6398,7 @@
             "our_urls": [],
             "others": [
               "Goodcall",
-              "Rosie",
               "Ruby",
-              "Ruby Receptionists",
               "Slang",
               "Slang.ai",
               "Smith.ai"
@@ -6417,9 +6412,10 @@
             "named": false,
             "our_urls": [],
             "others": [
-              "7shifts",
-              "ConverseNow",
-              "Restaurant365",
+              "ChatGPT (OpenAI)",
+              "Google Business Profile",
+              "Slang",
+              "Slang.ai",
               "Square",
               "Square for Restaurants",
               "Toast"
@@ -6434,12 +6430,11 @@
             "our_urls": [],
             "others": [
               "ChowNow",
+              "DoorDash",
               "Olo",
+              "Otter",
               "Owner.com",
-              "Square",
-              "Square Online",
-              "Toast",
-              "Toast Online Ordering"
+              "Toast"
             ],
             "cited_domains": []
           }
