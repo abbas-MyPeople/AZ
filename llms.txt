@@ -18,6 +18,13 @@
 > house. Owners pick the jobs they want covered on the website and AZ replies the same day. No long
 > contract. Five founding restaurants only; two are taken.
 
+## Latest guides
+- [Toast's new AI agents: what they mean for independent restaurants](https://azrestaurantpartners.com/news-toast-iq-ai-agents.html) - Toast added scheduling, SEO, reviews and offers agents on Oct 7, 2026. What each does, the reported prices, what is still early access, and what to do next. Checked Oct 2026.
+- [Uber is buying ezCater: what it means for your catering orders](https://azrestaurantpartners.com/news-uber-ezcater-catering.html) - Uber agreed on Oct 6, 2026 to buy ezCater for $2.3 billion. What is confirmed, what is not, and five steps to own your repeat catering buyers. Checked Oct 2026.
+- [Can customers order from your restaurant in ChatGPT or Claude?](https://azrestaurantpartners.com/guide-chatgpt-food-ordering-restaurants.html) - Who can take orders inside AI assistants today (Square, DoorDash), what it costs, and five steps to get ready on any POS. Checked Oct 2026.
+- [How to add AI ordering without losing guests](https://azrestaurantpartners.com/how-to-add-ai-ordering-without-losing-guests.html) - Lessons from Burger King, Taco Bell and Presto this fall, and seven steps to roll out AI phone or kiosk ordering so guests stay. Checked Oct 2026.
+- [AI restaurant scheduling: Toast IQ vs Homebase vs 7shifts](https://azrestaurantpartners.com/vs-ai-scheduling-toast-vs-homebase-vs-7shifts.html) - What each tool's AI does, sales forecasting, POS, price and status, from each vendor's own pages, plus a 20-staff cost example. Checked Oct 2026.
+
 ## What AZ does (offerings)
 - Commission Rescue — move orders off the ~30% third-party delivery apps to first-party ordering.
 - AI Phone Agent — answer every call 24/7, take orders into the POS, book tables, handle catering.
