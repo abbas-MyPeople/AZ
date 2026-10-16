@@ -1,24 +1,22 @@
 # AZ Restaurant Partners
 
-> The technology team an independent restaurant does not have. AZ studies how a restaurant actually
-> runs, finds where its money is going, then buys, connects or builds whatever fixes it — and operates
-> it afterwards. Not a product, not a one-off project. One partner responsible for every part of the
-> restaurant that runs on technology: getting found (Google and AI answers), winning the order (an AI
-> phone line that writes orders into the POS, direct ordering), growing the order (upsell, pricing,
-> catering), keeping the guest (reviews, loyalty, win-back, a guest list the owner owns), keeping the
-> money (true profit rather than card totals), and watching all of it (nightly checks, alerts, weekly
-> improvements). Sometimes the highest-return fix is not software at all, and AZ builds those too.
-> Founded and run by Abbas Zoeb, who engineered at Google, worked on Hard Rock Cafe's first AI agents
-> earlier in his career in enterprise software, and owns Wok & Karahi in Spring, TX — where every
-> system runs first. The owner keeps every account, login and customer record in their own name and
-> can leave at any time with all of it still working.
+> AZ Restaurant Partners sets up AI staff for independent restaurants: AI that takes phone orders into
+> the POS (Clover) in English, Urdu, Hindi and Spanish, lets guests order and pay from the table, runs
+> the restaurant's own online ordering and delivery, texts guests, grows reviews and Google/AI-search
+> visibility, keeps ads profitable, and gives the owner one morning text, alerts and voice control.
+> Proven first in the founder's own restaurant, Wok & Karahi in Spring, Texas, which runs with no
+> server, no cashier and no phone person. Real numbers from October 2026: 98 of 99 dine-in orders were
+> placed and paid by guests on their own phones; every call is answered by the AI host, and more than
+> 1 in 4 calls arrive while the restaurant is closed; 94% of the restaurant's direct orders arrive with
+> no staff member taking them (17% in August); 317 of 317 app orders were paid before cooking; Google
+> reviews went from about 400 to 941 (4.5 stars) since the family took over.
+> Founded by Abbas Zoeb, a former Google software engineer whose family owns Wok & Karahi.
 >
-> Serving Spring, The Woodlands, greater Houston and across Texas.
+> Serving Spring, The Woodlands, greater Houston and across Texas and the US.
 >
-> Pricing: founding partners pay nothing for the first three months — no monthly fee, no build or
-> setup charges, no contract. After that, from $99/month to operate everything, with custom work
-> quoted per job and approved before it starts. No equity and no percentage of sales. Five founding
-> restaurants only; two are taken.
+> Pricing: priced by what the restaurant wants replaced, from just the phone to the whole front of
+> house. Owners pick the jobs they want covered on the website and AZ replies the same day. No long
+> contract. Five founding restaurants only; two are taken.
 
 ## What AZ does (offerings)
 - Commission Rescue — move orders off the ~30% third-party delivery apps to first-party ordering.
