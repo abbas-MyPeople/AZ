@@ -116,7 +116,7 @@ _OR = "https://openrouter.ai/api/v1/chat/completions"
 _ANTHROPIC = "https://api.anthropic.com/v1/messages"
 _GROQ = "https://api.groq.com/openai/v1/chat/completions"
 # Current Claude model + the dynamic-filtering web search server tool (claude-api skill, 2026-10).
-CLAUDE_MODEL = os.environ.get("AZ_AEO_CLAUDE_MODEL", "claude-opus-5-5")
+CLAUDE_MODEL = os.environ.get("AZ_AEO_CLAUDE_MODEL", "claude-haiku-5-5")  # a sampled panel; cents a week
 CLAUDE_SEARCH_TOOL = "web_search_20260209"
 
 ENGINES = [
