@@ -39,7 +39,6 @@
 {"@type":"Question","name":"Can AI really replace restaurant staff?","acceptedAnswer":{"@type":"Answer","text":"For ordering, payment and the phone, yes. At our own restaurant, Wok & Karahi in Spring, Texas, every table order is placed and paid by the guest on their own phone, and an AI host answers every call. Cooks and the people who carry food still matter; the order-taking, cashier and phone work no longer needs a person."}},
 {"@type":"Question","name":"Can an AI take phone orders straight into Clover?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our AI host, Haniya, writes the order into Clover, texts the guest a pay link, and the ticket prints in the kitchen once it is paid. She speaks English, Urdu, Hindi and Spanish and recognises regulars by their number."}},
 {"@type":"Question","name":"How much does AI restaurant staff cost?","acceptedAnswer":{"@type":"Answer","text":"It depends on what you want replaced. Tell us which jobs you want covered, from the phone to the whole front of house, and we price it on that. There is no long contract."}},
-{"@type":"Question","name":"Will AI restaurant staff work from day one?","acceptedAnswer":{"@type":"Answer","text":"Not fully. For about the first three months it runs alongside your staff: some calls and tables go to it, the rest to your team, and the gaps are fixed each week. After that it takes nearly all of it."}},
 {"@type":"Question","name":"What if the AI gets an order wrong?","acceptedAnswer":{"@type":"Answer","text":"The guest sees the whole order on their phone and pays only once it is right. Nothing reaches the kitchen until it is paid, and every call is recorded."}},
 {"@type":"Question","name":"Do I need a new POS?","acceptedAnswer":{"@type":"Answer","text":"No. We work with the POS you have. Our own restaurant runs on Clover."}},
 {"@type":"Question","name":"What happens to orders when the restaurant is closed?","acceptedAnswer":{"@type":"Answer","text":"The AI host still answers. At our restaurant more than 1 in 4 calls come in while we are closed, and each one is answered: she tells the caller when we open, takes the order for later or holds a table."}}]}
@@ -90,6 +89,12 @@ h1 em{font-style:normal;color:var(--accent)}
 @media (max-width:700px){.depts{display:flex}}
 .depts li b{color:var(--accent);font-family:var(--mono);font-size:11px;margin-right:5px}
 /* proof */
+.press{background:var(--dark);color:var(--darkfg)}
+.press .in{display:flex;align-items:center;justify-content:center;gap:clamp(18px,4vw,44px);padding-block:14px;flex-wrap:wrap}
+.press .lbl{font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--darkmuted)}
+.press .logos{display:flex;align-items:center;gap:clamp(22px,4vw,48px)}
+.press .lg{display:flex;align-items:center;background:#fff;border-radius:10px;padding:8px 16px}
+.press .lg img{display:block;height:clamp(44px,6.5vw,72px);width:auto}
 .proof{padding-block:28px 64px}
 .ptitle{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:10px}
 .ptitle h2{font-family:var(--display);font-size:22px;margin:0}
@@ -115,6 +120,24 @@ h2.big{font-family:var(--display);font-weight:800;font-size:clamp(32px,5vw,58px)
 .role .facts{display:flex;flex-wrap:wrap;gap:8px}
 .role .facts span{font-size:13px;background:var(--chip);border-radius:6px;padding:5px 10px}
 .role .facts span b{font-variant-numeric:tabular-nums}
+.one{font-size:17px;color:var(--muted);margin:0 0 18px;max-width:46ch}
+.nums{display:flex;flex-wrap:wrap;gap:12px 28px;margin:0 0 18px}
+.nums div{display:grid;gap:2px}
+.nums b{font-family:var(--display);font-size:clamp(34px,4vw,46px);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink)}
+.nums span{font-size:13.5px;color:var(--muted)}
+.kill{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.kill li{font-size:14px;font-weight:600;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 12px 6px 10px;display:flex;align-items:center;gap:7px}
+.kill li::before{content:"✕";color:var(--accent);font-weight:900;font-size:13px}
+.kill li s{text-decoration-color:var(--accent);text-decoration-thickness:2px}
+.klabel{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+.langs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}
+.langs span{font-size:14px;font-weight:600;background:var(--ink);color:var(--bg);border-radius:6px;padding:5px 11px}
+.gone{list-style:none;margin:16px 0 0;padding:14px 0 0;border-top:1px dashed var(--line);display:grid;gap:8px}
+.gone li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:15px;color:var(--muted);line-height:1.4}
+.gone li::before{content:"✕";color:var(--accent);font-weight:800}
+.gone li b{color:var(--ink)}
+.gone .gl{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;grid-column:1/-1}
+.gone .gl::before{content:none}
 .shots{display:flex;gap:14px;justify-content:center}
 .shots .phone{max-width:210px;border-width:6px;border-radius:26px}
 .wide{border-radius:12px;overflow:hidden;border:1px solid var(--line)}
@@ -161,14 +184,14 @@ h2.big{font-family:var(--display);font-weight:800;font-size:clamp(32px,5vw,58px)
 .fine{font-size:13px;color:var(--muted);margin-top:14px;max-width:80ch}
 @media (max-width:760px){.crow{grid-template-columns:1fr;gap:6px}.chead{display:none}}
 /* weeks */
-.weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px;counter-reset:wk}
+.weeks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px;counter-reset:wk}
 .wk{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:8px;align-content:start}
 .wk .when{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.04em}
 .wk h4{font-family:var(--display);font-size:20px;margin:0;line-height:1.2}
 .wk p{margin:0;font-size:15px;color:var(--muted)}
 .wk .bar{height:6px;border-radius:3px;background:var(--chip);overflow:hidden}
 .wk .bar i{display:block;height:100%;background:var(--green)}
-@media (max-width:900px){.weeks{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.weeks{grid-template-columns:1fr}}
 @media (max-width:520px){.weeks{grid-template-columns:1fr}}
 /* compare */
 .cmp{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:28px}
@@ -227,6 +250,14 @@ footer a:hover{color:var(--ink)}
 </head>
 <body>
 
+<div class="press" aria-label="Press"><div class="in">
+  <span class="lbl">As seen on</span>
+  <div class="logos">
+    <span class="lg"><img class="fox" src="/assets/press/fox26.svg" alt="FOX 26 Houston" width="199" height="72"></span>
+    <span class="lg"><img src="/assets/press/kprc2.svg" alt="KPRC 2 Houston" width="56" height="72"></span>
+  </div>
+</div></div>
+
 <nav><div class="in">
   <a class="logo" href="/"><img src="/assets/brand/logo-180.png" alt="" width="30" height="30">AZ Restaurant Partners</a>
   <div class="links"><a href="#replace">What it replaces</a><a href="#listen">Hear it</a><a href="#compare">Compare</a><a href="#faq">Questions</a><a href="/investors.html">Investors</a></div>
@@ -261,12 +292,12 @@ footer a:hover{color:var(--ink)}
 <section class="proof" aria-label="Proof"><div class="in">
   <div class="ptitle"><h2>What it's doing right now</h2><span>● Real numbers from our restaurant, Oct 2026</span></div>
   <div class="stats">
-    <div class="stat"><span class="rank">01 · No server needed</span><b>Every table</b><p>order is <strong>placed and paid by the guest</strong> on their own phone</p></div>
-    <div class="stat"><span class="rank">02 · No missed calls</span><b>Every call</b><p>answered by AI. <strong>More than 1 in 4</strong> come while we're closed.</p></div>
-    <div class="stat"><span class="rank">03 · No order-takers</span><b>100%</b><p>of our own orders arrive with <strong>no staff member taking them</strong>. In August: 17%.</p></div>
-    <div class="stat"><span class="rank">04 · No unpaid tickets</span><b>Zero</b><p>unpaid tickets. <strong>Every order is paid before it cooks.</strong></p></div>
-    <div class="stat"><span class="rank">05 · More reviews</span><b>400 → 941</b><p>Google reviews since we took over, <strong>4.5 stars</strong></p></div>
-    <div class="stat"><span class="rank">06 · Customers you own</span><b>1,988</b><p>guests known <strong>by name</strong>. The delivery apps give you none.</p></div>
+    <div class="stat"><span class="rank">01 · Dine and dash</span><b>Impossible</b><p>Every table <strong>pays before the kitchen cooks.</strong> Zero unpaid tickets.</p></div>
+    <div class="stat"><span class="rank">02 · Missed calls</span><b>Zero</b><p>Every call answered. <strong>More than 1 in 4</strong> come in while we're closed.</p></div>
+    <div class="stat"><span class="rank">03 · Staff taking orders</span><b>0</b><p><strong>100% of our own orders</strong> are placed by the guest. In August it was 17%.</p></div>
+    <div class="stat"><span class="rank">04 · Servers needed</span><b>None</b><p>Guests <strong>order and pay from their own phone</strong>, in 7 languages.</p></div>
+    <div class="stat"><span class="rank">05 · Google reviews</span><b>400 → 941</b><p>since we took over, <strong>4.5 stars</strong>.</p></div>
+    <div class="stat"><span class="rank">06 · Guests you know</span><b>Thousands</b><p>known <strong>by name</strong>: their usual order, what they love, what they complained about, their points. DoorDash gives you none of it.</p></div>
   </div>
 </div></section>
 
@@ -280,8 +311,10 @@ footer a:hover{color:var(--ink)}
       <div>
         <div class="eyebrow">Replaces the server and cashier</div>
         <h3>Guests order and pay from the table.</h3>
-        <p>Your guests scan the code at the table, order in their own language and pay with Apple Pay. Your kitchen gets the ticket only once it's paid, with the table, the name and every note. Older guests tap Haniya and just say what they want.</p>
-        <div class="facts"><span>Every table order placed by the guest</span><span>7 languages</span><span>Paid before cooking</span></div>
+        <p class="one">Scan, order, pay with Apple Pay. The kitchen only sees paid tickets.</p>
+        <div class="nums"><div><b>0</b><span>unpaid tickets</span></div><div><b>7</b><span>languages</span></div></div>
+        <p class="klabel">Gone for good</p>
+        <ul class="kill"><li>Dine and dash</li><li>Wrong orders</li><li>Waiting for the check</li><li>Server no-shows</li></ul>
       </div>
       <div class="shot pair">
         <div class="card-shot"><img src="/assets/proof/p-table-order.jpg" alt="Table ordering: the real guest screen with the menu blurred out. The table tag is magnified and the pay bar is highlighted: pays before it cooks" loading="lazy" width="940" height="1118"></div>
@@ -292,10 +325,12 @@ footer a:hover{color:var(--ink)}
     <article class="role">
       <div>
         <div class="eyebrow">Replaces the phone person and host</div>
-        <h3>Every call to your restaurant answered. In your guest's language.</h3>
-        <p>Haniya, the AI host, takes the order straight into your register, texts a pay link, offers one add-on and remembers your regulars by their number. She answers at 4 PM on your break and at 11 PM on a Monday.</p>
-        <div class="facts"><span><b>273</b> real calls in 3 weeks</span><span>English · Urdu · Hindi · Spanish</span><span>Orders go into Clover</span></div>
-        <p style="margin:14px 0 0;font-size:14px">New restaurants run hybrid for about three months: some calls go to her, the rest to your staff. Then she takes nearly all of them.</p>
+        <h3>Every call answered.</h3>
+        <p class="one">The order goes straight into your register, with a pay link by text.</p>
+        <div class="nums"><div><b>273</b><span>calls in 3 weeks</span></div><div><b>1 in 4</b><span>come while closed</span></div></div>
+        <div class="langs" aria-label="Languages"><span>English</span><span>اردو</span><span>हिंदी</span><span>Español</span></div>
+        <p class="klabel">Gone for good</p>
+        <ul class="kill"><li>Missed calls</li><li>Busy signals</li><li>No-show pickups</li><li>Misheard orders</li></ul>
       </div>
       <div class="shot stack"><div class="card-shot"><img src="/assets/proof/p-dash-phone.jpg" alt="Phone host: the real owner dashboard phone page. 30 calls today answered by Haniya, 0 needed a person. Everything else blurred" loading="lazy" width="1400" height="772"></div><div class="card-shot"><img src="/assets/proof/p-haniya-host.jpg" alt="Phone host: Haniya's talk screen with the language buttons English, Urdu, Hindi and Spanish highlighted" loading="lazy" width="1400" height="1092"></div></div>
     </article>
@@ -303,9 +338,11 @@ footer a:hover{color:var(--ink)}
     <article class="role full">
       <div>
         <div class="eyebrow">Replaces the delivery apps' 30%</div>
-        <h3>Your own ordering, your own catering, your own driver.</h3>
-        <p>Your guests order from your site at your prices. A courier delivers for a flat fee and you keep the customer, the data and the tip. Catering buyers near you are found and emailed for you.</p>
-        <div class="facts"><span><b>100%</b> of direct orders self-placed</span><span>No per-order commission</span></div>
+        <h3>Your own ordering. No cut.</h3>
+        <p class="one">Your site, your prices, your driver. You keep the guest and the tip.</p>
+        <div class="nums"><div><b>0%</b><span>commission</span></div><div><b>100%</b><span>of direct orders self-placed</span></div></div>
+        <p class="klabel">Gone for good</p>
+        <ul class="kill"><li>30% commission</li><li>App-set prices</li><li>Lost customers</li></ul>
       </div>
       <div class="shot pair">
         <div class="card-shot"><img src="/assets/proof/p-own-ordering.jpg" alt="Your own ordering: the real ordering screen with the menu blurred. The delivery, pickup and catering tabs and the pay bar are highlighted" loading="lazy" width="940" height="1118"></div>
@@ -316,22 +353,26 @@ footer a:hover{color:var(--ink)}
     <article class="role full">
       <div>
         <div class="eyebrow">Replaces the marketing agency</div>
-        <h3>Your restaurant found on Google, in AI answers, and in every inbox.</h3>
-        <p>A site built to rank and to be quoted by ChatGPT, Gemini and Perplexity. A reviews engine. Texts that bring your quiet regulars back without discounting the ones who'd come anyway. Ads judged on the orders they bring, and turned down when they lose money.</p>
-        <div class="facts"><span>Reviews <b>400 → 941</b></span><span>Named in ~<b>7 of 10</b> AI answers</span><span><b>1,988</b> guests by name</span></div>
+        <h3>Found on Google, in AI answers and in every inbox.</h3>
+        <p class="one">Reviews, texts and ads that run themselves.</p>
+        <div class="nums"><div><b>400 → 941</b><span>Google reviews</span></div><div><b>Every other</b><span>AI answer names us</span></div></div>
+        <p class="klabel">Gone for good</p>
+        <ul class="kill"><li>Agency retainers</li><li>Money-losing ads</li><li>Asking for reviews</li><li>Discounts to regulars</li></ul>
       </div>
       <div class="shot pair">
-        <div class="card-shot"><img src="/assets/proof/p-marketing-flow.jpg" alt="Marketing diagram: a guest clicks your ad, orders on your own site, what the order made is counted, ads that lose money turn down. Named in about 7 of 10 AI answers to local food questions" loading="lazy" width="940" height="1118"></div>
-        <div class="card-shot"><img src="/assets/proof/p-guests.jpg" alt="Guests you own: 1,988 guests known by name on your own list, none shared by the delivery apps. 90% reachable by phone" loading="lazy" width="940" height="1118"></div>
+        <div class="card-shot"><img src="/assets/proof/p-marketing-flow.jpg" alt="Marketing diagram: a guest clicks your ad, orders on your own site, what the order made is counted, ads that lose money turn down. Named in every other AI answer to local food questions" loading="lazy" width="940" height="1118"></div>
+        <div class="card-shot"><img src="/assets/proof/p-guests.jpg" alt="Guests you own: thousands of guests known by name on your own list, none shared by the delivery apps. 90% reachable by phone" loading="lazy" width="940" height="1118"></div>
       </div>
     </article>
 
     <article class="role">
       <div>
         <div class="eyebrow">Replaces the manager on call</div>
-        <h3>Run your restaurant from one phone call.</h3>
-        <p>One text every morning with yesterday and today. One alert when something needs you. Call your own line and say "take lemonade off" in English or Urdu: it's gone from the menu, the phone and the register in seconds.</p>
-        <div class="facts"><span>10 AM brief</span><span>Voice control</span><span><b>20</b> watchers, always on</span></div>
+        <h3>Run it from your phone.</h3>
+        <p class="one">A 10 AM text, an alert when something needs you, and control by voice.</p>
+        <div class="nums"><div><b>20</b><span>watchers, always on</span></div><div><b>1 call</b><span>to take a dish off everywhere</span></div></div>
+        <p class="klabel">Gone for good</p>
+        <ul class="kill"><li>11 PM calls</li><li>Sold-out dishes still selling</li><li>Guessing tonight's rush</li></ul>
       </div>
       <div class="shot stack"><div class="card-shot"><img src="/assets/proof/p-dash-orders.jpg" alt="Owner dashboard: every order and where it came from. Table QR dine-in orders up 51%, and every channel on one bar. Money blurred" loading="lazy" width="1400" height="801"></div><p class="caption" style="text-align:left;margin:0">Your dashboard looks like this. Real screen from our proof restaurant, money and caller numbers blurred.</p></div>
     </article>
@@ -341,9 +382,9 @@ footer a:hover{color:var(--ink)}
 <section class="sec listen" id="listen"><div class="in">
   <div class="eyebrow" style="color:#e9895c">Hear it</div>
   <h2 class="big">Real calls. Real restaurant.</h2>
-  <p class="sub">A guest who just paid for pickup, and the owner's father running the menu by voice in English and Urdu. Pauses shortened, nothing else edited.</p>
+  <p class="sub">A guest, and the owner running the menu by voice. Unedited.</p>
   <div class="clips">
-    <div class="clip star"><span class="who">REAL GUEST CALL · OCT 14, 2026 · 7 S</span><q>I love this AI. It works really well.</q><p class="tr"><i>Haniya:</i> Anything else I can help with?<br><i>Guest:</i> No, thank you. Have a nice day. I love this AI. It works really well.</p><audio controls preload="none" src="/assets/audio/guest-love-ai.mp3"></audio><p class="note">Said unprompted after paying for a pickup order. Name withheld. Only the last seven seconds are played, so nothing identifies the caller.</p></div>
+    <div class="clip star"><span class="who">REAL GUEST CALL · OCT 14, 2026 · 7 S</span><q>I love this AI. It works really well.</q><audio controls preload="none" src="/assets/audio/guest-love-ai.mp3"></audio><p class="note">Said unprompted. Name withheld.</p></div>
     <div class="clip"><span class="who">OWNER · ENGLISH · 11 S</span><q>Haniya, remove lemonade for today.</q><p class="tr">"Done. Lemonade is off everywhere for today and will be back on at 9 PM tonight."</p><audio controls preload="none" src="/assets/audio/admin-remove-en.mp3"></audio></div>
     <div class="clip"><span class="who">OWNER · URDU · 10 S</span><q>Haniya, lemonade menu mein phir se daal do.</q><p class="tr">Put lemonade back on the menu. She puts it back on the phone line, the menu and Clover.</p><audio controls preload="none" src="/assets/audio/admin-putback-ur.mp3"></audio></div>
 
@@ -381,13 +422,12 @@ footer a:hover{color:var(--ink)}
 
 <section class="sec" id="weeks" style="padding-top:0"><div class="in">
   <div class="eyebrow">How we start</div>
-  <h2 class="big" style="font-size:clamp(28px,3.6vw,44px)">From first call to running on its own.</h2>
-  <p class="sub">Nothing is switched on in one go. Your staff stay on while it learns your menu and your regulars.</p>
+  <h2 class="big" style="font-size:clamp(28px,3.6vw,44px)">From first call to running.</h2>
+  <p class="sub">We do the work. You approve each step.</p>
   <div class="weeks">
     <div class="wk"><span class="when">WEEK 1</span><div class="bar"><i style="width:10%"></i></div><h4>We learn your restaurant</h4><p>Your menu, your POS, your busy hours, what costs you the most.</p></div>
     <div class="wk"><span class="when">WEEKS 2 TO 3</span><div class="bar"><i style="width:30%"></i></div><h4>You try it first</h4><p>It runs on your menu. You call it, order from it and tell us what's off.</p></div>
-    <div class="wk"><span class="when">MONTHS 1 TO 3</span><div class="bar"><i style="width:65%"></i></div><h4>Hybrid with your staff</h4><p>Some calls and tables go to it, the rest to your team. We fix what it misses every week.</p></div>
-    <div class="wk"><span class="when">AFTER ABOUT 3 MONTHS</span><div class="bar"><i style="width:97%"></i></div><h4>Nearly hands-free</h4><p>It takes almost all of it. We keep watching and tuning.</p></div>
+    <div class="wk"><span class="when">THEN</span><div class="bar"><i style="width:97%"></i></div><h4>It runs</h4><p>We keep watching it and tuning it for you.</p></div>
   </div>
 </div></section>
 
@@ -412,7 +452,7 @@ footer a:hover{color:var(--ink)}
       <div class="steps">
         <div><b>01</b><span>You tell us what's hurting.</span></div>
         <div><b>02</b><span>We show you it working on your menu.</span></div>
-        <div><b>03</b><span>We run it with your team until it runs on its own.</span></div>
+        <div><b>03</b><span>We set it up and keep it running.</span></div>
       </div>
     </div>
     <form id="leadForm" novalidate>
@@ -464,7 +504,6 @@ footer a:hover{color:var(--ink)}
     <details><summary>Can AI really replace restaurant staff?</summary><p>For ordering, payment and the phone, yes. At our restaurant, every table order is placed and paid by the guest on their own phone, and an AI host answers every call. Your cooks and the people who carry food still matter. The order-taking, cashier and phone work no longer needs a person.</p></details>
     <details><summary>Can an AI take phone orders straight into Clover?</summary><p>Yes. Haniya writes the order into Clover, texts the guest a pay link, and the ticket prints once it's paid. She speaks English, Urdu, Hindi and Spanish and knows regulars by their number.</p></details>
     <details><summary>How much does it cost?</summary><p>It depends on which jobs you want covered, from just the phone to the whole front of house. Tell us what you want and we price it on that. No long contract.</p></details>
-    <details><summary>Will it work from day one?</summary><p>Not fully, and we say so up front. For about the first three months it runs alongside your staff: some calls and tables go to it, the rest to your team, and we fix what it misses each week. After that it takes nearly all of it.</p></details>
     <details><summary>What if it gets an order wrong?</summary><p>The guest sees the whole order on their phone and pays only once it's right. Nothing reaches the kitchen until it's paid. Every call is recorded and filed, so you can listen to any of them.</p></details>
     <details><summary>Who owns the guest list?</summary><p>You do. Every guest who orders direct goes into your own list with their name. Delivery apps keep that from you.</p></details>
     <details><summary>Do I need a new POS?</summary><p>No. We work with what you have. Our own restaurant runs on Clover.</p></details>
