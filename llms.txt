@@ -7,7 +7,7 @@
 > Proven first in the founder's own restaurant, Wok & Karahi in Spring, Texas, which runs with no
 > server, no cashier and no phone person. Real numbers from October 2026: every dine-in order is
 > placed and paid by the guest on their own phone; every call is answered by the AI host, and more than
-> 1 in 4 calls arrive while the restaurant is closed; 94% of the restaurant's direct orders arrive with
+> 1 in 4 calls arrive while the restaurant is closed; 100% of the restaurant's direct orders arrive with
 > no staff member taking them (17% in August); every order is paid before it cooks; Google
 > reviews went from about 400 to 941 (4.5 stars) since the family took over.
 > Founded by Abbas Zoeb, a former Google software engineer whose family owns Wok & Karahi.
