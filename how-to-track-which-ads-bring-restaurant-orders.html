@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>How to Know Which Ads Bring Restaurant Orders (Ad-to-Order Tracking)</title>
+<meta name="description" content="Tie each paid order to the ad click that started it, count only paid takeout and delivery, and send the real value back to Google Ads or Meta. Steps, pitfalls and what our own audit found. Checked Oct 2026.">
+<link rel="canonical" href="https://azrestaurantpartners.com/how-to-track-which-ads-bring-restaurant-orders.html">
+<meta name="theme-color" content="#f4efe6">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" sizes="32x32" href="https://azrestaurantpartners.com/assets/brand/logo-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://azrestaurantpartners.com/assets/brand/logo-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://azrestaurantpartners.com/assets/brand/logo-180.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AZ Restaurant Partners">
+<meta property="og:title" content="How to know which ads bring restaurant orders">
+<meta property="og:description" content="Tie each paid order to the ad click that started it, count only paid takeout and delivery, and send the real value back to Google Ads or Meta. Steps, pitfalls and what our own audit found. Checked Oct 2026.">
+<meta property="og:url" content="https://azrestaurantpartners.com/how-to-track-which-ads-bring-restaurant-orders.html">
+<meta property="og:image" content="https://azrestaurantpartners.com/assets/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to know which ads bring restaurant orders">
+<meta name="twitter:description" content="Tie each paid order to the ad click that started it, count only paid takeout and delivery, and send the real value back to Google Ads or Meta. Steps, pitfalls and what our own audit found. Checked Oct 2026.">
+<meta name="twitter:image" content="https://azrestaurantpartners.com/assets/og.png">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "How to know which ads bring restaurant orders",
+   "description": "Tie each paid order to the ad click that started it, count only paid takeout and delivery, and send the real value back to Google Ads or Meta. Steps, pitfalls and what our own audit found. Checked Oct 2026.",
+   "author": {
+    "@type": "Person",
+    "name": "Abbas Zoeb",
+    "jobTitle": "Founder, AZ Restaurant Partners"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "AZ Restaurant Partners",
+    "url": "https://azrestaurantpartners.com"
+   },
+   "datePublished": "2026-10-15",
+   "dateModified": "2026-10-15",
+   "mainEntityOfPage": "https://azrestaurantpartners.com/how-to-track-which-ads-bring-restaurant-orders.html",
+   "inLanguage": "en-US"
+  },
+  {
+   "@type": "HowTo",
+   "name": "Set up ad-to-order tracking for a restaurant",
+   "description": "Save the ad's click ID with every order, count only orders that were actually paid, and send the real pre-tax order value back to the ad platform every day. Google Ads calls this offline conversion import and Meta calls it the Conversions API. The numbers the ad platform shows by default usually count page events, which overstates what your ads bring in.",
+   "step": [
+    {
+     "@type": "HowToStep",
+     "position": 1,
+     "name": "Turn on auto-tagging",
+     "text": "In Google Ads, auto-tagging adds a click ID (GCLID) to every ad click. Meta adds its own click ID too."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 2,
+     "name": "Save the click ID with the order",
+     "text": "Your ordering page stores the ID when the guest lands and attaches it to the order when they pay."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 3,
+     "name": "Count paid orders only",
+     "text": "An order counts once the money is in. Subtract refunds and leave out test and staff orders."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 4,
+     "name": "Pick a short window",
+     "text": "Food is an impulse buy. A one-week window is a sensible default for takeout."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 5,
+     "name": "Upload the real value every day",
+     "text": "Send the paid orders with their click IDs and pre-tax value. Google recommends regular imports; Meta requires value and currency for Purchase events."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 6,
+     "name": "Match delivery orders and calls",
+     "text": "When the guest leaves for delivery or calls, match the order back by phone, email or basket, and only credit sure matches."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 7,
+     "name": "Let the bidding use money",
+     "text": "Once real values flow, bid on conversion value so the platform chases orders that pay."
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I know if my restaurant ads are working?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Count paid orders that started from an ad click, at pre-tax value minus refunds, and compare with what the ads cost over at least four weeks."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is Google Ads offline conversion import?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A way to send sales that happen after an ad click back to Google Ads. You save the click ID (GCLID) with the order and upload the paid order later, so Google learns which clicks became money."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I track ad orders that go through DoorDash or Uber Eats?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not reliably. The order happens inside the app, so your ad click cannot be tied to it. Send ad traffic to your own ordering page."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Should phone calls from ads count as conversions?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Only the calls that became paid orders. Counting every call makes a campaign look better than it is."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does Google Ads show more orders than I see?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Default setups often count page events, long windows, dine-in and tax. Narrow it to paid takeout orders within a short window."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://azrestaurantpartners.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://azrestaurantpartners.com/guides.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Ad-to-order tracking",
+     "item": "https://azrestaurantpartners.com/how-to-track-which-ads-bring-restaurant-orders.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#f4efe6;--paper:#fffdf8;--ink:#17130e;--muted:#675e51;--line:#e2d9c9;--accent:#c2410c;--accent-ink:#fff;--green:#17694d;--chip:#ece3d4;--win:#e4f1ea;--lose:#f9e6dc;--dark:#16130f;--darkfg:#f2ebdf;--darkmuted:#b6ab9b;
+--display:"Fraunces",Georgia,serif;--body:"Instrument Sans",-apple-system,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16130f;--paper:#1f1b16;--ink:#f2ebdf;--muted:#b6ab9b;--line:#352e25;--accent:#ee8a5c;--accent-ink:#16130f;--green:#7fd1ad;--chip:#2a241d;--win:#1d3329;--lose:#3a241a}}
+:root[data-theme="dark"]{--bg:#16130f;--paper:#1f1b16;--ink:#f2ebdf;--muted:#b6ab9b;--line:#352e25;--accent:#ee8a5c;--accent-ink:#16130f;--green:#7fd1ad;--chip:#2a241d;--win:#1d3329;--lose:#3a241a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+p a,li a,td a{color:var(--green);text-underline-offset:2px}
+.in{max-width:1080px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);padding:14px 22px;border-radius:999px;text-decoration:none;font-weight:600;font-size:16px;min-height:44px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .in{display:flex;align-items:center;gap:22px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:19px;text-decoration:none;margin-right:auto}
+.logo img{width:30px;height:30px;border-radius:50%}
+nav .links a{text-decoration:none;font-size:15px;color:var(--muted)}
+nav .links{display:flex;gap:20px}
+nav .btn{padding:10px 16px;font-size:14px}
+@media (max-width:820px){nav .links{display:none}}
+@media (max-width:520px){.logo{font-size:16px}.logo img{width:26px;height:26px}nav .btn{padding:9px 14px;font-size:14px}}
+.crumb{font-size:14px;color:var(--muted);margin:0 0 10px}
+.crumb a{color:var(--muted)}
+.hero{padding-block:44px 8px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,5.4vw,62px);line-height:1.02;letter-spacing:-.025em;margin:12px 0 18px;text-wrap:balance;max-width:20ch}
+.lede{font-size:clamp(18px,2vw,21px);color:var(--muted);max-width:60ch;margin:0 0 22px;line-height:1.5}
+.lede b{color:var(--ink);font-weight:600}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 10px}
+.sec{padding-block:44px;border-top:1px solid var(--line)}
+.sec:first-of-type{border-top:0}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(26px,3.4vw,38px);line-height:1.08;letter-spacing:-.02em;margin:8px 0 14px;text-wrap:balance}
+h3{font-family:var(--display);font-size:21px;line-height:1.2;margin:0 0 6px}
+.sec p{max-width:70ch}
+.sec p.sub{color:var(--muted)}
+.short{display:grid;gap:0;border-top:2px solid var(--ink);margin-top:18px}
+.short div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.short b{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);padding-top:3px}
+.short span{color:var(--ink)}
+@media (max-width:600px){.short div{grid-template-columns:1fr;gap:4px}}
+.tw{margin-top:18px;border:1px solid var(--line);border-radius:14px;background:var(--paper);overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:14.5px;line-height:1.45}
+table.cmp th,table.cmp td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}
+table.cmp thead th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--chip);position:sticky;top:0}
+table.cmp tbody th{font-family:var(--display);font-size:16px;font-weight:700;white-space:nowrap}
+table.cmp tbody th small{display:block;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted);white-space:normal}
+table.cmp tr.az{background:color-mix(in srgb,var(--green) 9%,var(--paper))}
+table.cmp tr:last-child th,table.cmp tr:last-child td{border-bottom:0}
+.tnote{font-size:13.5px;color:var(--muted);margin-top:10px}
+.swipe{display:none;font-size:13px;color:var(--muted);margin-top:8px}
+@media (max-width:800px){.swipe{display:block}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card ul{margin:8px 0 0;padding-left:20px;display:grid;gap:8px}
+.card.win{border-top:4px solid var(--green)}
+.card.lose{border-top:4px solid var(--accent)}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.diff{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:18px;border-top:2px solid var(--ink)}
+.diff div{padding:18px 20px 18px 0;border-bottom:1px solid var(--line)}
+.diff p{margin:0;color:var(--muted);font-size:15.5px}
+@media (max-width:860px){.diff{grid-template-columns:1fr}}
+.weeks{display:grid;gap:0;margin-top:18px;border-top:2px solid var(--ink)}
+.weeks div{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.weeks b{font-family:var(--mono);font-size:13px;color:var(--accent);padding-top:3px}
+.weeks p{margin:0;color:var(--muted)}
+.weeks h3{margin-bottom:4px}
+@media (max-width:600px){.weeks div{grid-template-columns:1fr;gap:4px}}
+.dept{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+.dept .card h3{font-size:19px}
+.dept .card p{margin:0;color:var(--muted);font-size:15.5px}
+@media (max-width:760px){.dept{grid-template-columns:1fr}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line);border-top:1px solid var(--line);margin-top:18px}
+.stat{padding:18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;gap:6px;align-content:start}
+.stat b{font-family:var(--display);font-size:clamp(28px,3.6vw,40px);line-height:1;font-variant-numeric:tabular-nums}
+.stat p{margin:0;font-size:14.5px;color:var(--muted)}
+@media (max-width:860px){.stats{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.stats{grid-template-columns:1fr}}
+.faq{display:grid;gap:0;margin-top:18px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:16px 0}
+.faq summary{font-family:var(--display);font-size:19px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;min-height:44px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--accent);font-family:var(--body);font-size:22px}
+.faq details[open] summary::after{content:"\2212"}
+.faq p{margin:10px 0 0;color:var(--muted);max-width:70ch}
+.src{margin:14px 0 0;padding-left:20px;display:grid;gap:7px;font-size:14.5px;color:var(--muted);overflow-wrap:anywhere}
+.ctabox{background:var(--dark);color:var(--darkfg);border-radius:22px;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:1.4fr auto;gap:24px;align-items:center}
+.ctabox h2{color:var(--darkfg);margin-top:4px}
+.ctabox p{color:var(--darkmuted);margin:0}
+.ctabox .btn{background:#f2ebdf;color:#16130f}
+@media (max-width:760px){.ctabox{grid-template-columns:1fr}.ctabox .btn{width:100%;justify-content:center}}
+.more{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.more a{font-size:14.5px;background:var(--chip);border-radius:999px;padding:9px 14px;text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+.more a[aria-current]{background:var(--ink);color:var(--bg)}
+footer{border-top:1px solid var(--line);padding-block:40px;font-size:14px;color:var(--muted);margin-top:44px}
+footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:24px}
+footer h5{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 10px;font-family:var(--mono)}
+footer a{display:block;text-decoration:none;padding:3px 0}
+footer a:hover{color:var(--ink)}
+@media (max-width:860px){footer .cols{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){footer .cols{grid-template-columns:1fr}}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:var(--ink);display:none}
+.sticky .btn{width:100%;justify-content:center}
+@media (max-width:700px){.sticky{display:block}body{padding-bottom:70px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+table.cmp.sm{min-width:560px}
+.steps{counter-reset:s}
+.steps>div{counter-increment:s}
+.steps b::before{content:"Step " counter(s)}
+.answer{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:18px 20px;margin:4px 0 20px;max-width:70ch}
+.answer p{margin:0}
+.sec ul.plain{padding-left:20px;display:grid;gap:8px;max-width:70ch}
+</style>
+</head>
+<body>
+
+<nav><div class="in">
+  <a class="logo" href="/"><img src="/assets/brand/logo-180.png" alt="" width="30" height="30">AZ Restaurant Partners</a>
+  <div class="links"><a href="/#replace">What it replaces</a><a href="/compare-done-for-you.html">Compare</a><a href="/restaurant-technology-consultant-houston.html">How we work</a><a href="/#faq">Questions</a></div>
+  <a class="btn" href="/#start" data-track="cta_click" data-track-where="how_adtrack_nav">Get started</a>
+</div></nav>
+
+<main>
+<header class="hero"><div class="in">
+  <p class="crumb"><a href="/">Home</a> / <a href="/guides.html">Guides</a> / Ad-to-order tracking</p>
+  <div class="eyebrow">Guide · Marketing</div>
+  <h1>How to know which ads bring restaurant orders</h1>
+  <div class="answer"><p><b>Save the ad's click ID with every order, count only orders that were actually paid, and send the real pre-tax order value back to the ad platform every day.</b> Google Ads calls this offline conversion import and Meta calls it the Conversions API. The numbers the ad platform shows by default usually count page events, which overstates what your ads bring in.</p></div>
+  <div class="ctas">
+    <a class="btn" href="/#start" data-track="cta_click" data-track-where="how_adtrack_hero">Ask us to check your ad numbers</a>
+    <a class="btn ghost" href="#count">What to count</a>
+  </div>
+  <p class="meta">Written by Abbas Zoeb, founder of AZ Restaurant Partners. Facts checked October 2026.</p>
+</div></header>
+
+<section class="sec" id="count"><div class="in">
+  <div class="eyebrow">The gap</div>
+  <h2>What ad platforms count versus what you should count</h2>
+  <div class="tw" role="region" aria-label="Ad conversion counting compared" tabindex="0"><table class="cmp sm"><thead><tr><th scope="col"></th><th scope="col">Easy default</th><th scope="col">What tells you the truth</th></tr></thead><tbody><tr><th scope="row">What counts as a sale</th><td>A purchase event on the thank-you page</td><td>An order that was paid and not refunded</td></tr>
+<tr><th scope="row">Value</th><td>Total including tax</td><td>Food before tax, minus refunds</td></tr>
+<tr><th scope="row">Order types</th><td>Everything, including dine-in</td><td>The orders the ad was meant to bring, such as takeout and delivery</td></tr>
+<tr><th scope="row">Time from click to order</th><td>Long windows, often up to 90 days</td><td>A short window that matches how people order food, such as a week</td></tr>
+<tr><th scope="row">Phone orders from the ad</th><td>Counted as a call, paid or not</td><td>Counted only when the call became a paid order</td></tr>
+<tr><th scope="row">Delivery orders</th><td>Often lost when the guest leaves your site</td><td>Matched back by phone, email or basket</td></tr>
+</tbody></table></div><p class="swipe">Swipe the table sideways to see every column.</p>
+</div></section>
+
+
+<section class="sec" id="steps"><div class="in">
+  <div class="eyebrow">Step by step</div>
+  <h2>How to set it up</h2>
+  
+  <div class="weeks steps"><div><b></b><article><h3>Turn on auto-tagging</h3><p>In Google Ads, auto-tagging adds a click ID (GCLID) to every ad click. Meta adds its own click ID too.</p></article></div><div><b></b><article><h3>Save the click ID with the order</h3><p>Your ordering page stores the ID when the guest lands and attaches it to the order when they pay.</p></article></div><div><b></b><article><h3>Count paid orders only</h3><p>An order counts once the money is in. Subtract refunds and leave out test and staff orders.</p></article></div><div><b></b><article><h3>Pick a short window</h3><p>Food is an impulse buy. A one-week window is a sensible default for takeout.</p></article></div><div><b></b><article><h3>Upload the real value every day</h3><p>Send the paid orders with their click IDs and pre-tax value. Google recommends regular imports; Meta requires value and currency for Purchase events.</p></article></div><div><b></b><article><h3>Match delivery orders and calls</h3><p>When the guest leaves for delivery or calls, match the order back by phone, email or basket, and only credit sure matches.</p></article></div><div><b></b><article><h3>Let the bidding use money</h3><p>Once real values flow, bid on conversion value so the platform chases orders that pay.</p></article></div></div>
+</div></section>
+
+
+<section class="sec"><div class="in">
+  <div class="eyebrow">Our own audit</div>
+  <h2>What we found checking our own ads</h2>
+  <p>When we audited the ad numbers at our proof restaurant, the easy count overstated ad orders. A 90-day click cookie credited guests who would have ordered anyway. Dine-in orders were counted. Refunds were not subtracted. Tax inflated the value the bidding used. With only a few ad orders a week, one wrong credit moved the result by a third.</p><p>The fix: credit only takeout and delivery orders within a week of the click, use pre-tax value, subtract refunds, leave out staff and test phones, and upload the result to Google Ads daily. Phone calls from the ad count only when the call ends in a paid order. Clicks from iPhones arrive with different IDs (GBRAID and WBRAID) that some upload methods cannot send, so expect a gap and do not chase it.</p>
+</div></section>
+
+<section class="sec"><div class="in">
+  <div class="eyebrow">Small budgets</div>
+  <h2>When the numbers are too small to trust</h2>
+  <p>A local restaurant spending a modest daily budget may get a handful of ad orders a week. Judge over at least four weeks, compare against the same weekdays without ads, and set a simple rule ahead of time: if ad orders do not cover their cost after a fixed period, the budget drops back automatically. Decide that rule before you look at the results.</p><p>Related: our <a href="/compare-restaurant-marketing.html">restaurant marketing comparison</a> and <a href="/compare-online-ordering.html">online ordering comparison</a>. You need your own ordering page to track any of this; delivery-app orders cannot be tied to your ad clicks.</p>
+</div></section>
+
+<section class="sec"><div class="in">
+  <div class="eyebrow">Sources</div>
+  <h2>Where these facts come from</h2>
+  <ol class="src"><li><a href="https://support.google.com/google-ads/answer/2998031?hl=en" rel="nofollow noopener" target="_blank">Google Ads Help: About offline conversion imports</a> - GCLID and import, read Oct 2026</li><li><a href="https://developers.facebook.com/docs/marketing-api/conversions-api/offline-events" rel="nofollow noopener" target="_blank">Meta for Developers: Sending offline events using the Conversions API</a> - Purchase needs value and currency, read Oct 2026</li></ol>
+</div></section>
+
+<section class="sec"><div class="in">
+  <h2>Questions owners ask</h2>
+  <div class="faq">
+<details><summary>How do I know if my restaurant ads are working?</summary><p>Count paid orders that started from an ad click, at pre-tax value minus refunds, and compare with what the ads cost over at least four weeks.</p></details>
+<details><summary>What is Google Ads offline conversion import?</summary><p>A way to send sales that happen after an ad click back to Google Ads. You save the click ID (GCLID) with the order and upload the paid order later, so Google learns which clicks became money.</p></details>
+<details><summary>Can I track ad orders that go through DoorDash or Uber Eats?</summary><p>Not reliably. The order happens inside the app, so your ad click cannot be tied to it. Send ad traffic to your own ordering page.</p></details>
+<details><summary>Should phone calls from ads count as conversions?</summary><p>Only the calls that became paid orders. Counting every call makes a campaign look better than it is.</p></details>
+<details><summary>Why does Google Ads show more orders than I see?</summary><p>Default setups often count page events, long windows, dine-in and tax. Narrow it to paid takeout orders within a short window.</p></details>
+  </div>
+</div></section>
+
+<section class="sec"><div class="in">
+  <div class="ctabox">
+    <div><div class="eyebrow" style="color:#e9895c">Your restaurant, your numbers</div><h2>Tell us what is hurting. We show you it working on your menu.</h2><p>Same-day reply. No vendor commissions, so we recommend whatever fits, including a tool that is not ours.</p></div>
+    <a class="btn" href="/#start" data-track="cta_click" data-track-where="how_adtrack_box">Get started</a>
+  </div>
+  <p class="eyebrow" style="margin-top:34px">Keep reading</p>
+  <div class="more"><a href="/compare-restaurant-marketing.html">Marketing and loyalty compared</a><a href="/compare-online-ordering.html">Online ordering compared</a><a href="/how-to-build-a-restaurant-guest-list-without-delivery-apps.html">Build your own guest list</a><a href="/local-seo-for-restaurants.html">Local SEO for restaurants</a><a href="/restaurant-technology-consultant-houston.html">What a forward-deployed engineer does</a></div>
+</div></section>
+</main>
+
+<footer><div class="in cols">
+  <div><a class="logo" href="/" style="font-size:17px"><img src="/assets/brand/logo-180.png" alt="" width="26" height="26">AZ Restaurant Partners</a><p style="margin:10px 0 0">Houston, Texas<br>abbas@azrestaurantpartners.com<br>(408) 393-6716</p></div>
+  <div><h5>Compare</h5><a href="/compare-ai-phone-host.html">AI phone host vs Maple, Slang, Loman</a><a href="/compare-table-ordering.html">Table order and pay vs Toast, Sunday</a><a href="/compare-online-ordering.html">Online ordering vs Owner.com, ChowNow</a><a href="/compare-restaurant-marketing.html">Marketing vs Popmenu, Thanx, Toast</a><a href="/compare-done-for-you.html">Done-for-you vs DIY software</a></div>
+  <div><h5>How we work</h5><a href="/restaurant-technology-consultant-houston.html">Forward-deployed engineer</a><a href="/case-study.html">Case study: our proof restaurant</a><a href="/ai-phone-answering-restaurants.html">AI phone answering</a><a href="/commission-free-online-ordering-systems.html">Commission-free ordering</a></div>
+  <div><h5>Get found</h5><a href="/get-your-restaurant-recommended-by-ai.html">Get recommended by AI</a><a href="/local-seo-for-restaurants.html">Local SEO for restaurants</a><a href="/get-more-restaurant-reviews.html">Get more reviews</a><a href="/guides.html">All guides</a></div>
+</div></footer>
+
+<div class="sticky"><a class="btn" href="/#start" data-track="cta_click" data-track-where="how_adtrack_sticky">Get started</a></div>
+<script>
+(function(){var ID="G-3GEL1D477G";window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments)};
+var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+ID;document.head.appendChild(s);
+gtag("js",new Date());gtag("config",ID,{transport_type:"beacon",page_group:"how_adtrack"});
+document.addEventListener("click",function(e){var a=e.target.closest("[data-track]");if(!a)return;gtag("event",a.getAttribute("data-track"),{where:a.getAttribute("data-track-where")||"",page:location.pathname});});})();
+</script>
+</body>
+</html>
