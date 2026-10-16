@@ -122,6 +122,9 @@ h2.big{font-family:var(--display);font-weight:800;font-size:clamp(32px,5vw,58px)
 .card-shot img{width:100%}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .stack{display:grid;gap:12px}
+.role.full{grid-template-columns:1fr;gap:22px}
+.role.full .shot{order:0}
+.role.full > div:first-child{max-width:68ch}
 @media (max-width:860px){.role{grid-template-columns:1fr;padding:20px}.role:nth-child(even) .shot{order:0}.shots .phone{max-width:46%}}
 /* listen */
 .listen{background:var(--dark);color:var(--darkfg)}
@@ -234,7 +237,7 @@ footer a:hover{color:var(--ink)}
   <div>
     <div class="eyebrow">Proven in our own restaurant · Houston, Texas</div>
     <h1>Let AI replace your restaurant <em>staff.</em></h1>
-    <p class="lede">Our restaurant runs with <b>no server, no cashier and no phone person.</b> We'll set up the same in yours.</p>
+    <p class="lede">Your phone answered, your tables ordering and paying, your numbers on one screen. <b>No server, no cashier, no phone person needed.</b> Proven first in our own restaurant.</p>
     <div class="ctas">
       <a class="btn" href="#start" data-track="cta_click" data-track-where="hero">Pick what to replace</a>
       <a class="btn ghost" href="#replace" data-track="cta_click" data-track-where="hero_see">See it working</a>
@@ -242,16 +245,16 @@ footer a:hover{color:var(--ink)}
   </div>
   <div>
     <div class="stage">
-      <video id="heroVid" autoplay muted loop playsinline preload="metadata" poster="/assets/hero/hero.jpg" width="1280" height="800" aria-label="Every job AI covers in the restaurant, one after another: the phone, table ordering, the kitchen ticket, the owner dashboard, catering, marketing and guests">
+      <video id="heroVid" autoplay muted loop playsinline preload="metadata" poster="/assets/hero/hero.jpg" width="1280" height="800" aria-label="The seven AZ departments one after another: phone host, table ordering, kitchen, owner dashboard, catering, marketing and guests you own, each with a real number">
         <source src="/assets/hero/hero.webm" type="video/webm">
         <source src="/assets/hero/hero.mp4" type="video/mp4">
-        <img src="/assets/hero/hero.jpg" alt="A restaurant owner calm at his counter during dinner, with the real screens around him: Haniya answering in four languages, the table ordering menu and the owner dashboard showing 30 calls answered" width="1280" height="800" fetchpriority="high">
+        <img src="/assets/hero/hero.jpg" alt="A restaurant owner calm at his counter during dinner. Around him: the phone dashboard with 30 calls answered and 0 needing a person, 98 of 99 dine-in orders placed by guests, 317 of 317 orders paid before cooking, 1,988 guests known by name, and ads judged on orders" width="1280" height="800" fetchpriority="high">
       </video>
     </div>
     <ul class="depts" aria-label="What it covers">
-      <li><b>01</b>Phone host, 4 languages</li><li><b>02</b>Table order and pay</li><li><b>03</b>Kitchen tickets, paid first</li><li><b>04</b>Owner dashboard</li><li><b>05</b>Catering</li><li><b>06</b>Marketing and ads</li><li><b>07</b>Guests you own</li>
+      <li><b>01</b>Phone host</li><li><b>02</b>Table ordering</li><li><b>03</b>Kitchen</li><li><b>04</b>Owner dashboard</li><li><b>05</b>Catering</li><li><b>06</b>Marketing</li><li><b>07</b>Guests you own</li>
     </ul>
-    <p class="stage-note">The restaurant scene is an illustration. Every screen on it is real, from our restaurant.</p>
+    <p class="stage-note">The scene is an illustration. The dashboard and every number on it are real, from our proof restaurant in Houston.</p>
   </div>
 </div></header>
 
@@ -270,65 +273,67 @@ footer a:hover{color:var(--ink)}
 <section class="sec" id="replace" style="padding-top:20px"><div class="in">
   <div class="eyebrow">What it replaces</div>
   <h2 class="big">Six jobs you're paying people to do. AI does them now.</h2>
-  <p class="sub">Every screen below is from our live restaurant. Pick only the jobs you want covered.</p>
+  <p class="sub">Each one is a department you can switch on in your restaurant. The screens and numbers are from our proof restaurant in Houston. Pick only what you need.</p>
 
   <div class="roles">
-    <article class="role">
+    <article class="role full">
       <div>
         <div class="eyebrow">Replaces the server and cashier</div>
         <h3>Guests order and pay from the table.</h3>
-        <p>They scan the code, order in their own language, and pay with Apple Pay. The ticket prints in the kitchen with the table, the name and every note. Older guests tap Haniya and just say what they want.</p>
+        <p>Your guests scan the code at the table, order in their own language and pay with Apple Pay. Your kitchen gets the ticket only once it's paid, with the table, the name and every note. Older guests tap Haniya and just say what they want.</p>
         <div class="facts"><span><b>98 of 99</b> dine-in orders self-placed</span><span>7 languages</span><span>Paid before cooking</span></div>
-        <p class="caption" style="text-align:left;margin-top:14px">Real screens. Her caption is typed from a real phone call so you can read what she says.</p>
       </div>
       <div class="shot pair">
-        <div class="card-shot"><img src="/assets/proof/p-table-order.jpg" alt="The real table ordering screen, menu blurred: the Table 4 tag is magnified and the pay bar at the bottom is highlighted" loading="lazy" width="940" height="1118"></div>
-        <div class="card-shot"><img src="/assets/proof/p-table-haniya.jpg" alt="Haniya talking at the table: a guest asks how many spring rolls come in each order and her answer shows as a caption" loading="lazy" width="940" height="1118"></div>
+        <div class="card-shot"><img src="/assets/proof/p-table-order.jpg" alt="Table ordering: the real guest screen with the menu blurred out. The table tag is magnified and the pay bar is highlighted: pays before it cooks" loading="lazy" width="940" height="1118"></div>
+        <div class="card-shot"><img src="/assets/proof/p-kitchen.jpg" alt="Kitchen: only paid tickets reach the line. Words from a real phone order: Haniya sends the pay link, the guest says I just paid, Haniya confirms it has gone to the kitchen. 317 of 317 app orders paid before cooking" loading="lazy" width="940" height="1118"></div>
       </div>
     </article>
 
     <article class="role">
       <div>
         <div class="eyebrow">Replaces the phone person and host</div>
-        <h3>Every call answered. In their language.</h3>
-        <p>Haniya, our AI host, takes the order straight into the register, texts a pay link, offers one add-on and remembers regulars by their number. She answers at 4 PM on a break and at 11 PM on a Monday.</p>
+        <h3>Every call to your restaurant answered. In your guest's language.</h3>
+        <p>Haniya, the AI host, takes the order straight into your register, texts a pay link, offers one add-on and remembers your regulars by their number. She answers at 4 PM on your break and at 11 PM on a Monday.</p>
         <div class="facts"><span><b>273</b> real calls in 3 weeks</span><span>English · Urdu · Hindi · Spanish</span><span>Orders go into Clover</span></div>
         <p style="margin:14px 0 0;font-size:14px">New restaurants run hybrid for about three months: some calls go to her, the rest to your staff. Then she takes nearly all of them.</p>
       </div>
-      <div class="shot stack"><div class="card-shot"><img src="/assets/proof/p-dash-phone.jpg" alt="The owner dashboard phone page: 30 calls today answered by Haniya, 0 needed a person. Everything else blurred" loading="lazy" width="1400" height="640"></div><div class="card-shot"><img src="/assets/proof/p-haniya-host.jpg" alt="Haniya's welcome screen with the language buttons English, Urdu, Hindi and Spanish highlighted" loading="lazy" width="1400" height="960"></div></div>
+      <div class="shot stack"><div class="card-shot"><img src="/assets/proof/p-dash-phone.jpg" alt="Phone host: the real owner dashboard phone page. 30 calls today answered by Haniya, 0 needed a person. Everything else blurred" loading="lazy" width="1400" height="772"></div><div class="card-shot"><img src="/assets/proof/p-haniya-host.jpg" alt="Phone host: Haniya's talk screen with the language buttons English, Urdu, Hindi and Spanish highlighted" loading="lazy" width="1400" height="1092"></div></div>
     </article>
 
-    <article class="role">
+    <article class="role full">
       <div>
         <div class="eyebrow">Replaces the delivery apps' 30%</div>
-        <h3>Your own ordering and your own driver.</h3>
-        <p>Guests order from your site at your prices. A courier delivers for a flat fee and you keep the customer, the data and the tip. App prices are set higher so the apps pay their own way.</p>
+        <h3>Your own ordering, your own catering, your own driver.</h3>
+        <p>Your guests order from your site at your prices. A courier delivers for a flat fee and you keep the customer, the data and the tip. Catering buyers near you are found and emailed for you.</p>
         <div class="facts"><span><b>94%</b> of direct orders self-placed</span><span>No per-order commission</span></div>
       </div>
       <div class="shot pair">
-        <div class="card-shot"><img src="/assets/proof/p-own-ordering.jpg" alt="The restaurant's own ordering page: delivery, pickup and catering tabs and its own deals highlighted" loading="lazy" width="940" height="1118"></div>
-        <div class="card-shot"><img src="/assets/proof/p-catering.jpg" alt="The restaurant's own catering page: a party tray offer that unlocks a free tray, highlighted" loading="lazy" width="940" height="1118"></div>
+        <div class="card-shot"><img src="/assets/proof/p-own-ordering.jpg" alt="Your own ordering: the real ordering screen with the menu blurred. The delivery, pickup and catering tabs and the pay bar are highlighted" loading="lazy" width="940" height="1118"></div>
+        <div class="card-shot"><img src="/assets/proof/p-catering-flow.jpg" alt="Catering diagram: it finds buyers near you, sends your offer a few a day, requests land in one place, paid before the trays are made." loading="lazy" width="940" height="1118"></div>
       </div>
     </article>
 
-    <article class="role">
+    <article class="role full">
       <div>
         <div class="eyebrow">Replaces the marketing agency</div>
-        <h3>Found on Google, in AI answers, and in every inbox.</h3>
-        <p>A site built to rank and to be quoted by ChatGPT, Gemini and Perplexity. A reviews engine. Texts that bring quiet regulars back without discounting the ones who'd come anyway. Ads that only stay on if they make money.</p>
+        <h3>Your restaurant found on Google, in AI answers, and in every inbox.</h3>
+        <p>A site built to rank and to be quoted by ChatGPT, Gemini and Perplexity. A reviews engine. Texts that bring your quiet regulars back without discounting the ones who'd come anyway. Ads judged on the orders they bring, and turned down when they lose money.</p>
         <div class="facts"><span>Reviews <b>400 → 941</b></span><span>Named in ~<b>7 of 10</b> AI answers</span><span><b>1,988</b> guests by name</span></div>
       </div>
-      <div class="shot" style="max-width:420px;margin-inline:auto;width:100%"><div class="card-shot"><img src="/assets/proof/p-website.jpg" alt="The restaurant website: the 4.5 star, Top 10, Zabihah Halal line and Haniya's greeting highlighted" loading="lazy" width="940" height="1118"></div></div>
+      <div class="shot pair">
+        <div class="card-shot"><img src="/assets/proof/p-marketing-flow.jpg" alt="Marketing diagram: a guest clicks your ad, orders on your own site, what the order made is counted, ads that lose money turn down. Named in about 7 of 10 AI answers to local food questions" loading="lazy" width="940" height="1118"></div>
+        <div class="card-shot"><img src="/assets/proof/p-guests.jpg" alt="Guests you own: 1,988 guests known by name on your own list, none shared by the delivery apps. 90% reachable by phone" loading="lazy" width="940" height="1118"></div>
+      </div>
     </article>
 
     <article class="role">
       <div>
         <div class="eyebrow">Replaces the manager on call</div>
-        <h3>Run the restaurant from one phone call.</h3>
-        <p>One text every morning with yesterday and today. One alert when something needs you. Call the restaurant line and say "take lemonade off" in English or Urdu: it's gone from the menu, the phone and the register in seconds.</p>
+        <h3>Run your restaurant from one phone call.</h3>
+        <p>One text every morning with yesterday and today. One alert when something needs you. Call your own line and say "take lemonade off" in English or Urdu: it's gone from the menu, the phone and the register in seconds.</p>
         <div class="facts"><span>10 AM brief</span><span>Voice control</span><span><b>20</b> watchers, always on</span></div>
       </div>
-      <div class="shot stack"><div class="card-shot"><img src="/assets/proof/p-dash-orders.jpg" alt="The owner dashboard order sources page: table QR dine-in orders up, 224 against 148 the month before. Money blurred" loading="lazy" width="1400" height="506"></div><p class="caption" style="text-align:left;margin:0">The owner's real dashboard. Dollar amounts and caller numbers blurred.</p></div>
+      <div class="shot stack"><div class="card-shot"><img src="/assets/proof/p-dash-orders.jpg" alt="Owner dashboard: every order and where it came from. Table QR dine-in orders up 51%, and every channel on one bar. Money blurred" loading="lazy" width="1400" height="801"></div><p class="caption" style="text-align:left;margin:0">Your dashboard looks like this. Real screen from our proof restaurant, money and caller numbers blurred.</p></div>
     </article>
   </div>
 </div></section>
@@ -338,7 +343,7 @@ footer a:hover{color:var(--ink)}
   <h2 class="big">Real calls. Real restaurant.</h2>
   <p class="sub">A guest who just paid for pickup, and the owner's father running the menu by voice in English and Urdu. Pauses shortened, nothing else edited.</p>
   <div class="clips">
-    <div class="clip star"><span class="who">REAL GUEST CALL · OCT 14, 2026 · 10 S</span><q>I love this AI. It works really well.</q><p class="tr"><i>Haniya:</i> Anything else I can help with?<br><i>Guest:</i> No, thank you. Have a nice day. I love this AI. It works really well.</p><audio controls preload="none" src="/assets/audio/guest-love-ai.mp3"></audio><p class="note">Said unprompted after paying for a pickup order. Name withheld. Only the last ten seconds are played, so nothing identifies the caller.</p></div>
+    <div class="clip star"><span class="who">REAL GUEST CALL · OCT 14, 2026 · 7 S</span><q>I love this AI. It works really well.</q><p class="tr"><i>Haniya:</i> Anything else I can help with?<br><i>Guest:</i> No, thank you. Have a nice day. I love this AI. It works really well.</p><audio controls preload="none" src="/assets/audio/guest-love-ai.mp3"></audio><p class="note">Said unprompted after paying for a pickup order. Name withheld. Only the last seven seconds are played, so nothing identifies the caller.</p></div>
     <div class="clip"><span class="who">OWNER · ENGLISH · 11 S</span><q>Haniya, remove lemonade for today.</q><p class="tr">"Done. Lemonade is off everywhere for today and will be back on at 9 PM tonight."</p><audio controls preload="none" src="/assets/audio/admin-remove-en.mp3"></audio></div>
     <div class="clip"><span class="who">OWNER · URDU · 10 S</span><q>Haniya, lemonade menu mein phir se daal do.</q><p class="tr">Put lemonade back on the menu. She puts it back on the phone line, the menu and Clover.</p><audio controls preload="none" src="/assets/audio/admin-putback-ur.mp3"></audio></div>
 
@@ -346,8 +351,8 @@ footer a:hover{color:var(--ink)}
 </div></section>
 
 <section class="sec"><div class="in">
-  <div class="eyebrow">One day at our restaurant</div>
-  <h2 class="big">Nobody from the family worked there today.</h2>
+  <div class="eyebrow">A day with AZ, as it runs at our proof restaurant</div>
+  <h2 class="big">What your day looks like.</h2>
   <div class="day">
     <div class="mo"><div class="t">10:00 AM</div><h4>One text to the owner</h4><p>Yesterday's sales, today's bookings, anything that broke. The chef gets the prep list.</p></div>
     <div class="mo"><div class="t">11:45 AM</div><h4>Lunch rush, no server</h4><p>Guests order and pay at the table. Tickets print themselves.</p></div>
