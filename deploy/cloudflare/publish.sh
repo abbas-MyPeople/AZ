@@ -1,10 +1,9 @@
 #!/bin/sh
-# Publish main of this repo to the Cloudflare Worker "azrestaurantpartners" (docs/49 in the Wok repo).
-# Same files GitHub Pages serves: a clean export of main, never the working tree, never .github.
-# Needs CLOUDFLARE_API_TOKEN (or a wrangler login) and CLOUDFLARE_ACCOUNT_ID.
+# Manual publish of this repo to the Cloudflare Worker "azrestaurantpartners" (docs/49 in the Wok repo).
+# Normally Cloudflare Workers Builds does this on every push to main: build command
+# `sh deploy/cloudflare/stage.sh`, deploy command `npx wrangler deploy -c deploy/cloudflare/wrangler.toml`.
+# Needs a wrangler login on this machine.
 set -eu
-cd "$(dirname "$0")/../.."
-rm -rf _site && mkdir _site
-git archive "${1:-origin/main}" | tar -x -C _site
-rm -rf _site/.github
-cd deploy/cloudflare && npx -y wrangler@4 deploy
+cd "$(dirname "$0")"
+sh ./stage.sh "${1:-}"
+npx -y wrangler@4 deploy -c wrangler.toml
