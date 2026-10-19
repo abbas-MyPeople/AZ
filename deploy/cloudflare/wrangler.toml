@@ -1,0 +1,12 @@
+name = "azrestaurantpartners"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+# Staged by publish.sh: a clean export of main, minus .github. Same files GitHub Pages serves.
+[assets]
+directory = "../../_site"
+binding = "ASSETS"
+html_handling = "none"
+not_found_handling = "none"
+run_worker_first = true
