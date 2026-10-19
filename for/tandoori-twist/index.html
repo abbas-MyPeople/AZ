@@ -446,6 +446,51 @@ img.o-av{object-fit:cover;background:var(--t-bg2)}
 .g-cats{padding:var(--s3) var(--s4)}.g-cat{padding:8px 14px}
 .g-group h3{font-size:22px}
 .g-logo{height:34px}
+
+/* v3: matches how our own restaurant runs (2026-10-19) */
+.g-slots{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.g-slots button{border:1px solid var(--line);background:var(--paper);border-radius:var(--pill);padding:8px 14px;font-size:13.5px;font-weight:600;min-height:40px;color:var(--ink)}
+.g-slots button[aria-pressed="true"]{border-color:var(--b);background:color-mix(in srgb,var(--b) 10%,white);box-shadow:inset 0 0 0 1px var(--b)}
+.g-limit{margin:var(--s2) 0 0;font-size:13px;color:var(--t-accent-text);background:var(--t-accent-soft);border-radius:10px;padding:8px 12px}
+.g-pairs{display:flex;flex-direction:column;gap:var(--s2);margin-bottom:var(--s4)}
+.g-pairs button{display:flex;align-items:center;gap:var(--s3);border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:8px 8px 8px 14px;text-align:start;font-size:14px;font-weight:600}
+.g-pairs .g-price{margin-inline-start:auto}.g-pairs .g-add{width:30px;height:30px;font-size:18px;border-radius:50%;display:grid;place-items:center}
+.g-pay[disabled]{opacity:.45;cursor:not-allowed}
+.o-top{position:relative}
+.o-bell{margin-inline-start:auto;position:relative;border:0;background:none;width:40px;height:40px;display:grid;place-items:center;color:var(--ink)}
+.o-bell svg{width:22px;height:22px}
+.o-bell i{position:absolute;top:4px;right:2px;min-width:18px;height:18px;border-radius:9px;background:var(--b-primary);color:#fff;font:700 11px/18px var(--sans);font-style:normal;padding:0 5px}
+.o-back{border:0;background:var(--cream-2);border-radius:50%;width:36px;height:36px;font-size:18px}
+.o-qc h6{text-transform:none;letter-spacing:0;font-size:13px;color:var(--muted);font-weight:600}
+.o-qc p{margin:0;font-size:14.5px;line-height:1.45}
+.o-qc--attn{border-color:var(--b-primary);box-shadow:inset 3px 0 0 var(--b-primary)}
+.o-qc--good h6::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--o-pos);margin-inline-end:6px;vertical-align:1px}
+.o-stats{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.o-stats span{background:var(--cream-2);border-radius:var(--pill);padding:3px 10px;font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
+.o-draft{margin:8px 0 0;font-size:13px;color:var(--muted);background:var(--cream);border-radius:10px;padding:8px 10px}
+.o-undo{display:flex;align-items:center;gap:var(--s3);font-size:13px;background:var(--cream-2)}
+.o-undo button{margin-inline-start:auto;border:0;background:none;font-weight:700;color:var(--b-primary-dark);text-decoration:underline}
+.o-mic{border:1px solid var(--line)!important;background:var(--cream)!important;color:var(--ink)!important;display:grid;place-items:center}
+.o-mic svg{width:20px;height:20px}.o-mic.is-on{background:var(--b-primary)!important;color:#fff!important;animation:pulse 1s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 6px color-mix(in srgb,var(--b-primary) 25%,transparent)}}
+.o-tr{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+button.o-alert{width:100%;text-align:start;font:inherit}
+.o-sub{color:var(--muted);font-size:13px}
+.o-lines{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font:12.5px/1.5 ui-monospace,Menlo,monospace}
+.o-q{margin-top:var(--s2)}
+.dash__seg{display:inline-flex;gap:2px;background:color-mix(in srgb,var(--o-ink) 6%,transparent);border-radius:var(--pill);padding:3px;margin-bottom:var(--s4)}
+.dash__seg button{border:0;background:none;color:var(--o-muted);border-radius:var(--pill);padding:5px 14px;font-size:13px;font-weight:600}
+.dash__seg button[aria-pressed="true"]{background:var(--o-ink);color:var(--t-ink)}
+.dash__more{display:flex;gap:var(--s1);flex-wrap:wrap;justify-content:flex-end;margin:-12px 0 var(--s4)}
+.dash__more button{border:1px dashed var(--o-line);background:none;color:var(--o-muted);border-radius:var(--pill);padding:4px 12px;font-size:12.5px}
+.dash__more button[aria-pressed="true"],.dash__nav button[data-more][aria-pressed="true"]{color:var(--o-ink);border-color:var(--o-muted);border-style:solid}
+.dash__tip{margin-top:var(--s3);font-size:12.5px;color:var(--o-ink);background:color-mix(in srgb,var(--t-primary) 16%,transparent);border-radius:10px;padding:10px 12px}
+.dash__tip b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--o-muted);margin-bottom:2px}
+.dash__alert{background:color-mix(in srgb,var(--o-neg) 14%,transparent);border:1px solid color-mix(in srgb,var(--o-neg) 40%,transparent);border-radius:12px;padding:12px 14px;margin-bottom:var(--s4);font-size:13.5px}
+.dash__alert b{display:block;margin-bottom:2px}
+.dash__key{display:inline-flex;align-items:center;gap:6px;margin-inline-end:14px}.dash__key i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.dash__q{color:var(--o-muted);font-size:12px;margin-top:2px;white-space:normal}
+.dash .chart text{fill:var(--o-ink)}
 </style>
 <header class="az-top">
   <div class="az-top__row">
@@ -469,7 +514,7 @@ img.o-av{object-fit:cover;background:var(--t-bg2)}
   <div class="az-head">
     <div><p class="az-eyebrow">1 · Your website and online ordering</p>
       <h1 class="az-h">Your guests order from you, not from an app</h1>
-      <p class="az-sub">Your menu (all <span id="nItems"></span> dishes, your prices) on a site built like ours. Order something, or ask for catering: every step works, and the guest's phone on the right shows the texts they would get.</p></div>
+      <p class="az-sub">Your menu (all <span id="nItems"></span> dishes, your prices) on a site built like ours. Order something, or book catering trays: every step works, and the guest's phone on the right shows the texts they would get.</p></div>
     <div class="az-seg" role="group" aria-label="Device"><button data-dev="phone" aria-pressed="true">Phone</button><button data-dev="desk" aria-pressed="false">Computer</button></div>
   </div>
   <div class="az-stage">
@@ -481,7 +526,7 @@ img.o-av{object-fit:cover;background:var(--t-bg2)}
           <li data-s="add"><span>Add a dish to the order</span></li>
           <li data-s="pay"><span>Check out and pay</span></li>
           <li data-s="ready"><span>Watch the ready text arrive</span></li>
-          <li data-s="cater"><span>Ask for catering for a party</span></li>
+          <li data-s="cater"><span>Book and pay for catering trays</span></li>
           <li data-s="hani"><span>Ask Haniya a question on the site</span></li>
         </ul>
         <p class="az-note" style="margin-top:12px">Everything you do here also shows up in your Haniya app and dashboard tabs.</p></div>
@@ -516,7 +561,7 @@ img.o-av{object-fit:cover;background:var(--t-bg2)}
   <div class="az-head">
     <div><p class="az-eyebrow">3 · Your Haniya app</p>
       <h2 class="az-h">Ask your restaurant a question, get the answer</h2>
-      <p class="az-sub">This is your app, not a guest's. Ask what sold, what's running low or who to call back. Haniya answers in seconds, and for anything that reaches guests or costs money she asks you first.</p></div>
+      <p class="az-sub">This is your app, not a guest's. It opens on the questions you would ask, already answered. Type or speak in your own language. For anything that reaches guests or costs money she asks you first, and you can undo it.</p></div>
   </div>
   <div class="az-stage">
     <div class="dev-wrap"><div class="phone"><div class="phone__notch"></div><div class="phone__screen" id="ownerApp"></div></div></div>
@@ -528,7 +573,7 @@ img.o-av{object-fit:cover;background:var(--t-bg2)}
   <div class="az-head">
     <div><p class="az-eyebrow">4 · Your dashboard</p>
       <h2 class="az-h">The whole business on one screen</h2>
-      <p class="az-sub">Sales, orders by channel, the phone, catering and your best sellers. These are sample numbers made from your menu and prices. With you live, it fills from your till every few minutes.</p></div>
+      <p class="az-sub">The same dashboard we run our own restaurant on: Home, Analytics, Phone and Ordering up front, the rest under More. Switch between today, 7 days, 30 days and the year. These are sample numbers made from your menu and prices; with you live, it fills from your till every few minutes.</p></div>
   </div>
   <div id="dash"></div>
 </section>
@@ -751,19 +796,30 @@ img.o-av{object-fit:cover;background:var(--t-bg2)}
         <p class="g-opt-h">${S.mode === "pickup" ? "Pickup" : "Delivery"}<\/p>
         <label class="g-field">Name for the order<input id="gName" value="Alex" autocomplete="off"><\/label>
         <label class="g-field">Mobile, for your ready text<input id="gPhone" value="(832) 555-0147" autocomplete="off"><\/label>
-        ${S.mode === "delivery" ? `<label class="g-field">Deliver to<input value="2210 Cypresswood Dr, Spring" autocomplete="off"><\/label>` : `<label class="g-field">When<select><option>As soon as possible · about 20 minutes<\/option><option>Later today<\/option><\/select><\/label>`}
+        ${S.mode === "delivery" ? `<label class="g-field">Deliver to<input value="2210 Cypresswood Dr, Spring" autocomplete="off"><\/label>` : ""}
+        <p class="g-opt-h" style="margin-top:4px">When<\/p><div class="g-slots">${slots().map((s, i) => `<button data-slot="${i}" aria-pressed="${S.slot === i}">${esc(s)}<\/button>`).join("")}<\/div>
+        ${pairHTML()}
         <button class="g-pay" id="gPay">Pay ${money(T.t)}<\/button>
         <p class="g-where" style="padding:8px 0 0;text-align:center">Your card is charged once. We start cooking the moment it's paid.<\/p><\/div>`;
   }
+  /* scheduled time: ASAP or a slot later tonight (the demo clock is Saturday 7:15 PM) */
+  S.slot = 0;
+  const slots = () => [S.mode === "pickup" ? "As soon as possible · about 20 min" : "As soon as possible · about 40 min", "8:00 PM", "8:30 PM", "9:00 PM"];
+  /* one pairing suggestion: a bread or a drink that isn't in the order yet */
+  const PAIR = () => MENU.filter((m) => new RegExp(X.pair || "naan|lassi|raita|chai", "i").test(m.name) && !S.cart.some((l) => l.id === m.id)).slice(0, 2);
+  const pairHTML = () => { const ps = PAIR(); return ps.length ? `<p class="g-opt-h" style="margin-top:4px">Goes well with<\/p><div class="g-pairs">${ps.map((m) => `<button data-pair="${m.id}"><span>${esc(m.name)}<\/span><span class="g-price">${money(fromPrice(m))}<\/span><span class="g-add" aria-hidden="true">+<\/span><\/button>`).join("")}<\/div>` : ""; };
   function wireCart() {
     $$("[data-rm]").forEach((b) => b.addEventListener("click", () => { S.cart.splice(+b.dataset.rm, 1); go("cart", true); }));
+    $$("[data-slot]").forEach((b) => b.addEventListener("click", () => { S.slot = +b.dataset.slot; go("cart", true); }));
+    $$("[data-pair]").forEach((b) => b.addEventListener("click", () => { const m = MENU.find((x) => x.id === b.dataset.pair); S.cart.push({ id: m.id, name: m.name, size: m.sizes.length > 1 ? m.sizes[0].l : "", spice: "", qty: 1, each: m.sizes[0].p }); go("cart", true); toast(`Added ${m.name}`); }));
     const pay = $("#gPay"); if (!pay) return;
     pay.addEventListener("click", async () => {
       pay.disabled = true; pay.textContent = "Paying…"; await sleep(1100);
       const T = totals(), no = ++S.orderNo, name = ($("#gName").value || "Alex").trim();
-      const o = { no, name, lines: S.cart.slice(), total: T.t, mode: S.mode, channel: "website", at: "7:" + (16 + S.orders.length) + " PM" };
-      S.orders.push(o); S.last = o; S.cart = []; step("siteSteps", "pay");
-      text(`${P.name}: Thanks ${name}! Order #${no} is paid and being made. ${S.mode === "pickup" ? `Ready in about 20 minutes at ${P.address_short}.` : "On its way in about 40 minutes."}`, `${P.domain}/o/${no}`);
+      const when = S.slot ? slots()[S.slot] : "";
+      const o = { no, name, lines: S.cart.slice(), total: T.t, mode: S.mode, channel: "website", when, at: "7:" + (16 + S.orders.length) + " PM" };
+      S.orders.push(o); S.last = o; S.cart = []; S.slot = 0; step("siteSteps", "pay");
+      text(`${P.name}: Thanks ${name}! Order #${no} is paid. ${when ? `It will be ${S.mode === "pickup" ? "ready" : "at your door"} at ${when} tonight.` : S.mode === "pickup" ? `Ready in about 20 minutes at ${P.address_short}.` : "On its way in about 40 minutes."}`, `${P.domain}/o/${no}`);
       emit("order", o); go("done");
       await sleep(4500); if (S.view === "done") go("done", true);
       o.stage = 2; if (S.view === "done") go("done", true);
@@ -789,43 +845,66 @@ img.o-av{object-fit:cover;background:var(--t-bg2)}
     const pick = {}; pick[0] = full >= 2 ? "full" : (full ? "full" : "half"); if (n >= 30) pick[2] = half || full >= 2 ? "half" : "full"; if (n >= 60) pick[3] = "half"; if (n >= 25) pick[5] = n >= 40 ? "full" : "half";
     return pick;
   }
+  /* Catering = the ordering app with its door set to catering: trays, a date and time, pickup or
+     delivery, and the guest PAYS at order time (how our own restaurant runs it). The notice limit
+     shows as one plain line only when the guest hits it. */
+  const CDAYS = ["Today", "Tomorrow", "Monday", "Next Saturday"], CTIMES = ["12 PM", "1 PM", "6 PM", "7 PM"];
+  Object.assign(C, { day: 3, time: 2, how: "pickup" });
+  const CN = () => P.catering.notice_trays || 2;
+  const cTrays = () => Object.values(C.pick).length;
+  const cSub = () => { const t = P.catering.trays; return Object.entries(C.pick).reduce((a, [i, s]) => a + (s === "full" ? t[i].full : t[i].half), 0); };
+  const cFee = () => (C.how === "delivery" ? (P.catering.delivery_fee ?? 25) : 0);
+  const cBlocked = () => C.day === 0 && cTrays() > CN();
   function vCater() {
     if (!Object.keys(C.pick).length) C.pick = traySuggest(C.people);
-    const t = P.catering.trays, est = Object.entries(C.pick).reduce((a, [i, s]) => a + (s === "full" ? t[i].full : t[i].half), 0);
+    const t = P.catering.trays, s = cSub(), fee = cFee(), tax = s * TAX, tot = s + fee + tax;
+    const chips = (arr, key) => `<div class="g-slots">${arr.map((x, i) => `<button data-c${key}="${i}" aria-pressed="${C[key] === i}">${esc(x)}<\/button>`).join("")}<\/div>`;
     return `<header class="g-head"><button class="g-btn g-btn--sm g-btn--line" data-go="home">← Home<\/button><b style="margin-inline-start:auto">Catering<\/b><\/header>
-      <div class="g-sec" style="padding-top:20px"><p class="g-eyebrow">Catering<\/p><h2 class="g-h2">Plan your party<\/h2><p class="g-muted">Pick your headcount and we'll suggest trays. Change anything you like.<\/p>${P.catering_review ? `<figure class="g-rev g-rev--wide"><blockquote>${esc(P.catering_review.text)}<\/blockquote><figcaption><b>${esc(P.catering_review.name)}<\/b> · on Google<\/figcaption><\/figure>` : ""}
+      <div class="g-tabs3" role="group"><button data-go="menu" data-mode-go="delivery" aria-pressed="false">Delivery<\/button><button data-go="menu" data-mode-go="pickup" aria-pressed="false">Pickup<\/button><button aria-pressed="true">Catering<\/button><\/div>
+      <div class="g-sec" style="padding-top:16px"><h2 class="g-h2">Trays for your party<\/h2><p class="g-muted">Pick your headcount and we'll suggest trays. Change anything you like.<\/p>${P.catering_review ? `<figure class="g-rev g-rev--wide"><blockquote>${esc(P.catering_review.text)}<\/blockquote><figcaption><b>${esc(P.catering_review.name)}<\/b> · on Google<\/figcaption><\/figure>` : ""}
       <div class="g-people" style="margin-top:16px"><span>Guests<\/span><input id="gPeople" type="range" min="10" max="150" step="5" value="${C.people}" aria-label="Number of guests"><b id="gPeopleN" class="tnum">${C.people}<\/b><\/div>
       ${t.map((tr, i) => `<div class="g-tray"><div class="g-tray__top"><p class="g-tray__n">${esc(tr.name)}<\/p><\/div><div class="g-tray__row">
         <button data-tray="${i}" data-sz="half" aria-pressed="${C.pick[i] === "half"}"><b>Half tray · ${money(tr.half)}<\/b>feeds ${tr.serves_half}<\/button>
         <button data-tray="${i}" data-sz="full" aria-pressed="${C.pick[i] === "full"}"><b>Full tray · ${money(tr.full)}<\/b>feeds ${tr.serves_full}<\/button><\/div><\/div>`).join("")}
-      <div class="g-tot g-tot--big"><span>Estimate<\/span><span>${money(est)}<\/span><\/div>
-      <label class="g-field" style="margin-top:12px">When<select><option>${esc(P.scenarios.catering.when)}<\/option><option>Sunday at 1 PM<\/option><\/select><\/label>
-      <label class="g-field">Your name<input id="gCName" value="${esc(P.scenarios.catering.name)}" autocomplete="off"><\/label>
-      <button class="g-btn g-btn--block" id="gCat" ${est ? "" : "disabled"}>Send my request<\/button>
-      <p class="g-where" style="padding:8px 0 0;text-align:center">No payment now. We confirm the details with you first.<\/p><\/div>`;
+      <p class="g-opt-h">Day<\/p>${chips(CDAYS, "day")}
+      ${cBlocked() ? `<p class="g-limit">More than ${CN()} trays needs a day's notice. Tomorrow onward is open.<\/p>` : ""}
+      <p class="g-opt-h">Time<\/p>${chips(CTIMES, "time")}
+      <p class="g-opt-h">Pickup or delivery<\/p><div class="g-slots"><button data-chow="pickup" aria-pressed="${C.how === "pickup"}">Pickup<\/button><button data-chow="delivery" aria-pressed="${C.how === "delivery"}">Delivered and set up<\/button><\/div>
+      ${C.how === "delivery" ? `<label class="g-field" style="margin-top:12px">Deliver to<input value="${esc(X.cater_address || "Community hall, 1200 Main St")}" autocomplete="off"><\/label>` : ""}
+      <label class="g-field" style="margin-top:12px">Your name<input id="gCName" value="${esc(P.scenarios.catering.name)}" autocomplete="off"><\/label>
+      <label class="g-field">Mobile<input value="(281) 555-0193" autocomplete="off"><\/label>
+      <div style="margin-top:4px"><div class="g-tot"><span>Trays<\/span><span>${money(s)}<\/span><\/div>${fee ? `<div class="g-tot"><span>Delivery and setup<\/span><span>${money(fee)}<\/span><\/div>` : ""}<div class="g-tot"><span>Tax<\/span><span>${money(tax)}<\/span><\/div><div class="g-tot g-tot--big"><span>Total<\/span><span>${money(tot)}<\/span><\/div><\/div>
+      <button class="g-pay" id="gCat" ${s && !cBlocked() ? "" : "disabled"}>Pay ${money(tot)} and book<\/button>
+      <button class="g-link" id="gQuote" style="display:block;margin:14px auto 0;white-space:normal;text-align:center">Full-service event with staff? Ask Haniya for a quote<\/button><\/div>`;
   }
   function wireCater() {
     $("#gPeople").addEventListener("input", (e) => { C.people = +e.target.value; C.pick = traySuggest(C.people); go("cater", true); });
     $$("[data-tray]").forEach((b) => b.addEventListener("click", () => { const i = b.dataset.tray; C.pick[i] = C.pick[i] === b.dataset.sz ? undefined : b.dataset.sz; if (!C.pick[i]) delete C.pick[i]; go("cater", true); }));
+    $$("[data-cday]").forEach((b) => b.addEventListener("click", () => { C.day = +b.dataset.cday; go("cater", true); }));
+    $$("[data-ctime]").forEach((b) => b.addEventListener("click", () => { C.time = +b.dataset.ctime; go("cater", true); }));
+    $$("[data-chow]").forEach((b) => b.addEventListener("click", () => { C.how = b.dataset.chow; go("cater", true); }));
+    $("#gQuote").addEventListener("click", () => openHaniya("I need a full-service event with staff. Can I get a quote?"));
     $("#gCat").addEventListener("click", async (e) => {
-      e.target.disabled = true; e.target.textContent = "Sending…"; await sleep(900);
+      e.target.disabled = true; e.target.textContent = "Paying…"; await sleep(1100);
       const t = P.catering.trays, items = Object.entries(C.pick).map(([i, s]) => `${s === "full" ? "Full" : "Half"} ${t[i].name}`);
-      const est = Object.entries(C.pick).reduce((a, [i, s]) => a + (s === "full" ? t[i].full : t[i].half), 0);
-      const lead = { name: $("#gCName").value || "Daniel", people: C.people, when: P.scenarios.catering.when, items, est, channel: "website" };
+      const s = cSub(), tot = s + cFee() + s * TAX, no = ++S.orderNo;
+      const when = `${CDAYS[C.day]} at ${CTIMES[C.time]}`;
+      const lead = { no, name: $("#gCName").value || "Daniel", people: C.people, when, items, est: tot, how: C.how, paid: true, channel: "website" };
       S.leads.push(lead); S.lastLead = lead; step("siteSteps", "cater");
-      text(`${P.name}: Hi ${lead.name}, we got your catering request for ${lead.people} guests, ${lead.when}: ${items.join(", ")}. We'll text you shortly to confirm.`);
+      S.orders.push({ no, name: lead.name, lines: [], total: tot, mode: C.how, channel: "catering", src: "website", at: "7:2" + S.orders.length + " PM" });
+      text(`${P.name}: Thanks ${lead.name}! Your catering is booked and paid. Order #${no}, ${lead.people} guests, ${when}, ${C.how === "pickup" ? "pickup" : "delivered and set up"}: ${items.join(", ")}.`, `${P.domain}/o/${no}`);
       emit("lead", lead); go("cdone");
     });
   }
   function vCDone() {
     const l = S.lastLead;
-    return `<header class="g-head"><img class="g-logo" src="${D.logoDark}" alt="${esc(P.name)}"><\/header><div class="g-done"><div class="g-check">✓<\/div><h2 class="g-h2">Request sent<\/h2>
-      <p class="g-muted">${l.people} guests · ${esc(l.when)}<br>${l.items.map(esc).join("<br>")}<\/p><p class="g-muted" style="margin-top:16px">We've texted you a copy and we'll be in touch shortly to confirm.<\/p>
+    return `<header class="g-head"><img class="g-logo" src="${D.logoDark}" alt="${esc(P.name)}"><\/header><div class="g-done"><div class="g-check">✓<\/div><h2 class="g-h2">Booked and paid<\/h2>
+      <p class="g-muted">Order #${l.no} · ${money(l.est)}<br>${l.people} guests · ${esc(l.when)} · ${l.how === "pickup" ? "Pickup" : "Delivered and set up"}<\/p><p class="g-muted" style="margin-top:12px">${l.items.map(esc).join("<br>")}<\/p><p class="g-muted" style="margin-top:16px">Your receipt is on its way by text.<\/p>
       <div style="margin-top:20px"><button class="g-btn g-btn--line" data-go="home">Back to home<\/button><\/div><\/div>`;
   }
 
   /* Haniya on the website */
-  function openHaniya() {
+  function openHaniya(pre) {
     const log = [{ h: `Hi! I'm Haniya at ${P.name}. Ask me anything about the menu, hours or catering.` }];
     const SUG = ["Are you open now?", "Something spicy?", X.chat.veg_ask, "Do you cater?"];
     const draw = () => {
@@ -845,12 +924,14 @@ img.o-av{object-fit:cover;background:var(--t-bg2)}
       if (/open|hour|close|time/.test(s)) a = `Yes, we're open now until ${todayClose()} tonight. Want me to start an order?`;
       else if (/spic|hot/.test(s)) a = `For real heat, people love these:<br>${X.chat.spicy.map(dish).join("")}`;
       else if (/veg|paneer|meat/.test(s)) a = `${esc(X.chat.veg_line)}<br>${X.chat.veg.map(dish).join("")}`;
-      else if (/cater|party|tray|event|people/.test(s)) a = `We do! Trays of biryani, curries and appetizers for 10 to 150 guests.<br><button class="g-btn g-btn--sm" data-go="cater" style="margin-top:6px">Plan my catering<\/button>`;
+      else if (/full.service|staff|quote|servers/.test(s)) a = `Happy to. Tell me the date, how many guests and where it is, and I'll text you a quote.`;
+      else if (/cater|party|tray|event|people/.test(s)) a = `We do! Pick your trays, a day and a time, and pay right here. It's booked the moment it's paid.<br><button class="g-btn g-btn--sm" data-go="cater" style="margin-top:6px">Plan my catering<\/button>`;
       else if (new RegExp(X.chat.signature_word, "i").test(s)) a = `${esc(X.chat.signature_line)}<br>${X.chat.signature.map(dish).join("")}`;
       else { const hit = MENU.find((m) => s.split(/\W+/).filter((w) => w.length > 3).some((w) => m.name.toLowerCase().includes(w))); a = hit ? `Here's what I found:<br>${dish(hit.name)}` : `I can help with any dish on our menu, our hours or catering. Try asking about mandi, biryani or something spicy.`; }
       log.push({ h: a }); draw();
     };
     draw();
+    if (typeof pre === "string") ask(pre);
   }
 
   /* ---------- Haniya answers the phone ---------- */
@@ -892,16 +973,19 @@ img.o-av{object-fit:cover;background:var(--t-bg2)}
         ["h", `Got your payment, it's gone to be made. It'll be ready in about 20 to 25 minutes, we're on ${loc}. We'll text you the moment it's ready.`],
         ["c", "Perfect, thank you!"], ["h", `Thanks for calling, ${sc.pickup.name}. See you soon!`], ["s", "Ready text sent when the counter taps ready", 4]],
         ticket: { name: sc.pickup.name, lines: [`1  ${d1.name}${sz ? " (" + s1.l + ")" : ""} · Medium`, `${sc.pickup.qty2}  ${d2.name}`], total: pickTotal * (1 + TAX) } },
-      { id: "cater", label: "Catering for 40", steps: ["Catering menu texted right away", "Trays sized for the headcount", "Kids noted, one tray made mild", "Lead sent to you with the estimate", "Copy texted to the caller"], lines: [
+      { id: "cater", label: "Catering for 40", steps: ["Trays sized for the headcount", "Kids noted, one tray made mild", "Read back with the total", "Catering pay link texted", "Paid, so it's booked"], lines: [
         ["c", `Hi, I'm planning a birthday for about ${sc.catering.guests} people ${sc.catering.when.split(" at ")[0]}. Do you do catering?`],
-        ["h", `We do, and I can take it right now. I've just texted you our catering menu. For ${sc.catering.guests} guests most people go with two full trays of biryani and one of a curry.`], ["s", "Catering menu texted", 0],
-        ["c", "What's popular?"],
-        ["h", `Our ${t[0].name} and ${t[2].name} are the favourites for parties. Two full trays of biryani and one of ${t[2].name} come to about ${money0(cEst)} before tax, and the exact total comes on your quote.`], ["s", `Estimate: 2 × full ${t[0].name}, 1 × full ${t[2].name}`, 1],
-        ["c", "That sounds good. Around 6, I'll pick it up."],
-        ["h", "Will any kids be there? I'd suggest keeping one tray mild for them."], ["c", "Yes, a few. Make the butter chicken mild."], ["s", `${t[2].name}: mild`, 2],
-        ["h", "Done. And what name is it under?"], ["c", `${sc.catering.name}.`], ["s", "Lead sent to the owner with the estimate", 3],
-        ["h", `Thanks ${sc.catering.name}. I've passed it to the team and texted you a copy, and you'll get the final quote by text.`], ["s", "Copy texted to the caller", 4],
-        ["c", "Great, thanks!"], ["h", "You're welcome, enjoy the party!"]] },
+        ["h", `We do, and I can book it for you right now. For ${sc.catering.guests} guests most people go with two full trays of ${t[0].name} and one full tray of ${t[2].name}.`], ["s", `2 × full ${t[0].name}, 1 × full ${t[2].name}`, 0],
+        ["c", "That sounds good."],
+        ["h", "Will any kids be there? I'd suggest keeping one tray mild for them."], ["c", `Yes, a few. Make the ${t[2].name.toLowerCase()} mild.`], ["s", `${t[2].name}: mild`, 1],
+        ["h", "And is that pickup, or would you like it delivered?"], ["c", `Pickup, around ${sc.catering.when.split(" at ")[1] || "6"}.`],
+        ["h", `So that's two full trays of ${t[0].name} and one full tray of ${t[2].name}, mild, for pickup ${sc.catering.when}. That's ${money(cEst)} plus tax. Shall I book it?`], ["s", `Read back · ${money(cEst)} plus tax`, 2],
+        ["c", "Yes please."], ["h", "What name should I put it under?"], ["c", `${sc.catering.name}.`],
+        ["s", "Catering pay link texted to the caller", 3],
+        ["h", `Thanks ${sc.catering.name}. I've texted you a link with the trays on it. Once it's paid, it's booked. I can stay on while you pay.`],
+        ["c", "Okay… done."], ["s", `Paid · booked for ${sc.catering.when}`, 4],
+        ["h", `Got your payment, you're all booked for ${sc.catering.when}. Enjoy the party!`], ["c", "Great, thanks!"]],
+        ticket: { kind: "CATERING", name: sc.catering.name, head: sc.catering.when + " · pickup", lines: [`2  Full ${t[0].name}`, `1  Full ${t[2].name} · Mild`], total: cEst * (1 + TAX) } },
       { id: "late", label: "Calling after closing", steps: ["Opens with what she can do, not 'we're closed'", "Order scheduled for tomorrow", "Pay link texted", "Prints in the morning, on time"], lines: [
         ["s", "10:41 PM · closed for the night"],
         ["h", `Thank you for calling ${nm}, this is Haniya. I can take your order now for tomorrow, we open at ${fmtT(hoursFor("Sun")[0][0])}. We're closed for tonight.`], ["s", "", 0],
@@ -944,16 +1028,16 @@ img.o-av{object-fit:cover;background:var(--t-bg2)}
     clearInterval(tick); $("#callDot").classList.remove("is-live"); log.insertAdjacentHTML("beforeend", `<div class="call__sys">Call ended<\/div>`); log.scrollTop = log.scrollHeight;
     if (c.ticket) {
       const no = ++S.orderNo;
-      $("#callTicket").innerHTML = `<div class="ticket"><h5>${esc(P.name.toUpperCase())} · PHONE · PAID<\/h5>#${no} · ${esc(c.ticket.name)}<hr>${c.ticket.lines.map(esc).join("<br>")}<hr>TOTAL ${money(c.ticket.total)}<\/div>`;
-      const o = { no, name: c.ticket.name, lines: [], total: c.ticket.total, mode: "pickup", channel: "phone", at: "7:3" + S.orders.length + " PM" };
+      $("#callTicket").innerHTML = `<div class="ticket"><h5>${esc(P.name.toUpperCase())} · ${c.ticket.kind || "PHONE"} · PAID<\/h5>#${no} · ${esc(c.ticket.name)}${c.ticket.head ? `<br>${esc(c.ticket.head)}` : ""}<hr>${c.ticket.lines.map(esc).join("<br>")}<hr>TOTAL ${money(c.ticket.total)}<\/div>`;
+      const o = { no, name: c.ticket.name, lines: [], total: c.ticket.total, mode: "pickup", channel: c.ticket.kind ? "catering" : "phone", src: "phone", at: "7:3" + S.orders.length + " PM" };
       S.orders.push(o); emit("order", o);
     }
-    if (id === "cater") { const t = P.catering.trays, l = { name: P.scenarios.catering.name, people: P.scenarios.catering.guests, when: P.scenarios.catering.when, items: [`2 × Full ${t[0].name}`, `1 × Full ${t[2].name} (mild)`], est: t[0].full * 2 + t[2].full, channel: "phone" }; S.leads.push(l); emit("lead", l); }
+    if (id === "cater") { const t = P.catering.trays, l = { no: S.orderNo, name: P.scenarios.catering.name, people: P.scenarios.catering.guests, when: P.scenarios.catering.when, items: [`2 × Full ${t[0].name}`, `1 × Full ${t[2].name} (mild)`], est: (t[0].full * 2 + t[2].full) * (1 + TAX), how: "pickup", paid: true, channel: "phone" }; S.leads.push(l); emit("lead", l); }
   }
 
   /* ---------- sample business numbers (seeded, so every visit shows the same) ---------- */
   let seed = 7; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
-  const DAYN = 28, CH = ["Your website", "Phone (Haniya)", "Walk-in", "Delivery apps"];
+  const DAYN = 60, CH = ["Your website", "Phone (Haniya)", "Walk-in", "Delivery apps"];
   const daily = Array.from({ length: DAYN }, (_, i) => {
     const dow = (i + 1) % 7, wk = dow === 5 || dow === 6 || dow === 0 ? 1.45 : 1, ramp = 0.75 + (i / DAYN) * 0.4;
     const base = (P.money_defaults.orders_month_direct / 30) * P.money_defaults.avg_ticket * wk * (0.85 + rnd() * 0.3);
@@ -964,71 +1048,125 @@ img.o-av{object-fit:cover;background:var(--t-bg2)}
   const top = P.featured.map(byName).filter(Boolean).concat(MENU.filter((m) => new RegExp(X.top_extra, "i").test(m.name)).slice(0, 4)).slice(0, 8)
     .map((m, i) => ({ m, n: Math.round(180 / (i + 1.4) + rnd() * 12) }));
 
-  /* ---------- your Haniya app ---------- */
-  const app = { tab: "today", chat: [], approved: false };
+  /* ---------- your Haniya app: chat first, opening on the questions an owner asks, already answered ---------- */
+  const app = { view: "home", chat: [], approved: false, undo: false, open: -1 };
   const liveSales = () => sum(S.orders.map((o) => o.total));
+  const liveBy = (ch) => sum(S.orders.filter((o) => o.channel === ch || (o.channel === "catering" && o.src === ch)).map((o) => o.total));
+  const todaySales = () => sum(daily[DAYN - 1]) * 0.72 + liveSales();
+  const LEADS = () => S.leads.concat(X.sample_leads.map((l) => Object.assign({ paid: true, how: "pickup" }, l)));
   function todayCards() {
-    const d = daily[DAYN - 1], sales = sum(d) * 0.72 + liveSales(), orders = Math.round(sales / P.money_defaults.avg_ticket);
-    const bars = Array.from({ length: 12 }, (_, i) => 10 + Math.sin(i / 2.2) * 30 + (i > 7 ? 40 : 0) + rnd() * 12);
-    return `<div class="o-card"><h6>Sales so far today<\/h6><div class="o-big">${money0(sales)}<\/div><div class="o-row"><span>Orders<\/span><b class="tnum">${orders}<\/b><\/div><div class="o-row"><span>Ahead of a usual Saturday<\/span><b class="tnum">+11%<\/b><\/div><div class="bar-s">${bars.map((h) => `<span style="height:${Math.min(100, h)}%"><\/span>`).join("")}<\/div><\/div>
-      <div class="o-card"><h6>Phone<\/h6><div class="o-row"><span>Calls Haniya answered<\/span><b class="tnum">${31 + S.calls}<\/b><\/div><div class="o-row"><span>Orders taken on calls<\/span><b class="tnum">${14 + S.orders.filter((o) => o.channel === "phone").length}<\/b><\/div><div class="o-row"><span>Missed calls<\/span><b class="tnum">0<\/b><\/div><\/div>
-      <div class="o-card"><h6>Catering<\/h6>${(S.leads.length ? S.leads : X.sample_leads.slice(0, 1)).map((l) => `<div class="o-row"><span>${esc(l.name)} · ${l.people} guests · ${esc(l.when)}<\/span><b class="tnum">${money0(l.est)}<\/b><\/div>`).join("")}<\/div>
-      <div class="o-card"><h6>Needs you<\/h6>${app.approved ? `<p style="margin:0">${esc(X.promo.done)}<\/p>` : `<p style="margin:0 0 4px">${esc(X.promo.ask)}<\/p><div class="o-act"><button class="is-yes" data-approve>Approve<\/button><button data-later>Not now<\/button><\/div>`}<\/div>`;
+    const sales = todaySales(), orders = Math.round(sales / P.money_defaults.avg_ticket), up = LEADS().slice(0, 2);
+    const card = (tone, q, a, stats = []) => `<div class="o-card o-qc o-qc--${tone}"><h6>${esc(q)}<\/h6><p>${a}<\/p>${stats.length ? `<div class="o-stats">${stats.map((s) => `<span>${s}<\/span>`).join("")}<\/div>` : ""}<\/div>`;
+    const needs = app.approved
+      ? card("good", "Does anything need me?", "No. Nothing is waiting on you right now.")
+      : `<div class="o-card o-qc o-qc--attn"><h6>Does anything need me?<\/h6><p>Yes: one text to your guests is waiting for your OK.<\/p><p class="o-draft">${esc(X.promo.ask)}<\/p><div class="o-act"><button class="is-yes" data-approve>Approve<\/button><button data-later>Not now<\/button><\/div><\/div>`;
+    return needs + (app.undo ? `<div class="o-card o-undo"><span>${esc(X.promo.done)}<\/span><button data-undo>Undo<\/button><\/div>` : "")
+      + card("plain", "How are we doing today?", `<b>${money0(sales)}<\/b> so far, 11% ahead of a usual Saturday at this hour. Expect about ${money0(sales / 0.72)} by close.`, [`${orders} orders`, `${31 + S.calls} calls answered`, "0 missed"])
+      + card("good", "Did we lose any money?", "No. Every pay link was paid and no card was declined.")
+      + card("plain", "What's coming up?", up.map((l) => `${esc(l.name)}'s catering for ${l.people}, ${esc(l.when)}${l.paid ? ", paid" : ""}`).join("<br>"), [`${LEADS().length} catering bookings this week`])
+      + card("plain", "How did yesterday go?", `Friday: <b>${money0(sum(daily[DAYN - 2]))}<\/b>, your best Friday this month. ${esc(top[0].m.name)} sold the most.`);
   }
   const QA = [
-    ["How did we do today?", () => { const d = daily[DAYN - 1]; return `Saturday so far: <b>${money0(sum(d) * 0.72 + liveSales())}<\/b>, 11% ahead of your last four Saturdays at this hour.<table>${CH.map((c, i) => `<tr><td>${c}<\/td><td>${money0(d[i] * 0.72 + (i === 0 ? sum(S.orders.filter((o) => o.channel === "website").map((o) => o.total)) : i === 1 ? sum(S.orders.filter((o) => o.channel === "phone").map((o) => o.total)) : 0))}<\/td><\/tr>`).join("")}<\/table>`; }],
+    ["How did we do today?", () => { const d = daily[DAYN - 1]; return `Saturday so far: <b>${money0(todaySales())}<\/b>, 11% ahead of your last four Saturdays at this hour.<table>${CH.map((c, i) => `<tr><td>${c}<\/td><td>${money0(d[i] * 0.72 + (i === 0 ? liveBy("website") : i === 1 ? liveBy("phone") : 0))}<\/td><\/tr>`).join("")}<\/table>`; }],
     ["What sold most this week?", () => `Your top five this week:<table>${top.slice(0, 5).map((t) => `<tr><td>${esc(t.m.name)}<\/td><td>${t.n}<\/td><\/tr>`).join("")}<\/table>${esc(top[0].m.name)} alone was about ${money0(top[0].n * fromPrice(top[0].m))}.`],
-    ["How many calls did we miss?", () => `None this week. Haniya answered <b>${212 + S.calls}<\/b> calls: 96 orders, 41 menu questions, 9 catering requests, 23 sales calls turned away, the rest hours and directions.`],
-    ["Who asked about catering?", () => `This week:<table>${S.leads.concat(X.sample_leads).map((l) => `<tr><td>${esc(l.name)} · ${l.people}<\/td><td>${money0(l.est)}<\/td><\/tr>`).join("")}<\/table>Want me to text ${esc(X.sample_leads[1].name)} to confirm?`, true],
-    ["What's selling on the apps vs our site?", () => `Last 4 weeks: your own site ${money0(sum(daily.map((d) => d[0])))}, delivery apps ${money0(sum(daily.map((d) => d[3])))}. Your site has grown every week since Google's Order button started pointing to you.`],
+    ["How many calls did we miss?", () => `None this week. Haniya answered <b>${212 + S.calls}<\/b> calls: 96 orders, 41 menu questions, 9 catering bookings, 23 sales calls turned away, the rest hours and directions.`],
+    ["Who booked catering?", () => `This week:<table>${LEADS().map((l) => `<tr><td>${esc(l.name)} · ${l.people} · ${esc(l.when)}<\/td><td>${money0(l.est)}<\/td><\/tr>`).join("")}<\/table>Want me to text ${esc(X.sample_leads[1].name)} a reminder the day before?`, true],
+    ["What's selling on the apps vs our site?", () => `Last 30 days: your own site ${money0(sum(daily.slice(-30).map((d) => d[0])))}, delivery apps ${money0(sum(daily.slice(-30).map((d) => d[3])))}. Your site has grown every week since Google's Order button started pointing to you.`],
   ];
+  const MIC = X.mic || { said: "आज कितना बिका?", en: "How much did we sell today?" };
+  const bell = () => `<button class="o-bell" data-ot="alerts" aria-label="Alerts">${'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15L6 16Zm4 4h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><\/svg>'}${S.alerts.length ? `<i>${S.alerts.length}<\/i>` : ""}<\/button>`;
   function renderApp() {
     const el = $("#ownerApp");
-    el.innerHTML = `<div class="o-app"><div class="o-top"><img class="o-av" src="${D.face}" alt=""><div><b>Haniya<\/b><small>${esc(P.name)} · ${esc(P.location_label)}<\/small><\/div><\/div>
-      <div class="o-tabs">${[["today", "Today"], ["ask", "Ask"], ["alerts", "Alerts" + (S.alerts.length ? " · " + S.alerts.length : "")]].map(([k, l]) => `<button data-ot="${k}" aria-pressed="${app.tab === k}">${l}<\/button>`).join("")}<\/div>
-      <div class="o-body" id="oBody">${app.tab === "today" ? todayCards() : app.tab === "alerts" ? alertsHTML() : askHTML()}<\/div>
-      ${app.tab === "ask" ? `<div class="o-chips">${QA.map((q, i) => `<button data-qa="${i}">${esc(q[0])}<\/button>`).join("")}<\/div><div class="o-ask"><input id="oIn" placeholder="Ask about your restaurant" aria-label="Ask Haniya"><button id="oGo" aria-label="Send">↑<\/button><\/div>` : ""}<\/div>`;
-    $$("[data-ot]", el).forEach((b) => b.addEventListener("click", () => { app.tab = b.dataset.ot; renderApp(); }));
+    const body = app.view === "alerts" ? alertsHTML() : todayCards() + chatHTML();
+    el.innerHTML = `<div class="o-app"><div class="o-top">${app.view === "alerts" ? `<button class="o-back" data-ot="home" aria-label="Back">←<\/button>` : `<img class="o-av" src="${D.face}" alt="">`}<div><b>${app.view === "alerts" ? "Alerts" : "Haniya"}<\/b><small>${esc(P.name)} · ${esc(P.location_label)}<\/small><\/div>${app.view === "alerts" ? "" : bell()}<\/div>
+      <div class="o-body" id="oBody">${body}<\/div>
+      ${app.view === "alerts" ? "" : `<div class="o-chips">${QA.map((q, i) => `<button data-qa="${i}">${esc(q[0])}<\/button>`).join("")}<\/div><div class="o-ask"><button class="o-mic" id="oMic" aria-label="Speak">${'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Zm-6 9a6 6 0 0 0 12 0M12 18v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><\/svg>'}<\/button><input id="oIn" placeholder="Ask in any language" aria-label="Ask Haniya"><button id="oGo" aria-label="Send">↑<\/button><\/div>`}<\/div>`;
+    $$("[data-ot]", el).forEach((b) => b.addEventListener("click", () => { app.view = b.dataset.ot; if (app.view === "alerts") app.sawAlerts = true; renderApp(); }));
     $$("[data-qa]", el).forEach((b) => b.addEventListener("click", () => appAsk(+b.dataset.qa)));
-    const ap = $("[data-approve]", el); if (ap) ap.addEventListener("click", () => { app.approved = true; step("appSteps", "approve"); renderApp(); });
+    $$("[data-al]", el).forEach((b) => b.addEventListener("click", () => { app.open = app.open === +b.dataset.al ? -1 : +b.dataset.al; renderApp(); }));
+    const ap = $("[data-approve]", el); if (ap) ap.addEventListener("click", () => { app.approved = true; app.undo = true; step("appSteps", "approve"); renderApp(); });
+    const lt = $("[data-later]", el); if (lt) lt.addEventListener("click", () => { lt.closest(".o-act").outerHTML = `<p class="o-draft" style="margin-top:8px">Okay, I'll ask again tomorrow morning.<\/p>`; });
+    const un = $("[data-undo]", el); if (un) un.addEventListener("click", () => { app.approved = false; app.undo = false; renderApp(); });
+    const mic = $("#oMic"); if (mic) mic.addEventListener("click", async () => { mic.classList.add("is-on"); $("#oIn").placeholder = "Listening…"; await sleep(1300); step("appSteps", "mic"); appAsk(0, MIC.said, MIC.en); });
     const go_ = $("#oGo"); if (go_) { const send = () => { const v = $("#oIn").value.trim(); if (!v) return; const s = v.toLowerCase(); const i = /miss|call/.test(s) ? 2 : /sold|best|top|popular/.test(s) ? 1 : /cater|party/.test(s) ? 3 : /app|doordash|uber|site/.test(s) ? 4 : 0; appAsk(i, v); }; go_.addEventListener("click", send); $("#oIn").addEventListener("keydown", (e) => e.key === "Enter" && send()); }
-    const b = $("#oBody"); if (app.tab === "ask") b.scrollTop = b.scrollHeight;
-    $("#appSteps").innerHTML = QA.slice(0, 3).map((q, i) => `<li data-s="q${i}" class="${app["q" + i] ? "is-done" : ""}"><span>"${esc(q[0])}"<\/span><\/li>`).join("") + `<li data-s="approve" class="${app.approved ? "is-done" : ""}"><span>Approve the text on Today<\/span><\/li><li data-s="alert" class="${S.alerts.length ? "is-done" : ""}"><span>Place an order on the website tab, then check Alerts<\/span><\/li>`;
+    const b = $("#oBody"); if (app.chat.length && app.view === "home") b.scrollTop = b.scrollHeight;
+    $("#appSteps").innerHTML = QA.slice(0, 2).map((q, i) => `<li data-s="q${i}" class="${app["q" + i] ? "is-done" : ""}"><span>"${esc(q[0])}"<\/span><\/li>`).join("")
+      + `<li data-s="mic" class="${app.mic ? "is-done" : ""}"><span>Tap the mic: ask in your own language<\/span><\/li><li data-s="approve" class="${app.approved ? "is-done" : ""}"><span>Approve the text to your guests (you can undo it)<\/span><\/li><li data-s="alert" class="${app.sawAlerts ? "is-done" : ""}"><span>Place an order on the website tab, then tap the bell<\/span><\/li>`;
   }
-  const askHTML = () => `<div class="o-q">${app.chat.length ? app.chat.map((m) => `<div class="o-msg ${m.me ? "o-msg--me" : ""}">${m.me ? esc(m.me) : m.a}${m.act ? `<div class="o-act"><button class="is-yes" data-confirm>Text her<\/button><button>Not now<\/button><\/div>` : ""}<\/div>`).join("") : `<div class="o-msg">Ask me anything about ${esc(P.name)}: sales, dishes, calls, catering or guests.<\/div>`}<\/div>`;
-  const alertsHTML = () => S.alerts.length ? S.alerts.slice().reverse().map((a) => `<div class="o-card o-alert"><i><\/i><div><b>${esc(a.t)}<\/b><div class="g-muted" style="font-size:13px">${esc(a.d)}<\/div><\/div><\/div>`).join("") : `<div class="o-card">No alerts yet. Place an order or a catering request on the website tab and it lands here.<\/div>`;
-  async function appAsk(i, typed) {
-    app.tab = "ask"; app.chat.push({ me: typed || QA[i][0] }); renderApp(); await sleep(700);
+  const chatHTML = () => app.chat.length ? `<div class="o-q">${app.chat.map((m) => `<div class="o-msg ${m.me ? "o-msg--me" : ""}">${m.me ? esc(m.me) + (m.en ? `<small class="o-tr">${esc(m.en)}<\/small>` : "") : m.a}${m.act ? `<div class="o-act"><button class="is-yes" data-confirm>Approve<\/button><button>Not now<\/button><\/div>` : ""}<\/div>`).join("")}<\/div>` : "";
+  const alertsHTML = () => S.alerts.length ? S.alerts.slice().reverse().map((a, i) => `<button class="o-card o-alert" data-al="${i}"><i><\/i><div><b>${esc(a.t)}<\/b><div class="o-sub">${esc(a.d)}<\/div>${app.open === i && a.lines && a.lines.length ? `<div class="o-lines">${a.lines.map(esc).join("<br>")}<\/div>` : ""}<\/div><\/button>`).join("") : `<div class="o-card">No alerts yet. Place an order or book catering on the website tab and it lands here.<\/div>`;
+  async function appAsk(i, typed, en) {
+    app.view = "home"; if (en) app.mic = true; app.chat.push({ me: typed || QA[i][0], en }); renderApp(); await sleep(700);
     app.chat.push({ a: QA[i][1](), act: QA[i][2] }); app["q" + i] = true; renderApp();
-    const c = $("[data-confirm]"); if (c) c.addEventListener("click", (e) => { e.target.closest(".o-act").outerHTML = `<p style="margin:8px 0 0;font-size:13px">Texted ${esc(X.sample_leads[1].name)}: "Hi ${esc(X.sample_leads[1].name)}, it's ${esc(P.name)}. Just confirming your catering for ${X.sample_leads[1].people} on ${esc(X.sample_leads[1].when)}. Reply YES and we'll lock it in."<\/p>`; });
+    const c = $("[data-confirm]"); if (c) c.addEventListener("click", (e) => { const L = X.sample_leads[1]; e.target.closest(".o-act").outerHTML = `<p class="o-draft" style="margin-top:8px">Scheduled for the day before: "Hi ${esc(L.name)}, it's ${esc(P.name)}. Looking forward to your catering for ${L.people} on ${esc(L.when)}. Reply here if anything changes."<\/p>`; });
   }
-  on("order", (o) => { S.alerts.push({ t: `New ${o.channel} order #${o.no} · ${money(o.total)}`, d: `${o.name} · ${o.mode} · paid` }); if ($("#p-app").classList.contains("is-on")) renderApp(); });
-  on("lead", (l) => { S.alerts.push({ t: `Catering lead · ${l.people} guests · about ${money0(l.est)}`, d: `${l.name} · ${l.when} · from the ${l.channel}` }); });
+  on("order", (o) => { if (o.channel === "catering") return; S.alerts.push({ t: `New ${o.channel} order #${o.no} · ${money(o.total)}`, d: `${o.name} · ${o.mode}${o.when ? " at " + o.when : ""} · paid`, lines: o.lines.map((l) => `${l.qty}  ${l.name}${l.size ? " · " + l.size : ""}${l.spice ? " · " + l.spice : ""}`) }); if ($("#p-app").classList.contains("is-on")) renderApp(); });
+  on("lead", (l) => { S.alerts.push({ t: `Catering booked and paid · ${l.people} guests · ${money0(l.est)}`, d: `${l.name} · ${l.when} · ${l.how === "delivery" ? "delivery" : "pickup"} · from the ${l.channel}`, lines: l.items }); });
 
-  /* ---------- dashboard ---------- */
-  let dashTab = "overview";
+  /* ---------- dashboard: the same shape as ours. Four up front, the rest behind More ---------- */
+  const DS = { tab: "home", per: "7d", phone: "today", more: false };
+  const PER = { today: ["Today", "vs last Saturday"], "7d": ["7 days", "vs the week before"], "30d": ["30 days", "vs the 30 days before"], year: ["Year", "vs last year"] };
+  const HRS = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], HW = [.05, .11, .1, .05, .03, .04, .08, .14, .16, .12, .08, .04];
+  const MON = ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"];
+  function periodData(per) {
+    const add = (rows, live) => rows.map((r, k) => (k === rows.length - 1 && live ? [r[0] + liveBy("website"), r[1] + liveBy("phone"), r[2], r[3]] : r));
+    if (per === "today") { const d = daily[DAYN - 1].map((v) => v * 0.72), p = daily[DAYN - 8].map((v) => v * 0.72);
+      return { rows: add(HRS.map((h, k) => d.map((v) => v * HW[k] / 0.72)), true), labels: HRS.map((h) => (h % 12 || 12) + (h < 12 ? "a" : "p")), cur: d.map((v, k) => v + (k === 0 ? liveBy("website") : k === 1 ? liveBy("phone") : 0)), prev: p }; }
+    if (per === "year") { const m30 = daily.slice(-30); const rows = MON.map((_, k) => m30[0].map((_, j) => sum(m30.map((d) => d[j])) * (0.55 + 0.45 * k / 11) * (j === 0 ? 0.5 + 0.5 * k / 11 : 1)));
+      return { rows: add(rows, true), labels: MON, cur: [0, 1, 2, 3].map((j) => sum(rows.map((r) => r[j]))), prev: [0, 1, 2, 3].map((j) => sum(rows.map((r) => r[j])) * [0.45, 0.5, 0.92, 1.1][j]) }; }
+    const n = per === "7d" ? 7 : 30, cur = daily.slice(-n), prev = daily.slice(-2 * n, -n), rows = add(cur, true);
+    return { rows, labels: rows.map((_, k) => (n === 7 ? DAYS[k] : (k % 5 ? "" : String(k + 1)))), cur: [0, 1, 2, 3].map((j) => sum(rows.map((r) => r[j]))), prev: [0, 1, 2, 3].map((j) => sum(prev.map((r) => r[j]))) };
+  }
+  const pct = (a, b) => (a / b - 1) * 100;
+  const kpi = (l, v, d, cmp, unit = "%") => `<div class="dash__k"><span>${l}<\/span><b>${v}<\/b>${d === null ? "" : `<small class="${Math.abs(d) < 0.05 ? "" : d > 0 ? "pos" : "neg"}">${Math.abs(d) < 0.05 ? "Same" : `${d > 0 ? "▲" : "▼"} ${Math.abs(d).toFixed(1)}${unit}`} ${cmp}<\/small>`}<\/div>`;
+  const COLS = ["var(--b-primary)", "#7FA8F0", "#8D97A6", "#3A4250"];
+  function stack(rows, labels) {
+    const W = 720, H = 170, mx = Math.max(...rows.map(sum)) * 1.1, bw = W / rows.length;
+    return `<svg class="chart" viewBox="0 0 ${W} ${H + 16}" preserveAspectRatio="none" role="img" aria-label="Sales by channel">${rows.map((d, i) => { let y = H; return d.map((v, j) => { const h = (v / mx) * H; y -= h; return `<rect x="${i * bw + 2}" y="${y.toFixed(1)}" width="${(bw - 4).toFixed(1)}" height="${h.toFixed(1)}" fill="${COLS[j]}" rx="1.5"><title>${CH[j]}: ${money0(v)}<\/title><\/rect>`; }).join("") + (labels[i] ? `<text x="${i * bw + bw / 2}" y="${H + 13}" text-anchor="middle" font-size="11" fill="currentColor" opacity=".55">${labels[i]}<\/text>` : ""); }).join("")}<\/svg>
+      <div class="dash__foot">${CH.map((c, i) => `<span class="dash__key"><i style="background:${COLS[i]}"><\/i>${c}<\/span>`).join("")}<\/div>`;
+  }
+  const seg = (k, opts) => `<div class="dash__seg">${opts.map(([v, l]) => `<button data-${k}="${v}" aria-pressed="${DS[k === "dp" ? "per" : "phone"] === v}">${l}<\/button>`).join("")}<\/div>`;
   function renderDash() {
-    const wkA = daily.slice(-7), wkB = daily.slice(-14, -7), sA = sum(wkA.map(sum)) + liveSales(), sB = sum(wkB.map(sum));
-    const ordA = Math.round(sA / P.money_defaults.avg_ticket), direct = (sum(wkA.map((d) => d[0] + d[1])) / sum(wkA.map(sum))) * 100, directB = (sum(wkB.map((d) => d[0] + d[1])) / sum(wkB.map(sum))) * 100;
-    const pct = (a, b) => ((a / b - 1) * 100);
-    const k = (l, v, d, good = true) => `<div class="dash__k"><span>${l}<\/span><b>${v}<\/b><small class="${d === 0 ? "" : (d > 0) === good ? "pos" : "neg"}">${d === 0 ? "Same as last week" : `${d > 0 ? "▲" : "▼"} ${Math.abs(d).toFixed(1)}${l.includes("share") ? " pts" : "%"} vs last week`}<\/small><\/div>`;
-    const W = 720, H = 180, mx = Math.max(...daily.map(sum)) * 1.1, bw = W / DAYN;
-    const cols = ["var(--b-primary)", "#7FA8F0", "#8D97A6", "#3A4250"];
-    const bars = daily.map((d, i) => { let y = H; return d.map((v, j) => { const h = (v / mx) * H; y -= h; return `<rect x="${i * bw + 2}" y="${y.toFixed(1)}" width="${(bw - 4).toFixed(1)}" height="${h.toFixed(1)}" fill="${cols[j]}" rx="1.5"><title>${CH[j]}: ${money0(v)}<\/title><\/rect>`; }).join(""); }).join("");
+    const pd = periodData(DS.per), [pl, cmp] = PER[DS.per], sA = sum(pd.cur), sB = sum(pd.prev), oA = Math.round(sA / P.money_defaults.avg_ticket), oB = Math.round(sB / P.money_defaults.avg_ticket);
+    const dir = (x) => (x[0] + x[1]) / sum(x) * 100;
+    const periodSeg = seg("dp", Object.entries(PER).map(([k, v]) => [k, v[0]]));
+    const leads = LEADS(), booked = leads.filter((l) => l.paid);
     const views = {
-      overview: `<div class="dash__grid">${k("Sales this week", money0(sA), pct(sA, sB))}${k("Orders", ordA, pct(sA, sB) - 1.2)}${k("Average ticket", money(sA / ordA), 1.2)}${k("Direct share", direct.toFixed(0) + "%", direct - directB)}<\/div>
-        <div class="dash__two"><div class="dash__card"><h4>Sales by channel, last 4 weeks<\/h4><p>Your own website and phone grow; the apps stay open for discovery.<\/p><svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Daily sales by channel">${bars}<\/svg>
-          <div class="dash__foot">${CH.map((c, i) => `<span style="display:inline-flex;align-items:center;gap:6px;margin-inline-end:14px"><i style="width:10px;height:10px;border-radius:2px;background:${cols[i]};display:inline-block"><\/i>${c}<\/span>`).join("")}<\/div><\/div>
-          <div class="dash__card"><h4>Channels this week<\/h4><p>Sales and what each one costs you.<\/p><table class="dash__tbl"><tr><th>Channel<\/th><th>Sales<\/th><th>Fees<\/th><\/tr>${CH.map((c, i) => { const v = sum(wkA.map((d) => d[i])); return `<tr><td>${c}<\/td><td>${money0(v)}<\/td><td>${i === 3 ? money0(v * P.money_defaults.app_commission_pct / 100) : i === 2 ? "$0" : money0(v * 0.029)}<\/td><\/tr>`; }).join("")}<\/table><div class="dash__foot">Card fees about 2.9%. App fees at ${P.money_defaults.app_commission_pct}%.<\/div><\/div><\/div>`,
-      phone: `<div class="dash__grid">${k("Calls answered", 212 + S.calls, 6.4)}${k("Orders by phone", 96, 9.1)}${k("Phone sales", money0(sum(wkA.map((d) => d[1]))), 8.2)}${k("Missed calls", 0, 0, false)}<\/div>
-        <div class="dash__two"><div class="dash__card"><h4>What callers wanted<\/h4><p>Last 7 days, every call sorted by Haniya.<\/p><table class="dash__tbl"><tr><th>Reason<\/th><th>Calls<\/th><th>Share<\/th><\/tr>${[["Place an order", 96], ["Menu question", 41], ["Hours or directions", 34], ["Sales calls turned away", 23], ["Order status", 9], ["Catering", 9]].map(([r, n]) => `<tr><td>${r}<\/td><td>${n}<\/td><td>${(n / 212 * 100).toFixed(0)}%<\/td><\/tr>`).join("")}<\/table><\/div>
-          <div class="dash__card"><h4>Busiest hours<\/h4><p>Calls by hour, Friday and Saturday.<\/p><table class="dash__tbl"><tr><th>Hour<\/th><th>Calls<\/th><\/tr>${[["12 PM", 14], ["1 PM", 11], ["6 PM", 19], ["7 PM", 24], ["8 PM", 17]].map(([h, n]) => `<tr><td>${h}<\/td><td>${n}<\/td><\/tr>`).join("")}<\/table><div class="dash__foot">7 PM Saturday is when a person at the counter misses the most calls.<\/div><\/div><\/div>`,
-      menu: `<div class="dash__two"><div class="dash__card"><h4>Best sellers, last 7 days<\/h4><p>Count and sales, all channels.<\/p><table class="dash__tbl"><tr><th>Dish<\/th><th>Sold<\/th><th>Sales<\/th><\/tr>${top.map((t) => `<tr><td>${esc(t.m.name)}<\/td><td>${t.n}<\/td><td>${money0(t.n * fromPrice(t.m))}<\/td><\/tr>`).join("")}<\/table><\/div>
+      home: periodSeg + `<div class="dash__grid">${kpi("Sales", money0(sA), pct(sA, sB), cmp)}${kpi("Orders", oA, pct(oA, oB), cmp)}${kpi("Average ticket", money(sA / oA), 1.2, cmp)}${kpi("Comes to you directly", dir(pd.cur).toFixed(0) + "%", dir(pd.cur) - dir(pd.prev), cmp, " pts")}<\/div>
+        <div class="dash__two"><div class="dash__card"><h4>Sales by channel · ${pl}<\/h4><p>Your website and phone grow; the apps stay open for discovery.<\/p>${stack(pd.rows, pd.labels)}<\/div>
+          <div class="dash__card"><h4>What each channel costs you<\/h4><p>${pl}, after fees.<\/p><table class="dash__tbl"><tr><th>Channel<\/th><th>Sales<\/th><th>Fees<\/th><\/tr>${CH.map((c, i) => `<tr><td>${c}<\/td><td>${money0(pd.cur[i])}<\/td><td>${i === 3 ? money0(pd.cur[i] * P.money_defaults.app_commission_pct / 100) : i === 2 ? "$0" : money0(pd.cur[i] * 0.029)}<\/td><\/tr>`).join("")}<\/table>
+          <div class="dash__tip"><b>Worth a look<\/b>App orders are down ${Math.abs(pct(pd.cur[3], pd.prev[3])).toFixed(0)}% ${cmp} while your site is up. Your Google Order button is doing its job.<\/div><\/div><\/div>`,
+      analytics: periodSeg + `<div class="dash__two"><div class="dash__card"><h4>Best sellers · ${pl}<\/h4><p>Count and sales, all channels.<\/p><table class="dash__tbl"><tr><th>Dish<\/th><th>Sold<\/th><th>Sales<\/th><\/tr>${top.map((t) => { const n = Math.round(t.n * { today: 0.16, "7d": 1, "30d": 4.2, year: 46 }[DS.per]); return `<tr><td>${esc(t.m.name)}<\/td><td>${n}<\/td><td>${money0(n * fromPrice(t.m))}<\/td><\/tr>`; }).join("")}<\/table><\/div>
+          <div class="dash__card"><h4>When guests order<\/h4><p>Share of sales by hour.<\/p><table class="dash__tbl"><tr><th>Hour<\/th><th>Share<\/th><\/tr>${HRS.filter((_, k) => HW[k] >= 0.08).map((h) => `<tr><td>${(h % 12 || 12) + (h < 12 ? " AM" : " PM")}<\/td><td>${(HW[HRS.indexOf(h)] * 100).toFixed(0)}%<\/td><\/tr>`).join("")}<\/table><div class="dash__tip"><b>Worth a look<\/b>7 to 8 PM is your busiest hour. Prep for it from the forecast by 5.<\/div><\/div><\/div>`,
+      voice: seg("ph", [["today", "Today"], ["all", "All time"]]) + (DS.phone === "today"
+        ? `<div class="dash__alert"><b>What went wrong today<\/b>One caller hung up before paying. Haniya texted the link again and it was paid at 6:48 PM. Two callers asked for a dish you don't carry.<\/div>
+          <div class="dash__grid">${kpi("Calls answered", 31 + S.calls, null)}${kpi("Orders won", 14 + S.orders.filter((o) => o.channel === "phone").length, null)}${kpi("Phone sales", money0(14 * P.money_defaults.call_order_value + liveBy("phone")), null)}${kpi("Missed calls", 0, null)}<\/div>
+          <div class="dash__two"><div class="dash__card"><h4>What callers wanted today<\/h4><p>Every call sorted by Haniya.<\/p><table class="dash__tbl"><tr><th>Reason<\/th><th>Calls<\/th><\/tr>${[["Place an order", 15], ["Menu question", 6], ["Hours or directions", 5], ["Sales calls turned away", 3], ["Catering", 2 + S.leads.filter((l) => l.channel === "phone").length]].map(([r, n]) => `<tr><td>${r}<\/td><td>${n}<\/td><\/tr>`).join("")}<\/table><\/div>
+          <div class="dash__card"><h4>Asked for, not on the menu<\/h4><p>Worth adding if it keeps coming up.<\/p><table class="dash__tbl"><tr><th>Dish<\/th><th>Asked<\/th><\/tr>${(X.not_on_menu || ["Lamb chops", "Fish curry", "Haleem", "Nihari", "Paya", "Masala dosa"].filter((d) => !MENU.some((m) => m.name.toLowerCase().includes(d.toLowerCase().split(" ").pop()))).slice(0, 2)).map((d, i) => `<tr><td>${esc(d)}<\/td><td>${2 - i || 1}<\/td><\/tr>`).join("")}<\/table><\/div><\/div>`
+        : `<div class="dash__grid">${kpi("Calls answered", (2840 + S.calls).toLocaleString("en-US"), null)}${kpi("Order calls won", "81%", null)}${kpi("Cost per won order", "$0.74", null)}${kpi("Staff hours handed back", "412", null)}<\/div>
+          <div class="dash__two"><div class="dash__card"><h4>Order calls, month by month<\/h4><p>Won = paid. Lost = hung up, or wanted something you don't carry.<\/p><table class="dash__tbl"><tr><th>Month<\/th><th>Won<\/th><th>Lost<\/th><th>Won %<\/th><\/tr>${[["Month 1", 212, 71], ["Month 2", 298, 64], ["Month 3", 344, 58]].map(([m, w, l]) => `<tr><td>${m}<\/td><td>${w}<\/td><td>${l}<\/td><td>${(w / (w + l) * 100).toFixed(0)}%<\/td><\/tr>`).join("")}<\/table><\/div>
+          <div class="dash__card"><h4>Why orders were lost<\/h4><p>So you know what to fix.<\/p><table class="dash__tbl"><tr><th>Reason<\/th><th>Share<\/th><\/tr>${[["Hung up before paying", "38%"], ["Dish not on the menu", "27%"], ["Wanted delivery further out", "19%"], ["Other", "16%"]].map(([r, n]) => `<tr><td>${r}<\/td><td>${n}<\/td><\/tr>`).join("")}<\/table><\/div><\/div>`),
+      ordering: periodSeg + (() => { const pa = Math.max(1, Math.round(pd.cur[0] / P.money_defaults.avg_ticket)), v = Math.round(pa / 0.034), mn = Math.round(v * 0.62), ca = Math.round(v * 0.11);
+        return `<div class="dash__grid">${kpi("Website visits", v.toLocaleString("en-US"), 9.4, cmp)}${kpi("Paid orders", pa, pct(pd.cur[0], pd.prev[0]), cmp)}${kpi("Visits that order", (pa / v * 100).toFixed(1) + "%", 0.6, cmp, " pts")}${kpi("Average basket", money(pd.cur[0] / pa), 2.1, cmp)}<\/div>
+        <div class="dash__two"><div class="dash__card"><h4>From visit to paid · ${pl}<\/h4><p>Where guests drop off on your site.<\/p><table class="dash__tbl"><tr><th>Step<\/th><th>Guests<\/th><th>Kept<\/th><\/tr>${[["Visited", v], ["Opened the menu", mn], ["Started an order", ca], ["Paid", pa]].map(([s2, n], k, a) => `<tr><td>${s2}<\/td><td>${n.toLocaleString("en-US")}<\/td><td>${k ? (n / a[k - 1][1] * 100).toFixed(0) + "%" : ""}<\/td><\/tr>`).join("")}<\/table><\/div>
+          <div class="dash__card"><h4>How they order<\/h4><p>${pl}.<\/p><table class="dash__tbl"><tr><th>Type<\/th><th>Share<\/th><\/tr><tr><td>Pickup, as soon as possible<\/td><td>58%<\/td><\/tr><tr><td>Pickup, scheduled<\/td><td>17%<\/td><\/tr><tr><td>Delivery<\/td><td>21%<\/td><\/tr><tr><td>Catering<\/td><td>4%<\/td><\/tr><\/table><div class="dash__tip"><b>Worth a look<\/b>1 in 5 guests add the suggested ${esc((PAIR()[0] || top[1].m).name)} at checkout.<\/div><\/div><\/div>`; })(),
+      catering: `<div class="dash__grid">${kpi("Asked", leads.length + 9, 12.5, "vs last month")}${kpi("Booked and paid", booked.length + 5, 20, "vs last month")}${kpi("Catering sales", money0(sum(booked.map((l) => l.est)) + 5 * P.money_defaults.catering_order_value), 18.2, "vs last month")}${kpi("Average order", money0(P.money_defaults.catering_order_value), 3.1, "vs last month")}<\/div>
+        <div class="dash__two"><div class="dash__card"><h4>Next up<\/h4><p>Booked catering, soonest first.<\/p><table class="dash__tbl"><tr><th>Guest<\/th><th>When<\/th><th>Total<\/th><\/tr>${leads.map((l) => `<tr><td>${esc(l.name)} · ${l.people}<\/td><td>${esc(l.when)}<\/td><td>${money0(l.est)}<\/td><\/tr>`).join("")}<\/table><\/div>
+          <div class="dash__card"><h4>Where bookings come from<\/h4><p>This month.<\/p><table class="dash__tbl"><tr><th>Channel<\/th><th>Booked<\/th><\/tr><tr><td>Your website<\/td><td>${3 + S.leads.filter((l) => l.channel === "website").length}<\/td><\/tr><tr><td>Phone (Haniya)<\/td><td>${2 + S.leads.filter((l) => l.channel === "phone").length}<\/td><\/tr><\/table><div class="dash__tip"><b>Worth a look<\/b>Two offices nearby ordered lunch twice. Haniya can call others like them.<\/div><\/div><\/div>`,
+      reviews: `<div class="dash__grid">${kpi("Google rating", P.google.rating + " ★", null)}${kpi("Reviews", P.google.reviews, null)}${kpi("Answered", "100%", null)}${kpi("New this week", (P.reviews || []).length, null)}<\/div>
+        <div class="dash__card" style="margin-top:16px"><h4>Latest reviews<\/h4><p>Haniya drafts a reply to each; you approve it.<\/p><table class="dash__tbl">${(P.reviews || []).slice(0, 6).map((r) => `<tr><td>${esc(r.name)} · ${esc(r.when)}<div class="dash__q">${esc(r.text)}<\/div><\/td><td>★★★★★<\/td><\/tr>`).join("")}<\/table><\/div>`,
+      dishes: `<div class="dash__two"><div class="dash__card"><h4>Best sellers, last 7 days<\/h4><p>Count and sales, all channels.<\/p><table class="dash__tbl"><tr><th>Dish<\/th><th>Sold<\/th><th>Sales<\/th><\/tr>${top.map((t) => `<tr><td>${esc(t.m.name)}<\/td><td>${t.n}<\/td><td>${money0(t.n * fromPrice(t.m))}<\/td><\/tr>`).join("")}<\/table><\/div>
           <div class="dash__card"><h4>Not moving<\/h4><p>On the menu, sold fewer than 3 times in 4 weeks.<\/p><table class="dash__tbl"><tr><th>Dish<\/th><th>Sold<\/th><\/tr>${MENU.filter((m) => !m.feat).slice(-6).map((m, i) => `<tr><td>${esc(m.name)}<\/td><td>${i % 3}<\/td><\/tr>`).join("")}<\/table><div class="dash__foot">${MENU.length} dishes on the menu. Fewer, better dishes usually means faster tickets.<\/div><\/div><\/div>`,
     };
-    $("#dash").innerHTML = `<div class="dash"><div class="dash__top"><div><h3>${esc(P.name)} · ${esc(P.location_label)}<\/h3><small>Sample numbers · last refreshed just now<\/small><\/div>
-      <div class="dash__nav">${[["overview", "Money"], ["phone", "Phone"], ["menu", "Menu"]].map(([k2, l]) => `<button data-dt="${k2}" aria-pressed="${dashTab === k2}">${l}<\/button>`).join("")}<\/div><\/div>${views[dashTab]}<\/div>`;
-    $$("[data-dt]").forEach((b) => b.addEventListener("click", () => { dashTab = b.dataset.dt; renderDash(); }));
+    const NAV = [["home", "Home"], ["analytics", "Analytics"], ["voice", "Phone"], ["ordering", "Ordering"]], MORE = [["catering", "Catering"], ["reviews", "Reviews"], ["dishes", "Dishes"]];
+    const inMore = MORE.some(([k]) => k === DS.tab);
+    $("#dash").innerHTML = `<div class="dash"><div class="dash__top"><div><h3>${esc(P.name)} · ${esc(P.location_label)}<\/h3><small>Updated 7:20 PM<\/small><\/div>
+      <div class="dash__nav">${NAV.map(([k, l]) => `<button data-dt="${k}" aria-pressed="${DS.tab === k}">${l}<\/button>`).join("")}<button data-more aria-expanded="${DS.more || inMore}" aria-pressed="${inMore}">☰ More<\/button><\/div><\/div>
+      ${DS.more || inMore ? `<div class="dash__more">${MORE.map(([k, l]) => `<button data-dt="${k}" aria-pressed="${DS.tab === k}">${l}<\/button>`).join("")}<\/div>` : ""}${views[DS.tab]}<\/div>`;
+    $$("[data-dt]").forEach((b) => b.addEventListener("click", () => { DS.tab = b.dataset.dt; DS.more = MORE.some(([k]) => k === DS.tab); renderDash(); }));
+    $("[data-more]").addEventListener("click", () => { DS.more = !DS.more; renderDash(); });
+    $$("[data-dp]").forEach((b) => b.addEventListener("click", () => { DS.per = b.dataset.dp; renderDash(); }));
+    $$("[data-ph]").forEach((b) => b.addEventListener("click", () => { DS.phone = b.dataset.ph; renderDash(); }));
   }
 
   /* ---------- what it's worth ---------- */
