@@ -5,3 +5,4 @@ growth_engine/__pycache__/
 # v2 build output — regenerate with v2/build.py
 v2/build/
 outreach/dossiers/
+_site/
