@@ -157,18 +157,19 @@ h2.big{font-family:var(--display);font-weight:800;font-size:clamp(32px,5vw,58px)
 .role.full > div:first-child{max-width:68ch}
 @media (max-width:860px){.role{grid-template-columns:1fr;padding:20px}.role:nth-child(even) .shot{order:0}.shots .phone{max-width:46%}}
 /* on fox 26 */
-.fox26{padding-block:72px;background:var(--paper);border-block:1px solid var(--line)}
-.fox26 .grid{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:48px;align-items:start;margin-top:30px}
+.fox26{scroll-margin-top:64px;padding-block:56px;background:var(--paper);border-block:1px solid var(--line)}
+.fox26 .gal{display:flex;gap:10px;margin-top:26px}
+.fox26 .gal img{flex:var(--r) 1 0;min-width:0;width:100%;height:auto;aspect-ratio:var(--r);object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.fox26 .grid{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:48px;align-items:center;margin-top:30px}
 .fox26 .reel{max-width:340px;width:100%;margin-inline:auto}
 .fox26 .reel .instagram-media{margin:0!important;min-width:0!important;width:100%!important;border-radius:14px!important}
 .fox26 .reel-fb{display:grid;place-items:center;aspect-ratio:9/16;border-radius:14px;background:var(--dark);color:var(--darkfg);text-decoration:none;font-weight:600;padding:24px;text-align:center}
-.fox26 blockquote.say{margin:0 0 26px;padding:0 0 0 18px;border-left:3px solid var(--accent)}
-.fox26 .say p{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);line-height:1.2;margin:0 0 10px;quotes:"\201C" "\201D"}
-.fox26 .say cite{font-style:normal;font-size:14px;color:var(--muted)}
-.fox26 .nums{margin:0 0 8px}
-.fox26 .src{font-size:13px;color:var(--muted);margin:0 0 22px}
+.fox26 .nums{margin:0 0 22px}
 .fox26 .ctas a.read{color:var(--ink);font-weight:600;align-self:center}
-@media (max-width:860px){.fox26 .grid{grid-template-columns:1fr;gap:30px}.fox26{padding-block:52px}}
+@media (max-width:860px){.fox26 .grid{grid-template-columns:1fr;gap:28px}.fox26{padding-block:40px}}
+@media (max-width:700px){.fox26 .gal{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(-1 * max(18px,env(safe-area-inset-left,0px)));padding-inline:max(18px,env(safe-area-inset-left,0px));scroll-padding-inline:max(18px,env(safe-area-inset-left,0px))}
+.fox26 .gal::-webkit-scrollbar{display:none}
+.fox26 .gal img{flex:none;height:min(56vw,300px);width:auto;scroll-snap-align:start}}
 /* listen */
 .listen{background:var(--dark);color:var(--darkfg)}
 .listen .sub{color:var(--darkmuted)}
@@ -323,6 +324,33 @@ footer a:hover{color:var(--ink)}
   </div>
 </div></header>
 
+<section class="fox26" id="fox" aria-label="On FOX 26 Houston"><div class="in">
+  <div class="eyebrow">On FOX 26 Houston · October 20, 2026</div>
+  <h2 class="big">Our only server quit. FOX 26 came to see what took over.</h2>
+  <div class="gal" id="foxGal">
+    <img src="/assets/press/fox26-crew.jpg" alt="Abbas Zoeb with FOX 26 reporter Olivia Dance and her camera operator at Wok &amp; Karahi" width="900" height="1124" style="--r:.8" loading="lazy">
+    <img src="/assets/press/fox26-on-air-1.jpg" alt="Abbas Zoeb live on FOX 26 in an AZ Restaurant Partners shirt: AI takes over, restaurant testing technology" width="1200" height="680" style="--r:1.765" loading="lazy">
+    <img src="/assets/press/fox26-on-air-2.jpg" alt="Haniya taking a call on air, AZ Restaurant Partners logo on screen" width="1200" height="684" style="--r:1.754" loading="lazy">
+    <img src="/assets/press/fox26-on-air-3.jpg" alt="Abbas Zoeb of Wok &amp; Karahi live on FOX 26" width="1200" height="684" style="--r:1.754" loading="lazy">
+  </div>
+  <div class="grid">
+    <div class="reel">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DeuFS8MK__H/" data-instgrm-version="14"><a class="reel-fb" href="https://www.instagram.com/reel/DeuFS8MK__H/" target="_blank" rel="noopener" data-track="press_click" data-track-to="fox26_reel">Watch the FOX 26 segment</a></blockquote>
+    </div>
+    <div>
+      <div class="nums">
+        <div><b>24 hrs</b><span>from a server to AI</span></div>
+        <div><b>$9,650</b><span>a month saved or won back</span></div>
+        <div><b>7</b><span>languages at the table</span></div>
+      </div>
+      <div class="ctas">
+        <a class="btn" href="#start" data-track="cta_click" data-track-where="fox26">Get the same setup</a>
+        <a class="read" href="https://www.fox26houston.com/news/spring-restaurant-wok-karahi-ai-host-afloat" target="_blank" rel="noopener" data-track="press_click" data-track-to="fox26_article">Read the FOX 26 story ↗</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
 <section class="proof" aria-label="Proof"><div class="in">
   <div class="ptitle"><h2>What it's doing right now</h2><span>● Real numbers from our restaurant, Oct 2026</span></div>
   <div class="stats">
@@ -332,30 +360,6 @@ footer a:hover{color:var(--ink)}
     <div class="stat"><span class="rank">04 · Servers needed</span><b>None</b><p>Guests <strong>order and pay from their own phone</strong>, in 7 languages.</p></div>
     <div class="stat"><span class="rank">05 · Google reviews</span><b>400 → 941</b><p>since we took over, <strong>4.5 stars</strong>.</p></div>
     <div class="stat"><span class="rank">06 · Guests you know</span><b>Thousands</b><p>known <strong>by name</strong>: their usual order, what they love, what they complained about, their points. DoorDash gives you none of it.</p></div>
-  </div>
-</div></section>
-
-<section class="fox26" id="fox" aria-label="On FOX 26 Houston"><div class="in">
-  <div class="eyebrow">On FOX 26 Houston · October 20, 2026</div>
-  <h2 class="big">Our only server quit. FOX 26 came to see what took over.</h2>
-  <p class="sub">Reporter Olivia Dance spent the morning live from our own restaurant, Wok &amp; Karahi in Spring. She ordered from the table on her phone and watched Haniya take a call.</p>
-  <div class="grid">
-    <div class="reel">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DeuFS8MK__H/" data-instgrm-version="14"><a class="reel-fb" href="https://www.instagram.com/reel/DeuFS8MK__H/" target="_blank" rel="noopener" data-track="press_click" data-track-to="fox26_reel">Watch the FOX 26 segment</a></blockquote>
-    </div>
-    <div>
-      <blockquote class="say"><p>We could not keep begging one person to show up. Now nobody has to, and our guests and our team are better off for it.</p><cite>Abbas Zoeb, founder, on FOX 26</cite></blockquote>
-      <div class="nums">
-        <div><b>24 hrs</b><span>from a server to AI</span></div>
-        <div><b>$9,650</b><span>a month saved or won back</span></div>
-        <div><b>7</b><span>languages at the table</span></div>
-      </div>
-      <p class="src">Figures as reported by FOX 26.</p>
-      <div class="ctas">
-        <a class="btn" href="#start" data-track="cta_click" data-track-where="fox26">Get the same setup</a>
-        <a class="read" href="https://www.fox26houston.com/news/spring-restaurant-wok-karahi-ai-host-afloat" target="_blank" rel="noopener" data-track="press_click" data-track-to="fox26_article">Read the FOX 26 story ↗</a>
-      </div>
-    </div>
   </div>
 </div></section>
 
@@ -775,6 +779,15 @@ footer a:hover{color:var(--ink)}
 <script>
 (function(){var r=document.querySelector('#fox .reel');if(!r)return;var go=function(){if(go.d)return;go.d=1;var e=document.createElement('script');e.async=true;e.src='https://www.instagram.com/embed.js';document.body.appendChild(e)};
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(x){if(x[0].isIntersecting){go();io.disconnect()}},{rootMargin:'600px'});io.observe(r)}else go()})();
+</script>
+<script>
+(function(){var g=document.getElementById('foxGal');if(!g||!window.matchMedia)return;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var hold=0,vis=false;g.addEventListener('pointerdown',function(){hold=Date.now()+8000},{passive:true});g.addEventListener('touchstart',function(){hold=Date.now()+8000},{passive:true});
+if('IntersectionObserver' in window)new IntersectionObserver(function(x){vis=x[0].isIntersecting}).observe(g);
+setInterval(function(){if(!vis||Date.now()<hold||!matchMedia('(max-width:700px)').matches)return;
+var imgs=g.querySelectorAll('img'),x=g.scrollLeft,next=null;for(var i=0;i<imgs.length;i++){var o=imgs[i].offsetLeft-imgs[0].offsetLeft;if(o>x+4){next=o;break}}
+if(next===null||x+g.clientWidth>=g.scrollWidth-4)next=0;g.scrollTo({left:next,behavior:'smooth'})},3000)})();
 </script>
 </body>
 </html>
