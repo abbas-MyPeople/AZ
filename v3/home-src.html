@@ -329,7 +329,6 @@ footer a:hover{color:var(--ink)}
   <h2 class="big">Our only server quit. FOX 26 came to see what took over.</h2>
   <div class="gal" id="foxGal">
     <img src="/assets/press/fox26-crew.jpg" alt="Abbas Zoeb with FOX 26 reporter Olivia Dance and her camera operator at Wok &amp; Karahi" width="900" height="1124" style="--r:.8" loading="lazy">
-    <img src="/assets/press/fox26-on-air-1.jpg" alt="Abbas Zoeb live on FOX 26 in an AZ Restaurant Partners shirt: AI takes over, restaurant testing technology" width="1200" height="680" style="--r:1.765" loading="lazy">
     <img src="/assets/press/fox26-on-air-2.jpg" alt="Haniya taking a call on air, AZ Restaurant Partners logo on screen" width="1200" height="684" style="--r:1.754" loading="lazy">
     <img src="/assets/press/fox26-on-air-3.jpg" alt="Abbas Zoeb of Wok &amp; Karahi live on FOX 26" width="1200" height="684" style="--r:1.754" loading="lazy">
   </div>
@@ -628,15 +627,6 @@ __TRACKING__
 <script>
 (function(){var r=document.querySelector('#fox .reel');if(!r)return;var go=function(){if(go.d)return;go.d=1;var e=document.createElement('script');e.async=true;e.src='https://www.instagram.com/embed.js';document.body.appendChild(e)};
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(x){if(x[0].isIntersecting){go();io.disconnect()}},{rootMargin:'600px'});io.observe(r)}else go()})();
-</script>
-<script>
-(function(){var g=document.getElementById('foxGal');if(!g||!window.matchMedia)return;
-if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-var hold=0,vis=false;g.addEventListener('pointerdown',function(){hold=Date.now()+8000},{passive:true});g.addEventListener('touchstart',function(){hold=Date.now()+8000},{passive:true});
-if('IntersectionObserver' in window)new IntersectionObserver(function(x){vis=x[0].isIntersecting}).observe(g);
-setInterval(function(){if(!vis||Date.now()<hold||!matchMedia('(max-width:700px)').matches)return;
-var imgs=g.querySelectorAll('img'),x=g.scrollLeft,next=null;for(var i=0;i<imgs.length;i++){var o=imgs[i].offsetLeft-imgs[0].offsetLeft;if(o>x+4){next=o;break}}
-if(next===null||x+g.clientWidth>=g.scrollWidth-4)next=0;g.scrollTo({left:next,behavior:'smooth'})},3000)})();
 </script>
 </body>
 </html>
