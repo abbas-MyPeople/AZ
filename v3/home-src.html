@@ -265,9 +265,9 @@ footer a:hover{color:var(--ink)}
 
 <nav><div class="w">
   <a class="logo" href="/" dir="ltr"><img src="/assets/brand/logo-180.png" alt="" width="30" height="30">AZ <em>Restaurant Partners</em></a>
-  <div class="lang" role="group" aria-label="Language">
+  <div class="lang notranslate" translate="no" role="group" aria-label="Language">
     <button type="button" data-lang="en" aria-pressed="true">EN</button>
-    <button type="button" data-lang="hi" aria-pressed="false" lang="hi">हिं</button>
+    <button type="button" data-lang="hi" aria-pressed="false" lang="hi">हिंदी</button>
     <button type="button" data-lang="ur" aria-pressed="false" lang="ur">اردو</button>
   </div>
   <a class="nbtn" href="#start" data-track="cta_click" data-track-where="nav" data-i="nav_demo">Free demo</a>
@@ -475,18 +475,18 @@ var AZ_I18N={"en": {"err": "Add your name and a phone number so we can call you.
   document.querySelectorAll("[data-ph]").forEach(function(e){ en[e.dataset.ph]=e.placeholder; });
   AZ_I18N.en=Object.assign({}, en, AZ_I18N.en||{});
   window.azT=function(k){ return (AZ_I18N[cur]&&AZ_I18N[cur][k])||AZ_I18N.en[k]||""; };
-  function set(l){
+  function set(l,fromLink){
     if(!AZ_I18N[l]) l="en"; cur=l;
     document.documentElement.lang=l; document.documentElement.dir=(l==="ur"?"rtl":"ltr");
     document.querySelectorAll("[data-i]").forEach(function(e){ var v=AZ_I18N[l][e.dataset.i]; e.innerHTML=(v!=null?v:en[e.dataset.i]); });
     document.querySelectorAll("[data-ph]").forEach(function(e){ var v=AZ_I18N[l][e.dataset.ph]||en[e.dataset.ph]; e.placeholder=v; e.setAttribute("aria-label",v); });
     document.querySelectorAll(".lang button").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.lang===l)); });
-    try{ localStorage.setItem("azlang",l); }catch(e){}
+    if(!fromLink){ try{ localStorage.setItem("azlang",l); }catch(e){} }
   }
   document.querySelectorAll(".lang button").forEach(function(b){ b.addEventListener("click",function(){ set(b.dataset.lang); try{ window.azTrack&&window.azTrack("lang_switch",{lang:b.dataset.lang}); }catch(e){} }); });
   var q=new URLSearchParams(location.search).get("lang"), saved=null;
   try{ saved=localStorage.getItem("azlang"); }catch(e){}
-  var start=q||saved; if(start&&start!=="en") set(start);
+  var start=q||saved; if(start&&start!=="en") set(start,!!q);
 })();
 (function(){
   var f=document.getElementById("leadForm"), btn=document.getElementById("leadSend"), note=document.getElementById("leadNote");
