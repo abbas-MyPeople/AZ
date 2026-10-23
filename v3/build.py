@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""Build the v3 home page: inject the shared tracking script and write index.html."""
+"""Build the v3 pages: inject the shared tracking script and write index.html and start/index.html."""
 import pathlib
 HERE=pathlib.Path(__file__).parent; REPO=HERE.parent
-src=(HERE/"home-src.html").read_text()
-track=(REPO/"v2/track.js").read_text().replace("__PAGEID__","home_v3")
-(REPO/"index.html").write_text(src.replace("__TRACKING__",track))
-print("index.html written")
+track=(REPO/"v2/track.js").read_text()
+pages={"home-src.html":("index.html","home_v3"),"start-src.html":("start/index.html","start_v1")}
+for src,(out,pid) in pages.items():
+    html=(HERE/src).read_text().replace("__TRACKING__",track.replace("__PAGEID__",pid))
+    (REPO/out).parent.mkdir(parents=True,exist_ok=True)
+    (REPO/out).write_text(html)
+    print(out,"written")
