@@ -217,6 +217,11 @@ a{color:var(--az-accent)}
 .o-plan li.is-done{color:var(--o-ink)}.o-plan li.is-done::before{background:var(--o-pos)}
 .o-plan li.is-wait{color:var(--o-warn)}.o-plan li.is-wait::before{background:var(--o-warn)}
 .o-plan li.is-run::before{background:var(--o-ink);animation:pulse .8s infinite}
+.o-plan li .rk{font:600 9.5px/1 var(--mono);letter-spacing:.06em;color:var(--o-muted);border:1px solid var(--o-line);border-radius:4px;padding:2px 4px;margin-left:4px;vertical-align:1px;white-space:nowrap}
+.o-plan li.is-wait .rk{color:var(--o-warn);border-color:var(--o-warn)}
+.o-rep{font-size:12px;color:var(--o-muted);border-top:1px solid var(--o-line);padding-top:6px;margin-top:2px;display:flex;flex-direction:column;gap:2px}
+.o-rep b{color:var(--o-ink);font-weight:600}
+.o-ledger{font:11px/1.3 var(--mono);color:var(--o-muted)}
 .o-act{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
 .o-act button{border:1px solid var(--o-line);background:transparent;color:var(--o-ink);border-radius:var(--pill);padding:5px 10px;font-size:12px;min-height:30px}
 .o-act button.go{background:var(--o-pos);border-color:var(--o-pos);color:#06110A;font-weight:700}
@@ -396,6 +401,16 @@ a{color:var(--az-accent)}
 .g-slip p{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 var(--s2)}
 .g-slip .ticket{box-shadow:0 10px 24px rgba(0,0,0,.08)}
 
+/* hold to talk: the primary way to order at the real table */
+.g-talk{margin:var(--s3) var(--s4) 0;background:var(--paper);border:1px solid var(--line);border-radius:var(--r1);padding:var(--s3)}
+.g-talk__btn{width:100%;border:0;background:var(--bink);color:#fff;border-radius:12px;min-height:60px;display:flex;align-items:center;gap:var(--s3);padding:0 var(--s4);position:relative;overflow:hidden;text-align:start;touch-action:none;-webkit-user-select:none;user-select:none}
+.g-talk__btn b{font-size:15px}
+.g-talk__mic{width:36px;height:36px;border-radius:50%;background:var(--b);display:grid;place-items:center;flex:none;position:relative;z-index:1}
+.g-talk__mic svg{width:20px;height:20px}
+.g-talk__ring{position:absolute;inset:0;background:radial-gradient(circle at 36px 50%,rgba(154,59,34,.55),transparent 60%);opacity:0;transition:opacity .2s}
+.g-talk__btn.is-held .g-talk__ring{opacity:1;animation:pulse 1s infinite}
+.g-talk__off{margin:var(--s2) 0 0;font-size:13px;color:var(--gold-text);background:var(--gold-soft);border-radius:10px;padding:8px var(--s3);animation:rise .3s var(--ease)}
+
 .ticketwrap{display:none}
 .ticketwrap.is-on{display:block}
 
@@ -472,7 +487,7 @@ a{color:var(--az-accent)}
 <section class="w chap" id="order">
   <p class="kick">2 · Win the order</p>
   <h2>A table of six, a phone call in Urdu, and a catering request at 11:46 PM. Same brain.</h2>
-  <p class="lede">The guest's own phone becomes the server. The phone line is answered by Haniya, who knows the whole menu, the hours and the caller, takes the order, texts a pay link and stays on the line while they pay. Catering is booked and paid while the owner sleeps.</p>
+  <p class="lede">The guest's own phone becomes the server, and Haniya is the digital server behind it: at the table you hold a button and talk to her; on the phone she answers, knows the whole menu, the hours and the caller, takes the order, texts a pay link and stays on the line while they pay. Catering is booked and paid while the owner sleeps.</p>
   <div class="split">
     <aside class="today"><h3>Today</h3><ul>
       <li><span><b>One server, four tables, the phone in her apron.</b><small>She answers it at the table, loses the order, or lets it ring.</small></span></li>
@@ -487,9 +502,9 @@ a{color:var(--az-accent)}
         <div class="stage">
           <div class="dev-wrap"><div class="phone"><div class="phone__notch"></div><div class="phone__screen"><div class="g" id="g"></div></div></div></div>
           <div class="col">
-            <div class="card"><h4>Try it</h4><ul class="steps" id="steps"><li data-s="lang"><span>Pick a language</span></li><li data-s="add"><span>Tap a dish, or type the whole order in one line</span></li><li data-s="pay"><span>Pay with the test card</span></li><li data-s="ticket"><span>Watch it land in the kitchen in chapter 4</span></li></ul></div>
+            <div class="card"><h4>Try it</h4><ul class="steps" id="steps"><li data-s="lang"><span>Pick a language</span></li><li data-s="add"><span>Hold to talk to Haniya, your digital server, or tap a dish</span></li><li data-s="pay"><span>Pay with the test card</span></li><li data-s="ticket"><span>Watch it land in the kitchen in chapter 4</span></li></ul></div>
             <div class="card ticketwrap" id="ticketwrap"><h4>What prints in the restaurant</h4><div class="ticket" id="ticketOut"></div></div>
-            <div class="card"><h4>Also at the real table</h4><p>Hold a button and say the order out loud. Several phones at one table share one cart and one ticket. The menu is read in the guest's language; the cook still gets English. Voice is off in this demo so it costs nothing to run.</p></div>
+            <div class="card"><h4>At the real table</h4><p>Most guests never type. They hold the button and tell Haniya what they want, in their own language, the way they would tell a server. She adds it to the cart and reads it back; the guest taps pay. Older guests who do not like screens get a person-shaped way in. Several phones at one table share one cart and one ticket. Voice is off here only because it costs money per minute.</p></div>
           </div>
         </div>
       </div>
@@ -584,19 +599,19 @@ a{color:var(--az-accent)}
 <!-- 5 THE OWNER'S DAY -->
 <section class="w chap" id="owner">
   <p class="kick">5 · The owner's day</p>
-  <h2>The owner says one line. The system does the whole job, and asks only where money or guests are touched.</h2>
-  <p class="lede">"Take lemonade off until 9" reaches the register, the website, the table menu, the phone and the delivery apps, with an undo link. "How did last night go?" is answered from the till and the books. A new dish is photographed to the house standard, priced per channel, described in seven languages and put on every menu, and the steps that spend money or text guests wait for one tap.</p>
+  <h2>The owner states an outcome in one line. Haniya plans the job, runs it, repeats what repeats, and reports.</h2>
+  <p class="lede">This is not a chat box. Every ask becomes a job: a plan built from a registry of what she can do, steps that run in parallel where they can, a gate only where money, food or something destructive is touched, a schedule for the parts that repeat, and a report of what was done, what was assumed and what could not be done. Every step is logged with its cost. When a capability is missing, a step builds it. When she sees something in sales, reviews or calls, she proposes the job herself.</p>
   <div class="split">
     <aside class="today"><h3>Today</h3><ul>
       <li><span><b>"We're out of lemonade" is shouted across the room.</b><small>The website still sells it. DoorDash still sells it. The phone person forgets.</small></span></li>
       <li><span><b>Last night's numbers are a Z-report on a spike</b> and a feeling about whether it was busy.</span></li>
-      <li><span><b>A new dish takes a week:</b> the register, the printed menu, three app portals, a photo from a phone, a post if someone remembers.</span></li>
+      <li><span><b>A new dish takes a week:</b> the register, three app portals, a photo from a phone, a post if someone remembers, and nobody texts the people who would want it.</span></li><li><span><b>Software does what it was built to do.</b><small>A new kind of ask means a new vendor, a new login, a new invoice.</small></span></li>
     </ul></aside>
     <div class="sys"><h3>On the system</h3>
-      <ul class="fact"><li><b>One instruction</b> changes every channel, with undo</li><li><b>10 AM</b> brief and 11 PM recap, every day</li><li><b>Approve or undo</b> anything that touches money or guests</li></ul>
+      <ul class="fact"><li><b>Outcomes, not tasks:</b> she picks the channels and the steps</li><li><b>Plan once, "Do it"</b>: outward steps run; money, food and deletes wait for his tap</li><li><b>Every step logged</b> with model, latency and cost</li><li><b>Missing a capability?</b> A step builds it</li></ul>
       <div class="stage">
         <div class="ophone"><div class="oscr">
-          <div class="o-head"><b>Haniya</b><span>owner · 10:04 AM</span></div>
+          <div class="o-head"><b>Haniya</b><span>owner · 10:04 AM · today $0.61, 14 jobs</span></div>
           <div class="o-feed" id="oFeed"></div>
           <div class="o-in"><div class="o-sugg" id="oSugg"></div><div class="o-row"><input id="oIn" placeholder="Tell her what you want done" aria-label="Instruction"><button id="oGo">Send</button></div></div>
         </div></div>
@@ -693,43 +708,43 @@ a{color:var(--az-accent)}
     ["ur", "اردو", "Urdu", "rtl"], ["gu", "ગુજરાતી", "Gujarati", "ltr"], ["pa", "ਪੰਜਾਬੀ", "Punjabi", "ltr"], ["ar", "العربية", "Arabic", "rtl"],
   ];
   const T = {
-    en: { pick: "Pick your language", table: "Table 4", menu: "Menu", typeh: "Or type your whole order", typeph: "2 chicken biryani and a garlic naan, spicy", go: "Add", eg1: "two chicken karahi, medium", eg2: "garlic naan and a mango lassi", eg3: "one goat biryani, extra spicy, no onions",
+    en: { talk: "Hold to talk to Haniya", talkoff: "Voice is off on this demo, so it costs nothing to run. At the real table you hold this button and say your order. Tap a dish instead.", pick: "Pick your language", table: "Table 4", menu: "Menu", typeh: "Or type your whole order", typeph: "2 chicken biryani and a garlic naan, spicy", go: "Add", eg1: "two chicken karahi, medium", eg2: "garlic naan and a mango lassi", eg3: "one goat biryani, extra spicy, no onions",
       got: "Here's what I added", miss: "isn't on our menu", view: "View order", nothing: "Nothing yet", yourorder: "Your order", empty: "Nothing in your order yet.", seemenu: "See the menu", back: "Back",
       size: "Size", spice: "Spice", mild: "Mild", medium: "Medium", spicy: "Spicy", xspicy: "Extra spicy", less: "One less", more: "One more", addn: "Add {n} to order", added: "Added {x}", remove: "Remove", note: "Anything else for the cook?", noteph: "No onions, sauce on the side",
       subtotal: "Subtotal", tax: "Tax", total: "Total", pay: "Pay {t}", paying: "Paying…", payline: "Your card is charged once. We start cooking the moment it's paid.", test: "Test card. Nothing is charged.", cardno: "Card number", exp: "Expiry", cvc: "CVC", cardname: "Name on card",
       paid: "Paid. Thank you!", order: "Order", s1: "Paid", s2: "Cooking", s3: "Coming to table 4", again: "Order more", slip: "What the kitchen gets", popular: "Popular",
       cats: { starters: "Starters", grill: "From the grill", curries: "Curries", biryani: "Biryani", breads: "Breads and rice", sides: "Sides, sweets and drinks" } },
-    es: { pick: "Elige tu idioma", table: "Mesa 4", menu: "Menú", typeh: "O escribe tu pedido completo", typeph: "2 biryani de pollo y un naan de ajo, picante", go: "Agregar", eg1: "dos karahi de pollo, medio", eg2: "naan de ajo y un lassi de mango", eg3: "un biryani de cabra, muy picante, sin cebolla",
+    es: { talk: "Mantén pulsado para hablar con Haniya", talkoff: "La voz está apagada en esta demo para que no cueste nada. En la mesa real mantienes este botón y dices tu pedido. Toca un plato.", pick: "Elige tu idioma", table: "Mesa 4", menu: "Menú", typeh: "O escribe tu pedido completo", typeph: "2 biryani de pollo y un naan de ajo, picante", go: "Agregar", eg1: "dos karahi de pollo, medio", eg2: "naan de ajo y un lassi de mango", eg3: "un biryani de cabra, muy picante, sin cebolla",
       got: "Esto es lo que agregué", miss: "no está en nuestro menú", view: "Ver pedido", nothing: "Nada aún", yourorder: "Tu pedido", empty: "Tu pedido está vacío.", seemenu: "Ver el menú", back: "Atrás",
       size: "Tamaño", spice: "Picante", mild: "Suave", medium: "Medio", spicy: "Picante", xspicy: "Muy picante", less: "Uno menos", more: "Uno más", addn: "Agregar {n} al pedido", added: "Agregado: {x}", remove: "Quitar", note: "¿Algo más para el cocinero?", noteph: "Sin cebolla, salsa aparte",
       subtotal: "Subtotal", tax: "Impuesto", total: "Total", pay: "Pagar {t}", paying: "Pagando…", payline: "Se cobra una sola vez. Empezamos a cocinar en cuanto se paga.", test: "Tarjeta de prueba. No se cobra nada.", cardno: "Número de tarjeta", exp: "Vence", cvc: "CVC", cardname: "Nombre en la tarjeta",
       paid: "Pagado. ¡Gracias!", order: "Pedido", s1: "Pagado", s2: "Cocinando", s3: "Va a la mesa 4", again: "Pedir más", slip: "Lo que recibe la cocina", popular: "Popular",
       cats: { starters: "Entradas", grill: "De la parrilla", curries: "Currys", biryani: "Biryani", breads: "Panes y arroz", sides: "Acompañamientos, postres y bebidas" } },
-    hi: { pick: "अपनी भाषा चुनें", table: "टेबल 4", menu: "मेन्यू", typeh: "या पूरा ऑर्डर लिख दें", typeph: "2 चिकन बिरयानी और एक गार्लिक नान, तीखा", go: "जोड़ें", eg1: "दो चिकन कड़ाही, मीडियम", eg2: "गार्लिक नान और एक मैंगो लस्सी", eg3: "एक गोट बिरयानी, बहुत तीखा, प्याज़ नहीं",
+    hi: { talk: "हनिया से बात करने के लिए दबाए रखें", talkoff: "इस डेमो में आवाज़ बंद है ताकि इसका कोई खर्च न हो। असली टेबल पर यह बटन दबाए रखकर आप अपना ऑर्डर बोलते हैं। कोई डिश टैप करें।", pick: "अपनी भाषा चुनें", table: "टेबल 4", menu: "मेन्यू", typeh: "या पूरा ऑर्डर लिख दें", typeph: "2 चिकन बिरयानी और एक गार्लिक नान, तीखा", go: "जोड़ें", eg1: "दो चिकन कड़ाही, मीडियम", eg2: "गार्लिक नान और एक मैंगो लस्सी", eg3: "एक गोट बिरयानी, बहुत तीखा, प्याज़ नहीं",
       got: "मैंने यह जोड़ा", miss: "हमारे मेन्यू में नहीं है", view: "ऑर्डर देखें", nothing: "अभी कुछ नहीं", yourorder: "आपका ऑर्डर", empty: "ऑर्डर में अभी कुछ नहीं है।", seemenu: "मेन्यू देखें", back: "वापस",
       size: "साइज़", spice: "मिर्च", mild: "कम", medium: "मीडियम", spicy: "तीखा", xspicy: "बहुत तीखा", less: "एक कम", more: "एक और", addn: "{n} ऑर्डर में जोड़ें", added: "{x} जोड़ा", remove: "हटाएँ", note: "रसोइए के लिए कुछ और?", noteph: "प्याज़ नहीं, चटनी अलग",
       subtotal: "कुल", tax: "टैक्स", total: "कुल राशि", pay: "{t} भुगतान करें", paying: "भुगतान हो रहा है…", payline: "कार्ड से एक बार भुगतान होता है। भुगतान होते ही खाना बनना शुरू।", test: "टेस्ट कार्ड। कोई पैसा नहीं कटेगा।", cardno: "कार्ड नंबर", exp: "समाप्ति", cvc: "CVC", cardname: "कार्ड पर नाम",
       paid: "भुगतान हो गया। धन्यवाद!", order: "ऑर्डर", s1: "भुगतान हुआ", s2: "बन रहा है", s3: "टेबल 4 पर आ रहा है", again: "और ऑर्डर करें", slip: "रसोई को यह मिलता है", popular: "लोकप्रिय",
       cats: { starters: "स्टार्टर", grill: "तंदूर से", curries: "करी", biryani: "बिरयानी", breads: "रोटी और चावल", sides: "साइड, मिठाई और पेय" } },
-    ur: { pick: "اپنی زبان چنیں", table: "ٹیبل 4", menu: "مینیو", typeh: "یا پورا آرڈر لکھ دیں", typeph: "2 چکن بریانی اور ایک گارلک نان، تیز", go: "شامل کریں", eg1: "دو چکن کڑاہی، درمیانی", eg2: "گارلک نان اور ایک مینگو لسی", eg3: "ایک گوٹ بریانی، بہت تیز، پیاز نہیں",
+    ur: { talk: "ہانیہ سے بات کرنے کے لیے دبائے رکھیں", talkoff: "اس ڈیمو میں آواز بند ہے تاکہ اس کا کوئی خرچ نہ ہو۔ اصل ٹیبل پر یہ بٹن دبائے رکھ کر آپ اپنا آرڈر بولتے ہیں۔ کوئی ڈش ٹیپ کریں۔", pick: "اپنی زبان چنیں", table: "ٹیبل 4", menu: "مینیو", typeh: "یا پورا آرڈر لکھ دیں", typeph: "2 چکن بریانی اور ایک گارلک نان، تیز", go: "شامل کریں", eg1: "دو چکن کڑاہی، درمیانی", eg2: "گارلک نان اور ایک مینگو لسی", eg3: "ایک گوٹ بریانی، بہت تیز، پیاز نہیں",
       got: "میں نے یہ شامل کیا", miss: "ہمارے مینیو میں نہیں ہے", view: "آرڈر دیکھیں", nothing: "ابھی کچھ نہیں", yourorder: "آپ کا آرڈر", empty: "آرڈر میں ابھی کچھ نہیں ہے۔", seemenu: "مینیو دیکھیں", back: "واپس",
       size: "سائز", spice: "مرچ", mild: "کم", medium: "درمیانی", spicy: "تیز", xspicy: "بہت تیز", less: "ایک کم", more: "ایک اور", addn: "{n} آرڈر میں شامل کریں", added: "{x} شامل ہوا", remove: "ہٹائیں", note: "باورچی کے لیے کچھ اور؟", noteph: "پیاز نہیں، چٹنی الگ",
       subtotal: "کل", tax: "ٹیکس", total: "کل رقم", pay: "{t} ادا کریں", paying: "ادائیگی ہو رہی ہے…", payline: "کارڈ سے ایک بار ادائیگی ہوتی ہے۔ ادائیگی ہوتے ہی کھانا بننا شروع۔", test: "ٹیسٹ کارڈ۔ کوئی پیسہ نہیں کٹے گا۔", cardno: "کارڈ نمبر", exp: "میعاد", cvc: "CVC", cardname: "کارڈ پر نام",
       paid: "ادائیگی ہو گئی۔ شکریہ!", order: "آرڈر", s1: "ادا ہوا", s2: "بن رہا ہے", s3: "ٹیبل 4 پر آ رہا ہے", again: "مزید آرڈر کریں", slip: "باورچی خانے کو یہ ملتا ہے", popular: "مقبول",
       cats: { starters: "اسٹارٹر", grill: "تندور سے", curries: "سالن", biryani: "بریانی", breads: "روٹی اور چاول", sides: "سائیڈ، میٹھا اور مشروبات" } },
-    gu: { pick: "તમારી ભાષા પસંદ કરો", table: "ટેબલ 4", menu: "મેનુ", typeh: "અથવા આખો ઓર્ડર લખી દો", typeph: "2 ચિકન બિરયાની અને એક ગાર્લિક નાન, તીખું", go: "ઉમેરો", eg1: "બે ચિકન કડાઈ, મીડિયમ", eg2: "ગાર્લિક નાન અને એક મેંગો લસ્સી", eg3: "એક ગોટ બિરયાની, બહુ તીખું, ડુંગળી નહીં",
+    gu: { talk: "હનિયા સાથે વાત કરવા દબાવી રાખો", talkoff: "આ ડેમોમાં અવાજ બંધ છે જેથી કોઈ ખર્ચ ન થાય. ખરા ટેબલ પર આ બટન દબાવી રાખીને તમે ઓર્ડર બોલો છો. કોઈ વાનગી ટેપ કરો.", pick: "તમારી ભાષા પસંદ કરો", table: "ટેબલ 4", menu: "મેનુ", typeh: "અથવા આખો ઓર્ડર લખી દો", typeph: "2 ચિકન બિરયાની અને એક ગાર્લિક નાન, તીખું", go: "ઉમેરો", eg1: "બે ચિકન કડાઈ, મીડિયમ", eg2: "ગાર્લિક નાન અને એક મેંગો લસ્સી", eg3: "એક ગોટ બિરયાની, બહુ તીખું, ડુંગળી નહીં",
       got: "મેં આ ઉમેર્યું", miss: "અમારા મેનુમાં નથી", view: "ઓર્ડર જુઓ", nothing: "હજી કંઈ નહીં", yourorder: "તમારો ઓર્ડર", empty: "ઓર્ડરમાં હજી કંઈ નથી.", seemenu: "મેનુ જુઓ", back: "પાછા",
       size: "સાઇઝ", spice: "મરચું", mild: "ઓછું", medium: "મીડિયમ", spicy: "તીખું", xspicy: "બહુ તીખું", less: "એક ઓછું", more: "એક વધુ", addn: "{n} ઓર્ડરમાં ઉમેરો", added: "{x} ઉમેર્યું", remove: "કાઢો", note: "રસોઈયા માટે બીજું કંઈ?", noteph: "ડુંગળી નહીં, ચટણી અલગ",
       subtotal: "કુલ", tax: "ટેક્સ", total: "કુલ રકમ", pay: "{t} ચૂકવો", paying: "ચુકવણી થઈ રહી છે…", payline: "કાર્ડથી એક વાર ચુકવણી થાય છે. ચુકવણી થતાં જ રસોઈ શરૂ.", test: "ટેસ્ટ કાર્ડ. કોઈ પૈસા કપાશે નહીં.", cardno: "કાર્ડ નંબર", exp: "સમાપ્તિ", cvc: "CVC", cardname: "કાર્ડ પરનું નામ",
       paid: "ચુકવણી થઈ ગઈ. આભાર!", order: "ઓર્ડર", s1: "ચૂકવાયું", s2: "બની રહ્યું છે", s3: "ટેબલ 4 પર આવી રહ્યું છે", again: "વધુ ઓર્ડર કરો", slip: "રસોડાને આ મળે છે", popular: "લોકપ્રિય",
       cats: { starters: "સ્ટાર્ટર", grill: "તંદૂરમાંથી", curries: "કરી", biryani: "બિરયાની", breads: "રોટલી અને ભાત", sides: "સાઇડ, મીઠાઈ અને પીણાં" } },
-    pa: { pick: "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ", table: "ਟੇਬਲ 4", menu: "ਮੀਨੂ", typeh: "ਜਾਂ ਪੂਰਾ ਆਰਡਰ ਲਿਖ ਦਿਓ", typeph: "2 ਚਿਕਨ ਬਿਰਿਆਨੀ ਅਤੇ ਇੱਕ ਗਾਰਲਿਕ ਨਾਨ, ਤਿੱਖਾ", go: "ਜੋੜੋ", eg1: "ਦੋ ਚਿਕਨ ਕੜਾਹੀ, ਮੀਡੀਅਮ", eg2: "ਗਾਰਲਿਕ ਨਾਨ ਅਤੇ ਇੱਕ ਮੈਂਗੋ ਲੱਸੀ", eg3: "ਇੱਕ ਗੋਟ ਬਿਰਿਆਨੀ, ਬਹੁਤ ਤਿੱਖਾ, ਪਿਆਜ਼ ਨਹੀਂ",
+    pa: { talk: "ਹਨੀਆ ਨਾਲ ਗੱਲ ਕਰਨ ਲਈ ਦਬਾਈ ਰੱਖੋ", talkoff: "ਇਸ ਡੈਮੋ ਵਿੱਚ ਆਵਾਜ਼ ਬੰਦ ਹੈ ਤਾਂ ਜੋ ਕੋਈ ਖਰਚ ਨਾ ਹੋਵੇ। ਅਸਲ ਟੇਬਲ ਉੱਤੇ ਇਹ ਬਟਨ ਦਬਾਈ ਰੱਖ ਕੇ ਤੁਸੀਂ ਆਪਣਾ ਆਰਡਰ ਬੋਲਦੇ ਹੋ। ਕੋਈ ਡਿਸ਼ ਟੈਪ ਕਰੋ।", pick: "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ", table: "ਟੇਬਲ 4", menu: "ਮੀਨੂ", typeh: "ਜਾਂ ਪੂਰਾ ਆਰਡਰ ਲਿਖ ਦਿਓ", typeph: "2 ਚਿਕਨ ਬਿਰਿਆਨੀ ਅਤੇ ਇੱਕ ਗਾਰਲਿਕ ਨਾਨ, ਤਿੱਖਾ", go: "ਜੋੜੋ", eg1: "ਦੋ ਚਿਕਨ ਕੜਾਹੀ, ਮੀਡੀਅਮ", eg2: "ਗਾਰਲਿਕ ਨਾਨ ਅਤੇ ਇੱਕ ਮੈਂਗੋ ਲੱਸੀ", eg3: "ਇੱਕ ਗੋਟ ਬਿਰਿਆਨੀ, ਬਹੁਤ ਤਿੱਖਾ, ਪਿਆਜ਼ ਨਹੀਂ",
       got: "ਮੈਂ ਇਹ ਜੋੜਿਆ", miss: "ਸਾਡੇ ਮੀਨੂ ਵਿੱਚ ਨਹੀਂ ਹੈ", view: "ਆਰਡਰ ਵੇਖੋ", nothing: "ਹਾਲੇ ਕੁਝ ਨਹੀਂ", yourorder: "ਤੁਹਾਡਾ ਆਰਡਰ", empty: "ਆਰਡਰ ਵਿੱਚ ਹਾਲੇ ਕੁਝ ਨਹੀਂ ਹੈ।", seemenu: "ਮੀਨੂ ਵੇਖੋ", back: "ਪਿੱਛੇ",
       size: "ਸਾਈਜ਼", spice: "ਮਿਰਚ", mild: "ਘੱਟ", medium: "ਮੀਡੀਅਮ", spicy: "ਤਿੱਖਾ", xspicy: "ਬਹੁਤ ਤਿੱਖਾ", less: "ਇੱਕ ਘੱਟ", more: "ਇੱਕ ਹੋਰ", addn: "{n} ਆਰਡਰ ਵਿੱਚ ਜੋੜੋ", added: "{x} ਜੋੜਿਆ", remove: "ਹਟਾਓ", note: "ਰਸੋਈਏ ਲਈ ਕੁਝ ਹੋਰ?", noteph: "ਪਿਆਜ਼ ਨਹੀਂ, ਚਟਣੀ ਵੱਖ",
       subtotal: "ਕੁੱਲ", tax: "ਟੈਕਸ", total: "ਕੁੱਲ ਰਕਮ", pay: "{t} ਭੁਗਤਾਨ ਕਰੋ", paying: "ਭੁਗਤਾਨ ਹੋ ਰਿਹਾ ਹੈ…", payline: "ਕਾਰਡ ਤੋਂ ਇੱਕ ਵਾਰ ਭੁਗਤਾਨ ਹੁੰਦਾ ਹੈ। ਭੁਗਤਾਨ ਹੁੰਦੇ ਹੀ ਖਾਣਾ ਬਣਨਾ ਸ਼ੁਰੂ।", test: "ਟੈਸਟ ਕਾਰਡ। ਕੋਈ ਪੈਸਾ ਨਹੀਂ ਕੱਟੇਗਾ।", cardno: "ਕਾਰਡ ਨੰਬਰ", exp: "ਮਿਆਦ", cvc: "CVC", cardname: "ਕਾਰਡ ਉੱਤੇ ਨਾਮ",
       paid: "ਭੁਗਤਾਨ ਹੋ ਗਿਆ। ਧੰਨਵਾਦ!", order: "ਆਰਡਰ", s1: "ਭੁਗਤਾਨ ਹੋਇਆ", s2: "ਬਣ ਰਿਹਾ ਹੈ", s3: "ਟੇਬਲ 4 'ਤੇ ਆ ਰਿਹਾ ਹੈ", again: "ਹੋਰ ਆਰਡਰ ਕਰੋ", slip: "ਰਸੋਈ ਨੂੰ ਇਹ ਮਿਲਦਾ ਹੈ", popular: "ਮਸ਼ਹੂਰ",
       cats: { starters: "ਸਟਾਰਟਰ", grill: "ਤੰਦੂਰ ਤੋਂ", curries: "ਕਰੀ", biryani: "ਬਿਰਿਆਨੀ", breads: "ਰੋਟੀ ਅਤੇ ਚੌਲ", sides: "ਸਾਈਡ, ਮਿਠਾਈ ਅਤੇ ਪੀਣ ਵਾਲੇ" } },
-    ar: { pick: "اختر لغتك", table: "طاولة 4", menu: "القائمة", typeh: "أو اكتب طلبك كاملاً", typeph: "2 برياني دجاج ونان بالثوم، حار", go: "أضف", eg1: "اثنان كراهي دجاج، متوسط", eg2: "نان بالثوم ولاسي مانجو", eg3: "واحد برياني لحم ماعز، حار جداً، بدون بصل",
+    ar: { talk: "اضغط مطولاً للتحدث مع هانيا", talkoff: "الصوت متوقف في هذا العرض حتى لا يكلف شيئاً. على الطاولة الحقيقية تضغط هذا الزر وتقول طلبك. اضغط على طبق بدلاً من ذلك.", pick: "اختر لغتك", table: "طاولة 4", menu: "القائمة", typeh: "أو اكتب طلبك كاملاً", typeph: "2 برياني دجاج ونان بالثوم، حار", go: "أضف", eg1: "اثنان كراهي دجاج، متوسط", eg2: "نان بالثوم ولاسي مانجو", eg3: "واحد برياني لحم ماعز، حار جداً، بدون بصل",
       got: "هذا ما أضفته", miss: "ليس في قائمتنا", view: "عرض الطلب", nothing: "لا شيء بعد", yourorder: "طلبك", empty: "لا يوجد شيء في طلبك بعد.", seemenu: "عرض القائمة", back: "رجوع",
       size: "الحجم", spice: "الحرارة", mild: "خفيف", medium: "متوسط", spicy: "حار", xspicy: "حار جداً", less: "أقل بواحد", more: "أكثر بواحد", addn: "أضف {n} إلى الطلب", added: "تمت إضافة {x}", remove: "إزالة", note: "أي شيء آخر للطباخ؟", noteph: "بدون بصل، الصلصة على جنب",
       subtotal: "المجموع", tax: "الضريبة", total: "الإجمالي", pay: "ادفع {t}", paying: "جارٍ الدفع…", payline: "يُخصم من بطاقتك مرة واحدة. نبدأ الطهي فور الدفع.", test: "بطاقة تجريبية. لن يُخصم أي مبلغ.", cardno: "رقم البطاقة", exp: "الانتهاء", cvc: "CVC", cardname: "الاسم على البطاقة",
@@ -812,9 +827,7 @@ a{color:var(--az-accent)}
   /* menu */
   function vMenu() {
     return head() + `
-      <div class="g-type"><label for="gType">${esc(t("typeh"))}</label>
-        <div class="g-type__row"><input id="gType" type="text" autocomplete="off" enterkeyhint="send" placeholder="${esc(t("typeph"))}" aria-label="${esc(t("typeh"))}"><button id="gTypeGo" type="button">${esc(t("go"))}</button></div>
-        <div class="g-type__eg">${["eg1", "eg2", "eg3"].map((k) => `<button type="button" data-eg="${esc(t(k))}">${esc(t(k))}</button>`).join("")}</div></div>
+      <div class="g-talk"><button type="button" class="g-talk__btn" id="gTalk"><span class="g-talk__ring" aria-hidden="true"></span><span class="g-talk__mic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 0 0-8 0v5a4 4 0 0 0 4 4Zm6-4a6 6 0 0 1-12 0M12 17v4m-4 0h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>${esc(t("talk"))}</b></button><p class="g-talk__off" id="gTalkOff" hidden>${esc(t("talkoff"))}</p></div>
       <div id="gGot">${gotHTML()}</div>
       <nav class="g-cats" id="gCats">${CATS.map((c, i) => `<button class="g-cat ${i ? "" : "is-on"}" data-cat="${c}">${esc(L.cats[c])}</button>`).join("")}</nav>
       <div id="gList">${CATS.map((c) => `<section class="g-group" id="cat-${c}"><h3>${esc(L.cats[c])}</h3>${M.filter((m) => m.cat === c).map((m) => `<button class="g-item" data-item="${m.id}"><span class="g-item__b"><p class="g-item__n">${esc(m.name)}${m.feat ? `<span class="g-badge">${esc(t("popular"))}</span>` : ""}</p><p class="g-item__d">${esc(m.desc)}</p><span class="g-price">${m.sizes.length > 1 ? money(m.sizes[0].p) + " +" : money(m.sizes[0].p)}</span></span><span class="g-add" aria-hidden="true">+</span></button>`).join("")}</section>`).join("")}</div>`;
@@ -894,10 +907,11 @@ a{color:var(--az-accent)}
     $$("[data-lang]", g).forEach((b) => b.addEventListener("click", () => { S.lang = b.dataset.lang; L = T[S.lang]; step("lang"); S.view = "menu"; mount(); }));
     $$("[data-item]", g).forEach((b) => b.addEventListener("click", () => openItem(b.dataset.item)));
     if (v === "menu") {
-      const inp = $("#gType"), run = () => { if (inp.value.trim()) applyTyped(inp.value); };
-      $("#gTypeGo").addEventListener("click", run);
-      inp.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); run(); } });
-      $$("[data-eg]").forEach((b) => b.addEventListener("click", () => { inp.value = b.dataset.eg; applyTyped(b.dataset.eg); }));
+      const talk = $("#gTalk"), off = $("#gTalkOff"); let held;
+      const press = (e) => { e.preventDefault(); talk.classList.add("is-held"); held = setTimeout(() => { off.hidden = false; talk.classList.remove("is-held"); }, 350); };
+      const release = () => { clearTimeout(held); talk.classList.remove("is-held"); off.hidden = false; step("add"); };
+      talk.addEventListener("pointerdown", press); talk.addEventListener("pointerup", release); talk.addEventListener("pointercancel", release);
+      talk.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); release(); } });
       $$("[data-cat]").forEach((b) => b.addEventListener("click", () => {
         $$("[data-cat]").forEach((x) => x.classList.toggle("is-on", x === b));
         const tg = $("#cat-" + b.dataset.cat), sc = $("#gScroll");
@@ -1140,46 +1154,68 @@ a{color:var(--az-accent)}
     dash.today[dash.hour] += 1; drawToday();
   };
 
-  /* ---------- 5. the owner app ---------- */
+  /* ---------- 5. the owner app: jobs, not chat ---------- */
   const feed = $("#oFeed");
-  const CMDS = {
-    lemonade: { q: "Take lemonade off until 9 PM", run: async () => {
-      card(`Lemonade off everywhere until 9:00 PM`, `Back on by itself at 9. Undo any time.`, ["Register (Clover): item hidden", "Website and table menu: gone", "Phone: Haniya says we're out until 9", "DoorDash, Uber Eats, Grubhub: 86'd via the register flag", "Undo link texted to you"], 420, [["Undo", () => card("Lemonade is back on everywhere.", "Took 2 seconds.", [], 0)]]); } },
-    lastnight: { q: "How did last night go?", run: async () => {
-      await sleep(500); const c = card("Thursday, in one breath", "", [], 0);
-      c.insertAdjacentHTML("beforeend", `<p class="o-brief">Busier than a usual Thursday from 6 to 8, quieter after. Dine-in carried it; almost every table ordered from their phones. 31 calls, 29 answered to the end, 9 became orders, 4 of them after close. One 2-star review at 9:40 PM about a takeout wait: a reply is drafted for you. Two cards declined, both the bank. Nothing is switched off this morning. Catering for 40 is booked Saturday; prep list goes to the chef Friday 10 AM.</p>`); } },
-    newdish: { q: "New dish: Lari street chowmein, $13.99, here's a photo", run: async () => {
-      card("Lari Street Chowmein, $13.99", "I'll do the whole job. Two steps touch guests or money, so they wait for your tap.", ["Photo re-shot to the house standard (same plate, same light as every dish)", "Register: added at $13.99, in Chinese mains", "Delivery apps: added at $18.19 (pickup price x1.30), add-ons included", "Website, table menu and phone: live, with a description in 7 languages", "Chef's 10 AM text tomorrow: prep note and the first 20 orders forecast"], 520, [], ["Post it on Google and Instagram tonight with the new photo", "Text the 212 guests who ordered chowmein in the last 90 days"]); } },
-    close: { q: "Close for an hour, gas issue", run: async () => {
-      card("Closed for one hour, reason: gas issue", "Reopens by itself at 11:04 AM. Say 'open' to reopen sooner.", ["Phone greeting: closed until 11:04, taking orders for after", "Website, QR and ordering page: paused with the reason", "Two guests with carts open texted: we reopen at 11:04", "DoorDash, Uber Eats, Grubhub: still manual, reminder on your screen"], 380, [["Reopen now", () => card("Open. Every door back on.", "", [], 0)]]); } },
-    who: { q: "Who called while we were closed?", run: async () => {
-      await sleep(500); card("4 calls since close", "", ["11:42 PM Ayesha (Urdu): ordered for 11 AM, paid", "11:46 PM Dana: catering for 40, Saturday, paid", "12:10 AM unknown: asked hours, hung up", "7:55 AM Marcus: asked if the tikka is halal; answered yes, Zabiha"], 0); } },
+  // a step = [text, risk]; risk: R read, W write-internal (undo), O outward (runs once the job is approved), $ money/food (his tap), X destructive (his tap), B build a missing capability
+  const JOBS = {
+    lemonade: { q: "Take lemonade off until 9 PM", title: "Lemonade off everywhere until 9:00 PM", why: "Guests should never be able to order something you cannot serve. The 'until' means she brings it back herself.", est: "6 steps · about 20 s · ~$0.01",
+      steps: [["Register: item hidden", "W"], ["Website and table menu: gone", "W"], ["Phone: Haniya says we're out until 9", "W"], ["DoorDash, Uber Eats, Grubhub: 86'd through the register flag", "W"], ["Chef texted: lemonade off until 9", "O"], ["Undo link texted to you", "O"]],
+      schedule: "Back on at 9:00 PM by itself, then confirms it is back on every channel.", report: ["Done: 6 of 6.", "Assumed: 9 PM tonight, not tomorrow.", "Could not do: nothing."], pace: 380, actions: [["Undo", "Lemonade is back on everywhere. 2 seconds."]] },
+    lastnight: { q: "How did last night go?", title: "Thursday, in one breath", why: "", est: "read only · 2 s · ~$0.002", steps: [], pace: 0,
+      brief: "Busier than a usual Thursday from 6 to 8, quieter after. Dine-in carried it; almost every table ordered from their phones. 31 calls, 29 answered to the end, 9 became orders, 4 of them after close. One 2-star at 9:40 PM about a takeout wait: reply drafted. Two cards declined, both the bank. Nothing is switched off this morning. Catering for 40 is booked Saturday; the chef gets the prep list Friday 10 AM." },
+    newdish: { q: "New dish: Lari street chowmein, $13.99, here's a photo", title: "Launch Lari Street Chowmein at $13.99", why: "A new dish is only launched when every channel sells it, the photo matches the house, and the people most likely to want it hear about it. Nothing here spends money or gives food away, so after 'Do it' it all runs.", est: "14 steps · about 6 min · ~$0.38",
+      steps: [["Read: pairings, the per-channel price rule, modifier groups used by similar dishes, the Clover category", "R"], ["3 photos made from your reference in the house style (our plate, our light); a vision check confirms the food matches; best one kept", "W"], ["Register: item, category, tags, modifier groups added at $13.99", "W"], ["Delivery apps: added at $18.19 (x1.30) in each portal, by browser", "W"], ["Description written, and in Urdu, Hindi, Spanish, Gujarati, Punjabi, Arabic", "W"], ["Website, table menu and phone: live; Haniya can describe and sell it", "W"], ["Chef's 10 AM text tomorrow: prep note, first-week forecast", "O"], ["Google Business post with the photo", "O"], ["Instagram and Facebook post", "O"], ["TikTok: capability not registered yet", "B"], ["Apple Maps showcase, by browser", "O"], ["Text the 212 opted-in guests who ordered chowmein or hakka noodles in the last 90 days, inside quiet hours", "O"]],
+      build: "Built it: wrote the TikTok draft-post capability, ran its self-check against a test account, registered it. First run stays a draft for you to tap Publish until the platform audit clears.",
+      schedule: "Launch cadence owned by this job: day 0 post, day 2 to 3 a Reel, day 5 to 7 a reminder, then 1 to 2 posts a week for 3 weeks, each caption different. Stops early if the dish is 86'd.",
+      report: ["Done: 13 of 14.", "Assumed: medium spice default, same modifiers as the other chowmeins.", "Could not do: TikTok publish (audit pending; draft is in your TikTok)."], pace: 460 },
+    reviews: { q: "Reviews mention slow service on weekends. Fix it.", title: "Weekend slow-service complaints", why: "A new kind of ask. No code was written for this one; the plan is composed from the same capabilities.", est: "5 steps · about 40 s · ~$0.05",
+      steps: [["Read every review from the last 90 days, pick out the slow-service ones, with the day and hour of each visit", "R"], ["Cross with the kitchen's ticket times for those hours", "R"], ["Finding: 7 of 9 complaints are Friday and Saturday 7 to 8:30 PM, when ticket times hit 34 minutes against a quoted 20", "R"], ["Pickup quotes now follow real load on those hours; the chef gets a staffing note for Friday and Saturday", "W"], ["Reply drafted to the two most recent reviews, in your voice, for your tap", "O"]],
+      schedule: "Reads reviews and ticket times again in 2 weeks and reports whether it moved.", report: ["Done: 5 of 5.", "Assumed: the quoted time was the problem, not the food.", "Could not do: add a cook. That is yours."], pace: 520 },
+    catering: { q: "Push catering to the offices near us this month", title: "Catering to nearby offices, October", why: "The highest-margin line, and the one nobody has time to sell. Weekly, until you say stop.", est: "6 steps a week · ~$0.20 a week",
+      steps: [["Find offices, clinics, schools and places of worship within 10 miles that are not already guests", "R"], ["Intro note drafted in your words, with real tray prices and the two-hour notice", "W"], ["Queue Haniya's follow-up calls to the ones that reply", "W"], ["Email the 38 new contacts; text the 11 opted-in business contacts", "O"], ["Replies land as a text on your phone", "O"]],
+      schedule: "Repeats every Tuesday 10 AM through October. Reports leads and bookings each week.", report: ["Done: 5 of 5 this week.", "Assumed: weekday lunch, 15 to 60 people.", "Could not do: nothing."], pace: 480 },
+    close: { q: "Close for an hour, gas issue", title: "Closed for one hour: gas issue", why: "Every door at once, with the reason, and a reopen she does herself.", est: "5 steps · 8 s · ~$0.01",
+      steps: [["Phone greeting: closed until 11:04, still taking orders for after", "W"], ["Website, QR and ordering page: paused with the reason", "W"], ["Two guests with carts open texted: we reopen at 11:04", "O"], ["Chef and manager texted", "O"], ["DoorDash, Uber Eats, Grubhub: paused by browser", "W"]],
+      schedule: "Reopens every door at 11:04 AM and confirms each one answered.", report: ["Done: 5 of 5.", "Assumed: one hour from now.", "Could not do: nothing."], pace: 380, actions: [["Reopen now", "Open. Every door back on, each one checked."]] },
   };
-  function card(title, sub, steps, pace, actions = [], waits = []) {
+  const RK = { R: "read", W: "write · undo", O: "outward", $: "needs you", X: "needs you", B: "build" };
+  function jobCard(j) {
     const c = document.createElement("div"); c.className = "o-card";
-    c.innerHTML = `<h6>${esc(title)}</h6>${sub ? `<p>${esc(sub)}</p>` : ""}${steps.length || waits.length ? `<ul class="o-plan">${steps.map((s) => `<li>${esc(s)}</li>`).join("")}${waits.map((w) => `<li class="is-wait">${esc(w)} · waiting for you</li>`).join("")}</ul>` : ""}<div class="o-act"></div>`;
+    if (!j.steps.length) { c.innerHTML = `<h6>${esc(j.title)}</h6><p class="o-brief">${esc(j.brief)}</p><div class="o-ledger">${esc(j.est)}</div>`; feed.appendChild(c); feed.scrollTop = feed.scrollHeight; return; }
+    c.innerHTML = `<h6>${esc(j.title)}</h6>${j.why ? `<p>${esc(j.why)}</p>` : ""}<ul class="o-plan">${j.steps.map((s) => `<li class="${s[1] === "$" || s[1] === "X" ? "is-wait" : ""}">${esc(s[0])}<span class="rk">${RK[s[1]]}</span></li>`).join("")}</ul>${j.schedule ? `<p>${esc(j.schedule)}</p>` : ""}<div class="o-ledger">Plan · ${esc(j.est)}</div><div class="o-act"><button class="go">Do it</button><button>Edit the plan</button><button>I'll do it</button></div>`;
     feed.appendChild(c); feed.scrollTop = feed.scrollHeight;
-    const lis = $$(".o-plan li:not(.is-wait)", c);
-    (async () => {
-      for (const li of lis) { li.classList.add("is-run"); await sleep(pace); li.classList.remove("is-run"); li.classList.add("is-done"); feed.scrollTop = feed.scrollHeight; }
-      const act = $(".o-act", c);
-      waits.forEach((w, i) => { const b = document.createElement("button"); b.className = "go"; b.textContent = i ? "Yes, send the text" : "Yes, post it"; b.addEventListener("click", () => { const li = $$(".o-plan li.is-wait", c)[0]; if (li) { li.classList.remove("is-wait"); li.classList.add("is-done"); li.textContent = w + " · done"; } b.remove(); }); act.appendChild(b); });
-      actions.forEach(([l, f]) => { const b = document.createElement("button"); b.textContent = l; b.addEventListener("click", () => { b.disabled = true; f(); }); act.appendChild(b); });
-    })();
-    return c;
+    const act = $(".o-act", c), lis = $$(".o-plan li", c);
+    $(".go", c).addEventListener("click", async () => {
+      act.innerHTML = ""; let cost = 0, t0 = Date.now();
+      for (let i = 0; i < lis.length; i++) {
+        const li = lis[i], risk = j.steps[i][1];
+        if (risk === "$" || risk === "X") continue;
+        li.classList.add("is-run"); await sleep(j.pace); li.classList.remove("is-run");
+        if (risk === "B") { li.classList.add("is-done"); li.insertAdjacentHTML("beforeend", `<br><small style="color:var(--o-muted)">${esc(j.build)}</small>`); }
+        else li.classList.add("is-done");
+        cost += 0.004 + Math.random() * 0.03; feed.scrollTop = feed.scrollHeight;
+      }
+      const secs = Math.round((Date.now() - t0) / 1000);
+      c.insertAdjacentHTML("beforeend", `<div class="o-rep">${j.report.map((r) => { const [k, v] = r.split(/:(.+)/); return `<span><b>${esc(k)}:</b>${esc(v || "")}</span>`; }).join("")}<span class="o-ledger">Ran · ${lis.length} steps · ${secs}s here (minutes for real) · $${cost.toFixed(2)} · every step in the ledger</span></div>`);
+      (j.actions || []).forEach(([l, out]) => { const b = document.createElement("button"); b.textContent = l; b.addEventListener("click", () => { b.disabled = true; const d = document.createElement("div"); d.className = "o-card"; d.innerHTML = `<h6>${esc(out)}</h6>`; feed.appendChild(d); feed.scrollTop = feed.scrollHeight; }); act.appendChild(b); });
+      feed.scrollTop = feed.scrollHeight;
+    });
+    $$("button", act)[1].addEventListener("click", () => { act.innerHTML = `<span style="font-size:12px;color:var(--o-muted)">On the real app you edit the steps in place; your edits are remembered as preferences for next time.</span>`; });
+    $$("button", act)[2].addEventListener("click", () => { act.innerHTML = `<span style="font-size:12px;color:var(--o-muted)">Left to you. She notes you prefer to do this kind yourself.</span>`; });
   }
   async function owner(q) {
     const me = document.createElement("div"); me.className = "o-me"; me.textContent = q; feed.appendChild(me); feed.scrollTop = feed.scrollHeight;
     const s = q.toLowerCase();
-    const key = /lemonade|off until|86|out of/.test(s) ? "lemonade" : /last night|yesterday|how did/.test(s) ? "lastnight" : /new dish|chowmein|add .*menu|introduc/.test(s) ? "newdish" : /close/.test(s) ? "close" : /who called|calls/.test(s) ? "who" : null;
+    const key = /lemonade|off until|86|out of/.test(s) ? "lemonade" : /last night|yesterday|how did/.test(s) ? "lastnight" : /new dish|chowmein|add .*menu|introduc|launch/.test(s) ? "newdish" : /review|slow/.test(s) ? "reviews" : /cater|office/.test(s) ? "catering" : /close/.test(s) ? "close" : null;
     await sleep(400);
-    if (key) return CMDS[key].run();
-    card("I can do that, but not in this demo.", "On the real line I'd plan it across the register, the site, the phone, the apps and your guests, show you the steps, and wait only where money or guests are touched. Try one of the five above.", [], 0);
+    if (key) return jobCard(JOBS[key]);
+    const c = document.createElement("div"); c.className = "o-card"; c.innerHTML = `<h6>I'd plan that the same way.</h6><p>On the real app any outcome becomes a job from the same registry: read, write, post, generate, schedule, text, call, browse, edit code. This demo carries six scripted jobs; try one above.</p>`; feed.appendChild(c); feed.scrollTop = feed.scrollHeight;
   }
-  Object.values(CMDS).forEach((c) => { const b = document.createElement("button"); b.textContent = c.q; b.addEventListener("click", () => owner(c.q)); $("#oSugg").appendChild(b); });
+  Object.values(JOBS).forEach((j) => { const b = document.createElement("button"); b.textContent = j.q; b.addEventListener("click", () => owner(j.q)); $("#oSugg").appendChild(b); });
   $("#oGo").addEventListener("click", () => { const v = $("#oIn").value.trim(); if (v) { owner(v); $("#oIn").value = ""; } });
   $("#oIn").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); $("#oGo").click(); } });
-  feed.insertAdjacentHTML("beforeend", `<div class="o-card"><h6>Good morning. The 10 AM brief:</h6><p class="o-brief">Yesterday was a strong Thursday. Dine-in up, every table self-serve. 9 phone orders, 4 after close. One 2-star to answer (reply drafted). Catering for 40 Saturday is paid. Nothing is switched off. The chef has today's prep list.</p></div>`);
+  feed.insertAdjacentHTML("beforeend", `<div class="o-card"><h6>Good morning. The 10 AM brief:</h6><p class="o-brief">Yesterday was a strong Thursday. Dine-in up, every table self-serve. 9 phone orders, 4 after close. One 2-star to answer (reply drafted). Catering for 40 Saturday is paid. Nothing is switched off. The chef has today's prep list.</p></div><div class="o-card"><h6>She proposed, from the numbers:</h6><p>Saturday 7 to 8:30 PM ticket times ran 34 minutes against a quoted 20 for the third week. Job ready: fix the quotes on those hours and brief the chef.</p><div class="o-act"><button class="go" data-prop>Do it</button><button data-prop>Not now</button></div></div>`);
+  $$("[data-prop]").forEach((b) => b.addEventListener("click", () => { const act = b.parentElement; act.innerHTML = `<span style="font-size:12px;color:var(--o-muted)">${b.classList.contains("go") ? "Running. Pickup quotes on Fri and Sat 7 to 8:30 now follow real load. Chef briefed. Reads again in 2 weeks." : "Snoozed a week. She will raise it again only if it is still true."}</span>`; }));
 
   /* ---------- 5b. the dashboard ---------- */
   const dash = { p: 7, hour: 8, today: [0, 1, 2, 4, 7, 11, 14, 12, 9, 0, 0, 0], typical: [0.5, 1.5, 2.5, 4, 6, 9, 11, 10, 7, 5, 3, 1] };
