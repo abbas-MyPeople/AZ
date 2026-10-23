@@ -3,20 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Try the table menu</title>
-<meta name="description" content="A demo table from the AI that runs a family restaurant. Pick a language, tap or type an order, pay with a test card, see the ticket. Nothing leaves this page.">
+<title>One restaurant, one system</title>
+<meta name="description" content="A demo of the system that runs a family restaurant: phone, tables, payments, kitchen, the owner's day and growth, side by side with how most independents run today. Nothing leaves this page.">
 <!-- SEALED: this page can never send anything anywhere. Open DevTools > Network and watch. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; object-src 'none'; base-uri 'none'">
 <meta name="theme-color" content="#15171c">
-<meta property="og:title" content="Try the table menu">
-<meta property="og:description" content="Pick a language, tap or type an order, pay with a test card, see the kitchen ticket. A demo table from the AI that runs a family restaurant.">
+<meta property="og:title" content="One restaurant, one system">
+<meta property="og:description" content="Phone, tables, payments, kitchen, the owner's day and growth: try the system that runs a family restaurant, next to how most independents run today.">
 <meta property="og:url" content="https://azrestaurantpartners.com/try/">
 <style>
 :root{
-  --az-bg:#F3F4F6;--az-ink:#15171C;--az-muted:#5D6270;--az-line:#DAD5CA;--az-card:#FFFFFF;--az-accent:#1F5FBF;--pos:#2F8F5B;
+  --az-bg:#F3F4F6;--az-ink:#15171C;--az-muted:#5D6270;--az-line:#DAD5CA;--az-card:#FFFFFF;--az-accent:#1F5FBF;--pos:#2F8F5B;--neg:#B4432A;--warn:#B07A12;
+  --today:#F7F2EA;--today-ink:#6B5E50;--sys:#FFFFFF;
   /* the demo restaurant's own look (made up, nothing real) */
   --cream:#FBF6EE;--cream-2:#F1E8DA;--paper:#FFFFFF;--line:#E7DCCB;--ink:#1F1B16;--muted:#6E6256;
   --b:#9A3B22;--bd:#7A2D18;--bink:#2A1B12;--gold:#C98A2B;--gold-text:#7D5312;--gold-soft:#FBEFD9;
+  --o-bg:#0B0E13;--o-card:#131820;--o-line:#222A36;--o-ink:#E8ECF2;--o-muted:#8D97A6;--o-pos:#4FB37A;--o-neg:#E0705A;--o-warn:#E0B35A;
   --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;
   --r1:14px;--r2:20px;--pill:999px;--tap:44px;--ease:cubic-bezier(.2,.7,.2,1);
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;
@@ -24,45 +26,259 @@
   --mono:ui-monospace,Menlo,Consolas,monospace;
   --sh-2:0 8px 28px rgba(22,19,16,.10);--sh-3:0 24px 60px rgba(22,19,16,.18);
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--az-bg:#101216;--az-ink:#E9EBEF;--az-muted:#9AA1AE;--az-line:#272B33;--az-card:#171A20;--az-accent:#7FA8F0}}
-:root[data-theme="dark"]{--az-bg:#101216;--az-ink:#E9EBEF;--az-muted:#9AA1AE;--az-line:#272B33;--az-card:#171A20;--az-accent:#7FA8F0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--az-bg:#101216;--az-ink:#E9EBEF;--az-muted:#9AA1AE;--az-line:#272B33;--az-card:#171A20;--az-accent:#7FA8F0;--today:#1C1915;--today-ink:#B3A595;--sys:#171A20;color-scheme:dark}}
+:root[data-theme="dark"]{--az-bg:#101216;--az-ink:#E9EBEF;--az-muted:#9AA1AE;--az-line:#272B33;--az-card:#171A20;--az-accent:#7FA8F0;--today:#1C1915;--today-ink:#B3A595;--sys:#171A20;color-scheme:dark}
 *{box-sizing:border-box}
 html,body{margin:0}
 body{background:var(--az-bg);color:var(--az-ink);font:16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
 button{font:inherit;color:inherit;cursor:pointer}
-input{font:inherit}
+input,textarea{font:inherit}
 a{color:var(--az-accent)}
 .tnum{font-variant-numeric:tabular-nums}
 :focus-visible{outline:2px solid var(--az-accent);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @keyframes rise{from{transform:translateY(10px)}to{transform:none}}
+@keyframes pulse{50%{opacity:.35}}
 
-/* ---------- page frame (ours) ---------- */
-.top{max-width:1100px;margin:0 auto;padding:var(--s4) var(--s4) 0;display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap}
+/* ---------- page frame ---------- */
+.w{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;padding-block:var(--s4) 0}
 .mark{display:flex;align-items:center;gap:var(--s2);font-weight:650;font-size:15px}
 .mark i{width:26px;height:26px;border-radius:7px;background:var(--az-ink);color:var(--az-card);display:grid;place-items:center;font:700 12px/1 var(--sans);font-style:normal}
 .mark span{color:var(--az-muted);font-weight:500}
 .live{margin-inline-start:auto;font-size:13px;color:var(--az-muted);display:flex;align-items:center;gap:var(--s2)}
 .live i{width:8px;height:8px;border-radius:50%;background:#D9A21B;display:inline-block}
-.stage{max-width:1100px;margin:0 auto;padding:var(--s5) var(--s4) var(--s7);display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:var(--s6);align-items:start}
-@media (max-width:900px){.stage{grid-template-columns:1fr;padding-top:var(--s3)}}
-.side{display:flex;flex-direction:column;gap:var(--s4);position:sticky;top:16px}
-@media (max-width:900px){.side{position:static}}
-.card{background:var(--az-card);border:1px solid var(--az-line);border-radius:var(--r1);padding:var(--s5)}
-.card h2{font:700 17px/1.3 var(--sans);margin:0 0 var(--s3)}
-.card p{margin:0 0 var(--s3);font-size:14.5px;color:var(--az-muted)}
+.hero{padding-block:var(--s6) var(--s5)}
+.hero h1{font:800 clamp(1.8rem,4.4vw,3rem)/1.05 var(--sans);letter-spacing:-.035em;margin:0 0 var(--s3);max-width:22ch;text-wrap:balance}
+.hero p{margin:0;color:var(--az-muted);max-width:64ch;font-size:17px}
+.hero p b{color:var(--az-ink);font-weight:600}
+.board{margin-top:var(--s5);background:var(--az-card);border:1px solid var(--az-line);border-radius:var(--r1);overflow:hidden}
+.board table{width:100%;border-collapse:collapse;font-size:14.5px}
+.board th{text-align:start;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--az-muted);padding:var(--s3) var(--s4);border-bottom:1px solid var(--az-line);font-weight:700}
+.board td{padding:var(--s3) var(--s4);border-bottom:1px solid var(--az-line);vertical-align:top}
+.board tr:last-child td{border-bottom:0}
+.board td:first-child{color:var(--today-ink);width:46%}
+.board td:last-child b{color:var(--pos);font-weight:700}
+.board small{display:block;color:var(--az-muted);font-size:12px;margin-top:2px}
+@media (max-width:640px){.board td:first-child{width:auto}.board td,.board th{padding:var(--s2) var(--s3);font-size:13.5px}}
+.chapnav{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--az-bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--az-line);margin-top:var(--s5)}
+.chapnav .w{display:flex;gap:var(--s1);overflow-x:auto;scrollbar-width:none;padding-block:var(--s2)}
+.chapnav .w::-webkit-scrollbar{display:none}
+.chapnav a{flex:none;text-decoration:none;color:var(--az-muted);font-size:13.5px;font-weight:600;padding:var(--s2) var(--s3);border-radius:var(--pill);min-height:36px;display:inline-flex;align-items:center;gap:6px}
+.chapnav a i{font-style:normal;font:700 11px/1 var(--mono);color:var(--az-accent)}
+.chapnav a.is-on{background:var(--az-card);color:var(--az-ink);border:1px solid var(--az-line)}
+
+/* chapters */
+.chap{padding-block:var(--s7) var(--s6);border-bottom:1px solid var(--az-line)}
+.chap:last-of-type{border-bottom:0}
+.kick{font:700 11px/1 var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--az-accent);margin:0 0 var(--s3)}
+.chap h2{font:800 clamp(1.5rem,3vw,2.2rem)/1.1 var(--sans);letter-spacing:-.03em;margin:0 0 var(--s3);text-wrap:balance;max-width:26ch}
+.chap .lede{color:var(--az-muted);margin:0 0 var(--s5);max-width:66ch;font-size:16.5px}
+.split{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4);align-items:start}
+.today{background:var(--today);border:1px solid var(--az-line);border-radius:var(--r1);padding:var(--s5)}
+.today h3,.sys h3{font:700 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;margin:0 0 var(--s4);display:flex;align-items:center;gap:var(--s2)}
+.today h3{color:var(--today-ink)}
+.today h3::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--today-ink);opacity:.6}
+.sys h3{color:var(--pos)}
+.sys h3::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--pos)}
+.today ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:var(--s3) var(--s5)}
+.today li{display:flex;gap:var(--s3);font-size:15px;color:var(--az-ink)}
+.today li::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid var(--today-ink);margin-top:3px;opacity:.5}
+.today li b{font-weight:600}
+.today li small{display:block;color:var(--today-ink);font-size:13px;margin-top:2px}
+.sys{background:var(--sys);border:1px solid var(--az-line);border-radius:var(--r1);padding:var(--s5);min-width:0;container-type:inline-size}
+.sys .fact{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);margin:0 0 var(--s4);padding:0;list-style:none}
+.sys .fact li{font-size:13.5px;color:var(--az-muted)}
+.sys .fact li b{color:var(--az-ink);font-weight:700}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--s5);align-items:start}
+@container (max-width:780px){.stage{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:440px){.sys{padding:var(--s4) var(--s3)}}
+.col{display:flex;flex-direction:column;gap:var(--s4);min-width:0}
+.card{background:var(--az-card);border:1px solid var(--az-line);border-radius:var(--r1);padding:var(--s4) var(--s5)}
+.card h4{font:700 15px/1.3 var(--sans);margin:0 0 var(--s2)}
+.card p{margin:0 0 var(--s2);font-size:14px;color:var(--az-muted)}
 .card p:last-child{margin:0}
-.card p b{color:var(--az-ink);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);border:1px solid var(--az-line);background:var(--az-card);border-radius:var(--pill);padding:var(--s2) var(--s4);font-weight:600;font-size:14px;min-height:40px}
+.btn--solid{background:var(--az-ink);color:var(--az-card);border-color:var(--az-ink)}
+.btn[disabled]{opacity:.5;cursor:default}
+.btn[aria-pressed="true"]{background:var(--az-ink);color:var(--az-card);border-color:var(--az-ink)}
+.row{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center}
 .steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--s2);font-size:14px}
 .steps li{display:flex;gap:var(--s3);align-items:flex-start;color:var(--az-muted)}
 .steps li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;margin-top:7px;background:var(--az-line)}
 .steps li.is-done{color:var(--az-ink)}
 .steps li.is-done::before{background:var(--pos)}
-.ticketwrap{display:none}
-.ticketwrap.is-on{display:block}
-.ticketwrap .ticket{font-size:11.5px}
-.ticket{background:#FFFDF6;color:#1C1A17;border:1px dashed #CDBF9A;border-radius:6px;padding:var(--s4);font:13px/1.55 var(--mono);white-space:pre-wrap}
-.foot{max-width:1100px;margin:0 auto;padding:0 var(--s4) var(--s6);font-size:13px;color:var(--az-muted)}
+.steps li.is-wait::before{background:var(--warn);animation:pulse 1s infinite}
+.ticket{background:#FFFDF6;color:#1C1A17;border:1px dashed #CDBF9A;border-radius:6px;padding:var(--s4);font:12.5px/1.55 var(--mono);white-space:pre-wrap;overflow-x:auto}
+.col .ticket{font-size:11px;padding:var(--s3)}
+.note{font-size:13px;color:var(--az-muted)}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:var(--pill);padding:2px 8px;border:1px solid currentColor}
+.pill--live{color:var(--pos)}.pill--sim{color:var(--warn)}.pill--off{color:var(--az-muted)}
+
+/* mini phone + sms */
+.dev-wrap{display:flex;justify-content:center}
+.mini-phone{width:300px;max-width:100%;height:560px;border-radius:38px;padding:10px;background:#0E0F12;box-shadow:var(--sh-2)}
+.mini-phone .phone__screen{border-radius:30px;background:#F2F2F7}
+.sms{display:flex;flex-direction:column;height:100%}
+.sms__head{padding:34px var(--s4) var(--s3);text-align:center;border-bottom:1px solid #DADADF;background:#F7F7F9}
+.sms__av{width:40px;height:40px;border-radius:50%;margin:0 auto 4px;display:grid;place-items:center;color:#fff;font-weight:700;background:var(--b)}
+.sms__who{font-size:12px;color:#333}
+.sms__list{flex:1;overflow-y:auto;padding:var(--s4) var(--s3);display:flex;flex-direction:column;gap:var(--s2)}
+.sms__b{max-width:86%;background:#E5E5EA;color:#111;border-radius:18px;padding:var(--s2) var(--s3);font-size:13.5px;line-height:1.4;animation:rise .35s var(--ease)}
+.sms__b--me{align-self:flex-end;background:#0A84FF;color:#fff}
+.sms__t{align-self:center;font-size:11px;color:#8E8E93}
+.sms__link{display:block;margin-top:6px;padding:var(--s2);border-radius:10px;background:#fff;color:#0A64C8;font-size:12.5px}
+.sms__empty{margin:auto;text-align:center;color:#8E8E93;font-size:13px;padding:var(--s5)}
+
+/* chapter 1: assistant + weekly engine */
+.ask{display:flex;flex-direction:column;gap:var(--s3)}
+.ask__q{display:flex;gap:var(--s2);flex-wrap:wrap}
+.ask__q button{border:1px solid var(--az-line);background:var(--az-card);border-radius:var(--pill);padding:6px var(--s3);font-size:13px;min-height:34px}
+.ask__q button[aria-pressed="true"]{background:var(--az-ink);color:var(--az-card);border-color:var(--az-ink)}
+.ask__pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+@media (max-width:640px){.ask__pair{grid-template-columns:1fr}}
+.ans{border:1px solid var(--az-line);border-radius:12px;padding:var(--s3) var(--s4);font-size:14px;min-height:150px}
+.ans h5{margin:0 0 var(--s2);font:700 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--az-muted)}
+.ans--today{background:var(--today);color:var(--today-ink)}
+.ans mark{background:color-mix(in srgb,var(--pos) 18%,transparent);color:inherit;border-radius:3px;padding:0 2px}
+.ans .src{font-size:12px;color:var(--az-muted);margin-top:var(--s2)}
+.mail{border:1px solid var(--az-line);border-radius:12px;overflow:hidden}
+.mail__h{padding:var(--s3) var(--s4);border-bottom:1px solid var(--az-line);font-size:13px;color:var(--az-muted);display:flex;gap:var(--s3);flex-wrap:wrap}
+.mail__h b{color:var(--az-ink)}
+.mail__b{padding:var(--s4);font-size:14px}
+.mail__b p{margin:0 0 var(--s2)}
+.mail__ev{font-size:13px;color:var(--az-muted);background:var(--az-bg);border-radius:8px;padding:var(--s2) var(--s3);margin:var(--s2) 0 var(--s3)}
+
+/* chapter 2: call */
+.call{border:1px solid var(--az-line);border-radius:var(--r1);overflow:hidden;background:var(--az-card)}
+.call__bar{display:flex;align-items:center;gap:var(--s3);padding:var(--s3) var(--s4);border-bottom:1px solid var(--az-line);font-size:14px}
+.call__dot{width:10px;height:10px;border-radius:50%;background:var(--az-line)}
+.call__dot.is-live{background:#E0453A;animation:pulse 1.2s infinite}
+.call__time{margin-inline-start:auto;font-variant-numeric:tabular-nums;color:var(--az-muted);font-size:13px}
+.call__log{padding:var(--s4);display:flex;flex-direction:column;gap:var(--s2);min-height:300px;max-height:420px;overflow-y:auto}
+.call__l{max-width:84%;display:flex;flex-direction:column;gap:2px;animation:rise .35s var(--ease)}
+.call__l b{font-size:11.5px;color:var(--az-muted);font-weight:600}
+.call__l p{margin:0;padding:var(--s2) var(--s3);border-radius:14px;background:var(--az-bg);font-size:14.5px}
+.call__l--h{align-self:flex-start}.call__l--h p{background:color-mix(in srgb,var(--b) 12%,var(--az-card))}
+.call__l--c{align-self:flex-end;text-align:end}
+.call__sys{align-self:center;font-size:12px;color:var(--az-muted);background:var(--az-bg);border-radius:var(--pill);padding:3px var(--s3)}
+.call__empty{margin:auto;color:var(--az-muted);text-align:center;max-width:36ch;font-size:14px}
+.tabs{display:flex;gap:var(--s1);flex-wrap:wrap;margin-bottom:var(--s3)}
+.tabs button{border:1px solid var(--az-line);background:var(--az-card);border-radius:var(--pill);padding:6px var(--s3);font-size:13px;font-weight:600;min-height:36px}
+.tabs button[aria-selected="true"]{background:var(--az-ink);color:var(--az-card);border-color:var(--az-ink)}
+
+/* chapter 3: money */
+.ladder{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2)}
+.ladder li{display:grid;grid-template-columns:64px 1fr;gap:var(--s3);font-size:14px;color:var(--az-muted);align-items:start}
+.ladder li b{font:700 12.5px/1.6 var(--mono);color:var(--az-ink)}
+.ladder li.is-on{color:var(--az-ink)}
+.ladder li.is-paid span{color:var(--pos);font-weight:700}
+.bars{display:flex;flex-direction:column;gap:6px;margin-top:var(--s2)}
+.bar{display:grid;grid-template-columns:150px 1fr 40px;gap:var(--s2);align-items:center;font-size:13px}
+.bar i{display:block;height:10px;border-radius:5px;background:var(--neg);transform-origin:left}
+.bar.is-ok i{background:var(--pos)}
+.bar span:last-child{text-align:end;font-variant-numeric:tabular-nums;color:var(--az-muted)}
+.decl{background:var(--today);border-radius:12px;padding:var(--s3) var(--s4);font-size:14px;color:var(--az-ink)}
+.decl b{display:block;font-size:12px;color:var(--today-ink);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+
+/* chapter 4: kitchen */
+.kds{background:#0E1116;color:#E6EAF0;border-radius:var(--r1);padding:var(--s4);min-height:360px;display:flex;flex-direction:column;gap:var(--s3)}
+.kds__bar{display:flex;align-items:center;gap:var(--s3);font-size:13px;color:#9AA3B2}
+.kds__bar b{color:#fff}
+.kds__bar .n{margin-inline-start:auto;font-variant-numeric:tabular-nums}
+.kds__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:var(--s2)}
+.tk{background:#181D25;border:1px solid #2A313D;border-radius:10px;padding:var(--s3);font:12.5px/1.45 var(--mono);display:flex;flex-direction:column;gap:6px;animation:rise .3s var(--ease);min-width:0}
+.tk__h{display:flex;justify-content:space-between;gap:var(--s2);font-weight:700;color:#fff}
+.tk__src{font:600 10px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:4px;background:#2A313D;color:#C9D1DC;white-space:nowrap}
+.tk__src--dd{background:#4A1F1F;color:#FFB4A8}.tk__src--ue{background:#1E3A2A;color:#9BE3B6}.tk__src--ph{background:#2A2650;color:#C3B9FF}.tk__src--tb{background:#4A3A14;color:#FFD98A}.tk__src--web{background:#1C3A4A;color:#9BDAF5}
+.tk ul{margin:0;padding:0;list-style:none}
+.tk li small{display:block;color:#C9A227;padding-left:14px}
+.tk__f{display:flex;justify-content:space-between;align-items:center;margin-top:auto;font-size:11.5px;color:#9AA3B2}
+.tk__f button{border:0;background:#2F8F5B;color:#fff;border-radius:6px;padding:5px 10px;font:600 12px/1 var(--sans);min-height:28px}
+.tk.is-ready{opacity:.45}
+.kds__foot{font-size:12.5px;color:#9AA3B2;display:flex;gap:var(--s3);flex-wrap:wrap;align-items:center}
+.kds__foot button{border:1px solid #2A313D;background:transparent;color:#E6EAF0;border-radius:var(--pill);padding:5px var(--s3);font-size:12.5px;min-height:32px}
+.sysmsg{font-size:13px;color:var(--az-muted);border-left:3px solid var(--warn);padding:var(--s2) var(--s3);background:var(--az-bg);border-radius:0 8px 8px 0;animation:rise .3s var(--ease)}
+
+/* chapter 5: owner app + dashboard */
+.ophone{width:320px;max-width:100%;height:640px;border-radius:40px;padding:10px;background:#0E0F12;box-shadow:var(--sh-2);margin:0 auto}
+.oscr{width:100%;height:100%;border-radius:32px;overflow:hidden;background:var(--o-bg);color:var(--o-ink);display:flex;flex-direction:column;font-size:14px}
+.o-head{padding:40px var(--s4) var(--s3);display:flex;align-items:center;gap:var(--s2);border-bottom:1px solid var(--o-line)}
+.o-head b{font-size:15px}
+.o-head span{margin-inline-start:auto;font-size:12px;color:var(--o-muted)}
+.o-feed{flex:1;overflow-y:auto;padding:var(--s3) var(--s3) var(--s4);display:flex;flex-direction:column;gap:var(--s2)}
+.o-me{align-self:flex-end;background:#2C3A55;color:#fff;border-radius:14px;padding:var(--s2) var(--s3);max-width:88%;font-size:14px;animation:rise .3s var(--ease)}
+.o-card{background:var(--o-card);border:1px solid var(--o-line);border-radius:12px;padding:var(--s3);display:flex;flex-direction:column;gap:6px;animation:rise .3s var(--ease)}
+.o-card h6{margin:0;font:700 13.5px/1.3 var(--sans)}
+.o-card p{margin:0;font-size:13px;color:var(--o-muted)}
+.o-plan{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px;font-size:12.5px}
+.o-plan li{display:flex;gap:8px;align-items:flex-start;color:var(--o-muted)}
+.o-plan li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--o-line);margin-top:6px}
+.o-plan li.is-done{color:var(--o-ink)}.o-plan li.is-done::before{background:var(--o-pos)}
+.o-plan li.is-wait{color:var(--o-warn)}.o-plan li.is-wait::before{background:var(--o-warn)}
+.o-plan li.is-run::before{background:var(--o-ink);animation:pulse .8s infinite}
+.o-act{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.o-act button{border:1px solid var(--o-line);background:transparent;color:var(--o-ink);border-radius:var(--pill);padding:5px 10px;font-size:12px;min-height:30px}
+.o-act button.go{background:var(--o-pos);border-color:var(--o-pos);color:#06110A;font-weight:700}
+.o-in{border-top:1px solid var(--o-line);padding:var(--s2) var(--s3) var(--s4);display:flex;flex-direction:column;gap:6px}
+.o-sugg{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.o-sugg::-webkit-scrollbar{display:none}
+.o-sugg button{flex:none;border:1px solid var(--o-line);background:var(--o-card);color:var(--o-ink);border-radius:var(--pill);padding:6px 10px;font-size:12px;min-height:30px;white-space:nowrap}
+.o-row{display:flex;gap:6px}
+.o-row input{flex:1;min-width:0;border:1px solid var(--o-line);background:var(--o-card);color:var(--o-ink);border-radius:12px;min-height:40px;padding:0 var(--s3);outline:none}
+.o-row button{border:0;background:var(--o-ink);color:var(--o-bg);border-radius:12px;padding:0 var(--s3);font-weight:700;min-height:40px}
+.o-brief{font-size:12.5px;color:var(--o-muted);border-left:2px solid var(--o-pos);padding-left:8px}
+.dash{background:var(--az-card);border:1px solid var(--az-line);border-radius:var(--r1);padding:var(--s4)}
+.dash__top{display:flex;gap:var(--s3);align-items:center;flex-wrap:wrap;margin-bottom:var(--s3)}
+.dash__top b{font-size:15px}
+.seg{display:inline-flex;background:var(--az-bg);border:1px solid var(--az-line);border-radius:var(--pill);padding:3px;margin-inline-start:auto}
+.seg button{border:0;background:none;border-radius:var(--pill);padding:5px var(--s3);font-size:13px;font-weight:600;color:var(--az-muted);min-height:32px}
+.seg button[aria-pressed="true"]{background:var(--az-ink);color:var(--az-card)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:var(--s2)}
+.kpi{background:var(--az-bg);border-radius:10px;padding:var(--s3)}
+.kpi span{display:block;font-size:11.5px;color:var(--az-muted);letter-spacing:.04em}
+.kpi b{display:block;font-size:22px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-top:2px}
+.kpi small{display:block;font-size:12px;color:var(--pos);margin-top:2px}
+.kpi small.neg{color:var(--neg)}
+.chart{margin-top:var(--s3);border-top:1px solid var(--az-line);padding-top:var(--s3)}
+.chart h5{margin:0 0 var(--s2);font:700 13px/1.3 var(--sans)}
+.chart svg{width:100%;height:auto;display:block}
+.srcs{display:flex;flex-direction:column;gap:6px;margin-top:var(--s3)}
+.src{display:grid;grid-template-columns:120px 1fr 44px;gap:var(--s2);align-items:center;font-size:13px}
+.src i{display:block;height:10px;border-radius:5px;background:var(--az-accent)}
+.src span:last-child{text-align:end;font-variant-numeric:tabular-nums;color:var(--az-muted)}
+.dash .note{margin-top:var(--s3)}
+
+/* chapter 6: grow */
+.guest{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+@media (max-width:640px){.guest{grid-template-columns:1fr}}
+.gcard{border:1px solid var(--az-line);border-radius:12px;padding:var(--s3) var(--s4);font-size:14px}
+.gcard h5{margin:0 0 var(--s2);font:700 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--az-muted)}
+.gcard dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px var(--s3)}
+.gcard dt{color:var(--az-muted);font-size:13px}
+.gcard dd{margin:0}
+.gcard--today{background:var(--today);color:var(--today-ink)}
+.grow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--s3)}
+.gw{border:1px solid var(--az-line);border-radius:12px;padding:var(--s3) var(--s4);font-size:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.gw h5{margin:0;font:700 14px/1.3 var(--sans)}
+.gw p{margin:0;font-size:13px;color:var(--az-muted)}
+.gw .stat{font:700 22px/1.1 var(--sans);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.gw .stat small{font:600 12px/1 var(--sans);color:var(--az-muted);letter-spacing:0;margin-left:4px}
+.gw .btn{align-self:flex-start;min-height:34px;font-size:13px;padding:6px var(--s3)}
+.gw .out{font-size:13px;color:var(--az-ink);background:var(--az-bg);border-radius:8px;padding:var(--s2) var(--s3);animation:rise .3s var(--ease)}
+
+/* engineering */
+.eng{padding-block:var(--s6) var(--s7)}
+.eng h2{font:800 clamp(1.4rem,2.6vw,1.9rem)/1.1 var(--sans);letter-spacing:-.03em;margin:0 0 var(--s4)}
+.eng .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--s4)}
+.eng table{width:100%;border-collapse:collapse;font-size:13.5px}
+.eng td{padding:6px 0;border-bottom:1px solid var(--az-line);vertical-align:top}
+.eng td:first-child{color:var(--az-muted);width:38%;padding-right:var(--s3)}
+.eng tr:last-child td{border-bottom:0}
+.eng ul{margin:0;padding-left:18px;font-size:14px;color:var(--az-muted)}
+.eng li{margin:4px 0}
+.eng li b{color:var(--az-ink);font-weight:600}
+.foot{padding-block:0 var(--s7);font-size:13px;color:var(--az-muted)}
 
 /* ---------- phone ---------- */
 .dev-wrap{display:flex;justify-content:center}
@@ -179,44 +395,289 @@ a{color:var(--az-accent)}
 .g-slip{margin:var(--s5) var(--s4) 0;text-align:start}
 .g-slip p{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 var(--s2)}
 .g-slip .ticket{box-shadow:0 10px 24px rgba(0,0,0,.08)}
+
+.ticketwrap{display:none}
+.ticketwrap.is-on{display:block}
+
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="mark"><i>AZ</i>Try the table menu <span>· a demo table, nothing is sent or charged</span></div>
-  <div class="live"><i></i>Sample restaurant</div>
+<header class="w top">
+  <div class="mark"><i>AZ</i>One restaurant, one system <span>· a sample restaurant, nothing is sent or charged</span></div>
+  <div class="live"><i></i>Demo</div>
 </header>
 
-<main class="stage">
-  <div class="dev-wrap"><div class="phone"><div class="phone__notch"></div><div class="phone__screen"><div class="g" id="g"></div></div></div></div>
+<section class="w hero">
+  <h1>How most independent restaurants run today, and how one family's restaurant runs now.</h1>
+  <p>Our only server quit. Within a day the floor, the phone and the money were running on this. Below is the whole system, one layer at a time, next to the way the restaurant down the street still runs. Every piece on the right is live at our family's restaurant in Spring, Texas. Here it is pointed at <b>Mehfil Grill</b>, a made-up place with a sample menu, so you can push every button.</p>
+  <div class="board"><table>
+    <thead><tr><th>Most independents today</th><th>Our restaurant, measured</th></tr></thead>
+    <tbody>
+      <tr><td>A server or cashier takes almost every order</td><td><b>94%</b> of direct orders arrive with no staff member taking them<small>mid-August it was 17%</small></td></tr>
+      <tr><td>After close and during the afternoon break, the phone rings out</td><td><b>More than 1 in 4</b> calls come while closed, and every one is answered</td></tr>
+      <tr><td>Food gets cooked, then you hope the table or the caller pays</td><td><b>Every</b> app order is paid before it reaches the kitchen</td></tr>
+      <tr><td>Google reviews trickle in; the bad one gets answered a week later</td><td><b>400 to 941</b> reviews at 4.5 stars since the family took over</td></tr>
+      <tr><td>The phone person costs a wage, and misses calls in the rush</td><td><b>About $0.40</b> of AI per answered call, and about 1 in 3 callers takes the add-on</td></tr>
+    </tbody></table></div>
+</section>
 
-  <aside class="side">
-    <div class="card">
-      <h2>What this is</h2>
-      <p>The ordering screen a guest gets when they scan the code on their table. Here it is set to a made-up restaurant with a sample menu. The real one runs every night at our family's restaurant in Spring, Texas, where the AI took over the floor after our only server quit.</p>
-      <ul class="steps" id="steps">
-        <li data-s="lang"><span>Pick a language</span></li>
-        <li data-s="add"><span>Tap a dish, or type the whole order in one line</span></li>
-        <li data-s="pay"><span>Pay with the test card</span></li>
-        <li data-s="ticket"><span>See the ticket the restaurant would get</span></li>
-      </ul>
+<nav class="chapnav" aria-label="Chapters"><div class="w">
+  <a href="#found"><i>1</i>Get found</a><a href="#order"><i>2</i>Win the order</a><a href="#money"><i>3</i>Take the money</a><a href="#cook"><i>4</i>Cook and serve</a><a href="#owner"><i>5</i>The owner's day</a><a href="#keep"><i>6</i>Keep the guest</a><a href="#eng"><i>7</i>Under the hood</a>
+</div></nav>
+
+<main>
+
+<!-- 1 GET FOUND -->
+<section class="w chap" id="found">
+  <p class="kick">1 · Get found</p>
+  <h2>Someone asks an AI assistant where to eat tonight.</h2>
+  <p class="lede">Most restaurant websites were built in a page builder that blocks crawlers, so assistants quietly answer with the delivery apps. The system publishes a machine-readable menu, hours and facts, measures how often assistants name the restaurant, and runs a weekly engine that proposes pages from real search demand and ships only what the owner approves.</p>
+  <div class="split">
+    <aside class="today"><h3>Today</h3><ul>
+      <li><span><b>The website returns 403 to bots.</b><small>Ours did. ChatGPT, Gemini and Perplexity could not read the menu or the hours.</small></span></li>
+      <li><span><b>Google's "Order online" button lists DoorDash first</b> and the restaurant's own page last, if at all.</span></li>
+      <li><span><b>An SEO agency sends a monthly PDF.</b><small>Nobody reads it, nothing changes, and the invoice is bigger than the ad budget.</small></span></li>
+      <li><span><b>Nobody knows which searches bring people in.</b></span></li>
+    </ul></aside>
+    <div class="sys"><h3>On the system</h3>
+      <ul class="fact"><li><b>7 of 10</b> AI answers to local food questions name the restaurant</li><li><b>74</b> pages in the sitemap, one per dish, suburb and occasion</li><li><b>Weekly</b> proposals from search data; owner approves by email</li></ul>
+      <div class="stage"><div class="col">
+        <div class="ask">
+          <div class="ask__q" id="askQ"></div>
+          <div class="ask__pair">
+            <div class="ans ans--today"><h5>Site blocks crawlers</h5><div id="ansToday"></div></div>
+            <div class="ans"><h5>Site readable by machines</h5><div id="ansSys"></div></div>
+          </div>
+        </div>
+        <div class="mail" id="mail">
+          <div class="mail__h"><span>From <b>the growth engine</b></span><span>Tuesday 6:02 AM</span><span>To <b>the owner</b></span></div>
+          <div class="mail__b">
+            <p><b>One proposal this week.</b> A page for "biryani catering Spring TX".</p>
+            <div class="mail__ev">Evidence: 254 catering searches in the last 90 days with no page that answers them. Catering trays are the highest-margin line. The page would carry real tray prices and the two-hour notice.</div>
+            <ul class="steps" id="mailSteps"><li data-k="a"><span>Owner replies "yes"</span></li><li data-k="b"><span>Page written from the live menu and real terms, checked for invented facts</span></li><li data-k="c"><span>Published, sitemap updated, search engines pinged</span></li><li data-k="d"><span>Measured: orders from that page, not visits</span></li></ul>
+            <div class="row" style="margin-top:12px"><button class="btn btn--solid" id="mailYes">Reply "yes"</button><button class="btn" id="mailNo">Skip this week</button><span class="note" id="mailOut"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card"><h4>What the engine reads</h4><p>Google Search data, sales by dish and hour, the weather, the calendar and the live site. It proposes at most a few pages a week and refuses to write a page it cannot ground in a real price or a real term.</p></div>
+        <div class="card"><h4>What it will not do</h4><p>Invent a fact, publish a rating as markup, make a near-duplicate page per suburb, or ship without the owner's yes. Visibility that does not turn into orders is retired.</p></div>
+      </div></div>
     </div>
-    <div class="card ticketwrap" id="ticketwrap">
-      <h2>What prints in the restaurant</h2>
-      <div class="ticket" id="ticketOut"></div>
+  </div>
+</section>
+
+<!-- 2 WIN THE ORDER -->
+<section class="w chap" id="order">
+  <p class="kick">2 · Win the order</p>
+  <h2>A table of six, a phone call in Urdu, and a catering request at 11:46 PM. Same brain.</h2>
+  <p class="lede">The guest's own phone becomes the server. The phone line is answered by Haniya, who knows the whole menu, the hours and the caller, takes the order, texts a pay link and stays on the line while they pay. Catering is booked and paid while the owner sleeps.</p>
+  <div class="split">
+    <aside class="today"><h3>Today</h3><ul>
+      <li><span><b>One server, four tables, the phone in her apron.</b><small>She answers it at the table, loses the order, or lets it ring.</small></span></li>
+      <li><span><b>A caller who speaks Urdu gets "sorry, English only"</b> and calls the place that does.</span></li>
+      <li><span><b>Catering is a voicemail</b> that gets heard tomorrow, after the office booked elsewhere.</span></li>
+      <li><span><b>The specials, the sizes and the spice level</b> live in the head of whoever picked up.</span></li>
+    </ul></aside>
+    <div class="sys"><h3>On the system</h3>
+      <ul class="fact"><li><b>7</b> languages at the table</li><li><b>Almost every</b> dine-in order now placed on the guest's phone</li><li><b>Open while closed:</b> after-hours orders are scheduled for opening</li></ul>
+      <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-tab="table">The table</button><button role="tab" aria-selected="false" data-tab="call">The phone</button></div>
+      <div id="tabTable">
+        <div class="stage">
+          <div class="dev-wrap"><div class="phone"><div class="phone__notch"></div><div class="phone__screen"><div class="g" id="g"></div></div></div></div>
+          <div class="col">
+            <div class="card"><h4>Try it</h4><ul class="steps" id="steps"><li data-s="lang"><span>Pick a language</span></li><li data-s="add"><span>Tap a dish, or type the whole order in one line</span></li><li data-s="pay"><span>Pay with the test card</span></li><li data-s="ticket"><span>Watch it land in the kitchen in chapter 4</span></li></ul></div>
+            <div class="card ticketwrap" id="ticketwrap"><h4>What prints in the restaurant</h4><div class="ticket" id="ticketOut"></div></div>
+            <div class="card"><h4>Also at the real table</h4><p>Hold a button and say the order out loud. Several phones at one table share one cart and one ticket. The menu is read in the guest's language; the cook still gets English. Voice is off in this demo so it costs nothing to run.</p></div>
+          </div>
+        </div>
+      </div>
+      <div id="tabCall" hidden>
+        <div class="stage">
+          <div class="col">
+            <div class="row" id="callPick"></div>
+            <div class="call"><div class="call__bar"><span class="call__dot" id="callDot"></span><b id="callTitle">Pick a call</b><span class="call__time" id="callTime">0:00</span></div><div class="call__log" id="callLog"><p class="call__empty">Three real situations from our line, replayed on the sample menu.</p></div></div>
+          </div>
+          <div class="col">
+            <div class="dev-wrap"><div class="mini-phone"><div class="phone__screen" id="callSms"></div></div></div>
+            <div class="card"><h4>Behind the call</h4><ul class="steps" id="callSteps"><li><span>Pick a call to see each step</span></li></ul></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h2>Nothing leaves this page</h2>
-      <p>The page's security policy blocks every network request, so there is no server, no account and no tracking. Open the Network tab and watch: nothing goes out. Orders you place here reach no kitchen.</p>
-      <p>The live version also takes voice (hold to talk), prints to the kitchen, texts the guest when the food is coming, and reads the table's past orders. Voice is off on this demo so it costs nothing to run.</p>
-      <p><a href="https://abbaszoeb.com/writing/our-only-server-walked-out/">The story of how it was built</a> · <a href="https://azrestaurantpartners.com/">AZ Restaurant Partners</a></p>
+  </div>
+</section>
+
+<!-- 3 TAKE THE MONEY -->
+<section class="w chap" id="money">
+  <p class="kick">3 · Take the money</p>
+  <h2>Nothing reaches the kitchen until it is paid. Then the system chases what is not.</h2>
+  <p class="lede">Table, pickup, phone and catering all pay online first. A phone order becomes a pre-built cart link by text. A declined card is explained in plain words with another way to pay, and every decline is logged by cause, which is how the restaurant found out its own fraud rules were refusing more cards than the banks were.</p>
+  <div class="split">
+    <aside class="today"><h3>Today</h3><ul>
+      <li><span><b>Cook first, then ask for the card.</b><small>Walkouts, "I'll pay when I pick up" that never picks up, cards read out over the phone.</small></span></li>
+      <li><span><b>A decline is "the machine's acting up".</b><small>Nobody knows it was the ZIP rule on the terminal.</small></span></li>
+      <li><span><b>A dispute arrives by mail</b> 40 days later and nobody can find the receipt.</span></li>
+    </ul></aside>
+    <div class="sys"><h3>On the system</h3>
+      <ul class="fact"><li><b>Every</b> app order paid before it cooked, 60 days running</li><li><b>15 of 19</b> phone pay links paid without a human chasing</li><li><b>6 in 10</b> app orders pay with Apple Pay or Google Pay</li></ul>
+      <div class="stage"><div class="col">
+        <div class="card"><h4>The unpaid phone order</h4><p>Haniya took the order at 6:40 PM and texted the link. The caller got distracted. Run the ladder.</p>
+          <ol class="ladder" id="ladder">
+            <li data-t="0"><b>6:40 PM</b><span>Pay link texted. "I'll stay on the line while you pay."</span></li>
+            <li data-t="1"><b>6:50 PM</b><span>Not paid. One reminder text: the order is held for 20 more minutes.</span></li>
+            <li data-t="2"><b>7:00 PM</b><span>Still unpaid. Haniya calls back once; if there is no answer, the cart is kept for next time.</span></li>
+            <li data-t="3"><b>7:03 PM</b><span>Paid. Ticket prints now, pickup time recalculated from what the kitchen has in hand.</span></li>
+          </ol>
+          <div class="row" style="margin-top:12px"><button class="btn btn--solid" id="ladderGo">Run the ladder</button><span class="note" id="ladderOut"></span></div>
+        </div>
+        <div class="card"><h4>The declined card</h4><p>Tap to see what the guest sees, and what the owner sees.</p>
+          <div class="row"><button class="btn" id="declGo">Simulate a decline</button></div>
+          <div id="declOut" hidden style="margin-top:12px;display:flex;flex-direction:column;gap:12px">
+            <div class="decl"><b>What the guest sees</b>Your bank did not approve this card. Nothing was charged. Try another card, Apple Pay, or Zelle to the number on screen and your order is kept exactly as it is.</div>
+            <div><b style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--az-muted)">What the owner sees, 30 days</b>
+              <div class="bars">
+                <div class="bar"><span>Our own ZIP rule</span><i style="transform:scaleX(.316)"></i><span>30</span></div>
+                <div class="bar"><span>Our own page</span><i style="transform:scaleX(.242)"></i><span>23</span></div>
+                <div class="bar is-ok"><span>The bank</span><i style="transform:scaleX(.126)"></i><span>12</span></div>
+                <div class="bar"><span>Velocity rule</span><i style="transform:scaleX(.084)"></i><span>8</span></div>
+                <div class="bar is-ok"><span>No funds</span><i style="transform:scaleX(.074)"></i><span>7</span></div>
+                <div class="bar"><span>Double send</span><i style="transform:scaleX(.063)"></i><span>6</span></div>
+                <div class="bar is-ok"><span>CVV</span><i style="transform:scaleX(.063)"></i><span>6</span></div>
+              </div>
+              <p class="note" style="margin-top:8px">67 of 95 declines were caused by the restaurant's own rules or page, not the guest's bank. Both were fixed the week this was measured. Red bars are ours.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card"><h4>Also running</h4><ul class="steps"><li class="is-done"><span>A money watcher checks every 30 minutes that each order was paid in full</span></li><li class="is-done"><span>Every refund texts the owner</span></li><li class="is-done"><span>One price rule per channel: delivery-app menus at pickup price x1.30, so the apps pay their own commission</span></li><li class="is-done"><span>A chargeback pulls the receipt, the refund record and camera stills into one evidence file</span></li></ul></div>
+      </div></div>
     </div>
-  </aside>
+  </div>
+</section>
+
+<!-- 4 COOK AND SERVE -->
+<section class="w chap" id="cook">
+  <p class="kick">4 · Cook and serve</p>
+  <h2>One ticket stream. Table, phone, website and three delivery apps, in cooking order.</h2>
+  <p class="lede">Before: a tablet per delivery app, staff re-keying each order into the register so a ticket would print, and in a rush, orders lost, late or wrong. Now every door lands in one queue with the table number, the guest's own words and a pickup time computed from what the kitchen has in hand.</p>
+  <div class="split">
+    <aside class="today"><h3>Today</h3><ul>
+      <li><span><b>Four tablets beeping on the pass.</b><small>Accept on the tablet, type it again into the register, hope you typed it right.</small></span></li>
+      <li><span><b>"No onions" was said to the server</b> and never reached the wok.</span></li>
+      <li><span><b>Every pickup is "20 minutes"</b> whether the kitchen has two tickets or twenty.</span></li>
+      <li><span><b>The printer ran out of paper at 7 PM.</b> Nobody noticed until a guest came to the counter.</span></li>
+    </ul></aside>
+    <div class="sys"><h3>On the system</h3>
+      <ul class="fact"><li><b>1 in 6</b> app tickets carries a note the guest typed themselves</li><li><b>Honest pickup times</b> from the last 30 minutes of kitchen load</li><li><b>A text to the owner</b> if a paid order fails to print</li></ul>
+      <div class="kds" id="kds">
+        <div class="kds__bar"><b>Kitchen</b><span>Mehfil Grill · Friday 7:12 PM</span><span class="n" id="kdsN">0 open</span></div>
+        <div class="kds__grid" id="kdsGrid"></div>
+        <div class="kds__foot"><span>Tickets arrive by themselves. Your own order from chapter 2 lands here too.</span><button id="kdsPaper">Simulate: printer out of paper</button></div>
+      </div>
+      <div id="kdsMsg" style="margin-top:12px;display:flex;flex-direction:column;gap:8px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 THE OWNER'S DAY -->
+<section class="w chap" id="owner">
+  <p class="kick">5 · The owner's day</p>
+  <h2>The owner says one line. The system does the whole job, and asks only where money or guests are touched.</h2>
+  <p class="lede">"Take lemonade off until 9" reaches the register, the website, the table menu, the phone and the delivery apps, with an undo link. "How did last night go?" is answered from the till and the books. A new dish is photographed to the house standard, priced per channel, described in seven languages and put on every menu, and the steps that spend money or text guests wait for one tap.</p>
+  <div class="split">
+    <aside class="today"><h3>Today</h3><ul>
+      <li><span><b>"We're out of lemonade" is shouted across the room.</b><small>The website still sells it. DoorDash still sells it. The phone person forgets.</small></span></li>
+      <li><span><b>Last night's numbers are a Z-report on a spike</b> and a feeling about whether it was busy.</span></li>
+      <li><span><b>A new dish takes a week:</b> the register, the printed menu, three app portals, a photo from a phone, a post if someone remembers.</span></li>
+    </ul></aside>
+    <div class="sys"><h3>On the system</h3>
+      <ul class="fact"><li><b>One instruction</b> changes every channel, with undo</li><li><b>10 AM</b> brief and 11 PM recap, every day</li><li><b>Approve or undo</b> anything that touches money or guests</li></ul>
+      <div class="stage">
+        <div class="ophone"><div class="oscr">
+          <div class="o-head"><b>Haniya</b><span>owner · 10:04 AM</span></div>
+          <div class="o-feed" id="oFeed"></div>
+          <div class="o-in"><div class="o-sugg" id="oSugg"></div><div class="o-row"><input id="oIn" placeholder="Tell her what you want done" aria-label="Instruction"><button id="oGo">Send</button></div></div>
+        </div></div>
+        <div class="col">
+          <div class="dash">
+            <div class="dash__top"><b>Dashboard</b><span class="note">sample numbers</span><div class="seg" id="dashSeg"><button aria-pressed="true" data-p="7">7 days</button><button aria-pressed="false" data-p="30">30 days</button><button aria-pressed="false" data-p="365">Year</button></div></div>
+            <div class="kpis" id="kpis"></div>
+            <div class="chart"><h5>Today so far vs a typical Friday</h5><svg viewBox="0 0 320 110" id="todayChart" aria-label="Orders by hour, today vs typical"></svg></div>
+            <div class="chart"><h5>Where orders came from</h5><div class="srcs" id="srcs"></div></div>
+            <p class="note">The real dashboard fuses the register with the books: true net after app fees and processing, not the card-only number the register shows. No dollar figures appear in this demo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 KEEP THE GUEST -->
+<section class="w chap" id="keep">
+  <p class="kick">6 · Keep the guest, grow the margin</p>
+  <h2>The delivery apps keep the customer. The system knows every guest by name.</h2>
+  <p class="lede">Every order through any door adds to one guest record: name, language, usual order, spice, last visit. Texts go out on each guest's own rhythm, never a discount to a regular, with a holdout to measure the truth. Reviews, ads and the documents the brand rests on are watched the same way.</p>
+  <div class="split">
+    <aside class="today"><h3>Today</h3><ul>
+      <li><span><b>The regular is "the butter chicken guy".</b><small>His number is in DoorDash's database, not the restaurant's.</small></span></li>
+      <li><span><b>Marketing is 20% off on a Tuesday,</b> given to the people who were coming anyway.</span></li>
+      <li><span><b>Ads run on autopilot</b> and nobody can say which order came from one.</span></li>
+      <li><span><b>The halal certificate on the wall expired last year.</b> It looks the same as a valid one.</span></li>
+    </ul></aside>
+    <div class="sys"><h3>On the system</h3>
+      <ul class="fact"><li><b>Thousands</b> of guests known by name, 9 in 10 reachable</li><li><b>Never</b> percent-off, never a discount to a regular</li><li><b>Ads</b> judged on net profit per order and switched off by themselves</li></ul>
+      <div class="guest">
+        <div class="gcard gcard--today"><h5>What the app shows the restaurant</h5><dl><dt>Name</dt><dd>Customer</dd><dt>Phone</dt><dd>Hidden</dd><dt>Orders</dt><dd>1 (this one)</dd><dt>Can you text them?</dt><dd>No</dd></dl></div>
+        <div class="gcard"><h5>What the system knows</h5><dl><dt>Name</dt><dd>Ayesha R.</dd><dt>Language</dt><dd>Urdu on the phone, English in the app</dd><dt>Usual</dt><dd>Goat karahi, medium, two garlic naan</dd><dt>Visits</dt><dd>11 · dines in Fridays, orders pickup Tuesdays</dd><dt>Last seen</dt><dd>38 days ago (her rhythm is 16)</dd><dt>Notes</dt><dd>Asked for less oil once; it stuck</dd></dl></div>
+      </div>
+      <div class="grow" style="margin-top:12px">
+        <div class="gw"><h5>Win-back, on her rhythm</h5><p>Overdue by 22 days. Sent at the hour she usually orders, in her language. A free side on a $25 pickup, never a percent off.</p><button class="btn" data-gw="winback">Compose the text</button><div class="out" id="gwWinback" hidden></div></div>
+        <div class="gw"><h5>Ads judged on profit</h5><div class="stat">-$18<small>7-day net after food cost</small></div><p>Spend, free items and food cost against the orders those clicks produced.</p><button class="btn" data-gw="ads">Run the nightly check</button><div class="out" id="gwAds" hidden></div></div>
+        <div class="gw"><h5>Reviews, read every few hours</h5><div class="stat">4.5<small>941 reviews</small></div><p>A 2-star came in at 9:40 PM: "waited 25 minutes for takeout."</p><button class="btn" data-gw="review">Draft the reply</button><div class="out" id="gwReview" hidden></div></div>
+        <div class="gw"><h5>Trust documents watched</h5><div class="stat">52<small>days to halal certificate expiry</small></div><p>Health permit, food-handler cards, insurance, the halal certificate. Warned 60 days ahead, because renewal is someone else's paperwork.</p><button class="btn" data-gw="docs">Show the watch list</button><div class="out" id="gwDocs" hidden></div></div>
+        <div class="gw"><h5>Catering buyers found</h5><p>Offices, clinics, mosques, temples and schools within ten miles, written to in the owner's own words, replies texted to him.</p><button class="btn" data-gw="cater">Show one note</button><div class="out" id="gwCater" hidden></div></div>
+        <div class="gw"><h5>Outage protection</h5><p>Every service checked every five minutes. One text per outage, a rescue script, nightly backups. The phone line never cold-starts.</p><button class="btn" data-gw="watch">Show the last check</button><div class="out" id="gwWatch" hidden></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 UNDER THE HOOD -->
+<section class="w eng" id="eng">
+  <p class="kick">7 · Under the hood</p>
+  <h2>What runs where, and what this page fakes.</h2>
+  <div class="cols">
+    <div class="card"><h4>The real stack</h4><table>
+      <tr><td>Phone</td><td>Vapi for the call leg, Deepgram multilingual ear, the restaurant's own brain behind a custom-LLM endpoint. 28 tools, every call recorded and replayable.</td></tr>
+      <tr><td>Brain</td><td>Claude. One prompt stack: engine rules, an industry playbook, the restaurant's settings, and house rules it learned from the owner.</td></tr>
+      <tr><td>Server</td><td>Python on Fly.io, one machine, one volume, one gunicorn worker with threads. 20 watcher jobs inside it.</td></tr>
+      <tr><td>Till</td><td>Clover. Menu synced out to every channel; paid orders written in; delivery-app menus repriced from one rule.</td></tr>
+      <tr><td>Texts</td><td>Twilio. STOP covers every channel; test and staff numbers can never receive guest texts.</td></tr>
+      <tr><td>Site and ordering</td><td>Static pages on GitHub Pages, one ordering app built four ways (dine-in, takeout, tables, catering) from one source.</td></tr>
+      <tr><td>Engines</td><td>Cron: the SEO engine, reviews reader, ads tuner, morning brief, nightly recap, certificate watch. An always-on operator proposes work; the owner approves numbered items.</td></tr>
+      <tr><td>Deploys</td><td>A push requests a deploy; it waits until no call and no checkout is live, then ships. Never over a live call.</td></tr>
+    </table></div>
+    <div class="card"><h4>What this page fakes</h4><ul>
+      <li><b>Everything.</b> The page's security policy is <code>default-src 'none'</code>. No fetch, no fonts, no images from anywhere. Open the Network tab.</li>
+      <li><b>The restaurant.</b> Mehfil Grill does not exist. Menu, prices, guests and numbers inside the widgets are sample data.</li>
+      <li><b>The brain.</b> Haniya's answers here are scripted. On the real line she reasons over the live menu, the caller's history and the kitchen's load.</li>
+      <li><b>Voice.</b> Off, because it costs money per minute. The real table and the real phone both take speech.</li>
+    </ul>
+    <h4 style="margin-top:16px">What is measured, not faked</h4><ul>
+      <li>The numbers in the scoreboard at the top and the "On the system" facts are from the real restaurant, re-checked in October 2026.</li>
+      <li>The decline breakdown, the pay-link ladder, the call situations and the owner commands are real events, replayed on the sample menu.</li>
+    </ul>
+    <p class="note" style="margin-top:12px"><a href="https://abbaszoeb.com/writing/our-only-server-walked-out/">The story of how it was built</a> · <a href="https://azrestaurantpartners.com/">AZ Restaurant Partners</a></p></div>
+  </div>
+</section>
+
 </main>
-<p class="foot">Mehfil Grill is a made-up restaurant. The menu, prices and card are sample data.</p>
+<p class="w foot">Mehfil Grill is a made-up restaurant. The menu, prices, guests and card are sample data. Nothing you do here reaches any kitchen.</p>
 
 <script>
+
 (function () {
   "use strict";
   const $ = (s, r = document) => r.querySelector(s);
@@ -498,6 +959,7 @@ a{color:var(--az-accent)}
       const X = totals(), no = ++S.orderNo, note = ($("#gNote").value || "").trim(), name = ($("#gName").value || "Alex").trim();
       S.last = { no, name, note, lines: S.cart.map((l) => ({ ...l })), total: X.t, sub: X.s, tax: X.tax, at: new Date(), lang: S.lang };
       S.cart = []; S.got = null; step("pay"); step("ticket");
+      if (window.DEMO_ORDER) window.DEMO_ORDER(S.last);
       $("#ticketOut").textContent = ticketText(S.last); $("#ticketwrap").classList.add("is-on");
       go("done");
       await sleep(2600); const li = $$("#gTrack li"); if (li[1]) li[1].classList.add("is-on");
@@ -534,6 +996,224 @@ a{color:var(--az-accent)}
 
   mount();
 })();
+
+</script>
+<script>
+/* The system demo: every chapter's widget. Pure in-page simulation; CSP blocks all network. */
+(function () {
+  "use strict";
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const money = (n) => "$" + n.toFixed(2);
+  const NAME = "Mehfil Grill";
+
+  /* ---------- chapter nav highlight ---------- */
+  const navLinks = $$(".chapnav a");
+  const secs = navLinks.map((a) => $(a.getAttribute("href"))).filter(Boolean);
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) navLinks.forEach((a) => a.classList.toggle("is-on", a.getAttribute("href") === "#" + e.target.id)); }); }, { rootMargin: "-40% 0px -55% 0px" });
+    secs.forEach((s) => io.observe(s));
+  }
+
+  /* ---------- 1. ask an assistant + the weekly engine ---------- */
+  const ASK = [
+    { q: "Halal Pakistani food near me, open late?", today: `Here are some options nearby: DoorDash lists several Pakistani restaurants with late hours. You could also try Uber Eats for delivery. I don't have hours for independent restaurants in the area.`, sys: `<mark>${NAME}</mark> is open until 10 PM on Fridays and Saturdays, is 100% halal, and takes orders on its own site and by phone in Urdu, Hindi and English. Goat karahi and chicken biryani are the most ordered.`, src: "hours, halal page, menu and languages read from the restaurant's own site" },
+    { q: "Catering for 40 people, Indian food, tomorrow", today: `For catering you may want to contact restaurants directly. Many caterers need 48 to 72 hours' notice. Search results show a few catering companies in the area.`, sys: `<mark>${NAME}</mark> does catering trays: a full tray feeds 18 to 20, so four trays cover 40. Orders over two trays need a day's notice, which fits tomorrow. You can book and pay on their catering page, or call and the line takes the whole order.`, src: "tray sizes, notice terms and the booking page, all machine-readable" },
+    { q: "Where can I get biryani delivered at 10 PM?", today: `Delivery apps like DoorDash and Uber Eats show restaurants delivering biryani now. Options vary by your address.`, sys: `<mark>${NAME}</mark> delivers within five miles from its own site for a flat fee until 10 PM, and the chicken, goat and vegetable biryani are all on the delivery menu at the same price as pickup. Ordering direct avoids the app markup.`, src: "delivery radius, fee and the menu with prices, published for machines" },
+  ];
+  const askQ = $("#askQ");
+  ASK.forEach((a, i) => { const b = document.createElement("button"); b.type = "button"; b.textContent = a.q; b.setAttribute("aria-pressed", i ? "false" : "true"); b.addEventListener("click", () => ask(i)); askQ.appendChild(b); });
+  function ask(i) {
+    $$("button", askQ).forEach((b, j) => b.setAttribute("aria-pressed", j === i ? "true" : "false"));
+    const a = ASK[i];
+    $("#ansToday").innerHTML = `<p style="margin:0">${esc(a.today)}</p><p class="src">The restaurant is not named. Its site cannot be read.</p>`;
+    $("#ansSys").innerHTML = `<p style="margin:0">${a.sys}</p><p class="src">Source: ${esc(a.src)}.</p>`;
+  }
+  ask(0);
+  const mstep = (k, cls = "is-done") => { const li = $(`#mailSteps [data-k="${k}"]`); if (li) { li.classList.remove("is-wait"); li.classList.add(cls); } };
+  $("#mailYes").addEventListener("click", async (e) => {
+    e.target.disabled = true; $("#mailNo").disabled = true; const out = $("#mailOut");
+    mstep("a"); out.textContent = "Writing from the live menu…"; mstep("b", "is-wait"); await sleep(1200);
+    mstep("b"); out.textContent = "Checking every fact against the live site…"; mstep("c", "is-wait"); await sleep(1100);
+    mstep("c"); out.textContent = "Live Tuesday 6:14 AM. Sitemap updated, search engines pinged."; mstep("d", "is-wait"); await sleep(1200);
+    mstep("d"); out.textContent = "Measured from here on: orders from that page, not visits. If it earns nothing in 60 days it is retired.";
+  });
+  $("#mailNo").addEventListener("click", (e) => { e.target.disabled = true; $("#mailYes").disabled = true; $("#mailOut").textContent = "Nothing ships. The proposal waits, with its evidence, for next week."; });
+
+  /* ---------- 2. tabs + the phone calls ---------- */
+  $$(".tabs [role=tab]").forEach((t) => t.addEventListener("click", () => {
+    $$(".tabs [role=tab]").forEach((x) => x.setAttribute("aria-selected", x === t ? "true" : "false"));
+    $("#tabTable").hidden = t.dataset.tab !== "table"; $("#tabCall").hidden = t.dataset.tab !== "call";
+  }));
+  const sms = [];
+  function renderSms() {
+    const el = $("#callSms");
+    el.innerHTML = `<div class="sms"><div class="sms__head"><div class="sms__av">M</div><div class="sms__who">${NAME}</div></div><div class="sms__list">${sms.length ? sms.map((m) => m.t ? `<div class="sms__t">${esc(m.t)}</div>` : `<div class="sms__b">${esc(m.text)}${m.link ? `<span class="sms__link">${esc(m.link)}</span>` : ""}</div>`).join("") : `<div class="sms__empty">The caller's texts show up here.</div>`}</div></div>`;
+    const l = $(".sms__list", el); l.scrollTop = l.scrollHeight;
+  }
+  renderSms();
+  const text = (t, link, when) => { if (!sms.length || when) sms.push({ t: when || "Today" }); sms.push({ text: t, link }); renderSms(); };
+  const CALLS = [
+    { id: "urdu", label: "11:42 PM, closed, in Urdu", steps: ["Answered on the first ring, after close", "Caller's language recognised and remembered", "Honest: closed now, open 11 AM", "Order scheduled for opening, pay link texted", "Paid. Ticket prints at 10:40 AM tomorrow"], when: "Tonight 11:42 PM",
+      lines: [["h", "Mehfil Grill, this is Haniya. We're closed for tonight and open again at eleven tomorrow. I can still take your order now and have it ready when we open."], ["c", "جی، کل کے لیے دو چکن بریانی اور ایک گوٹ کڑاہی۔"], ["h", "جی ضرور۔ دو چکن بریانی اور ایک گوٹ کڑاہی، کل گیارہ بجے کے لیے۔ مرچ درمیانی رکھوں؟"], ["c", "تیز کر دیں۔"], ["h", "تیز، ٹھیک ہے۔ کل کل ملا کر چھیالیس ڈالر اکیس سینٹ بنتے ہیں۔ میں ابھی آپ کو پیمنٹ کا لنک بھیج رہی ہوں، پیمنٹ ہوتے ہی کل صبح آپ کا آرڈر تیار ہو جائے گا۔"], ["s", "Pay link texted", 1], ["c", "ہو گیا۔"], ["h", "شکریہ، مل گیا۔ کل گیارہ بجے تیار ہوگا۔ شب بخیر۔"], ["s", "Paid · scheduled for 11:00 AM", 3]],
+      texts: [[1, "Mehfil Grill: your order for tomorrow 11:00 AM. 2 Chicken Biryani, 1 Goat Karahi (spicy). Pay here and it's locked in:", "mehfilgrill.com/p/1043"], [3, "Paid, thank you. We'll text you when it's ready tomorrow."]],
+      ticket: `MEHFIL GRILL  ·  PHONE  ·  PAID\n#1043  sched 11:00 AM  Ayesha (Urdu)\n--------------------------------\n2  Chicken Biryani        $27.98\n     SPICY\n1  Goat Karahi            $18.99\n     SPICY\n--------------------------------\nTOTAL (incl. tax)         $50.86\nPRINTS 10:40 AM  ·  PICKUP` },
+    { id: "rush", label: "7:15 PM pickup, one add-on", steps: ["Answered during the rush; the kitchen keeps cooking", "Dish matched to the menu, size confirmed", "One add-on offered, never two", "Pay link texted; she stays on the line", "Paid. Pickup time from real kitchen load"], when: "Tonight 7:15 PM",
+      lines: [["h", "Mehfil Grill, this is Haniya. What can I get started for you?"], ["c", "Hey, can I get a chicken tikka and two garlic naan for pickup?"], ["h", "Chicken tikka and two garlic naan. Medium on the tikka, or spicier?"], ["c", "Medium's fine."], ["h", "Got it. A lot of people add a mango lassi with the tikka. Want one?"], ["c", "Sure, one."], ["h", "That's twenty-three dollars and sixty cents with tax. I'm texting you the link now; I'll stay on while you pay. The kitchen's busy, so it'll be about twenty-five minutes once it's paid."], ["s", "Pay link texted", 1], ["c", "Done."], ["h", "Got it, thank you. Ready around 7:42. See you soon."], ["s", "Paid · ticket printed · pickup 7:42 PM", 3]],
+      texts: [[1, "Mehfil Grill: 1 Chicken Tikka (medium), 2 Garlic Naan, 1 Mango Lassi. Pay here:", "mehfilgrill.com/p/1044"], [3, "Paid. Ready around 7:42 PM. We'll text when it's up."]],
+      ticket: `MEHFIL GRILL  ·  PHONE  ·  PAID\n#1044  7:16 PM  Marcus\n--------------------------------\n1  Chicken Tikka          $12.99\n     MEDIUM\n2  Garlic Naan             $6.98\n1  Mango Lassi             $4.49\n--------------------------------\nTOTAL (incl. tax)         $26.47\nPICKUP 7:42 PM` },
+    { id: "cater", label: "11:46 PM, catering for 40", steps: ["Headcount, day, time, dietary needs taken", "Trays suggested from what feeds 40", "Estimate read back, terms stated plainly", "Pay link texted; booked the moment it's paid", "Owner texted a brief, not a task"], when: "Tonight 11:46 PM",
+      lines: [["h", "Mehfil Grill, this is Haniya. We're closed for tonight, but I can take an order or a catering booking now."], ["c", "Hi, I need lunch for about forty people on Saturday. Office thing. A few are vegetarian."], ["h", "Happy to. For forty, four full trays covers it: I'd suggest chicken biryani, butter chicken, a palak paneer for the vegetarians, and naan for the table. Saturday at what time, and pickup or delivered?"], ["c", "Delivered, twelve thirty. That sounds right."], ["h", "Four full trays delivered Saturday at twelve thirty. That's three hundred and twelve dollars with tax and delivery. More than two trays needs a day's notice, and Saturday is two days out, so we're good. I'm texting you the link; it's booked the moment it's paid, and you'll get a reminder Friday."], ["s", "Pay link texted", 1], ["c", "Paying now. Thanks."], ["h", "Got it. Booked for Saturday twelve thirty. Good night."], ["s", "Paid · booked · owner briefed", 3]],
+      texts: [[1, "Mehfil Grill: catering Sat 12:30 PM, delivered. 4 full trays (chicken biryani, butter chicken, palak paneer, naan x40). Pay here to book:", "mehfilgrill.com/p/1045"], [3, "Booked and paid for Saturday 12:30 PM. We'll remind you Friday."]],
+      ticket: `MEHFIL GRILL  ·  CATERING  ·  PAID\n#1045  SAT 12:30 PM  DELIVERED\nDana · office · 40 guests\n--------------------------------\n1  Full Chicken Biryani\n1  Full Butter Chicken\n1  Full Palak Paneer (veg)\n40 Naan\n--------------------------------\nTOTAL (incl. tax)        $312.00\nPREP FRI PM  ·  OUT SAT 11:45 AM` },
+  ];
+  const pick = $("#callPick");
+  CALLS.forEach((c) => { const b = document.createElement("button"); b.className = "btn"; b.textContent = c.label; b.addEventListener("click", () => playCall(c, b)); pick.appendChild(b); });
+  let callRun = 0;
+  async function playCall(c, btn) {
+    const run = ++callRun; $$("button", pick).forEach((b) => b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
+    $("#callTitle").textContent = c.label; $("#callDot").classList.add("is-live");
+    const log = $("#callLog"); log.innerHTML = ""; sms.length = 0; renderSms();
+    $("#callSteps").innerHTML = c.steps.map((s) => `<li><span>${esc(s)}</span></li>`).join("");
+    const steps = $$("#callSteps li");
+    let t = 0; const tick = setInterval(() => { if (run !== callRun) return clearInterval(tick); t++; $("#callTime").textContent = Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); }, 1000);
+    const mark = (n) => steps.slice(0, n).forEach((li) => li.classList.add("is-done"));
+    let li = 0;
+    for (const [who, line, stepN] of c.lines) {
+      if (run !== callRun) return;
+      if (who === "s") {
+        log.insertAdjacentHTML("beforeend", `<span class="call__sys">${esc(line)}</span>`);
+        const tx = c.texts.find((x) => x[0] === stepN); if (tx) text(tx[1], tx[2], sms.length ? "" : c.when);
+        if (stepN === 3) { mark(steps.length); kdsAdd({ src: c.id === "cater" ? "web" : "ph", label: c.id === "cater" ? "Catering · Sat" : "Phone", who: c.id === "urdu" ? "Ayesha" : c.id === "rush" ? "Marcus" : "Dana", lines: c.ticket.split("\n").slice(3, -3).filter((l) => !/^-+$/.test(l)), due: c.id === "urdu" ? "11:00 AM" : c.id === "rush" ? "7:42 PM" : "Sat" }); }
+        else mark(Math.min(steps.length - 1, li + 1));
+        await sleep(600); continue;
+      }
+      li++;
+      const typing = document.createElement("div"); typing.className = "call__l call__l--" + who; typing.innerHTML = `<b>${who === "h" ? "Haniya" : "Caller"}</b><p>…</p>`; log.appendChild(typing); log.scrollTop = log.scrollHeight;
+      await sleep(Math.min(2200, 500 + line.length * 18));
+      if (run !== callRun) return;
+      typing.querySelector("p").textContent = line; log.scrollTop = log.scrollHeight;
+      mark(Math.min(steps.length - 1, Math.ceil(li / 2)));
+      await sleep(350);
+    }
+    clearInterval(tick); $("#callDot").classList.remove("is-live");
+    log.insertAdjacentHTML("beforeend", `<div class="ticket" style="margin-top:8px">${esc(c.ticket)}</div>`); log.scrollTop = log.scrollHeight;
+  }
+
+  /* ---------- 3. the ladder and the decline ---------- */
+  $("#ladderGo").addEventListener("click", async (e) => {
+    e.target.disabled = true; const lis = $$("#ladder li"), out = $("#ladderOut");
+    for (let i = 0; i < lis.length; i++) { lis[i].classList.add("is-on"); if (i === lis.length - 1) lis[i].classList.add("is-paid"); out.textContent = ["Link sent…", "Reminder sent…", "Calling back…", "Paid. The kitchen gets it now."][i]; await sleep(1000); }
+    kdsAdd({ src: "ph", label: "Phone", who: "Jordan", lines: ["1  Butter Chicken", "     MILD", "2  Naan", "1  Basmati Rice"], due: "7:25 PM" });
+  });
+  $("#declGo").addEventListener("click", (e) => { $("#declOut").hidden = false; e.target.disabled = true; });
+
+  /* ---------- 4. the kitchen screen ---------- */
+  const kds = { n: 1046, tickets: [] };
+  const SRC = { tb: ["tb", "Table"], ph: ["ph", "Phone"], web: ["web", "Website"], dd: ["dd", "DoorDash"], ue: ["ue", "Uber Eats"], gh: ["dd", "Grubhub"] };
+  function kdsAdd(t) {
+    t.no = ++kds.n; t.at = new Date(); kds.tickets.unshift(t); if (kds.tickets.length > 8) kds.tickets.pop(); kdsRender();
+  }
+  function kdsRender() {
+    const g = $("#kdsGrid");
+    g.innerHTML = kds.tickets.map((t, i) => `<div class="tk${t.ready ? " is-ready" : ""}"><div class="tk__h"><span>#${t.no}</span><span class="tk__src tk__src--${SRC[t.src][0]}">${esc(t.label || SRC[t.src][1])}</span></div><ul>${t.lines.map((l) => /^\s{3,}/.test(l) ? `<li><small>${esc(l.trim())}</small></li>` : `<li>${esc(l.replace(/\s+\$[\d.]+$/, ""))}</li>`).join("")}</ul><div class="tk__f"><span>${esc(t.who)} · ${esc(t.due)}</span>${t.ready ? `<span>Ready</span>` : `<button data-ready="${i}">Ready</button>`}</div></div>`).join("");
+    $("#kdsN").textContent = kds.tickets.filter((t) => !t.ready).length + " open";
+    $$("[data-ready]", g).forEach((b) => b.addEventListener("click", () => { const t = kds.tickets[+b.dataset.ready]; t.ready = true; kdsRender(); kdsMsg(t.src === "tb" ? `Table ${t.who.replace(/\D/g, "") || 4}: runner alerted, no text needed at the table.` : `${t.who} texted: "Your order is ready at Mehfil Grill. Come on in."`); }));
+  }
+  function kdsMsg(m) { const el = $("#kdsMsg"); el.insertAdjacentHTML("afterbegin", `<div class="sysmsg">${esc(m)}</div>`); while (el.children.length > 3) el.lastElementChild.remove(); }
+  const FEED = [
+    { src: "dd", who: "DoorDash #4471", lines: ["1  Chicken 65", "1  Garlic Naan"], due: "driver 7:31" },
+    { src: "tb", who: "Table 2", lines: ["2  Seekh Kebab", "     SPICY", "1  Dal Makhani", "3  Roti"], due: "dine-in" },
+    { src: "web", who: "Priya", lines: ["1  Goat Biryani", "     MEDIUM", "     NO ONIONS", "1  Raita"], due: "7:35 PM" },
+    { src: "ue", who: "Uber Eats #2290", lines: ["1  Butter Chicken", "2  Naan"], due: "driver 7:38" },
+    { src: "tb", who: "Table 7", lines: ["1  Tandoori Chicken Full", "     MILD", "2  Garlic Naan", "2  Mango Lassi"], due: "dine-in" },
+  ];
+  let fi = 0; kdsAdd(FEED[fi++]); kdsAdd(FEED[fi++]);
+  const feedTimer = setInterval(() => { if (fi >= FEED.length) return clearInterval(feedTimer); if (document.visibilityState === "visible") kdsAdd(FEED[fi++]); }, 9000);
+  $("#kdsPaper").addEventListener("click", (e) => { e.target.disabled = true; kdsMsg("7:14 PM · Paid order #" + (kds.n) + " did not print within 60 seconds. Owner and manager texted with the order number. The ticket stays on this screen until it prints."); setTimeout(() => kdsMsg("7:15 PM · Printer back. #" + kds.n + " printed. Owner texted: resolved."), 2600); });
+  // the table demo in chapter 2 lands its paid order here
+  window.DEMO_ORDER = (o) => {
+    kdsAdd({ src: "tb", who: "Table 4", lines: o.lines.flatMap((l) => [`${l.qty}  ${l.name}${l.size ? " " + l.size : ""}`, ...[l.spice ? l.spice.toUpperCase() : "", ...(l.mods || []).map((m) => m[0] === "@" ? m.slice(1).toUpperCase() : m.toUpperCase())].filter(Boolean).map((m) => "     " + m)]).concat(o.note ? ["     NOTE: " + o.note.toUpperCase()] : []), due: "dine-in" });
+    kdsMsg("Your Table 4 order arrived in the kitchen queue, paid, with your notes on the ticket.");
+    dash.today[dash.hour] += 1; drawToday();
+  };
+
+  /* ---------- 5. the owner app ---------- */
+  const feed = $("#oFeed");
+  const CMDS = {
+    lemonade: { q: "Take lemonade off until 9 PM", run: async () => {
+      card(`Lemonade off everywhere until 9:00 PM`, `Back on by itself at 9. Undo any time.`, ["Register (Clover): item hidden", "Website and table menu: gone", "Phone: Haniya says we're out until 9", "DoorDash, Uber Eats, Grubhub: 86'd via the register flag", "Undo link texted to you"], 420, [["Undo", () => card("Lemonade is back on everywhere.", "Took 2 seconds.", [], 0)]]); } },
+    lastnight: { q: "How did last night go?", run: async () => {
+      await sleep(500); const c = card("Thursday, in one breath", "", [], 0);
+      c.insertAdjacentHTML("beforeend", `<p class="o-brief">Busier than a usual Thursday from 6 to 8, quieter after. Dine-in carried it; almost every table ordered from their phones. 31 calls, 29 answered to the end, 9 became orders, 4 of them after close. One 2-star review at 9:40 PM about a takeout wait: a reply is drafted for you. Two cards declined, both the bank. Nothing is switched off this morning. Catering for 40 is booked Saturday; prep list goes to the chef Friday 10 AM.</p>`); } },
+    newdish: { q: "New dish: Lari street chowmein, $13.99, here's a photo", run: async () => {
+      card("Lari Street Chowmein, $13.99", "I'll do the whole job. Two steps touch guests or money, so they wait for your tap.", ["Photo re-shot to the house standard (same plate, same light as every dish)", "Register: added at $13.99, in Chinese mains", "Delivery apps: added at $18.19 (pickup price x1.30), add-ons included", "Website, table menu and phone: live, with a description in 7 languages", "Chef's 10 AM text tomorrow: prep note and the first 20 orders forecast"], 520, [], ["Post it on Google and Instagram tonight with the new photo", "Text the 212 guests who ordered chowmein in the last 90 days"]); } },
+    close: { q: "Close for an hour, gas issue", run: async () => {
+      card("Closed for one hour, reason: gas issue", "Reopens by itself at 11:04 AM. Say 'open' to reopen sooner.", ["Phone greeting: closed until 11:04, taking orders for after", "Website, QR and ordering page: paused with the reason", "Two guests with carts open texted: we reopen at 11:04", "DoorDash, Uber Eats, Grubhub: still manual, reminder on your screen"], 380, [["Reopen now", () => card("Open. Every door back on.", "", [], 0)]]); } },
+    who: { q: "Who called while we were closed?", run: async () => {
+      await sleep(500); card("4 calls since close", "", ["11:42 PM Ayesha (Urdu): ordered for 11 AM, paid", "11:46 PM Dana: catering for 40, Saturday, paid", "12:10 AM unknown: asked hours, hung up", "7:55 AM Marcus: asked if the tikka is halal; answered yes, Zabiha"], 0); } },
+  };
+  function card(title, sub, steps, pace, actions = [], waits = []) {
+    const c = document.createElement("div"); c.className = "o-card";
+    c.innerHTML = `<h6>${esc(title)}</h6>${sub ? `<p>${esc(sub)}</p>` : ""}${steps.length || waits.length ? `<ul class="o-plan">${steps.map((s) => `<li>${esc(s)}</li>`).join("")}${waits.map((w) => `<li class="is-wait">${esc(w)} · waiting for you</li>`).join("")}</ul>` : ""}<div class="o-act"></div>`;
+    feed.appendChild(c); feed.scrollTop = feed.scrollHeight;
+    const lis = $$(".o-plan li:not(.is-wait)", c);
+    (async () => {
+      for (const li of lis) { li.classList.add("is-run"); await sleep(pace); li.classList.remove("is-run"); li.classList.add("is-done"); feed.scrollTop = feed.scrollHeight; }
+      const act = $(".o-act", c);
+      waits.forEach((w, i) => { const b = document.createElement("button"); b.className = "go"; b.textContent = i ? "Yes, send the text" : "Yes, post it"; b.addEventListener("click", () => { const li = $$(".o-plan li.is-wait", c)[0]; if (li) { li.classList.remove("is-wait"); li.classList.add("is-done"); li.textContent = w + " · done"; } b.remove(); }); act.appendChild(b); });
+      actions.forEach(([l, f]) => { const b = document.createElement("button"); b.textContent = l; b.addEventListener("click", () => { b.disabled = true; f(); }); act.appendChild(b); });
+    })();
+    return c;
+  }
+  async function owner(q) {
+    const me = document.createElement("div"); me.className = "o-me"; me.textContent = q; feed.appendChild(me); feed.scrollTop = feed.scrollHeight;
+    const s = q.toLowerCase();
+    const key = /lemonade|off until|86|out of/.test(s) ? "lemonade" : /last night|yesterday|how did/.test(s) ? "lastnight" : /new dish|chowmein|add .*menu|introduc/.test(s) ? "newdish" : /close/.test(s) ? "close" : /who called|calls/.test(s) ? "who" : null;
+    await sleep(400);
+    if (key) return CMDS[key].run();
+    card("I can do that, but not in this demo.", "On the real line I'd plan it across the register, the site, the phone, the apps and your guests, show you the steps, and wait only where money or guests are touched. Try one of the five above.", [], 0);
+  }
+  Object.values(CMDS).forEach((c) => { const b = document.createElement("button"); b.textContent = c.q; b.addEventListener("click", () => owner(c.q)); $("#oSugg").appendChild(b); });
+  $("#oGo").addEventListener("click", () => { const v = $("#oIn").value.trim(); if (v) { owner(v); $("#oIn").value = ""; } });
+  $("#oIn").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); $("#oGo").click(); } });
+  feed.insertAdjacentHTML("beforeend", `<div class="o-card"><h6>Good morning. The 10 AM brief:</h6><p class="o-brief">Yesterday was a strong Thursday. Dine-in up, every table self-serve. 9 phone orders, 4 after close. One 2-star to answer (reply drafted). Catering for 40 Saturday is paid. Nothing is switched off. The chef has today's prep list.</p></div>`);
+
+  /* ---------- 5b. the dashboard ---------- */
+  const dash = { p: 7, hour: 8, today: [0, 1, 2, 4, 7, 11, 14, 12, 9, 0, 0, 0], typical: [0.5, 1.5, 2.5, 4, 6, 9, 11, 10, 7, 5, 3, 1] };
+  const PD = { 7: { orders: ["412", "+6%"], self: ["94%", "+3 pts"], calls: ["203", "28% while closed"], decl: ["4", "2 bank, 2 ours"], src: [["Table QR", 46], ["Website", 22], ["Phone", 9], ["Delivery apps", 23]], up: 1 },
+    30: { orders: ["1,690", "+4%"], self: ["92%", "+9 pts"], calls: ["812", "26% while closed"], decl: ["23", "9 bank, 14 ours"], src: [["Table QR", 44], ["Website", 21], ["Phone", 8], ["Delivery apps", 27]], up: 1 },
+    365: { orders: ["17,300", "-2%"], self: ["61%", "from 17%"], calls: ["6,900", "1 in 4 while closed"], decl: ["310", "most ours, fixed Oct"], src: [["Table QR", 28], ["Website", 18], ["Phone", 6], ["Delivery apps", 48]], up: 0 } };
+  function drawDash() {
+    const d = PD[dash.p];
+    $("#kpis").innerHTML = [["Orders", d.orders[0], d.orders[1], d.up], ["Self-serve direct", d.self[0], d.self[1], 1], ["Calls answered", d.calls[0], d.calls[1], 1], ["Declines", d.decl[0], d.decl[1], 2]].map(([l, v, s, u]) => `<div class="kpi"><span>${l}</span><b>${v}</b><small class="${u === 0 ? "neg" : u === 2 ? "" : ""}" style="${u === 2 ? "color:var(--az-muted)" : ""}">${s}</small></div>`).join("");
+    $("#srcs").innerHTML = d.src.map(([n, p]) => `<div class="src"><span>${n}</span><i style="width:${p}%;${n === "Delivery apps" ? "background:var(--today-ink)" : ""}"></i><span>${p}%</span></div>`).join("");
+  }
+  function drawToday() {
+    const W = 320, H = 110, pad = 18, hrs = 12, x = (i) => pad + (i * (W - pad * 2)) / (hrs - 1), max = 16, y = (v) => H - 14 - (v / max) * (H - 28);
+    const typ = dash.typical.map((v, i) => `${x(i)},${y(v)}`).join(" ");
+    const tod = dash.today.slice(0, dash.hour + 1);
+    const area = `M${x(0)},${y(0)} ` + tod.map((v, i) => `L${x(i)},${y(v)}`).join(" ") + ` L${x(tod.length - 1)},${y(0)} Z`;
+    const labels = ["11a", "1p", "3p", "5p", "7p", "9p"].map((l, i) => `<text x="${x(i * 2.2)}" y="${H - 2}" font-size="9" fill="currentColor" opacity=".55" text-anchor="middle">${l}</text>`).join("");
+    $("#todayChart").innerHTML = `<polyline points="${typ}" fill="none" stroke="currentColor" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="3 3"/><path d="${area}" fill="var(--az-accent)" fill-opacity=".18"/><polyline points="${tod.map((v, i) => `${x(i)},${y(v)}`).join(" ")}" fill="none" stroke="var(--az-accent)" stroke-width="2"/><circle cx="${x(dash.hour)}" cy="${y(dash.today[dash.hour])}" r="3.5" fill="var(--az-accent)"/>${labels}<text x="${W - pad}" y="12" font-size="9" fill="currentColor" opacity=".55" text-anchor="end">dashed = typical Friday</text>`;
+  }
+  $$("#dashSeg button").forEach((b) => b.addEventListener("click", () => { $$("#dashSeg button").forEach((x) => x.setAttribute("aria-pressed", x === b ? "true" : "false")); dash.p = +b.dataset.p; drawDash(); }));
+  drawDash(); drawToday();
+
+  /* ---------- 6. keep the guest ---------- */
+  const GW = {
+    winback: `To Ayesha, Tuesday 5:40 PM, in Urdu (shown here in English):\n"Ayesha, it's been a while. Your goat karahi is on tonight. A free raita with any $25 pickup this week, just for you. Reply STOP to opt out." \n\nRules applied: her own hour, her own language, a free item not a percent, nothing to regulars who are on rhythm, 1 in 10 held back to measure lift.`,
+    ads: `Nightly check, 7-day window: 6 orders from ads, food cost and free sides deducted, net -$18. Budget set to $0 from tomorrow. Owner texted: "Ads paused, 7-day net negative. Say 'ads on' to resume." The ad comes back only when the owner says so.`,
+    review: `Drafted in the owner's voice, waiting for one tap to post:\n"Thank you for telling us. Twenty-five minutes for a takeout order is longer than we want anyone to wait, and I'm sorry. Friday at 7 is our busiest hour and we've changed how pickup times are quoted so the time you're told is the time it's ready. I'd like to make it right next time; it's on us. Abbas"\n\nAlso shown: 59 more five-star reviews move the rating to 4.6.`,
+    docs: `Halal certificate · 52 days · supplier renews · warned\nHealth permit · 141 days · ok\nFood-handler cards · 2 of 5 expire in 30 days · warned\nLiability insurance · 203 days · ok\nTABC (not held) · n/a\n\nOurs were found 592 days expired in August. That is why this exists.`,
+    cater: `To the office manager at a clinic 2.1 miles away, from the owner:\n"Hi, I run Mehfil Grill on Rayford. If your team ever needs lunch brought in, we do trays that feed 18 to 20, two hours' notice for small orders, delivered and set up. Here's the menu. Reply here and it reaches me directly. Abbas"\n\nReplies land as a text on the owner's phone.`,
+    watch: `7:10 PM check (every 5 minutes): phone line ok · ordering ok · payments ok · printer ok · register sync ok · site ok · 20 watchers ok, none stale. Last outage: none in 30 days. Nightly backup 3:00 AM, 30 snapshots kept.`,
+  };
+  $$("[data-gw]").forEach((b) => b.addEventListener("click", () => { const k = b.dataset.gw, out = $("#gw" + k[0].toUpperCase() + k.slice(1)); out.hidden = false; out.style.whiteSpace = "pre-wrap"; out.textContent = GW[k]; b.disabled = true; }));
+})();
+
 </script>
 </body>
 </html>
