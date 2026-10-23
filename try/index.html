@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Try the table menu</title>
+<meta name="description" content="A demo table from the AI that runs a family restaurant. Pick a language, tap or type an order, pay with a test card, see the ticket. Nothing leaves this page.">
+<!-- SEALED: this page can never send anything anywhere. Open DevTools > Network and watch. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; object-src 'none'; base-uri 'none'">
+<meta name="theme-color" content="#15171c">
+<meta property="og:title" content="Try the table menu">
+<meta property="og:description" content="Pick a language, tap or type an order, pay with a test card, see the kitchen ticket. A demo table from the AI that runs a family restaurant.">
+<meta property="og:url" content="https://azrestaurantpartners.com/try/">
+<style>
+:root{
+  --az-bg:#F3F4F6;--az-ink:#15171C;--az-muted:#5D6270;--az-line:#DAD5CA;--az-card:#FFFFFF;--az-accent:#1F5FBF;--pos:#2F8F5B;
+  /* the demo restaurant's own look (made up, nothing real) */
+  --cream:#FBF6EE;--cream-2:#F1E8DA;--paper:#FFFFFF;--line:#E7DCCB;--ink:#1F1B16;--muted:#6E6256;
+  --b:#9A3B22;--bd:#7A2D18;--bink:#2A1B12;--gold:#C98A2B;--gold-text:#7D5312;--gold-soft:#FBEFD9;
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;
+  --r1:14px;--r2:20px;--pill:999px;--tap:44px;--ease:cubic-bezier(.2,.7,.2,1);
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --mono:ui-monospace,Menlo,Consolas,monospace;
+  --sh-2:0 8px 28px rgba(22,19,16,.10);--sh-3:0 24px 60px rgba(22,19,16,.18);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--az-bg:#101216;--az-ink:#E9EBEF;--az-muted:#9AA1AE;--az-line:#272B33;--az-card:#171A20;--az-accent:#7FA8F0}}
+:root[data-theme="dark"]{--az-bg:#101216;--az-ink:#E9EBEF;--az-muted:#9AA1AE;--az-line:#272B33;--az-card:#171A20;--az-accent:#7FA8F0}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--az-bg);color:var(--az-ink);font:16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+input{font:inherit}
+a{color:var(--az-accent)}
+.tnum{font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--az-accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@keyframes rise{from{transform:translateY(10px)}to{transform:none}}
+
+/* ---------- page frame (ours) ---------- */
+.top{max-width:1100px;margin:0 auto;padding:var(--s4) var(--s4) 0;display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap}
+.mark{display:flex;align-items:center;gap:var(--s2);font-weight:650;font-size:15px}
+.mark i{width:26px;height:26px;border-radius:7px;background:var(--az-ink);color:var(--az-card);display:grid;place-items:center;font:700 12px/1 var(--sans);font-style:normal}
+.mark span{color:var(--az-muted);font-weight:500}
+.live{margin-inline-start:auto;font-size:13px;color:var(--az-muted);display:flex;align-items:center;gap:var(--s2)}
+.live i{width:8px;height:8px;border-radius:50%;background:#D9A21B;display:inline-block}
+.stage{max-width:1100px;margin:0 auto;padding:var(--s5) var(--s4) var(--s7);display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:var(--s6);align-items:start}
+@media (max-width:900px){.stage{grid-template-columns:1fr;padding-top:var(--s3)}}
+.side{display:flex;flex-direction:column;gap:var(--s4);position:sticky;top:16px}
+@media (max-width:900px){.side{position:static}}
+.card{background:var(--az-card);border:1px solid var(--az-line);border-radius:var(--r1);padding:var(--s5)}
+.card h2{font:700 17px/1.3 var(--sans);margin:0 0 var(--s3)}
+.card p{margin:0 0 var(--s3);font-size:14.5px;color:var(--az-muted)}
+.card p:last-child{margin:0}
+.card p b{color:var(--az-ink);font-weight:600}
+.steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--s2);font-size:14px}
+.steps li{display:flex;gap:var(--s3);align-items:flex-start;color:var(--az-muted)}
+.steps li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;margin-top:7px;background:var(--az-line)}
+.steps li.is-done{color:var(--az-ink)}
+.steps li.is-done::before{background:var(--pos)}
+.ticketwrap{display:none}
+.ticketwrap.is-on{display:block}
+.ticketwrap .ticket{font-size:11.5px}
+.ticket{background:#FFFDF6;color:#1C1A17;border:1px dashed #CDBF9A;border-radius:6px;padding:var(--s4);font:13px/1.55 var(--mono);white-space:pre-wrap}
+.foot{max-width:1100px;margin:0 auto;padding:0 var(--s4) var(--s6);font-size:13px;color:var(--az-muted)}
+
+/* ---------- phone ---------- */
+.dev-wrap{display:flex;justify-content:center}
+.phone{width:390px;max-width:100%;height:780px;border-radius:46px;background:#0E0F12;padding:12px;box-shadow:var(--sh-3);position:relative;flex:none}
+.phone__screen{width:100%;height:100%;border-radius:36px;overflow:hidden;background:var(--cream);position:relative;container-type:inline-size;display:flex;flex-direction:column}
+.phone__notch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:120px;height:30px;background:#0E0F12;border-radius:0 0 18px 18px;z-index:5}
+@media (max-width:440px){.mark span,.live{display:none}.stage{padding-left:0;padding-right:0}.phone{height:calc(100dvh - 8px);min-height:620px;border-radius:0;padding:0;box-shadow:none}.phone__screen{border-radius:0}.phone__notch{display:none}.phone .g-head{padding-top:var(--s3)}.side,.foot{padding:0 var(--s4)}}
+
+/* ---------- guest app (the restaurant's own words only) ---------- */
+.g{font-family:var(--sans);flex:1;display:flex;flex-direction:column;min-height:0;color:var(--ink);background:var(--cream);font-size:15px;position:relative}
+.g[dir="rtl"]{font-size:16px}
+.g-scroll{flex:1;overflow-y:auto;overflow-x:hidden;padding-bottom:110px;scroll-behavior:smooth}
+.g-scroll:has(.g-wel){padding-bottom:0;display:flex;flex-direction:column}
+.g-head{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:var(--s3) var(--s4);display:flex;align-items:center;gap:var(--s3)}
+.phone .g-head{padding-top:46px}
+.g-logo{font:700 18px/1 var(--serif);color:var(--b);letter-spacing:-.01em;white-space:nowrap}
+.g-tbl{margin-inline-start:auto;font-size:12px;font-weight:700;color:var(--gold-text);background:var(--gold-soft);border-radius:var(--pill);padding:5px 10px;white-space:nowrap}
+.g-lang-btn{border:1px solid var(--line);background:var(--paper);border-radius:var(--pill);padding:5px 10px;font-size:12px;font-weight:700;min-height:30px}
+.g-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);border:0;border-radius:var(--pill);min-height:48px;padding:0 var(--s5);font-weight:700;font-size:15px;background:var(--b);color:#fff;text-decoration:none}
+.g-btn--sm{min-height:38px;padding:0 var(--s4);font-size:14px}
+.g-btn--line{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+.g-btn--block{width:100%}
+.g-btn[disabled]{opacity:.45}
+.g-sec{padding:var(--s5) var(--s4)}
+.g-h2{font:700 24px/1.2 var(--serif);margin:0 0 var(--s2)}
+.g-muted{color:var(--muted);margin:0}
+.g-price{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* welcome / language */
+.g-wel{flex:1;display:flex;flex-direction:column;background:var(--bink);color:#fff;padding:72px var(--s5) var(--s5);position:relative;overflow:hidden}
+.g-wel::after{content:"";position:absolute;inset:auto -20% -50% -20%;height:110%;background:radial-gradient(closest-side,rgba(154,59,34,.75),transparent);pointer-events:none}
+.g-wel>*{position:relative;z-index:1}
+.g-wel .g-logo{color:#fff;font-size:30px;margin-bottom:var(--s2)}
+.g-wel .g-tbl{margin:0 0 var(--s6);align-self:flex-start;background:rgba(255,255,255,.14);color:#fff}
+.g-wel h1{font:400 15px/1.4 var(--sans);margin:0 0 var(--s3);color:rgba(255,255,255,.75);letter-spacing:.04em;text-transform:uppercase}
+.g-langs{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.g-langs button{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff;border-radius:12px;min-height:54px;padding:var(--s2) var(--s3);text-align:start;display:flex;flex-direction:column;justify-content:center;gap:1px}
+.g-langs button b{font-size:17px;line-height:1.2}
+.g-langs button small{font-size:11.5px;color:rgba(255,255,255,.62)}
+.g-langs button:hover{background:rgba(255,255,255,.16)}
+
+/* menu */
+.g-type{margin:var(--s3) var(--s4) 0;background:var(--paper);border:1px solid var(--line);border-radius:var(--r1);padding:var(--s3)}
+.g-type label{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-text);margin-bottom:6px}
+.g-type__row{display:flex;gap:var(--s2)}
+.g-type input{flex:1;min-width:0;border:1px solid var(--line);border-radius:12px;min-height:44px;padding:0 var(--s3);background:var(--cream);color:var(--ink);outline:none}
+.g-type input:focus{border-color:var(--b)}
+.g-type button{flex:none;border:0;border-radius:12px;background:var(--ink);color:#fff;font-weight:700;padding:0 var(--s4);min-height:44px}
+.g-type__eg{display:flex;gap:6px;flex-wrap:wrap;margin-top:var(--s2)}
+.g-type__eg button{border:1px dashed var(--line);background:none;border-radius:var(--pill);padding:4px 10px;font-size:12.5px;color:var(--muted);min-height:28px}
+.g-got{margin:var(--s2) var(--s4) 0;background:var(--gold-soft);border-radius:12px;padding:var(--s3);font-size:13.5px;animation:rise .3s var(--ease)}
+.g-got b{display:block;margin-bottom:4px;color:var(--gold-text)}
+.g-got ul{margin:0;padding-inline-start:18px}
+.g-got li.is-miss{color:var(--b)}
+.g-cats{display:flex;gap:var(--s2);overflow-x:auto;padding:var(--s3) var(--s4);scrollbar-width:none;position:sticky;top:0;background:var(--cream);z-index:4;border-bottom:1px solid var(--line)}
+.g-cats::-webkit-scrollbar{display:none}
+.g-cat{flex:none;border:1px solid var(--line);background:var(--paper);border-radius:var(--pill);padding:6px var(--s3);font-size:13px;font-weight:600;white-space:nowrap;min-height:34px}
+.g-cat.is-on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.g-group{padding:var(--s5) var(--s4) 0}
+.g-group h3{font:700 20px/1.2 var(--serif);margin:0 0 var(--s3);display:flex;align-items:center;gap:var(--s2)}
+.g-group h3::before{content:"";width:22px;height:2px;background:var(--gold)}
+.g-item{display:flex;gap:var(--s3);align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:var(--r1);padding:var(--s3);margin-bottom:var(--s2);width:100%;text-align:start}
+.g-item__b{flex:1;min-width:0}
+.g-item__n{font:700 15px/1.3 var(--serif);margin:0}
+.g-item__d{font-size:12.5px;color:var(--muted);margin:2px 0 4px}
+.g-add{flex:none;width:40px;height:40px;border-radius:50%;border:2px solid var(--b);color:var(--b);background:var(--paper);display:grid;place-items:center;font-size:22px;line-height:1}
+.g-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-text);background:var(--gold-soft);border-radius:var(--pill);padding:2px 8px;margin-inline-start:6px;vertical-align:2px}
+.g-bar{position:absolute;inset:auto var(--s3) var(--s3) var(--s3);z-index:20;display:flex;align-items:center;gap:var(--s3);background:var(--b);color:#fff;border:0;border-radius:var(--r1);min-height:56px;padding:0 var(--s4);font-weight:700;box-shadow:var(--sh-2);transition:transform .3s var(--ease),opacity .3s}
+.g-bar.is-empty{background:#CFC6BA;box-shadow:none}
+.g-bar__n{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.25);display:grid;place-items:center;font-size:13px}
+.g-bar__t{margin-inline-start:auto;font-variant-numeric:tabular-nums}
+
+/* sheet */
+.g-sheet-bg{position:absolute;inset:0;background:rgba(20,16,12,.45);z-index:30;opacity:0;pointer-events:none;transition:opacity .25s}
+.g-sheet-bg.is-on{opacity:1;pointer-events:auto}
+.g-sheet{position:absolute;inset:auto 0 0 0;z-index:31;background:var(--paper);border-radius:var(--r2) var(--r2) 0 0;max-height:88%;overflow-y:auto;transform:translateY(105%);transition:transform .35s var(--ease);padding:var(--s5) var(--s4) var(--s4)}
+.g-sheet.is-on{transform:none}
+.g-sheet__grab{width:40px;height:4px;border-radius:4px;background:var(--line);margin:-8px auto var(--s4)}
+.g-sheet h4{font:700 22px/1.2 var(--serif);margin:0 0 var(--s2)}
+.g-opt-h{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:var(--s5) 0 var(--s2)}
+.g-opts{display:flex;flex-direction:column;gap:var(--s2)}
+.g-opt{display:flex;align-items:center;gap:var(--s3);border:1px solid var(--line);border-radius:12px;padding:var(--s3);background:var(--paper);text-align:start;min-height:var(--tap)}
+.g-opt[aria-pressed="true"]{border-color:var(--b);box-shadow:inset 0 0 0 1px var(--b);background:#FBF1ED}
+.g-opt span:last-child{margin-inline-start:auto;font-variant-numeric:tabular-nums;color:var(--muted)}
+.g-qty{display:flex;align-items:center;gap:var(--s3);margin:var(--s5) 0 var(--s4)}
+.g-qty button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--paper);font-size:20px}
+.g-qty b{min-width:24px;text-align:center;font-size:18px}
+.g-toast{position:absolute;inset:auto var(--s4) 84px var(--s4);z-index:40;background:var(--ink);color:#fff;border-radius:12px;padding:var(--s3) var(--s4);font-size:14px;transform:translateY(20px);opacity:0;transition:.3s var(--ease);pointer-events:none;text-align:center}
+.g-toast.is-on{transform:none;opacity:1}
+
+/* cart + pay */
+.g-line{display:flex;gap:var(--s3);padding:var(--s3) 0;border-bottom:1px solid var(--line);font-size:14px;align-items:flex-start}
+.g-line__q{font-weight:700;min-width:26px}
+.g-line__n{flex:1}
+.g-line__n small{display:block;color:var(--muted)}
+.g-rm{border:0;background:none;color:var(--muted);font-size:16px;padding:0 4px;min-height:24px}
+.g-tot{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;font-variant-numeric:tabular-nums}
+.g-tot--big{font-size:17px;font-weight:800;border-top:1px solid var(--line);padding-top:var(--s3);margin-top:var(--s2)}
+.g-field{display:flex;flex-direction:column;gap:6px;margin-bottom:var(--s3);font-size:13px;font-weight:600;color:var(--muted)}
+.g-field input{color:var(--ink);font-weight:500;border:1px solid var(--line);border-radius:12px;min-height:46px;padding:0 var(--s3);background:var(--paper)}
+.g-card{background:var(--cream-2);border-radius:var(--r1);padding:var(--s4);margin-top:var(--s4)}
+.g-card .g-field:last-child{margin-bottom:0}
+.g-card__row{display:flex;gap:var(--s2)}
+.g-card__row .g-field{flex:1}
+.g-testnote{font-size:12.5px;color:var(--gold-text);background:var(--gold-soft);border-radius:10px;padding:8px var(--s3);margin-bottom:var(--s3);font-weight:600}
+.g-pay{display:flex;align-items:center;justify-content:center;gap:var(--s2);min-height:52px;border-radius:12px;border:0;background:#000;color:#fff;font-weight:700;width:100%;font-size:16px;margin-top:var(--s4)}
+.g-done{text-align:center;padding:var(--s6) var(--s4) var(--s4)}
+.g-check{width:64px;height:64px;border-radius:50%;margin:0 auto var(--s4);display:grid;place-items:center;background:var(--b);color:#fff;font-size:30px}
+.g-track{list-style:none;margin:var(--s5) 0 0;padding:0;text-align:start;display:flex;flex-direction:column;gap:var(--s3)}
+.g-track li{display:flex;gap:var(--s3);align-items:center;color:var(--muted);font-weight:600}
+.g-track li i{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-size:12px;font-style:normal;color:#fff}
+.g-track li.is-on{color:var(--ink)}
+.g-track li.is-on i{background:var(--b);border-color:var(--b)}
+.g-slip{margin:var(--s5) var(--s4) 0;text-align:start}
+.g-slip p{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 var(--s2)}
+.g-slip .ticket{box-shadow:0 10px 24px rgba(0,0,0,.08)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="mark"><i>AZ</i>Try the table menu <span>· a demo table, nothing is sent or charged</span></div>
+  <div class="live"><i></i>Sample restaurant</div>
+</header>
+
+<main class="stage">
+  <div class="dev-wrap"><div class="phone"><div class="phone__notch"></div><div class="phone__screen"><div class="g" id="g"></div></div></div></div>
+
+  <aside class="side">
+    <div class="card">
+      <h2>What this is</h2>
+      <p>The ordering screen a guest gets when they scan the code on their table. Here it is set to a made-up restaurant with a sample menu. The real one runs every night at our family's restaurant in Spring, Texas, where the AI took over the floor after our only server quit.</p>
+      <ul class="steps" id="steps">
+        <li data-s="lang"><span>Pick a language</span></li>
+        <li data-s="add"><span>Tap a dish, or type the whole order in one line</span></li>
+        <li data-s="pay"><span>Pay with the test card</span></li>
+        <li data-s="ticket"><span>See the ticket the restaurant would get</span></li>
+      </ul>
+    </div>
+    <div class="card ticketwrap" id="ticketwrap">
+      <h2>What prints in the restaurant</h2>
+      <div class="ticket" id="ticketOut"></div>
+    </div>
+    <div class="card">
+      <h2>Nothing leaves this page</h2>
+      <p>The page's security policy blocks every network request, so there is no server, no account and no tracking. Open the Network tab and watch: nothing goes out. Orders you place here reach no kitchen.</p>
+      <p>The live version also takes voice (hold to talk), prints to the kitchen, texts the guest when the food is coming, and reads the table's past orders. Voice is off on this demo so it costs nothing to run.</p>
+      <p><a href="https://abbaszoeb.com/writing/our-only-server-walked-out/">The story of how it was built</a> · <a href="https://azrestaurantpartners.com/">AZ Restaurant Partners</a></p>
+    </div>
+  </aside>
+</main>
+<p class="foot">Mehfil Grill is a made-up restaurant. The menu, prices and card are sample data.</p>
+
+<script>
+(function () {
+  "use strict";
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const money = (n) => "$" + n.toFixed(2);
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const TAX = 0.0825, TABLE = 4, NAME = "Mehfil Grill";
+
+  /* ---------- languages: the seven the real table speaks ---------- */
+  const LANGS = [
+    ["en", "English", "English", "ltr"], ["es", "Español", "Spanish", "ltr"], ["hi", "हिंदी", "Hindi", "ltr"],
+    ["ur", "اردو", "Urdu", "rtl"], ["gu", "ગુજરાતી", "Gujarati", "ltr"], ["pa", "ਪੰਜਾਬੀ", "Punjabi", "ltr"], ["ar", "العربية", "Arabic", "rtl"],
+  ];
+  const T = {
+    en: { pick: "Pick your language", table: "Table 4", menu: "Menu", typeh: "Or type your whole order", typeph: "2 chicken biryani and a garlic naan, spicy", go: "Add", eg1: "two chicken karahi, medium", eg2: "garlic naan and a mango lassi", eg3: "one goat biryani, extra spicy, no onions",
+      got: "Here's what I added", miss: "isn't on our menu", view: "View order", nothing: "Nothing yet", yourorder: "Your order", empty: "Nothing in your order yet.", seemenu: "See the menu", back: "Back",
+      size: "Size", spice: "Spice", mild: "Mild", medium: "Medium", spicy: "Spicy", xspicy: "Extra spicy", less: "One less", more: "One more", addn: "Add {n} to order", added: "Added {x}", remove: "Remove", note: "Anything else for the cook?", noteph: "No onions, sauce on the side",
+      subtotal: "Subtotal", tax: "Tax", total: "Total", pay: "Pay {t}", paying: "Paying…", payline: "Your card is charged once. We start cooking the moment it's paid.", test: "Test card. Nothing is charged.", cardno: "Card number", exp: "Expiry", cvc: "CVC", cardname: "Name on card",
+      paid: "Paid. Thank you!", order: "Order", s1: "Paid", s2: "Cooking", s3: "Coming to table 4", again: "Order more", slip: "What the kitchen gets", popular: "Popular",
+      cats: { starters: "Starters", grill: "From the grill", curries: "Curries", biryani: "Biryani", breads: "Breads and rice", sides: "Sides, sweets and drinks" } },
+    es: { pick: "Elige tu idioma", table: "Mesa 4", menu: "Menú", typeh: "O escribe tu pedido completo", typeph: "2 biryani de pollo y un naan de ajo, picante", go: "Agregar", eg1: "dos karahi de pollo, medio", eg2: "naan de ajo y un lassi de mango", eg3: "un biryani de cabra, muy picante, sin cebolla",
+      got: "Esto es lo que agregué", miss: "no está en nuestro menú", view: "Ver pedido", nothing: "Nada aún", yourorder: "Tu pedido", empty: "Tu pedido está vacío.", seemenu: "Ver el menú", back: "Atrás",
+      size: "Tamaño", spice: "Picante", mild: "Suave", medium: "Medio", spicy: "Picante", xspicy: "Muy picante", less: "Uno menos", more: "Uno más", addn: "Agregar {n} al pedido", added: "Agregado: {x}", remove: "Quitar", note: "¿Algo más para el cocinero?", noteph: "Sin cebolla, salsa aparte",
+      subtotal: "Subtotal", tax: "Impuesto", total: "Total", pay: "Pagar {t}", paying: "Pagando…", payline: "Se cobra una sola vez. Empezamos a cocinar en cuanto se paga.", test: "Tarjeta de prueba. No se cobra nada.", cardno: "Número de tarjeta", exp: "Vence", cvc: "CVC", cardname: "Nombre en la tarjeta",
+      paid: "Pagado. ¡Gracias!", order: "Pedido", s1: "Pagado", s2: "Cocinando", s3: "Va a la mesa 4", again: "Pedir más", slip: "Lo que recibe la cocina", popular: "Popular",
+      cats: { starters: "Entradas", grill: "De la parrilla", curries: "Currys", biryani: "Biryani", breads: "Panes y arroz", sides: "Acompañamientos, postres y bebidas" } },
+    hi: { pick: "अपनी भाषा चुनें", table: "टेबल 4", menu: "मेन्यू", typeh: "या पूरा ऑर्डर लिख दें", typeph: "2 चिकन बिरयानी और एक गार्लिक नान, तीखा", go: "जोड़ें", eg1: "दो चिकन कड़ाही, मीडियम", eg2: "गार्लिक नान और एक मैंगो लस्सी", eg3: "एक गोट बिरयानी, बहुत तीखा, प्याज़ नहीं",
+      got: "मैंने यह जोड़ा", miss: "हमारे मेन्यू में नहीं है", view: "ऑर्डर देखें", nothing: "अभी कुछ नहीं", yourorder: "आपका ऑर्डर", empty: "ऑर्डर में अभी कुछ नहीं है।", seemenu: "मेन्यू देखें", back: "वापस",
+      size: "साइज़", spice: "मिर्च", mild: "कम", medium: "मीडियम", spicy: "तीखा", xspicy: "बहुत तीखा", less: "एक कम", more: "एक और", addn: "{n} ऑर्डर में जोड़ें", added: "{x} जोड़ा", remove: "हटाएँ", note: "रसोइए के लिए कुछ और?", noteph: "प्याज़ नहीं, चटनी अलग",
+      subtotal: "कुल", tax: "टैक्स", total: "कुल राशि", pay: "{t} भुगतान करें", paying: "भुगतान हो रहा है…", payline: "कार्ड से एक बार भुगतान होता है। भुगतान होते ही खाना बनना शुरू।", test: "टेस्ट कार्ड। कोई पैसा नहीं कटेगा।", cardno: "कार्ड नंबर", exp: "समाप्ति", cvc: "CVC", cardname: "कार्ड पर नाम",
+      paid: "भुगतान हो गया। धन्यवाद!", order: "ऑर्डर", s1: "भुगतान हुआ", s2: "बन रहा है", s3: "टेबल 4 पर आ रहा है", again: "और ऑर्डर करें", slip: "रसोई को यह मिलता है", popular: "लोकप्रिय",
+      cats: { starters: "स्टार्टर", grill: "तंदूर से", curries: "करी", biryani: "बिरयानी", breads: "रोटी और चावल", sides: "साइड, मिठाई और पेय" } },
+    ur: { pick: "اپنی زبان چنیں", table: "ٹیبل 4", menu: "مینیو", typeh: "یا پورا آرڈر لکھ دیں", typeph: "2 چکن بریانی اور ایک گارلک نان، تیز", go: "شامل کریں", eg1: "دو چکن کڑاہی، درمیانی", eg2: "گارلک نان اور ایک مینگو لسی", eg3: "ایک گوٹ بریانی، بہت تیز، پیاز نہیں",
+      got: "میں نے یہ شامل کیا", miss: "ہمارے مینیو میں نہیں ہے", view: "آرڈر دیکھیں", nothing: "ابھی کچھ نہیں", yourorder: "آپ کا آرڈر", empty: "آرڈر میں ابھی کچھ نہیں ہے۔", seemenu: "مینیو دیکھیں", back: "واپس",
+      size: "سائز", spice: "مرچ", mild: "کم", medium: "درمیانی", spicy: "تیز", xspicy: "بہت تیز", less: "ایک کم", more: "ایک اور", addn: "{n} آرڈر میں شامل کریں", added: "{x} شامل ہوا", remove: "ہٹائیں", note: "باورچی کے لیے کچھ اور؟", noteph: "پیاز نہیں، چٹنی الگ",
+      subtotal: "کل", tax: "ٹیکس", total: "کل رقم", pay: "{t} ادا کریں", paying: "ادائیگی ہو رہی ہے…", payline: "کارڈ سے ایک بار ادائیگی ہوتی ہے۔ ادائیگی ہوتے ہی کھانا بننا شروع۔", test: "ٹیسٹ کارڈ۔ کوئی پیسہ نہیں کٹے گا۔", cardno: "کارڈ نمبر", exp: "میعاد", cvc: "CVC", cardname: "کارڈ پر نام",
+      paid: "ادائیگی ہو گئی۔ شکریہ!", order: "آرڈر", s1: "ادا ہوا", s2: "بن رہا ہے", s3: "ٹیبل 4 پر آ رہا ہے", again: "مزید آرڈر کریں", slip: "باورچی خانے کو یہ ملتا ہے", popular: "مقبول",
+      cats: { starters: "اسٹارٹر", grill: "تندور سے", curries: "سالن", biryani: "بریانی", breads: "روٹی اور چاول", sides: "سائیڈ، میٹھا اور مشروبات" } },
+    gu: { pick: "તમારી ભાષા પસંદ કરો", table: "ટેબલ 4", menu: "મેનુ", typeh: "અથવા આખો ઓર્ડર લખી દો", typeph: "2 ચિકન બિરયાની અને એક ગાર્લિક નાન, તીખું", go: "ઉમેરો", eg1: "બે ચિકન કડાઈ, મીડિયમ", eg2: "ગાર્લિક નાન અને એક મેંગો લસ્સી", eg3: "એક ગોટ બિરયાની, બહુ તીખું, ડુંગળી નહીં",
+      got: "મેં આ ઉમેર્યું", miss: "અમારા મેનુમાં નથી", view: "ઓર્ડર જુઓ", nothing: "હજી કંઈ નહીં", yourorder: "તમારો ઓર્ડર", empty: "ઓર્ડરમાં હજી કંઈ નથી.", seemenu: "મેનુ જુઓ", back: "પાછા",
+      size: "સાઇઝ", spice: "મરચું", mild: "ઓછું", medium: "મીડિયમ", spicy: "તીખું", xspicy: "બહુ તીખું", less: "એક ઓછું", more: "એક વધુ", addn: "{n} ઓર્ડરમાં ઉમેરો", added: "{x} ઉમેર્યું", remove: "કાઢો", note: "રસોઈયા માટે બીજું કંઈ?", noteph: "ડુંગળી નહીં, ચટણી અલગ",
+      subtotal: "કુલ", tax: "ટેક્સ", total: "કુલ રકમ", pay: "{t} ચૂકવો", paying: "ચુકવણી થઈ રહી છે…", payline: "કાર્ડથી એક વાર ચુકવણી થાય છે. ચુકવણી થતાં જ રસોઈ શરૂ.", test: "ટેસ્ટ કાર્ડ. કોઈ પૈસા કપાશે નહીં.", cardno: "કાર્ડ નંબર", exp: "સમાપ્તિ", cvc: "CVC", cardname: "કાર્ડ પરનું નામ",
+      paid: "ચુકવણી થઈ ગઈ. આભાર!", order: "ઓર્ડર", s1: "ચૂકવાયું", s2: "બની રહ્યું છે", s3: "ટેબલ 4 પર આવી રહ્યું છે", again: "વધુ ઓર્ડર કરો", slip: "રસોડાને આ મળે છે", popular: "લોકપ્રિય",
+      cats: { starters: "સ્ટાર્ટર", grill: "તંદૂરમાંથી", curries: "કરી", biryani: "બિરયાની", breads: "રોટલી અને ભાત", sides: "સાઇડ, મીઠાઈ અને પીણાં" } },
+    pa: { pick: "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ", table: "ਟੇਬਲ 4", menu: "ਮੀਨੂ", typeh: "ਜਾਂ ਪੂਰਾ ਆਰਡਰ ਲਿਖ ਦਿਓ", typeph: "2 ਚਿਕਨ ਬਿਰਿਆਨੀ ਅਤੇ ਇੱਕ ਗਾਰਲਿਕ ਨਾਨ, ਤਿੱਖਾ", go: "ਜੋੜੋ", eg1: "ਦੋ ਚਿਕਨ ਕੜਾਹੀ, ਮੀਡੀਅਮ", eg2: "ਗਾਰਲਿਕ ਨਾਨ ਅਤੇ ਇੱਕ ਮੈਂਗੋ ਲੱਸੀ", eg3: "ਇੱਕ ਗੋਟ ਬਿਰਿਆਨੀ, ਬਹੁਤ ਤਿੱਖਾ, ਪਿਆਜ਼ ਨਹੀਂ",
+      got: "ਮੈਂ ਇਹ ਜੋੜਿਆ", miss: "ਸਾਡੇ ਮੀਨੂ ਵਿੱਚ ਨਹੀਂ ਹੈ", view: "ਆਰਡਰ ਵੇਖੋ", nothing: "ਹਾਲੇ ਕੁਝ ਨਹੀਂ", yourorder: "ਤੁਹਾਡਾ ਆਰਡਰ", empty: "ਆਰਡਰ ਵਿੱਚ ਹਾਲੇ ਕੁਝ ਨਹੀਂ ਹੈ।", seemenu: "ਮੀਨੂ ਵੇਖੋ", back: "ਪਿੱਛੇ",
+      size: "ਸਾਈਜ਼", spice: "ਮਿਰਚ", mild: "ਘੱਟ", medium: "ਮੀਡੀਅਮ", spicy: "ਤਿੱਖਾ", xspicy: "ਬਹੁਤ ਤਿੱਖਾ", less: "ਇੱਕ ਘੱਟ", more: "ਇੱਕ ਹੋਰ", addn: "{n} ਆਰਡਰ ਵਿੱਚ ਜੋੜੋ", added: "{x} ਜੋੜਿਆ", remove: "ਹਟਾਓ", note: "ਰਸੋਈਏ ਲਈ ਕੁਝ ਹੋਰ?", noteph: "ਪਿਆਜ਼ ਨਹੀਂ, ਚਟਣੀ ਵੱਖ",
+      subtotal: "ਕੁੱਲ", tax: "ਟੈਕਸ", total: "ਕੁੱਲ ਰਕਮ", pay: "{t} ਭੁਗਤਾਨ ਕਰੋ", paying: "ਭੁਗਤਾਨ ਹੋ ਰਿਹਾ ਹੈ…", payline: "ਕਾਰਡ ਤੋਂ ਇੱਕ ਵਾਰ ਭੁਗਤਾਨ ਹੁੰਦਾ ਹੈ। ਭੁਗਤਾਨ ਹੁੰਦੇ ਹੀ ਖਾਣਾ ਬਣਨਾ ਸ਼ੁਰੂ।", test: "ਟੈਸਟ ਕਾਰਡ। ਕੋਈ ਪੈਸਾ ਨਹੀਂ ਕੱਟੇਗਾ।", cardno: "ਕਾਰਡ ਨੰਬਰ", exp: "ਮਿਆਦ", cvc: "CVC", cardname: "ਕਾਰਡ ਉੱਤੇ ਨਾਮ",
+      paid: "ਭੁਗਤਾਨ ਹੋ ਗਿਆ। ਧੰਨਵਾਦ!", order: "ਆਰਡਰ", s1: "ਭੁਗਤਾਨ ਹੋਇਆ", s2: "ਬਣ ਰਿਹਾ ਹੈ", s3: "ਟੇਬਲ 4 'ਤੇ ਆ ਰਿਹਾ ਹੈ", again: "ਹੋਰ ਆਰਡਰ ਕਰੋ", slip: "ਰਸੋਈ ਨੂੰ ਇਹ ਮਿਲਦਾ ਹੈ", popular: "ਮਸ਼ਹੂਰ",
+      cats: { starters: "ਸਟਾਰਟਰ", grill: "ਤੰਦੂਰ ਤੋਂ", curries: "ਕਰੀ", biryani: "ਬਿਰਿਆਨੀ", breads: "ਰੋਟੀ ਅਤੇ ਚੌਲ", sides: "ਸਾਈਡ, ਮਿਠਾਈ ਅਤੇ ਪੀਣ ਵਾਲੇ" } },
+    ar: { pick: "اختر لغتك", table: "طاولة 4", menu: "القائمة", typeh: "أو اكتب طلبك كاملاً", typeph: "2 برياني دجاج ونان بالثوم، حار", go: "أضف", eg1: "اثنان كراهي دجاج، متوسط", eg2: "نان بالثوم ولاسي مانجو", eg3: "واحد برياني لحم ماعز، حار جداً، بدون بصل",
+      got: "هذا ما أضفته", miss: "ليس في قائمتنا", view: "عرض الطلب", nothing: "لا شيء بعد", yourorder: "طلبك", empty: "لا يوجد شيء في طلبك بعد.", seemenu: "عرض القائمة", back: "رجوع",
+      size: "الحجم", spice: "الحرارة", mild: "خفيف", medium: "متوسط", spicy: "حار", xspicy: "حار جداً", less: "أقل بواحد", more: "أكثر بواحد", addn: "أضف {n} إلى الطلب", added: "تمت إضافة {x}", remove: "إزالة", note: "أي شيء آخر للطباخ؟", noteph: "بدون بصل، الصلصة على جنب",
+      subtotal: "المجموع", tax: "الضريبة", total: "الإجمالي", pay: "ادفع {t}", paying: "جارٍ الدفع…", payline: "يُخصم من بطاقتك مرة واحدة. نبدأ الطهي فور الدفع.", test: "بطاقة تجريبية. لن يُخصم أي مبلغ.", cardno: "رقم البطاقة", exp: "الانتهاء", cvc: "CVC", cardname: "الاسم على البطاقة",
+      paid: "تم الدفع. شكراً لك!", order: "طلب", s1: "مدفوع", s2: "قيد التحضير", s3: "في الطريق إلى الطاولة 4", again: "اطلب المزيد", slip: "ما يصل إلى المطبخ", popular: "الأكثر طلباً",
+      cats: { starters: "المقبلات", grill: "من المشواة", curries: "الكاري", biryani: "برياني", breads: "الخبز والأرز", sides: "الجوانب والحلويات والمشروبات" } },
+  };
+
+  /* ---------- the sample menu (made up; aliases let typed orders match in any of the seven scripts) ---------- */
+  const CATS = ["starters", "grill", "curries", "biryani", "breads", "sides"];
+  const M = [
+    ["starters", "Vegetable Samosa", "Two, with tamarind chutney", 4.99, 0, 0, "samosa samosas समोसा سموسہ સમોસા ਸਮੋਸਾ سمبوسة"],
+    ["starters", "Chicken 65", "Crisp, curry leaf, dry red chili", 8.99, 1, 1, "chicken 65 sixty five 65"],
+    ["starters", "Paneer Pakora", "Battered paneer, mint chutney", 7.99, 0, 0, "pakora pakoras पकौड़ा پکوڑا ભજિયા ਪਕੌੜਾ"],
+    ["starters", "Papri Chaat", "Yogurt, tamarind, sev", 6.99, 0, 0, "chaat papri पापड़ी चाट چاٹ ચાટ ਚਾਟ"],
+    ["grill", "Chicken Tikka", "Boneless thigh, charcoal", 12.99, 1, 1, "tikka चिकन टिक्का ٹکہ ટિક્કા ਟਿੱਕਾ تكا"],
+    ["grill", "Seekh Kebab", "Beef, two skewers", 13.99, 1, 0, "seekh kebab kabab kabob सीख कबाब سیخ کباب સીખ કબાબ ਸੀਖ ਕਬਾਬ كباب"],
+    ["grill", "Tandoori Chicken", "On the bone, marinated overnight", [["Half", 13.99], ["Full", 24.99]], 1, 0, "tandoori तंदूरी تندوری તંદૂરી ਤੰਦੂਰੀ تندوري"],
+    ["grill", "Lamb Chops", "Four chops, mint", 22.99, 0, 0, "lamb chops chop चॉप چانپ ચોપ ਚੋਪ ريش"],
+    ["curries", "Butter Chicken", "Tomato, cream, fenugreek", 14.99, 1, 1, "butter chicken makhani बटर चिकन بٹر چکن બટર ચિકન ਬਟਰ ਚਿਕਨ دجاج بالزبدة"],
+    ["curries", "Chicken Karahi", "Tomato, ginger, green chili, wok-tossed", 15.99, 1, 1, "chicken karahi kadai kadhai चिकन कड़ाही چکن کڑاہی ચિકન કડાઈ ਚਿਕਨ ਕੜਾਹੀ كراهي دجاج"],
+    ["curries", "Goat Karahi", "Bone-in goat, slow", 18.99, 1, 0, "goat karahi mutton karahi गोट कड़ाही بکرے کی کڑاہی گوٹ کڑاہی ગોટ કડાઈ ਗੋਟ ਕੜਾਹੀ كراهي ماعز"],
+    ["curries", "Palak Paneer", "Spinach, paneer, garlic", 13.99, 0, 0, "palak paneer saag पालक पनीर پالک پنیر પાલક પનીર ਪਾਲਕ ਪਨੀਰ بالاك بانير"],
+    ["curries", "Dal Makhani", "Black lentils, overnight", 11.99, 0, 0, "dal daal makhani दाल دال દાળ ਦਾਲ دال"],
+    ["curries", "Chana Masala", "Chickpeas, onion, tomato", 10.99, 1, 0, "chana chole chickpea छोले چنے ચણા ਛੋਲੇ حمص"],
+    ["curries", "Nihari", "Slow beef shank, ginger, lemon", 16.99, 1, 1, "nihari निहारी نہاری નિહારી ਨਿਹਾਰੀ نهاري"],
+    ["biryani", "Chicken Biryani", "Basmati, saffron, raita", 13.99, 1, 1, "chicken biryani biriyani briyani चिकन बिरयानी چکن بریانی ચિકન બિરયાની ਚਿਕਨ ਬਿਰਿਆਨੀ برياني دجاج"],
+    ["biryani", "Goat Biryani", "Bone-in goat, basmati", 16.99, 1, 1, "goat biryani mutton biryani गोट बिरयानी گوٹ بریانی بکرے کی بریانی ગોટ બિરયાની ਗੋਟ ਬਿਰਿਆਨੀ برياني ماعز برياني لحم"],
+    ["biryani", "Vegetable Biryani", "Seasonal vegetables, basmati", 11.99, 1, 0, "veg biryani vegetable biryani सब्ज़ी बिरयानी سبزی بریانی શાક બિરયાની ਸਬਜ਼ੀ ਬਿਰਿਆਨੀ برياني خضار"],
+    ["breads", "Naan", "Tandoor, butter", 2.49, 0, 0, "naan nan plain naan नान نان નાન ਨਾਨ نان"],
+    ["breads", "Garlic Naan", "Garlic, cilantro", 3.49, 0, 1, "garlic naan गार्लिक नान लहसुन नान گارلک نان لہسن نان ગાર્લિક નાન ਗਾਰਲਿਕ ਨਾਨ نان بالثوم نان ثوم"],
+    ["breads", "Roti", "Whole wheat", 1.99, 0, 0, "roti chapati रोटी روٹی રોટલી ਰੋਟੀ روتي"],
+    ["breads", "Basmati Rice", "Steamed, cumin", 3.99, 0, 0, "rice basmati चावल چاول ભાત ਚੌਲ أرز رز"],
+    ["sides", "Raita", "Cucumber, yogurt", 2.99, 0, 0, "raita रायता رائتہ રાયતું ਰਾਇਤਾ رايتا"],
+    ["sides", "Mango Lassi", "Alphonso mango, yogurt", 4.49, 0, 1, "lassi mango lassi मैंगो लस्सी लस्सी مینگو لسی لسی મેંગો લસ્સી લસ્સી ਮੈਂਗੋ ਲੱਸੀ ਲੱਸੀ لاسي"],
+    ["sides", "Masala Chai", "Cardamom, ginger", 2.99, 0, 0, "chai tea मसाला चाय चाय چائے ચા ਚਾਹ شاي"],
+    ["sides", "Gulab Jamun", "Two, warm", 4.99, 0, 0, "gulab jamun गुलाब जामुन گلاب جامن ગુલાબ જાંબુ ਗੁਲਾਬ ਜਾਮੁਨ جولاب جامون"],
+    ["sides", "Kheer", "Rice pudding, pistachio", 4.49, 0, 0, "kheer खीर کھیر ખીર ਖੀਰ خير"],
+    ["sides", "Soda", "Can", 2.49, 0, 0, "soda coke pepsi sprite cola सोडा کوک સોડા ਸੋਡਾ كولا"],
+  ].map((r, i) => ({ id: "i" + i, cat: r[0], name: r[1], desc: r[2], sizes: Array.isArray(r[3]) ? r[3].map((s) => ({ l: s[0], p: s[1] })) : [{ l: "", p: r[3] }], spice: !!r[4], feat: !!r[5], alias: r[6] }));
+
+  /* ---------- state ---------- */
+  const S = { lang: null, cart: [], view: "wel", orderNo: 1041, last: null, got: null };
+  let L = T.en;
+  const t = (k, v) => { let s = L[k] ?? T.en[k] ?? k; if (v) for (const x in v) s = s.replace("{" + x + "}", v[x]); return s; };
+  const dirOf = (l) => (LANGS.find((x) => x[0] === l) || LANGS[0])[3];
+  const modsOf = (l, D) => [l.spice ? (D ? D[l.spice] : t(l.spice)) : "", ...(l.mods || []).map((m) => m[0] === "@" ? (D ? D[m.slice(1)] : t(m.slice(1))) : m)].filter(Boolean);
+  const noWord = () => ({ en: "no ", es: "sin ", hi: "बिना ", ur: "بغیر ", gu: "વગર: ", pa: "ਬਿਨਾਂ ", ar: "بدون " })[S.lang || "en"];
+  const step = (k) => { const li = $(`#steps [data-s="${k}"]`); if (li) li.classList.add("is-done"); };
+
+  const g = $("#g");
+  function mount() {
+    g.setAttribute("dir", dirOf(S.lang || "en"));
+    g.setAttribute("lang", S.lang || "en");
+    g.innerHTML = `<div class="g-scroll" id="gScroll"></div>
+      <button class="g-bar is-empty" id="gBar" type="button" style="display:none"><span class="g-bar__n" id="gBarN">0</span><span id="gBarL"></span><span class="g-bar__t" id="gBarT"></span></button>
+      <div class="g-sheet-bg" id="gBg"></div><div class="g-sheet" id="gSheet" role="dialog" aria-modal="true"></div><div class="g-toast" id="gToast" role="status"></div>`;
+    $("#gBar").addEventListener("click", () => go("cart"));
+    $("#gBg").addEventListener("click", closeSheet);
+    go(S.view, true);
+  }
+  function go(v, keep) {
+    S.view = v;
+    const sc = $("#gScroll");
+    sc.innerHTML = ({ wel: vWel, menu: vMenu, cart: vCart, done: vDone })[v]();
+    if (!keep) sc.scrollTop = 0;
+    $("#gBar").style.display = v === "menu" ? "" : "none";
+    $("#gBarL").textContent = t("view");
+    wire(v); bar();
+  }
+  function toast(s) { const e = $("#gToast"); e.textContent = s; e.classList.add("is-on"); clearTimeout(toast.t); toast.t = setTimeout(() => e.classList.remove("is-on"), 1800); }
+  const head = (back) => `<header class="g-head">${back ? `<button class="g-btn g-btn--sm g-btn--line" data-go="${back}">${esc(t("back"))}</button>` : `<span class="g-logo">${NAME}</span>`}<span class="g-tbl">${esc(t("table"))}</span><button class="g-lang-btn" data-go="wel" aria-label="${esc(t("pick"))}">${esc((LANGS.find((x) => x[0] === S.lang) || LANGS[0])[1])}</button></header>`;
+
+  /* welcome: the first screen on a real table is the language */
+  function vWel() {
+    return `<div class="g-wel"><span class="g-logo">${NAME}</span><span class="g-tbl">Table 4</span>
+      <h1>${esc(T.en.pick)}</h1>
+      <div class="g-langs">${LANGS.map((l) => `<button data-lang="${l[0]}" lang="${l[0]}" dir="${l[3]}"><b>${l[1]}</b><small>${l[2]}</small></button>`).join("")}</div></div>`;
+  }
+
+  /* menu */
+  function vMenu() {
+    return head() + `
+      <div class="g-type"><label for="gType">${esc(t("typeh"))}</label>
+        <div class="g-type__row"><input id="gType" type="text" autocomplete="off" enterkeyhint="send" placeholder="${esc(t("typeph"))}" aria-label="${esc(t("typeh"))}"><button id="gTypeGo" type="button">${esc(t("go"))}</button></div>
+        <div class="g-type__eg">${["eg1", "eg2", "eg3"].map((k) => `<button type="button" data-eg="${esc(t(k))}">${esc(t(k))}</button>`).join("")}</div></div>
+      <div id="gGot">${gotHTML()}</div>
+      <nav class="g-cats" id="gCats">${CATS.map((c, i) => `<button class="g-cat ${i ? "" : "is-on"}" data-cat="${c}">${esc(L.cats[c])}</button>`).join("")}</nav>
+      <div id="gList">${CATS.map((c) => `<section class="g-group" id="cat-${c}"><h3>${esc(L.cats[c])}</h3>${M.filter((m) => m.cat === c).map((m) => `<button class="g-item" data-item="${m.id}"><span class="g-item__b"><p class="g-item__n">${esc(m.name)}${m.feat ? `<span class="g-badge">${esc(t("popular"))}</span>` : ""}</p><p class="g-item__d">${esc(m.desc)}</p><span class="g-price">${m.sizes.length > 1 ? money(m.sizes[0].p) + " +" : money(m.sizes[0].p)}</span></span><span class="g-add" aria-hidden="true">+</span></button>`).join("")}</section>`).join("")}</div>`;
+  }
+  function gotHTML() {
+    if (!S.got) return "";
+    return `<div class="g-got"><b>${esc(t("got"))}</b><ul>${S.got.map((x) => x.miss ? `<li class="is-miss">"${esc(x.miss)}" ${esc(t("miss"))}</li>` : `<li>${x.qty} × ${esc(x.name)}${modsOf(x).length ? " · " + esc(modsOf(x).join(", ")) : ""}</li>`).join("")}</ul></div>`;
+  }
+
+  /* ---------- typed orders: numbers, dishes, spice and notes in any of the seven scripts ---------- */
+  const NUMS = { one: 1, a: 1, an: 1, two: 2, three: 3, four: 4, five: 5, six: 6, un: 1, una: 1, uno: 1, dos: 2, tres: 3, cuatro: 4, cinco: 5, ek: 1, do: 2, teen: 3, char: 4, panch: 5, "एक": 1, "दो": 2, "तीन": 3, "चार": 4, "पांच": 5, "पाँच": 5, "ایک": 1, "دو": 2, "تین": 3, "چار": 4, "پانچ": 5, "એક": 1, "બે": 2, "ત્રણ": 3, "ચાર": 4, "પાંચ": 5, "ਇੱਕ": 1, "ਦੋ": 2, "ਤਿੰਨ": 3, "ਚਾਰ": 4, "ਪੰਜ": 5, "واحد": 1, "واحدة": 1, "اثنان": 2, "اثنين": 2, "ثلاثة": 3, "أربعة": 4, "خمسة": 5 };
+  const SPICE = [
+    [/extra spicy|very spicy|extra hot|muy picante|bahut (teekha|tikha)|बहुत तीखा|بہت تیز|બહુ તીખું|ਬਹੁਤ ਤਿੱਖਾ|حار جداً|حار جدا/i, "xspicy"],
+    [/\bspicy\b|\bhot\b|picante|teekha|tikha|तीखा|تیز|તીખું|ਤਿੱਖਾ|حار/i, "spicy"],
+    [/\bmedium\b|medio|मीडियम|درمیانی|મીડિયમ|ਮੀਡੀਅਮ|متوسط/i, "medium"],
+    [/\bmild\b|not spicy|no spice|suave|कम तीखा|कम|کم|ઓછું|ਘੱਟ|خفيف/i, "mild"],
+  ];
+  const NOTE = /(?:^|\s)(no|without|sin|bina|بدون)\s+([\p{L}\p{M}\s]+?)(?=[,.]|$)|([\p{L}\p{M}\s]+?)\s+(nahi|nahin|नहीं|نہیں|નહીં|ਨਹੀਂ)(?=\s|$)/iu;
+  const norm = (s) => s.toLowerCase().replace(/[।۔]/g, ",").replace(/\s+/g, " ").trim();
+  function parseOrder(text) {
+    const chunks = norm(text).split(/\s*(?:,|;|\+|\band\b|\bplus\b|\bthen\b|\by\b|\baur\b|और|اور|અને|ਅਤੇ|\bو\b|،)\s*/u).filter(Boolean);
+    const out = [];
+    let pendingMods = [], pendingSpice = "";
+    for (let raw of chunks) {
+      let chunk = raw, mods = [], qty = 1;
+      // spice words
+      let spice = "";
+      for (const [re, key] of SPICE) { if (re.test(chunk)) { spice = key; chunk = chunk.replace(re, " "); break; } }
+      // "no onions" style notes
+      const nm = chunk.match(NOTE);
+      if (nm) { const what = (nm[2] || nm[3] || "").trim(); if (what) mods.push(noWord() + what); chunk = chunk.replace(nm[0], " "); }
+      // quantity
+      const words = chunk.trim().split(/\s+/);
+      if (/^\d+$/.test(words[0])) { qty = +words[0]; words.shift(); }
+      else if (NUMS[words[0]] !== undefined && words.length > 1) { qty = NUMS[words[0]]; words.shift(); }
+      const rest = words.join(" ").trim();
+      if (!rest) { // a chunk that was only a modifier ("extra spicy", "no onions") applies to the last dish
+        const last = out.length && !out[out.length - 1].miss ? out[out.length - 1] : null;
+        if (last) { last.mods.push(...mods); if (spice) { if (last.m.spice) last.spice = spice; else last.mods.push("@" + spice); } } else { pendingMods.push(...mods); if (spice) pendingSpice = spice; }
+        continue;
+      }
+      const m = bestDish(rest);
+      if (!m) { out.push({ miss: rest }); continue; }
+      let size = m.sizes[0];
+      if (m.sizes.length > 1) { const f = m.sizes.find((s) => rest.includes(s.l.toLowerCase())); if (f) size = f; }
+      out.push({ m, name: m.name + (m.sizes.length > 1 ? " (" + size.l + ")" : ""), qty: Math.max(1, Math.min(20, qty)), each: size.p, sizeL: m.sizes.length > 1 ? size.l : "", spice: m.spice ? (spice || pendingSpice || "medium") : "", mods: [...pendingMods, ...mods] });
+      pendingMods = []; pendingSpice = "";
+    }
+    return out;
+  }
+  function bestDish(s) {
+    const toks = s.split(/\s+/).filter((w) => w.length > 1);
+    let best = null, bs = 0;
+    for (const m of M) {
+      const al = (m.alias + " " + m.name.toLowerCase()).split(/\s+/);
+      let sc = 0;
+      for (const w of toks) { if (al.includes(w)) sc += 2; else if (al.some((a) => a.length > 3 && (a.startsWith(w) || w.startsWith(a)))) sc += 1; }
+      // whole-alias phrase bonus so "garlic naan" beats "naan" and "goat biryani" beats "chicken biryani"
+      const phrase = m.name.toLowerCase();
+      if (s.includes(phrase)) sc += 3;
+      if (sc > bs) { bs = sc; best = m; }
+    }
+    return bs >= 2 ? best : null;
+  }
+  function applyTyped(text) {
+    const got = parseOrder(text);
+    if (!got.length) return;
+    for (const x of got) if (!x.miss) S.cart.push({ id: x.m.id, name: x.m.name, size: x.sizeL, spice: x.spice, mods: x.mods, qty: x.qty, each: x.each });
+    S.got = got;
+    $("#gGot").innerHTML = gotHTML();
+    bar(); if (got.some((x) => !x.miss)) step("add");
+    const inp = $("#gType"); if (inp) inp.value = "";
+  }
+
+  function wire(v) {
+    $$("[data-go]", g).forEach((b) => b.addEventListener("click", () => go(b.dataset.go)));
+    $$("[data-lang]", g).forEach((b) => b.addEventListener("click", () => { S.lang = b.dataset.lang; L = T[S.lang]; step("lang"); S.view = "menu"; mount(); }));
+    $$("[data-item]", g).forEach((b) => b.addEventListener("click", () => openItem(b.dataset.item)));
+    if (v === "menu") {
+      const inp = $("#gType"), run = () => { if (inp.value.trim()) applyTyped(inp.value); };
+      $("#gTypeGo").addEventListener("click", run);
+      inp.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); run(); } });
+      $$("[data-eg]").forEach((b) => b.addEventListener("click", () => { inp.value = b.dataset.eg; applyTyped(b.dataset.eg); }));
+      $$("[data-cat]").forEach((b) => b.addEventListener("click", () => {
+        $$("[data-cat]").forEach((x) => x.classList.toggle("is-on", x === b));
+        const tg = $("#cat-" + b.dataset.cat), sc = $("#gScroll");
+        if (tg) sc.scrollTop += tg.getBoundingClientRect().top - sc.getBoundingClientRect().top - $("#gCats").offsetHeight - 8;
+      }));
+    }
+    if (v === "cart") wireCart();
+  }
+
+  /* item sheet */
+  function openSheet(html) { const s = $("#gSheet"); s.innerHTML = `<div class="g-sheet__grab"></div>` + html; s.classList.add("is-on"); $("#gBg").classList.add("is-on"); }
+  function closeSheet() { $("#gSheet").classList.remove("is-on"); $("#gBg").classList.remove("is-on"); }
+  function openItem(id) {
+    const m = M.find((x) => x.id === id); let size = 0, spice = "medium", qty = 1;
+    const draw = () => {
+      const price = m.sizes[size].p * qty;
+      openSheet(`<h4>${esc(m.name)}</h4><p class="g-muted">${esc(m.desc)}</p>
+        ${m.sizes.length > 1 ? `<p class="g-opt-h">${esc(t("size"))}</p><div class="g-opts">${m.sizes.map((s, i) => `<button class="g-opt" data-size="${i}" aria-pressed="${i === size}"><span>${esc(s.l)}</span><span>${money(s.p)}</span></button>`).join("")}</div>` : ""}
+        ${m.spice ? `<p class="g-opt-h">${esc(t("spice"))}</p><div class="g-opts">${["mild", "medium", "spicy", "xspicy"].map((s) => `<button class="g-opt" data-spice="${s}" aria-pressed="${s === spice}"><span>${esc(t(s))}</span><span></span></button>`).join("")}</div>` : ""}
+        <div class="g-qty"><button data-q="-1" aria-label="${esc(t("less"))}">−</button><b>${qty}</b><button data-q="1" aria-label="${esc(t("more"))}">+</button></div>
+        <button class="g-btn g-btn--block" id="gAdd">${esc(t("addn", { n: qty }))} · ${money(price)}</button>`);
+      $$("[data-size]").forEach((b) => b.addEventListener("click", () => { size = +b.dataset.size; draw(); }));
+      $$("[data-spice]").forEach((b) => b.addEventListener("click", () => { spice = b.dataset.spice; draw(); }));
+      $$("[data-q]").forEach((b) => b.addEventListener("click", () => { qty = Math.max(1, qty + +b.dataset.q); draw(); }));
+      $("#gAdd").addEventListener("click", () => {
+        S.cart.push({ id: m.id, name: m.name, size: m.sizes.length > 1 ? m.sizes[size].l : "", spice: m.spice ? spice : "", mods: [], qty, each: m.sizes[size].p });
+        closeSheet(); bar(); toast(t("added", { x: m.name })); step("add");
+      });
+    };
+    draw();
+  }
+  const sub = () => S.cart.reduce((a, l) => a + l.each * l.qty, 0);
+  const totals = () => { const s = sub(), tax = s * TAX; return { s, tax, t: s + tax }; };
+  function bar() {
+    const b = $("#gBar"); if (!b) return; const n = S.cart.reduce((a, l) => a + l.qty, 0);
+    b.classList.toggle("is-empty", !n); $("#gBarN").textContent = n; $("#gBarT").textContent = n ? money(sub()) : t("nothing");
+  }
+
+  /* cart + test-mode pay */
+  function vCart() {
+    const X = totals();
+    if (!S.cart.length) return head("menu") + `<div class="g-done"><h2 class="g-h2">${esc(t("yourorder"))}</h2><p class="g-muted">${esc(t("empty"))}</p><div style="margin-top:16px"><button class="g-btn" data-go="menu">${esc(t("seemenu"))}</button></div></div>`;
+    return head("menu") + `<div class="g-sec" style="padding-top:16px"><h2 class="g-h2" style="margin-bottom:4px">${esc(t("yourorder"))}</h2>
+      ${S.cart.map((l, i) => `<div class="g-line"><span class="g-line__q">${l.qty}×</span><span class="g-line__n">${esc(l.name)}<small>${esc([l.size, ...modsOf(l)].filter(Boolean).join(" · "))}</small></span><span class="g-price">${money(l.each * l.qty)}</span><button class="g-rm" data-rm="${i}" aria-label="${esc(t("remove"))}">✕</button></div>`).join("")}
+      <div style="margin-top:12px"><div class="g-tot"><span>${esc(t("subtotal"))}</span><span>${money(X.s)}</span></div><div class="g-tot"><span>${esc(t("tax"))}</span><span>${money(X.tax)}</span></div><div class="g-tot g-tot--big"><span>${esc(t("total"))}</span><span>${money(X.t)}</span></div></div>
+      <label class="g-field" style="margin-top:12px">${esc(t("note"))}<input id="gNote" value="" placeholder="${esc(t("noteph"))}" autocomplete="off"></label>
+      <div class="g-card"><div class="g-testnote">${esc(t("test"))}</div>
+        <label class="g-field">${esc(t("cardno"))}<input value="4242 4242 4242 4242" inputmode="numeric" autocomplete="off" readonly></label>
+        <div class="g-card__row"><label class="g-field">${esc(t("exp"))}<input value="12/29" readonly></label><label class="g-field">${esc(t("cvc"))}<input value="424" readonly></label></div>
+        <label class="g-field">${esc(t("cardname"))}<input id="gName" value="Alex" autocomplete="off"></label></div>
+      <button class="g-pay" id="gPay">${esc(t("pay", { t: money(X.t) }))}</button>
+      <p class="g-muted" style="padding:10px 0 0;text-align:center;font-size:13px">${esc(t("payline"))}</p></div>`;
+  }
+  function wireCart() {
+    $$("[data-rm]").forEach((b) => b.addEventListener("click", () => { S.cart.splice(+b.dataset.rm, 1); go("cart", true); }));
+    const pay = $("#gPay"); if (!pay) return;
+    pay.addEventListener("click", async () => {
+      pay.disabled = true; pay.textContent = t("paying"); await sleep(1100);
+      const X = totals(), no = ++S.orderNo, note = ($("#gNote").value || "").trim(), name = ($("#gName").value || "Alex").trim();
+      S.last = { no, name, note, lines: S.cart.map((l) => ({ ...l })), total: X.t, sub: X.s, tax: X.tax, at: new Date(), lang: S.lang };
+      S.cart = []; S.got = null; step("pay"); step("ticket");
+      $("#ticketOut").textContent = ticketText(S.last); $("#ticketwrap").classList.add("is-on");
+      go("done");
+      await sleep(2600); const li = $$("#gTrack li"); if (li[1]) li[1].classList.add("is-on");
+      await sleep(3200); if (li[2]) li[2].classList.add("is-on");
+    });
+  }
+  function ticketText(o) {
+    const hhmm = o.at.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+    const lang = (LANGS.find((x) => x[0] === o.lang) || LANGS[0])[2];
+    const w = 32, row = (l, r) => l.padEnd(w - r.length, " ") + r;
+    const lines = [];
+    lines.push(NAME.toUpperCase() + "  ·  TABLE " + TABLE + "  ·  PAID");
+    lines.push("#" + o.no + "  " + hhmm + "  " + o.name + "  (" + lang + ")");
+    lines.push("-".repeat(w));
+    for (const l of o.lines) {
+      lines.push(row(l.qty + "  " + l.name + (l.size ? " " + l.size : ""), money(l.each * l.qty)));
+      for (const m of modsOf(l, T.en)) lines.push("     " + m.toUpperCase());
+    }
+    if (o.note) lines.push("     NOTE: " + o.note.toUpperCase());
+    lines.push("-".repeat(w));
+    lines.push(row("TOTAL (incl. tax)", money(o.total)));
+    lines.push(row("CARD **** 4242", "PAID"));
+    lines.push("DINE-IN  ·  BRING TO TABLE " + TABLE);
+    return lines.join("\n");
+  }
+  function vDone() {
+    const o = S.last;
+    return head() + `<div class="g-done"><div class="g-check">✓</div><h2 class="g-h2">${esc(t("paid"))}</h2>
+      <p class="g-muted">${esc(t("order"))} #${o.no} · ${money(o.total)}</p>
+      <ul class="g-track" id="gTrack"><li class="is-on"><i>✓</i>${esc(t("s1"))}</li><li><i></i>${esc(t("s2"))}</li><li><i></i>${esc(t("s3"))}</li></ul></div>
+      <div class="g-slip"><p>${esc(t("slip"))}</p><div class="ticket" dir="ltr">${esc(ticketText(o))}</div></div>
+      <div style="padding:20px 16px 8px;text-align:center"><button class="g-btn g-btn--line" data-go="menu">${esc(t("again"))}</button></div>`;
+  }
+
+  mount();
+})();
+</script>
+</body>
+</html>
