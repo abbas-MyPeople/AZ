@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Zoeb;Abbas;;;
+FN:Abbas Zoeb
+ORG:AZ Restaurant Partners
+TITLE:Founder & CEO
+TEL;TYPE=CELL,VOICE:+1-408-393-6716
+EMAIL;TYPE=WORK,INTERNET:abbas@azrestaurantpartners.com
+URL:https://azrestaurantpartners.com
+ADR;TYPE=WORK:;;;Houston;TX;;United States
+NOTE:Former Google engineer. Enterprise AI architect for Hard Rock Cafe's first AI agents. Co-owner and operator of Wok & Karahi in Spring, TX. Digital profile: https://azrestaurantpartners.com/abbas.html
+END:VCARD
