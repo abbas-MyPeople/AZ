@@ -37,411 +37,161 @@
 {"@type":"Offer","itemOffered":{"@type":"Service","name":"Commission-free online ordering and own delivery"}},
 {"@type":"Offer","itemOffered":{"@type":"Service","name":"Guest texting and win-back"}},
 {"@type":"Offer","itemOffered":{"@type":"Service","name":"Reviews, Google and AI-search visibility"}},
-{"@type":"Offer","itemOffered":{"@type":"Service","name":"Owner dashboard, morning brief and alerts"}}]}},
-{"@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "I'm not good with computers.", "acceptedAnswer": {"@type": "Answer", "text": "You don't have to be. We set it up and run it. You just talk to it, in your own language."}},{"@type": "Question", "name": "My customers are older. Will they use it?", "acceptedAnswer": {"@type": "Answer", "text": "They can press one button and say what they want. Or they call, and it answers like a person."}},{"@type": "Question", "name": "Do I need a new register?", "acceptedAnswer": {"@type": "Answer", "text": "No. We work with what you have. Our own restaurant runs on Clover."}},{"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on what you want off your plate, just the phone or everything. You know the price before we start. No long contract."}},{"@type": "Question", "name": "What if it gets an order wrong?", "acceptedAnswer": {"@type": "Answer", "text": "The customer sees the whole order on their phone before paying. If something goes wrong, we fix it. You don't."}}]}
+{"@type":"Offer","itemOffered":{"@type":"Service","name":"Owner dashboard, morning brief and alerts"}}]}}
 ]}
 </script>
 <style>
-:root{--ink:oklch(23% 0.012 60);--ink2:oklch(45% 0.010 60);--paper:oklch(97% 0.006 75);--surface:#fff;--surface2:oklch(93.5% 0.007 75);--rule:oklch(88% 0.008 70);
---deep:oklch(38% 0.070 160);--ticket:oklch(53% 0.150 32);--brand:#1c4739;--onbrand:#fff;--onbrand2:#bcd8cc;--ok:oklch(45% 0.1 160);
---slab:#1a1714;--onslab:#f2ede7;--onslab2:#c8c0b6;--sea1:#1d4a4a;--sea2:#0f2b30;--sea3:#08181c;
---dark:#16130f;--darkfg:#f2ebdf;--darkmuted:#b6ab9b;--mono:ui-monospace,"SF Mono",Menlo,monospace;
---sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--serif:Georgia,"Iowan Old Style",serif}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:oklch(94% 0.010 75);--ink2:oklch(78% 0.010 75);--paper:oklch(16% 0.008 70);--surface:oklch(20% 0.008 70);--surface2:oklch(25% 0.008 70);--rule:oklch(31% 0.009 70);--deep:oklch(76% 0.105 162);--ticket:oklch(70% 0.135 34);--ok:oklch(76% 0.105 162);color-scheme:dark}}
-:root[data-theme="dark"]{--ink:oklch(94% 0.010 75);--ink2:oklch(78% 0.010 75);--paper:oklch(16% 0.008 70);--surface:oklch(20% 0.008 70);--surface2:oklch(25% 0.008 70);--rule:oklch(31% 0.009 70);--deep:oklch(76% 0.105 162);--ticket:oklch(70% 0.135 34);--ok:oklch(76% 0.105 162);color-scheme:dark}
+/* One idea per screen: headline, film, proof, ask. Nothing else. */
+:root{--ink:oklch(21% 0.012 60);--ink2:oklch(47% 0.010 60);--paper:oklch(98.5% 0.004 75);--surface:#fff;--rule:oklch(90% 0.006 70);
+--brand:#1c4739;--onbrand:#fff;--accent:oklch(45% 0.1 160);--slab:#14110e;--onslab:#f2ede7;--onslab2:#bfb7ad;
+--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:oklch(95% 0.008 75);--ink2:oklch(74% 0.010 75);--paper:oklch(14% 0.006 70);--surface:oklch(19% 0.007 70);--rule:oklch(28% 0.008 70);--brand:#2e7a5f;--accent:oklch(78% 0.1 160);color-scheme:dark}}
+:root[data-theme="dark"]{--ink:oklch(95% 0.008 75);--ink2:oklch(74% 0.010 75);--paper:oklch(14% 0.006 70);--surface:oklch(19% 0.007 70);--rule:oklch(28% 0.008 70);--brand:#2e7a5f;--accent:oklch(78% 0.1 160);color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
 html[lang=ur] body{font-family:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq","Urdu Typesetting",var(--sans);line-height:1.9}
 html[lang=hi] body{font-family:"Noto Sans Devanagari","Kohinoor Devanagari",var(--sans)}
 img{max-width:100%;height:auto;display:block}
-.w{max-width:1080px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
-:focus-visible{outline:2.5px solid var(--deep);outline-offset:3px}
-
-/* press ticker (kept from the previous home) */
-.press{background:var(--dark);color:var(--darkfg)}
-.press .in{max-width:1080px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:clamp(14px,3vw,32px);padding-block:12px}
-.press .lbl{flex:none;font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--darkmuted)}
-.press .win{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent)}
-.press .track{display:flex;width:max-content}
-.press .logos{display:flex;align-items:center;gap:clamp(22px,4vw,48px);padding-right:clamp(22px,4vw,48px)}
-.press .lg{flex:none;display:flex;align-items:center;background:#fff;border-radius:10px;padding:6px 14px}
-.press .lg img{display:block;height:clamp(34px,5vw,52px);width:auto}
-@media (prefers-reduced-motion:no-preference){.press .track{animation:press-roll 26s linear infinite}.press .win:hover .track,.press .win:focus-within .track{animation-play-state:paused}@keyframes press-roll{to{transform:translateX(-50%)}}}
-@media (prefers-reduced-motion:reduce){.press .logos[aria-hidden]{display:none}.press .logos{flex-wrap:wrap;padding-right:0}.press .track{width:auto}}
-@media (max-width:560px){.press .lbl{font-size:10.5px}}
-[dir=rtl] .press .track{direction:ltr}
-
-/* nav */
-nav{position:sticky;top:0;z-index:20;background:color-mix(in oklab,var(--paper) 88%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
-nav .w{display:flex;align-items:center;gap:12px;min-height:60px}
-.logo{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.02em;text-decoration:none;color:var(--ink);margin-inline-end:auto;font-size:16px}
-.logo em{font-style:normal;font-weight:500;color:var(--ink2)}
-@media (max-width:520px){.logo em{display:none}}
-.lang{display:flex;border:1px solid var(--rule);border-radius:5px;overflow:hidden}
-.lang button{all:unset;cursor:pointer;padding:6px 9px;font-size:13.5px;font-weight:700;color:var(--ink2);min-height:32px;display:grid;place-items:center}
-.lang button[aria-pressed=true]{background:var(--brand);color:#fff}
-.nbtn{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:5px;background:var(--brand);color:#fff;font-weight:700;font-size:14.5px;text-decoration:none;white-space:nowrap}
-@media (max-width:420px){.nbtn{display:none}}
-
-/* shared */
-section{padding:72px 0;border-top:1px solid var(--rule)}
-section.flush{border-top:0;padding-top:48px}
-@media (max-width:760px){section{padding:52px 0}}
-h1,h2,h3{text-wrap:balance}
-h2{font-size:clamp(28px,4.2vw,42px);letter-spacing:-.035em;line-height:1.06;margin:0 0 12px;font-weight:820}
-html[lang=ur] h1,html[lang=ur] h2{letter-spacing:0;line-height:1.5}
-.kick{font:600 11.5px/1 var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--ticket);margin:0 0 12px}
-.lede{font-family:var(--serif);color:var(--ink2);font-size:19px;margin:0 0 30px;max-width:56ch}
-html[lang=ur] .kick,html[lang=hi] .kick{font-family:inherit;letter-spacing:0;font-size:14px}
-html[lang=ur] .lede,html[lang=hi] .lede{font-family:inherit}
-.btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;border-radius:6px;font-weight:700;font-size:16.5px;text-decoration:none;border:1px solid var(--rule);color:var(--ink);background:var(--surface);cursor:pointer;font-family:inherit}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px}
+.w{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+nav .w{display:flex;align-items:center;gap:14px;min-height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;text-decoration:none;color:var(--ink);margin-inline-end:auto;font-size:16px}
+@media (max-width:480px){.logo span{display:none}}
+.ntry{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px}
+.lang{display:flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden}
+.lang button{all:unset;cursor:pointer;padding:6px 11px;font-size:13.5px;font-weight:700;color:var(--ink2);min-height:30px;display:grid;place-items:center}
+.lang button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.hero{text-align:center;padding-block:clamp(56px,10vw,120px) clamp(36px,6vw,64px)}
+.hero h1{margin:0 auto;max-width:15ch;font-size:clamp(42px,7.4vw,88px);line-height:.98;letter-spacing:-.05em;font-weight:850;text-wrap:balance}
+html[lang=ur] .hero h1,html[lang=hi] .hero h1{letter-spacing:0;line-height:1.4;max-width:20ch;font-size:clamp(34px,5.6vw,64px)}
+.hero p{margin:24px auto 0;max-width:46ch;font-size:clamp(18px,2.1vw,22px);color:var(--ink2);text-wrap:balance}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 28px;border-radius:999px;font-weight:700;font-size:16.5px;text-decoration:none;color:var(--ink);border:1px solid var(--rule);background:var(--surface);font-family:inherit;cursor:pointer}
 .btn.p{background:var(--brand);color:var(--onbrand);border-color:var(--brand)}
 @media (max-width:520px){.btns .btn{width:100%}}
-
-/* hero */
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
-@media (max-width:860px){.hero{grid-template-columns:1fr;gap:30px}}
-.hero h1{font-size:clamp(36px,5.4vw,56px);line-height:1;letter-spacing:-.045em;margin:12px 0 18px;font-weight:840}
-html[lang=ur] .hero h1{line-height:1.45;letter-spacing:0;font-size:clamp(34px,5.4vw,56px)}
-.sub{font-family:var(--serif);font-size:20px;color:var(--ink2);margin:0 0 26px}
-html[lang=ur] .sub,html[lang=hi] .sub{font-family:inherit}
-.seen{display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:700;color:var(--ink2);flex-wrap:wrap}
-.seen i{font-style:normal;background:#0b3d91;color:#fff;padding:2px 7px;border-radius:4px}
-.seen i+i{background:#c8102e}
-.hook{margin:16px 0 0;font-size:15.5px;color:var(--ink2)}.hook b{color:var(--ink)}
-.stage{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/5;max-height:620px;width:100%;background:#0f2a22;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
-.stage img{width:100%;height:100%;object-fit:cover;object-position:96% 30%}
-@media (max-width:860px){.stage{aspect-ratio:4/4.6}}
-.toasts{position:absolute;inset-inline:12px;bottom:12px;display:grid;gap:8px}
-.toast{background:rgba(255,255,255,.96);color:#1a1714;border-radius:10px;padding:10px 12px;display:flex;gap:10px;align-items:center;font-size:14.5px;line-height:1.3;box-shadow:0 6px 20px rgba(0,0,0,.25)}
-.toast i{width:9px;height:9px;border-radius:50%;background:#1d8a5a;flex:none}
-.toast span{flex:1}.toast small{color:#6b655d;font-size:12.5px;white-space:nowrap}
-@media (prefers-reduced-motion:no-preference){
- .toast{animation:pop .5s cubic-bezier(.2,.8,.2,1) both}
- .toast:nth-child(2){animation-delay:.9s}.toast:nth-child(3){animation-delay:1.8s}.toast:nth-child(4){animation-delay:2.7s}
- @keyframes pop{from{transform:translateY(16px) scale(.96)}to{transform:none}}}
-
-/* pains */
-.pains{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media (max-width:720px){.pains{grid-template-columns:1fr}}
-.pain{background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
-.pain .shot{aspect-ratio:16/9;overflow:hidden;background:var(--surface2)}
-.pain .shot img{width:100%;height:100%;object-fit:cover;object-position:top}
-.pain .shot,.rail figure{background:#efe9e0}
-img.wide{object-fit:contain!important;object-position:center!important;background:#efe9e0}
-.pain .tx{padding:18px 20px}
-.pain q{display:block;font-size:21px;font-weight:780;letter-spacing:-.015em;quotes:none;line-height:1.25}
-.pain p{margin:10px 0 0;color:var(--ink2);font-size:16px}
-.pain p b{color:var(--ok)}
-
-/* iceberg */
-.berg{border-radius:14px;overflow:hidden;border:1px solid var(--rule)}
-.above{background:linear-gradient(#e9f1f3,#d7e6ea);padding:26px 22px 30px;text-align:center;color:#1a2a2e}
-.above h3{margin:0 0 4px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#4a5f64}
-html[lang=ur] .above h3,html[lang=hi] .above h3{letter-spacing:0;font-size:15px}
-.above p{margin:0 0 14px;font-family:var(--serif);font-size:17px}
-.tipchips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.tipchips span{background:#fff;border:1px solid #c3d4d8;border-radius:6px;padding:6px 12px;font-weight:700;font-size:15px}
-.wave{display:block;width:100%;height:28px;background:#d7e6ea}
-.below{background:linear-gradient(var(--sea1),var(--sea2) 45%,var(--sea3));color:#e6f1f0;padding:30px 22px 34px;display:grid;gap:26px}
-.below>h3{margin:0;text-align:center;font-size:clamp(22px,3.4vw,30px);letter-spacing:-.02em;color:#fff}
-.layer{display:grid;grid-template-columns:160px 1fr;gap:16px;align-items:start}
-@media (max-width:660px){.layer{grid-template-columns:1fr;gap:8px}}
-.layer .lh b{display:block;font-size:18px;color:#fff}
-.layer .lh small{font:600 11px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#8fc9bd}
-.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
-.it{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:10px 12px;font-size:15px;line-height:1.35}
-.it b{display:block;color:#fff;font-size:15.5px;margin-bottom:2px}
-.it span{color:#b9d3cf;font-size:14px}
-@supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){
- .it{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
- @keyframes rise{from{transform:translateY(18px)}to{transform:none}}}}
-
-/* chains */
-.chain{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule);border-radius:12px;overflow:hidden}
-@media (max-width:720px){.chain{grid-template-columns:1fr}}
-.chain>div{padding:24px}
-.chain .big{background:var(--surface2)}
-.chain .you{background:var(--brand);color:var(--onbrand)}
-.chain h3{margin:0 0 14px;font-size:20px}
-.chain .you h3{color:#fff}
-.chain dl{margin:0;display:grid;gap:12px}
-.chain dt{font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
-html[lang=ur] .chain dt,html[lang=hi] .chain dt{font:700 13px/1.4 inherit;letter-spacing:0}
-.chain .you dt{color:var(--onbrand2)}
-.chain dd{margin:3px 0 0;font-size:16.5px}
-.founder{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin-top:22px;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px}
-.founder img{width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:78% 22%}
-.founder p{margin:0;font-size:16px}.founder p b{display:block;font-size:17px}
-.creds{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.creds span{font-size:12.5px;font-weight:700;border:1px solid var(--rule);border-radius:4px;padding:2px 7px;color:var(--ink2)}
-
-/* proof */
-.proof{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
-@media (max-width:860px){.proof{grid-template-columns:1fr}}
-.proof figure{margin:0;display:grid;gap:8px}
-.proof figure img{border-radius:10px;width:100%;aspect-ratio:16/10;object-fit:cover}
-.crews{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.crews div{position:relative;border-radius:10px;overflow:hidden}
-.crews img{width:100%;aspect-ratio:4/4.4;object-fit:cover;object-position:center 22%}
-.crews span{position:absolute;inset-inline-start:8px;bottom:8px;background:rgba(0,0,0,.72);color:#fff;font-size:12.5px;font-weight:700;padding:3px 8px;border-radius:4px}
-.proof figure a{font-weight:700;color:var(--deep);font-size:15px}
-.big3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 20px}
-.big3 div{border-top:3px solid var(--ticket);padding-top:8px;font-size:14px;color:var(--ink2)}
-.big3 b{display:block;font-size:26px;color:var(--ink);letter-spacing:-.02em;line-height:1.1}
-.clips{display:grid;gap:8px}
-.hear{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:10px 12px}
-.hear button{all:unset;cursor:pointer;width:44px;height:44px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;flex:none;font-size:14px}
-.hear span{font-family:var(--serif);font-size:16.5px;line-height:1.3}.hear small{display:block;font-family:var(--sans);color:var(--ink2);font-size:13px}
-
-/* gallery */
-.rail{display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,320px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;overscroll-behavior-x:contain}
-.rail figure{margin:0;scroll-snap-align:start;background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
-.rail img{width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:top}
-.rail figcaption{padding:10px 12px;font-size:14.5px;font-weight:650}
-.hint{font-size:13.5px;color:var(--ink2);margin-top:6px}
-
-/* steps + faq + cta */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;counter-reset:s}
-@media (max-width:720px){.steps{grid-template-columns:1fr}}
-.steps div{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px}
-.steps div::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;margin-bottom:10px}
-.steps b{display:block;font-size:18px;margin-bottom:4px}.steps p{margin:0;color:var(--ink2);font-size:16px}
-.faq{margin-top:30px}
-.faq details{border-top:1px solid var(--rule);padding:14px 0}
-.faq summary{cursor:pointer;font-weight:750;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:12px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--ticket);font-family:var(--mono)}
-.faq details[open] summary::after{content:"-"}
-.faq p{margin:8px 0 0;color:var(--ink2)}
-.cta{background:var(--slab);color:var(--onslab);border-radius:14px;padding:32px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
-@media (max-width:860px){.cta{grid-template-columns:1fr;padding:24px}}
-.cta h2{color:#fff}.cta p.cp{margin:0 0 18px;color:var(--onslab2);font-family:var(--serif);font-size:18px}
-.cta ol{margin:0;padding-inline-start:20px;color:var(--onslab2);display:grid;gap:4px;font-size:15.5px}
-form{display:grid;gap:8px}
-form input{min-height:52px;border-radius:6px;border:0;padding:0 14px;font:inherit;background:#fff;color:#1a1714;width:100%}
-form .btn{background:#c2410c;color:#fff;border:0;min-height:56px;font-size:17px;width:100%}
-.formnote{color:var(--onslab2);font-size:14px;margin:2px 0 0}
-.formnote.err{color:#ffb4a0}.formnote.ok{color:#9fe0c2}
-.formnote a{color:#fff}
-.honey{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-footer{border-top:1px solid var(--rule);padding:40px 0 100px;font-size:14.5px;color:var(--ink2)}
-footer .in{max-width:1080px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.film{margin:0 auto;max-width:1120px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.film video{width:100%;display:block;border-radius:22px;background:#0d0f12;aspect-ratio:16/9;cursor:pointer}
+@media (max-width:640px){.film video{aspect-ratio:9/16;width:min(100%,calc(78vh * 9 / 16));margin:0 auto;border-radius:18px}}
+.film .ctl{display:flex;justify-content:center;margin-top:14px}
+.film .ctl button{all:unset;cursor:pointer;font-size:14px;font-weight:600;color:var(--ink2);padding:6px 12px;border-radius:999px}
+.film .ctl button:hover{color:var(--ink)}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,56px);padding-block:clamp(64px,9vw,112px);text-align:center}
+@media (max-width:720px){.proof{grid-template-columns:1fr;gap:36px}}
+.proof b{display:block;font-size:clamp(44px,5.6vw,68px);line-height:1;letter-spacing:-.04em;font-weight:850}
+html[lang=ur] .proof b,html[lang=hi] .proof b{letter-spacing:0;line-height:1.4;font-size:clamp(34px,4.4vw,52px)}
+.proof span{display:block;margin-top:10px;color:var(--ink2);font-size:17px;max-width:24ch;margin-inline:auto}
+.seen{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;color:var(--ink2);font-size:14px;font-weight:600;padding-bottom:clamp(64px,9vw,112px)}
+.seen img{height:auto}
+.news{padding-bottom:clamp(64px,9vw,112px);text-align:center}
+.news h2,.founder h2{margin:0 0 28px;font-size:clamp(28px,3.6vw,40px);letter-spacing:-.035em;line-height:1.08;font-weight:820;text-wrap:balance}
+html[lang=ur] .news h2,html[lang=ur] .founder h2,html[lang=hi] .news h2,html[lang=hi] .founder h2{letter-spacing:0;line-height:1.5}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:820px;margin:0 auto}
+@media (max-width:560px){.cards{grid-template-columns:1fr}}
+.nc{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:var(--ink);text-align:start;min-width:0}
+.nc .ph{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px}
+.nc .meta{display:flex;align-items:center;gap:12px;color:var(--ink2);font-size:15px;font-weight:600}
+.nc .meta img{height:30px;width:auto}
+.nc .go{font-weight:700;font-size:16px}
+.nc:hover .go{text-decoration:underline}
+.founder{display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,4vw,48px);align-items:center;max-width:820px;margin:0 auto;padding-bottom:clamp(64px,9vw,112px)}
+@media (max-width:560px){.founder{grid-template-columns:1fr;text-align:center}.founder img{margin:0 auto}}
+.founder img{width:200px;height:200px;border-radius:50%;object-fit:cover}
+.founder h2{margin:0 0 12px;font-size:clamp(24px,3vw,32px)}
+.founder p{margin:0;color:var(--ink2);font-size:18px;max-width:46ch}
+.creds{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+@media (max-width:560px){.creds{justify-content:center}}
+.creds li{border:1px solid var(--rule);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600;color:var(--ink)}
+#start{background:var(--slab);color:var(--onslab);padding-block:clamp(64px,9vw,104px)}
+#start h2{margin:0 auto;text-align:center;max-width:18ch;font-size:clamp(32px,4.6vw,52px);line-height:1.04;letter-spacing:-.04em;font-weight:850;text-wrap:balance}
+html[lang=ur] #start h2,html[lang=hi] #start h2{letter-spacing:0;line-height:1.45}
+#start .cp{margin:16px auto 34px;text-align:center;color:var(--onslab2);font-size:19px;max-width:44ch}
+form{max-width:520px;margin:0 auto;display:grid;gap:10px}
+form input{min-height:54px;border-radius:12px;border:0;padding:0 16px;font:inherit;background:#fff;color:#1a1714;width:100%}
+form .btn{background:#fff;color:#14110e;border:0;width:100%;margin-top:4px}
+.formnote{color:var(--onslab2);font-size:14px;margin:4px 0 0;text-align:center}
+.formnote.err{color:#ffb4a0}.formnote.ok{color:#9fe0c2}.formnote a{color:#fff}
+.honey{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);opacity:0}
+footer{border-top:1px solid var(--rule);padding:40px 0 56px;font-size:14px;color:var(--ink2)}
+footer .in{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:24px}
 @media (max-width:820px){footer .cols{grid-template-columns:1fr 1fr}}
 footer h5{margin:0 0 8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
 footer a{display:block;color:var(--ink2);text-decoration:none;padding:3px 0}
 footer a:hover{color:var(--ink)}
-.sticky{position:fixed;inset-inline:0;bottom:0;z-index:30;background:color-mix(in oklab,var(--paper) 92%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--rule);padding:10px max(16px,env(safe-area-inset-left,0px)) calc(10px + env(safe-area-inset-bottom,0px));transition:transform .25s}
-.sticky .btn{width:100%}
-.sticky.away{transform:translateY(110%)}
-@media (min-width:861px){.sticky{display:none}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky{transition:none}}
+footer .logo{display:flex}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
-<div class="press" aria-label="Press"><div class="in">
-  <span class="lbl">As seen on</span>
-  <div class="win"><div class="track">
-    <div class="logos">
-      <a class="lg" href="#fox" data-track="press_click" data-track-to="fox26"><img class="fox" src="/assets/press/fox26.svg" alt="FOX 26 Houston" width="199" height="72"></a>
-      <span class="lg"><img src="/assets/press/kprc2.svg" alt="KPRC 2 Houston" width="56" height="72"></span>
-      <a class="lg" href="https://muslimmirror.com/no-servers-no-host-and-no-phone-calls-ai-takes-over-at-a-halal-restaurant-in-houston-texas/" target="_blank" rel="noopener"><img src="/assets/press/muslim-mirror.png" alt="Muslim Mirror" width="295" height="72"></a>
-      <a class="lg" href="#fox" aria-hidden="true" tabindex="-1"><img class="fox" src="/assets/press/fox26.svg" alt="FOX 26 Houston" width="199" height="72"></a>
-      <span class="lg" aria-hidden="true"><img src="/assets/press/kprc2.svg" alt="KPRC 2 Houston" width="56" height="72"></span>
-      <a class="lg" href="https://muslimmirror.com/no-servers-no-host-and-no-phone-calls-ai-takes-over-at-a-halal-restaurant-in-houston-texas/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="/assets/press/muslim-mirror.png" alt="Muslim Mirror" width="295" height="72"></a>
-    </div>
-    <div class="logos" aria-hidden="true">
-      <a class="lg" href="#fox" tabindex="-1"><img class="fox" src="/assets/press/fox26.svg" alt="FOX 26 Houston" width="199" height="72"></a>
-      <span class="lg"><img src="/assets/press/kprc2.svg" alt="KPRC 2 Houston" width="56" height="72"></span>
-      <a class="lg" href="https://muslimmirror.com/no-servers-no-host-and-no-phone-calls-ai-takes-over-at-a-halal-restaurant-in-houston-texas/" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/press/muslim-mirror.png" alt="Muslim Mirror" width="295" height="72"></a>
-      <a class="lg" href="#fox" tabindex="-1"><img class="fox" src="/assets/press/fox26.svg" alt="FOX 26 Houston" width="199" height="72"></a>
-      <span class="lg"><img src="/assets/press/kprc2.svg" alt="KPRC 2 Houston" width="56" height="72"></span>
-      <a class="lg" href="https://muslimmirror.com/no-servers-no-host-and-no-phone-calls-ai-takes-over-at-a-halal-restaurant-in-houston-texas/" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/press/muslim-mirror.png" alt="Muslim Mirror" width="295" height="72"></a>
-    </div>
-  </div></div>
-</div></div>
-
 <nav><div class="w">
-  <a class="logo" href="/" dir="ltr"><img src="/assets/brand/logo-180.png" alt="" width="30" height="30">AZ <em>Restaurant Partners</em></a>
-  <div class="lang notranslate" translate="no" role="group" aria-label="Language">
+  <a class="logo" href="/"><img src="/assets/brand/logo-180.png" alt="" width="28" height="28"><span>AZ Restaurant Partners</span></a>
+  <a class="ntry" href="/try/" data-i="nav_try">Try it</a>
+  <div class="lang" dir="ltr" role="group" aria-label="Language">
     <button type="button" data-lang="en" aria-pressed="true">EN</button>
     <button type="button" data-lang="hi" aria-pressed="false" lang="hi">हिंदी</button>
     <button type="button" data-lang="ur" aria-pressed="false" lang="ur">اردو</button>
   </div>
-  <a class="nbtn" href="#start" data-track="cta_click" data-track-where="nav" data-i="nav_demo">Free demo</a>
 </div></nav>
 
-<section class="flush"><div class="w hero">
+<header class="w hero">
+  <h1 data-i="h1">Focus on your food and your customers. We run the technology.</h1>
+  <p data-i="sub2">One AI system runs your phone, your tables, your kitchen screen and your payments. It runs every day in our own restaurant in Houston.</p>
+  <div class="btns">
+    <a class="btn p" href="/try/" data-track="cta_click" data-track-where="hero_try" data-i="b_try">Try every part of it</a>
+    <a class="btn" href="#start" data-track="cta_click" data-track-where="hero_demo" data-i="b_demo">Free demo on your menu</a>
+  </div>
+</header>
+
+<div class="film">
+  <video id="film" muted playsinline loop preload="metadata" poster="/assets/film/az-film-poster.jpg" aria-label="A 74-second film of the system: an AI assistant names the restaurant, a phone order in Urdu at 11:42 PM, one kitchen queue, and the owner's app running a new dish launch"></video>
+  <div class="ctl"><button type="button" id="filmBtn">Pause</button></div>
+</div>
+
+<div class="w proof">
+  <div><b>100%</b><span data-i="n1">of direct orders come in with no staff member taking them</span></div>
+  <div><b data-i="n2b">Every call</b><span data-i="n2">answered, even after we close</span></div>
+  <div><b data-i="n3b">Paid first</b><span data-i="n3">nothing is cooked until it is paid</span></div>
+</div>
+
+<section class="w news" aria-labelledby="newsH">
+  <h2 id="newsH" data-i="news_h">On Houston TV this week</h2>
+  <div class="cards">
+    <a class="nc" href="https://www.fox26houston.com/news/spring-restaurant-wok-karahi-ai-host-afloat" target="_blank" rel="noopener" data-track="press_click" data-track-to="fox26_story">
+      <img class="ph" src="/assets/press/fox26-crew.jpg" alt="Abbas Zoeb with the FOX 26 Houston crew" width="900" height="1124" loading="lazy">
+      <span class="meta"><img src="/assets/press/fox26.svg" alt="FOX 26 Houston" width="84" height="30"><span data-i="cap_fox">With FOX 26 · Oct 20</span></span>
+      <span class="go" data-i="foxlink">Read the FOX 26 story ↗</span>
+    </a>
+    <a class="nc" href="https://www.click2houston.com/news/local/2026/10/21/spring-restaurant-turns-to-ai-for-ordering-putting-tips-directly/" target="_blank" rel="noopener" data-track="press_click" data-track-to="kprc2_story">
+      <img class="ph" src="/assets/press/kprc2-crew.jpg" alt="Abbas Zoeb with the KPRC 2 Houston crew" width="899" height="1124" loading="lazy">
+      <span class="meta"><img src="/assets/press/kprc2.svg" alt="KPRC 2 Houston" width="24" height="30"><span data-i="cap_kprc">With KPRC 2 · Oct 21</span></span>
+      <span class="go" data-i="kprclink">Read the KPRC 2 story ↗</span>
+    </a>
+  </div>
+</section>
+
+<section class="w founder">
+  <img src="/assets/abbas-headshot-800.jpg" alt="Abbas Zoeb" width="800" height="800" loading="lazy">
   <div>
-    <span class="seen"><i>FOX 26</i><i>KPRC 2</i> <span data-i="seen">As seen on Houston TV</span></span>
-    <h1 data-i="h1">Focus on your food and your customers. We run the technology.</h1>
-    <p class="sub" data-i="sub">The phone, the orders, the payments, DoorDash, your ads. The same kind of AI the big chains use, set up in your restaurant and run for you. You don't need to know computers.</p>
-    <div class="btns">
-      <a class="btn p" href="#start" data-track="cta_click" data-track-where="hero" data-i="cta1">Get a free demo on your menu</a>
-      <a class="btn" href="#fox" data-track="cta_click" data-track-where="hero_hear" data-i="cta2">Hear a real call</a>
-    </div>
-    <p class="hook" data-i="hook"><b>Send us your menu.</b> We build your restaurant on it and show you it working. Free.</p>
+    <h2 data-i="f_b">Built by Abbas Zoeb, former Google software engineer</h2>
+    <p data-i="f_p">He worked on Hard Rock Cafe's first AI agents, then went home to his family's restaurant and built this for it.</p>
+    <ul class="creds"><li data-i="cr1">Ex-Google engineer</li><li data-i="cr2">Hard Rock Cafe AI agents</li><li data-i="cr3b">Built it for his family's restaurant</li></ul>
   </div>
-  <div class="stage">
-    <img src="/assets/proof/welcome-haniya.jpg" alt="Haniya, the AI host, greeting a guest" width="1400" height="875" fetchpriority="high">
-    <div class="toasts" aria-label="Tonight at our restaurant">
-      <div class="toast"><i></i><span data-i="t1">Call answered in Urdu</span><small data-i="t1s">11:42 PM, closed</small></div>
-      <div class="toast"><i></i><span data-i="t2">Catering for 40, booked for tomorrow</span><small>11:46 PM</small></div>
-      <div class="toast"><i></i><span data-i="t3">Order paid before it was cooked</span><small data-i="t3s">Table 4</small></div>
-      <div class="toast"><i></i><span data-i="t4">Lemonade off everywhere until 9 PM</span><small data-i="t4s">You said it once</small></div>
-    </div>
-  </div>
-</div></section>
-
-<section><div class="w">
-  <p class="kick" data-i="p_k">Sound familiar?</p>
-  <h2 data-i="p_h">Owners told us this. We lived every one of them.</h2>
-  <p class="lede" data-i="p_l">Each one is fixed in our own restaurant today. These are the real screens.</p>
-  <div class="pains">
-    <div class="pain"><div class="shot"><img class="wide" src="/assets/proof/p-dash-phone.jpg" alt="Owner screen: 30 calls today, all answered" width="1400" height="622" loading="lazy"></div><div class="tx"><q data-i="p1q">The phone rings while I'm on the stove.</q><p data-i="p1a"><b>Now:</b> every call is answered, day and night, and the order arrives already paid.</p></div></div>
-    <div class="pain"><div class="shot"><img src="/assets/proof/p-table-order.jpg" alt="Guests order and pay from their seat" width="940" height="1118" loading="lazy"></div><div class="tx"><q data-i="p2q">My server didn't show up. Again.</q><p data-i="p2a"><b>Now:</b> customers order and pay from their own phone at the table.</p></div></div>
-    <div class="pain"><div class="shot"><img src="/assets/proof/p-own-ordering.jpg" alt="Your own ordering with no commission" width="940" height="1118" loading="lazy"></div><div class="tx"><q data-i="p3q">DoorDash takes 30% of every order.</q><p data-i="p3a"><b>Now:</b> people order on your own website. You keep the money and the customer.</p></div></div>
-    <div class="pain"><div class="shot"><img class="wide" src="/assets/proof/p-dash-today.jpg" alt="Owner screen: tonight's rush, before it starts" width="1400" height="660" loading="lazy"></div><div class="tx"><q data-i="p4q">I don't know where the money went.</q><p data-i="p4a"><b>Now:</b> one text every morning, and a screen that shows what came in and why.</p></div></div>
-  </div>
-</div></section>
-
-<section id="depth"><div class="w">
-  <p class="kick" data-i="d_k">How deep it goes</p>
-  <h2 data-i="d_h">Your register already has a QR menu. That's the tip.</h2>
-  <p class="lede" data-i="d_l">Clover and Square give you the basics. We built everything under it, and we run it for you.</p>
-  <div class="berg">
-    <div class="above"><h3 data-i="a_h">What your register already gives you</h3><p data-i="a_p">Useful, and you still do all the work.</p>
-      <div class="tipchips"><span data-i="a1">A QR menu</span><span data-i="a2">An online order page</span><span data-i="a3">Delivery apps on one tablet</span></div></div>
-    <svg class="wave" viewBox="0 0 1000 28" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14 Q 62 0 125 14 T 250 14 T 375 14 T 500 14 T 625 14 T 750 14 T 875 14 T 1000 14 V28 H0Z" fill="#1d4a4a"/></svg>
-    <div class="below">
-      <h3 data-i="b_h">What we built underneath</h3>
-      <div class="layer"><div class="lh"><small data-i="L1">Layer 1</small><b data-i="L1b">Takes every order</b></div><div class="items">
-        <div class="it"><b data-i="i1">Answers every call</b><span data-i="i1s">Day and night, in 4 languages, like a person</span></div>
-        <div class="it"><b data-i="i2">Talk to order at the table</b><span data-i="i2s">Hold a button and say it. Made for older guests too</span></div>
-        <div class="it"><b data-i="i3">Knows your regulars</b><span data-i="i3s">Their name, their usual, what they complained about</span></div>
-        <div class="it"><b data-i="i4">Offers the add-on, every time</b><span data-i="i4s">4 in 10 callers say yes</span></div>
-        <div class="it"><b data-i="i5">Catering after you close</b><span data-i="i5s">More than 1 in 4 calls come in while you're closed</span></div>
-      </div></div>
-      <div class="layer"><div class="lh"><small data-i="L2">Layer 2</small><b data-i="L2b">Makes sure you get paid</b></div><div class="items">
-        <div class="it"><b data-i="i6">Nothing cooked until paid</b><span data-i="i6s">No more walkouts</span></div>
-        <div class="it"><b data-i="i7">Chases unpaid orders</b><span data-i="i7s">15 of 19 got paid without you lifting a finger</span></div>
-        <div class="it"><b data-i="i8">One change, everywhere</b><span data-i="i8s">Say "out of lemonade": register, website, phone and apps all follow</span></div>
-        <div class="it"><b data-i="i9">Texts you if the printer stops</b><span data-i="i9s">Before a customer notices</span></div>
-        <div class="it"><b data-i="i10">Real pickup times</b><span data-i="i10s">And a text when the food is ready</span></div>
-      </div></div>
-      <div class="layer"><div class="lh"><small data-i="L3">Layer 3</small><b data-i="L3b">Brings in more customers</b></div><div class="items">
-        <div class="it"><b data-i="i11">Ads that switch themselves off</b><span data-i="i11s">Every dollar traced to an order. No orders, no spend</span></div>
-        <div class="it"><b data-i="i12">Food photos and video ads</b><span data-i="i12s">Made from your real dishes. No shoot day</span></div>
-        <div class="it"><b data-i="i13">Brings back old customers</b><span data-i="i13s">A text to people who haven't been back in a month</span></div>
-        <div class="it"><b data-i="i14">Finds catering buyers near you</b><span data-i="i14s">Offices and groups, contacted while you cook</span></div>
-        <div class="it"><b data-i="i15">More Google reviews</b><span data-i="i15s">Ours went from 400 to 941, at 4.5 stars</span></div>
-      </div></div>
-    </div>
-  </div>
-</div></section>
-
-<section><div class="w">
-  <p class="kick" data-i="c_k">Big-chain technology, your size</p>
-  <h2 data-i="c_h">What McDonald's and Taco Bell are building, built for one restaurant: yours.</h2>
-  <p class="lede" data-i="c_l">The chains are putting AI in their restaurants with teams of hundreds. We bring the same kind of technology to independent restaurants, for a fraction of the cost. It goes further, because we build it around you.</p>
-  <div class="chain">
-    <div class="big"><h3 data-i="ch_big">A big chain's AI</h3><dl>
-      <dt data-i="dt1">Built for</dt><dd data-i="b1">Thousands of restaurants, all the same</dd>
-      <dt data-i="dt2">What it does</dt><dd data-i="b2">Takes the drive-thru order</dd>
-      <dt data-i="dt3">A change takes</dt><dd data-i="b3">Months, through head office</dd>
-      <dt data-i="dt4">Costs</dt><dd data-i="b4">Millions, paid by the chain</dd></dl></div>
-    <div class="you"><h3 data-i="ch_you">Your restaurant, with us</h3><dl>
-      <dt data-i="dt1">Built for</dt><dd data-i="y1">Your menu, your customers, your languages</dd>
-      <dt data-i="dt2">What it does</dt><dd data-i="y2">Phone, table, website, apps, payments, ads, catering and your morning numbers</dd>
-      <dt data-i="dt3">A change takes</dt><dd data-i="y3">Days. Ask, and we build it</dd>
-      <dt data-i="dt4">Costs</dt><dd data-i="y4">A fraction of one employee</dd></dl></div>
-  </div>
-  <div class="founder"><img src="/assets/press/fox26-crew.jpg" alt="Abbas Zoeb" width="900" height="1124" loading="lazy">
-    <p><b data-i="f_b">Built by Abbas Zoeb, former Google software engineer</b><span data-i="f_p">He worked on Hard Rock Cafe's first AI agents, then went home to run his family's restaurant and built this for it.</span>
-    <span class="creds"><span data-i="cr1">Ex-Google engineer</span><span data-i="cr2">Hard Rock Cafe AI agents</span><span data-i="cr3">Runs his own restaurant</span></span></p></div>
-</div></section>
-
-<section id="fox"><div class="w proof">
-  <figure>
-    <img src="/assets/press/fox26-on-air-2.jpg" alt="FOX 26 Houston, live from the restaurant" width="1200" height="684" loading="lazy">
-    <div class="crews">
-      <div><img src="/assets/press/fox26-crew.jpg" alt="Abbas Zoeb with the FOX 26 Houston crew" width="900" height="1124" loading="lazy"><span data-i="cap_fox">With FOX 26 · Oct 20</span></div>
-      <div><img src="/assets/press/kprc2-crew.jpg" alt="Abbas Zoeb with the KPRC 2 Houston crew" width="899" height="1124" loading="lazy"><span data-i="cap_kprc">With KPRC 2 · Oct 21</span></div>
-    </div>
-    <a href="https://www.fox26houston.com/news/spring-restaurant-wok-karahi-ai-host-afloat" target="_blank" rel="noopener" data-track="press_click" data-track-to="fox26_story" data-i="foxlink">Read the FOX 26 story ↗</a>
-    <a href="https://www.click2houston.com/news/local/2026/10/21/spring-restaurant-turns-to-ai-for-ordering-putting-tips-directly/" target="_blank" rel="noopener" data-track="press_click" data-track-to="kprc2_story" data-i="kprclink">Read the KPRC 2 story ↗</a>
-  </figure>
-  <div>
-    <p class="kick" data-i="pr_k">Proven in our own restaurant</p>
-    <h2 data-i="pr_h">Our only server quit. In 24 hours, this took over.</h2>
-    <p class="lede" style="margin-bottom:0" data-i="pr_l">FOX 26 Houston came to see it on October 20. KPRC 2 came the next day.</p>
-    <div class="big3">
-      <div><b data-i="n0">24 hrs</b><span data-i="n1">from a server to AI</span></div>
-      <div><b>$9,650</b><span data-i="n2">a month saved or won back</span></div>
-      <div><b>7</b><span data-i="n3">languages at the table</span></div>
-    </div>
-    <div class="clips">
-      <div class="hear"><button type="button" data-a="/assets/audio/guest-love-ai.mp3" aria-label="Play" data-track="audio_play" data-track-clip="guest">▶</button><span><bdi dir="ltr" lang="en">"I love this AI. It works really well."</bdi><small data-i="au1">A real customer, unprompted · 7 sec</small></span></div>
-      <div class="hear"><button type="button" data-a="/assets/audio/admin-remove-en.mp3" aria-label="Play" data-track="audio_play" data-track-clip="owner_en">▶</button><span><bdi dir="ltr" lang="en">"Haniya, remove lemonade for today."</bdi><small data-i="au2">The owner, by voice. Gone everywhere · 11 sec</small></span></div>
-      <div class="hear"><button type="button" data-a="/assets/audio/admin-putback-ur.mp3" aria-label="Play" data-track="audio_play" data-track-clip="owner_ur">▶</button><span><bdi dir="ltr" lang="en">"Lemonade menu mein phir se daal do."</bdi><small data-i="au3">The owner, in Urdu. Back on everywhere · 10 sec</small></span></div>
-    </div>
-  </div>
-</div></section>
-
-<section><div class="w">
-  <p class="kick" data-i="g_k">Real screens</p>
-  <h2 data-i="g_h">What you see on your phone.</h2>
-  <div class="rail" tabindex="0" aria-label="Real screens">
-    <figure><img class="wide" src="/assets/proof/p-haniya-host.jpg" alt="" width="1400" height="1054" loading="lazy"><figcaption data-i="g1">Talks to customers in their language</figcaption></figure>
-    <figure><img src="/assets/proof/p-kitchen.jpg" alt="" width="940" height="1118" loading="lazy"><figcaption data-i="g2">Only paid orders reach the kitchen</figcaption></figure>
-    <figure><img class="wide" src="/assets/proof/p-dash-orders.jpg" alt="" width="1400" height="801" loading="lazy"><figcaption data-i="g3">Every order, and where it came from</figcaption></figure>
-    <figure><img src="/assets/proof/p-guests.jpg" alt="" width="940" height="1118" loading="lazy"><figcaption data-i="g4">Your customers, by name</figcaption></figure>
-    <figure><img src="/assets/proof/p-marketing-flow.jpg" alt="" width="940" height="1118" loading="lazy"><figcaption data-i="g5">Ads judged on the orders they bring</figcaption></figure>
-    <figure><img src="/assets/proof/p-catering-flow.jpg" alt="" width="940" height="1118" loading="lazy"><figcaption data-i="g6">Catering buyers found for you</figcaption></figure>
-    <figure><img class="wide" src="/assets/proof/p-dash-today.jpg" alt="" width="1400" height="660" loading="lazy"><figcaption data-i="g7">Tonight's rush, before it starts</figcaption></figure>
-    <figure><img src="/assets/proof/p-own-ordering.jpg" alt="" width="940" height="1118" loading="lazy"><figcaption data-i="g8">Your own ordering, no commission</figcaption></figure>
-  </div>
-  <p class="hint" data-i="hint">Swipe for more →</p>
-</div></section>
-
-<section id="faq"><div class="w">
-  <p class="kick" data-i="s_k">How we start</p>
-  <h2 data-i="s_h">We do the work. You say yes or no.</h2>
-  <div class="steps">
-    <div><b data-i="s1b">Send us your menu</b><p data-i="s1p">We build a demo of your restaurant on it and show you it working. Free.</p></div>
-    <div><b data-i="s2b">You try it</b><p data-i="s2p">You and your staff call it, order from it and tell us what's off.</p></div>
-    <div><b data-i="s3b">It runs</b><p data-i="s3p">We watch it every day and keep building what you need.</p></div>
-  </div>
-  <div class="faq">
-    <details><summary data-i="q1">I'm not good with computers.</summary><p data-i="a1x">You don't have to be. We set it up and run it. You just talk to it, in your own language.</p></details>
-    <details><summary data-i="q2">My customers are older. Will they use it?</summary><p data-i="a2x">They can press one button and say what they want. Or they call, and it answers like a person.</p></details>
-    <details><summary data-i="q3">Do I need a new register?</summary><p data-i="a3x">No. We work with what you have. Our own restaurant runs on Clover.</p></details>
-    <details><summary data-i="q4">What does it cost?</summary><p data-i="a4x">It depends on what you want off your plate, just the phone or everything. You know the price before we start. No long contract.</p></details>
-    <details><summary data-i="q5">What if it gets an order wrong?</summary><p data-i="a5x">The customer sees the whole order on their phone before paying. If something goes wrong, we fix it. You don't.</p></details>
-  </div>
-</div></section>
+</section>
 
 <section id="start"><div class="w">
-  <div class="cta">
-    <div>
-      <h2 style="margin:0 0 10px" data-i="cta_h">See your own restaurant running on it. Free.</h2>
-      <p class="cp" data-i="cta_p">Send us your menu. We build it, then walk you through it in 10 minutes.</p>
-      <ol><li data-i="o1">Your menu, your prices, your name</li><li data-i="o2">Call it and order, like your customers would</li><li data-i="o3">No cost, no contract to see it</li></ol>
-    </div>
-    <form id="leadForm" novalidate>
-      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="honey">
-      <input type="text" name="name" autocomplete="name" aria-label="Your name" placeholder="Your name" data-ph="ph_name" required>
-      <input type="text" name="restaurant" autocomplete="organization" aria-label="Restaurant and city" placeholder="Restaurant and city" data-ph="ph_rest">
-      <input type="tel" name="phone" autocomplete="tel" inputmode="tel" aria-label="Phone" placeholder="Phone" data-ph="ph_phone" required>
-      <input type="email" name="email" autocomplete="email" aria-label="Email (optional)" placeholder="Email (optional)" data-ph="ph_email">
-      <button type="submit" class="btn" id="leadSend" data-i="send">Build my free demo</button>
-      <p class="formnote" id="leadNote" data-i="note">We call you back the same day. English, Hindi, Urdu or Spanish.</p>
-    </form>
-  </div>
+  <h2 data-i="cta_h">See your own restaurant running on it. Free.</h2>
+  <p class="cp" data-i="cta_p">Send us your menu. We build it, then walk you through it in 10 minutes.</p>
+  <form id="leadForm" novalidate>
+    <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="honey">
+    <input type="text" name="name" autocomplete="name" aria-label="Your name" placeholder="Your name" data-ph="ph_name" required>
+    <input type="text" name="restaurant" autocomplete="organization" aria-label="Restaurant and city" placeholder="Restaurant and city" data-ph="ph_rest">
+    <input type="tel" name="phone" autocomplete="tel" inputmode="tel" aria-label="Phone" placeholder="Phone" data-ph="ph_phone" required>
+    <input type="email" name="email" autocomplete="email" aria-label="Email (optional)" placeholder="Email (optional)" data-ph="ph_email">
+    <button type="submit" class="btn" id="leadSend" data-i="send">Build my free demo</button>
+    <p class="formnote" id="leadNote" data-i="note">We call you back the same day. English, Hindi, Urdu or Spanish.</p>
+  </form>
 </div></section>
 
 <footer dir="ltr" lang="en"><div class="in cols">
@@ -450,8 +200,6 @@ footer a:hover{color:var(--ink)}
   <div><h5>Own your orders</h5><a href="/online-ordering-without-doordash.html">Online ordering without DoorDash</a><a href="/commission-free-online-ordering-systems.html">Commission-free ordering</a><a href="/cut-delivery-commissions.html">Cut delivery commissions</a><a href="/delivery-commission-calculator.html">Commission calculator</a><a href="/restaurant-loyalty-winback.html">Loyalty and win-back</a></div>
   <div><h5>Get found</h5><a href="/get-your-restaurant-recommended-by-ai.html">Get recommended by AI</a><a href="/local-seo-for-restaurants.html">Local SEO for restaurants</a><a href="/get-more-restaurant-reviews.html">Get more reviews</a><a href="/guides.html">All guides</a><a href="/investors.html">Investors</a></div>
 </div></footer>
-
-<div class="sticky" id="sticky"><a class="btn p" href="#start" data-track="cta_click" data-track-where="sticky" data-i="cta1">Get a free demo on your menu</a></div>
 
 <script>
 /* ══ MEASUREMENT ═══════════════════════════════════════════════════════════
@@ -476,7 +224,7 @@ footer a:hover{color:var(--ink)}
 (function(){
   var GA4_ID = "G-3GEL1D477G";      /* azrestaurantpartners.com — runs directly */
   var GTM_ID = "GTM-K6GTGXP9";      /* container for pixels added in the GTM UI */
-  var PAGE   = "home_v3";
+  var PAGE   = "home_v4";
 
   /* ── attribution: captured once, kept for the whole visit ──────────────── */
   var ATTR = (function(){
@@ -609,20 +357,18 @@ footer a:hover{color:var(--ink)}
 </script>
 <script>
 (function(){
-  var cur=null,curBtn=null;
-  document.querySelectorAll('.hear button').forEach(function(b){b.addEventListener('click',function(){
-    if(curBtn===b&&cur&&!cur.paused){cur.pause();b.textContent='▶';return}
-    if(cur){cur.pause();curBtn.textContent='▶'}
-    cur=new Audio(b.dataset.a);curBtn=b;b.textContent='❚❚';
-    cur.play().catch(function(){b.textContent='▶'});cur.onended=function(){b.textContent='▶'};
-  })});
+  var v=document.getElementById("film"), b=document.getElementById("filmBtn");
+  var tall=matchMedia("(max-width:640px)").matches;
+  v.poster=tall?"/assets/film/az-film-vertical-poster.jpg":"/assets/film/az-film-poster.jpg";
+  v.src=tall?"/assets/film/az-film-vertical.mp4":"/assets/film/az-film.mp4";
+  var still=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  function label(){ b.textContent=v.paused?"Play":"Pause"; }
+  if(!still){ v.play().catch(function(){}); }
+  v.addEventListener("play",label); v.addEventListener("pause",label); label();
+  function toggle(){ if(v.paused){ v.play(); } else { v.pause(); } }
+  b.addEventListener("click",toggle); v.addEventListener("click",toggle);
 })();
-(function(){
-  var bar=document.getElementById("sticky"), target=document.getElementById("start"), top=document.querySelector(".hero .btns");
-  function check(){ var r=target.getBoundingClientRect(), h=top.getBoundingClientRect(); bar.classList.toggle("away", (r.top<innerHeight*0.95 && r.bottom>0) || h.bottom>0); }
-  addEventListener("scroll",check,{passive:true}); check();
-})();
-var AZ_I18N={"en": {"err": "Add your name and a phone number so we can call you.", "err_email": "That email doesn't look right. Fix it or leave it empty.", "sending": "Sending...", "sent": "Sent", "ok": "Got it. We'll call you today.", "fail": "That didn't send. Call <a href=\"tel:+14083936716\">(408) 393-6716</a> or email <a href=\"mailto:abbas@azrestaurantpartners.com\">abbas@azrestaurantpartners.com</a>."}, "hi": {"nav_demo": "मुफ़्त डेमो", "seen": "ह्यूस्टन टीवी पर दिखाया गया", "h1": "आप अपने खाने और ग्राहकों पर ध्यान दीजिए। टेक्नोलॉजी हम चलाएंगे।", "sub": "फ़ोन, ऑर्डर, पेमेंट, DoorDash, आपके विज्ञापन। वही AI जो बड़ी चेन इस्तेमाल करती हैं, आपके रेस्टोरेंट में लगाकर हम चलाते हैं। आपको कंप्यूटर जानने की ज़रूरत नहीं।", "cta1": "अपने मेन्यू पर मुफ़्त डेमो पाइए", "cta2": "असली कॉल सुनिए", "hook": "<b>हमें अपना मेन्यू भेजिए।</b> हम उस पर आपका रेस्टोरेंट बनाकर चलता हुआ दिखाएंगे। मुफ़्त।", "t1": "उर्दू में कॉल का जवाब", "t1s": "रात 11:42, बंद होने के बाद", "t2": "40 लोगों की कैटरिंग, कल के लिए बुक", "t3": "पकने से पहले ऑर्डर का पेमेंट हो गया", "t3s": "टेबल 4", "t4": "लेमोनेड हर जगह से हटा, रात 9 बजे तक", "t4s": "आपने एक बार कहा", "p_k": "जाना-पहचाना लगता है?", "p_h": "मालिकों ने हमें यही बताया। हमने भी यह सब झेला है।", "p_l": "हमारे अपने रेस्टोरेंट में आज यह सब ठीक है। ये असली स्क्रीन हैं।", "p1q": "मैं चूल्हे पर हूँ और फ़ोन बजता रहता है।", "p1a": "<b>अब:</b> दिन हो या रात, हर कॉल का जवाब मिलता है, और ऑर्डर पहले से पेड आता है।", "p2q": "मेरा सर्वर फिर नहीं आया।", "p2a": "<b>अब:</b> ग्राहक टेबल पर अपने फ़ोन से ऑर्डर और पेमेंट करते हैं।", "p3q": "DoorDash हर ऑर्डर का 30% ले जाता है।", "p3a": "<b>अब:</b> लोग आपकी अपनी वेबसाइट पर ऑर्डर करते हैं। पैसा भी आपका, ग्राहक भी आपका।", "p4q": "पता ही नहीं चलता पैसा कहाँ गया।", "p4a": "<b>अब:</b> हर सुबह एक मैसेज, और एक स्क्रीन जो बताती है क्या आया और क्यों।", "d_k": "यह कितना गहरा है", "d_h": "आपके रजिस्टर में QR मेन्यू पहले से है। वह तो बस ऊपर का सिरा है।", "d_l": "Clover और Square बुनियादी चीज़ें देते हैं। उसके नीचे का सब कुछ हमने बनाया है, और हम ही उसे चलाते हैं।", "a_h": "आपका रजिस्टर पहले से क्या देता है", "a_p": "काम का है, पर सारा काम फिर भी आप ही करते हैं।", "a1": "QR मेन्यू", "a2": "ऑनलाइन ऑर्डर पेज", "a3": "एक टैबलेट पर डिलीवरी ऐप", "b_h": "नीचे हमने क्या बनाया", "L1": "परत 1", "L1b": "हर ऑर्डर लेता है", "L2": "परत 2", "L2b": "पक्का करता है कि पैसा मिले", "L3": "परत 3", "L3b": "और ग्राहक लाता है", "i1": "हर कॉल का जवाब", "i1s": "दिन-रात, 4 भाषाओं में, इंसान की तरह", "i2": "टेबल पर बोलकर ऑर्डर", "i2s": "बटन दबाइए और बोलिए। बुज़ुर्ग मेहमानों के लिए भी", "i3": "आपके रेगुलर ग्राहकों को पहचानता है", "i3s": "उनका नाम, उनका हमेशा वाला ऑर्डर, उनकी शिकायतें", "i4": "हर बार कुछ और ऑफ़र करता है", "i4s": "10 में से 4 कॉलर हाँ कहते हैं", "i5": "बंद होने के बाद भी कैटरिंग", "i5s": "4 में से 1 से ज़्यादा कॉल तब आती हैं जब आप बंद होते हैं", "i6": "पेमेंट से पहले कुछ नहीं पकता", "i6s": "बिना पैसे दिए कोई नहीं जाता", "i7": "बकाया ऑर्डर का पीछा करता है", "i7s": "19 में से 15 का पैसा आया, आपको कुछ नहीं करना पड़ा", "i8": "एक बदलाव, हर जगह", "i8s": "\"लेमोनेड ख़त्म\" कहिए: रजिस्टर, वेबसाइट, फ़ोन और ऐप सब बदल जाते हैं", "i9": "प्रिंटर रुके तो आपको मैसेज", "i9s": "ग्राहक के ध्यान देने से पहले", "i10": "पिकअप का सही समय", "i10s": "और खाना तैयार होने पर मैसेज", "i11": "विज्ञापन जो ख़ुद बंद हो जाते हैं", "i11s": "हर डॉलर का हिसाब ऑर्डर से। ऑर्डर नहीं, तो ख़र्च नहीं", "i12": "खाने की फ़ोटो और वीडियो विज्ञापन", "i12s": "आपकी असली डिश से बने। कोई शूट नहीं", "i13": "पुराने ग्राहकों को वापस लाता है", "i13s": "जो एक महीने से नहीं आए, उन्हें मैसेज", "i14": "आसपास कैटरिंग के ग्राहक ढूँढता है", "i14s": "दफ़्तर और ग्रुप, जब आप खाना बना रहे होते हैं", "i15": "Google पर ज़्यादा रिव्यू", "i15s": "हमारे 400 से 941 हुए, 4.5 स्टार पर", "c_k": "बड़ी चेन की टेक्नोलॉजी, आपके साइज़ की", "c_h": "जो McDonald's और Taco Bell बना रहे हैं, वह एक रेस्टोरेंट के लिए बना: आपके लिए।", "c_l": "बड़ी चेन सैकड़ों लोगों की टीम से अपने रेस्टोरेंट में AI लगा रही हैं। हम वैसी ही टेक्नोलॉजी छोटे रेस्टोरेंट तक लाते हैं, बहुत कम ख़र्च में। और यह उससे आगे जाती है, क्योंकि हम इसे आपके हिसाब से बनाते हैं।", "ch_big": "बड़ी चेन का AI", "ch_you": "आपका रेस्टोरेंट, हमारे साथ", "dt1": "किसके लिए", "dt2": "क्या करता है", "dt3": "बदलाव में समय", "dt4": "ख़र्च", "b1": "हज़ारों रेस्टोरेंट, सब एक जैसे", "b2": "ड्राइव-थ्रू का ऑर्डर लेता है", "b3": "महीनों, हेड ऑफ़िस से होकर", "b4": "करोड़ों, चेन भरती है", "y1": "आपका मेन्यू, आपके ग्राहक, आपकी भाषाएँ", "y2": "फ़ोन, टेबल, वेबसाइट, ऐप, पेमेंट, विज्ञापन, कैटरिंग और सुबह का हिसाब", "y3": "कुछ दिन। कहिए, हम बना देंगे", "y4": "एक कर्मचारी के ख़र्च का छोटा सा हिस्सा", "f_b": "अब्बास ज़ोएब ने बनाया, Google के पूर्व सॉफ़्टवेयर इंजीनियर", "f_p": "उन्होंने Hard Rock Cafe के पहले AI एजेंट्स पर काम किया, फिर घर लौटकर परिवार का रेस्टोरेंट संभाला और उसके लिए यह बनाया।", "cr1": "पूर्व Google इंजीनियर", "cr2": "Hard Rock Cafe AI एजेंट्स", "cr3": "अपना रेस्टोरेंट चलाते हैं", "foxlink": "FOX 26 की ख़बर पढ़िए ↗", "kprclink": "KPRC 2 की ख़बर पढ़िए ↗", "pr_k": "हमारे अपने रेस्टोरेंट में साबित", "pr_h": "हमारा अकेला सर्वर चला गया। 24 घंटे में यह सब संभल गया।", "pr_l": "20 अक्टूबर को FOX 26 Houston इसे देखने आया। अगले दिन KPRC 2 आया।", "cap_fox": "FOX 26 के साथ · 20 अक्टूबर", "cap_kprc": "KPRC 2 के साथ · 21 अक्टूबर", "n0": "24 घंटे", "n1": "सर्वर से AI तक", "n2": "हर महीने बचत या वापस कमाई", "n3": "टेबल पर भाषाएँ", "au1": "एक असली ग्राहक, बिना पूछे · 7 सेकंड", "au2": "मालिक, आवाज़ से। हर जगह से हटा · 11 सेकंड", "au3": "मालिक, उर्दू में। हर जगह वापस · 10 सेकंड", "g_k": "असली स्क्रीन", "g_h": "आपके फ़ोन पर क्या दिखता है।", "g1": "ग्राहकों से उनकी भाषा में बात", "g2": "किचन तक सिर्फ़ पेड ऑर्डर पहुँचते हैं", "g3": "हर ऑर्डर, और वह कहाँ से आया", "g4": "आपके ग्राहक, नाम से", "g5": "विज्ञापन, उनसे आए ऑर्डर से परखे गए", "g6": "आपके लिए कैटरिंग के ग्राहक ढूँढे गए", "g7": "आज रात की भीड़, शुरू होने से पहले", "g8": "आपकी अपनी ऑर्डरिंग, कोई कमीशन नहीं", "hint": "और देखने के लिए स्वाइप करें →", "s_k": "शुरुआत कैसे होती है", "s_h": "काम हम करते हैं। हाँ या ना आप कहते हैं।", "s1b": "हमें अपना मेन्यू भेजिए", "s1p": "हम उस पर आपके रेस्टोरेंट का डेमो बनाकर चलता हुआ दिखाते हैं। मुफ़्त।", "s2b": "आप आज़माइए", "s2p": "आप और आपका स्टाफ़ कॉल करके, ऑर्डर देकर बताइए क्या ठीक नहीं है।", "s3b": "यह चलता है", "s3p": "हम हर दिन इस पर नज़र रखते हैं और जो चाहिए वह बनाते रहते हैं।", "q1": "मुझे कंप्यूटर नहीं आता।", "a1x": "ज़रूरत भी नहीं। हम लगाते हैं और चलाते हैं। आप बस अपनी भाषा में इससे बात कीजिए।", "q2": "मेरे ग्राहक बुज़ुर्ग हैं। क्या वे इसे इस्तेमाल करेंगे?", "a2x": "वे एक बटन दबाकर बोल सकते हैं कि क्या चाहिए। या कॉल करें, और यह इंसान की तरह जवाब देता है।", "q3": "क्या मुझे नया रजिस्टर चाहिए?", "a3x": "नहीं। आपके पास जो है, हम उसी के साथ काम करते हैं। हमारा अपना रेस्टोरेंट Clover पर चलता है।", "q4": "इसका ख़र्च कितना है?", "a4x": "यह इस पर है कि आप क्या-क्या हमें सौंपना चाहते हैं, सिर्फ़ फ़ोन या सब कुछ। शुरू करने से पहले आपको क़ीमत पता होगी। कोई लंबा कॉन्ट्रैक्ट नहीं।", "q5": "अगर ऑर्डर ग़लत हो जाए तो?", "a5x": "ग्राहक पेमेंट से पहले पूरा ऑर्डर अपने फ़ोन पर देखता है। कुछ गड़बड़ हो, तो हम ठीक करते हैं, आप नहीं।", "cta_h": "अपना रेस्टोरेंट इस पर चलता हुआ देखिए। मुफ़्त।", "cta_p": "हमें अपना मेन्यू भेजिए। हम बनाएंगे, फिर 10 मिनट में दिखाएंगे।", "o1": "आपका मेन्यू, आपकी क़ीमतें, आपका नाम", "o2": "अपने ग्राहकों की तरह कॉल करके ऑर्डर दीजिए", "o3": "देखने का न कोई ख़र्च, न कॉन्ट्रैक्ट", "ph_name": "आपका नाम", "ph_rest": "रेस्टोरेंट और शहर", "ph_phone": "फ़ोन", "ph_email": "ईमेल (ज़रूरी नहीं)", "send": "मेरा मुफ़्त डेमो बनाइए", "note": "हम उसी दिन कॉल करते हैं। अंग्रेज़ी, हिंदी, उर्दू या स्पेनिश में।", "err": "अपना नाम और फ़ोन नंबर डालिए ताकि हम कॉल कर सकें।", "err_email": "यह ईमेल सही नहीं लगता। ठीक कीजिए या ख़ाली छोड़ दीजिए।", "sending": "भेज रहे हैं...", "sent": "भेज दिया", "ok": "मिल गया। हम आज ही कॉल करेंगे।", "fail": "यह नहीं गया। <a href=\"tel:+14083936716\">(408) 393-6716</a> पर कॉल करें या <a href=\"mailto:abbas@azrestaurantpartners.com\">abbas@azrestaurantpartners.com</a> पर ईमेल करें।"}, "ur": {"nav_demo": "مفت ڈیمو", "seen": "ہیوسٹن ٹی وی پر دکھایا گیا", "h1": "آپ اپنے کھانے اور گاہکوں پر توجہ دیں۔ ٹیکنالوجی ہم چلائیں گے۔", "sub": "فون، آرڈر، پیمنٹ، DoorDash، آپ کے اشتہار۔ وہی AI جو بڑی چینز استعمال کرتی ہیں، آپ کے ریسٹورنٹ میں لگا کر ہم چلاتے ہیں۔ آپ کو کمپیوٹر جاننے کی ضرورت نہیں۔", "cta1": "اپنے مینو پر مفت ڈیمو لیں", "cta2": "اصلی کال سنیں", "hook": "<b>ہمیں اپنا مینو بھیجیں۔</b> ہم اس پر آپ کا ریسٹورنٹ بنا کر چلتا ہوا دکھائیں گے۔ مفت۔", "t1": "اردو میں کال کا جواب", "t1s": "رات 11:42، بند ہونے کے بعد", "t2": "40 لوگوں کی کیٹرنگ، کل کے لیے بُک", "t3": "پکنے سے پہلے آرڈر کی پیمنٹ ہو گئی", "t3s": "ٹیبل 4", "t4": "لیمونیڈ ہر جگہ سے ہٹا، رات 9 بجے تک", "t4s": "آپ نے ایک بار کہا", "p_k": "جانا پہچانا لگتا ہے؟", "p_h": "مالکوں نے ہمیں یہی بتایا۔ ہم نے بھی یہ سب جھیلا ہے۔", "p_l": "ہمارے اپنے ریسٹورنٹ میں آج یہ سب ٹھیک ہے۔ یہ اصلی اسکرینیں ہیں۔", "p1q": "میں چولہے پر ہوں اور فون بجتا رہتا ہے۔", "p1a": "<b>اب:</b> دن ہو یا رات، ہر کال کا جواب ملتا ہے، اور آرڈر پہلے سے پیڈ آتا ہے۔", "p2q": "میرا سرور پھر نہیں آیا۔", "p2a": "<b>اب:</b> گاہک ٹیبل پر اپنے فون سے آرڈر اور پیمنٹ کرتے ہیں۔", "p3q": "DoorDash ہر آرڈر کا 30% لے جاتا ہے۔", "p3a": "<b>اب:</b> لوگ آپ کی اپنی ویب سائٹ پر آرڈر کرتے ہیں۔ پیسہ بھی آپ کا، گاہک بھی آپ کا۔", "p4q": "پتا ہی نہیں چلتا پیسہ کہاں گیا۔", "p4a": "<b>اب:</b> ہر صبح ایک میسج، اور ایک اسکرین جو بتاتی ہے کیا آیا اور کیوں۔", "d_k": "یہ کتنا گہرا ہے", "d_h": "آپ کے رجسٹر میں QR مینو پہلے سے ہے۔ وہ تو بس اوپر کا سرا ہے۔", "d_l": "Clover اور Square بنیادی چیزیں دیتے ہیں۔ اس کے نیچے کا سب کچھ ہم نے بنایا ہے، اور ہم ہی اسے چلاتے ہیں۔", "a_h": "آپ کا رجسٹر پہلے سے کیا دیتا ہے", "a_p": "کام کا ہے، پر سارا کام پھر بھی آپ ہی کرتے ہیں۔", "a1": "QR مینو", "a2": "آن لائن آرڈر پیج", "a3": "ایک ٹیبلٹ پر ڈیلیوری ایپس", "b_h": "نیچے ہم نے کیا بنایا", "L1": "پرت 1", "L1b": "ہر آرڈر لیتا ہے", "L2": "پرت 2", "L2b": "یقینی بناتا ہے کہ پیسہ ملے", "L3": "پرت 3", "L3b": "اور گاہک لاتا ہے", "i1": "ہر کال کا جواب", "i1s": "دن رات، 4 زبانوں میں، انسان کی طرح", "i2": "ٹیبل پر بول کر آرڈر", "i2s": "بٹن دبائیں اور بولیں۔ بزرگ مہمانوں کے لیے بھی", "i3": "آپ کے ریگولر گاہکوں کو پہچانتا ہے", "i3s": "ان کا نام، ان کا ہمیشہ والا آرڈر، ان کی شکایتیں", "i4": "ہر بار کچھ اور آفر کرتا ہے", "i4s": "10 میں سے 4 کالر ہاں کہتے ہیں", "i5": "بند ہونے کے بعد بھی کیٹرنگ", "i5s": "4 میں سے 1 سے زیادہ کالیں تب آتی ہیں جب آپ بند ہوتے ہیں", "i6": "پیمنٹ سے پہلے کچھ نہیں پکتا", "i6s": "بغیر پیسے دیے کوئی نہیں جاتا", "i7": "بقایا آرڈرز کا پیچھا کرتا ہے", "i7s": "19 میں سے 15 کا پیسہ آیا، آپ کو کچھ نہیں کرنا پڑا", "i8": "ایک تبدیلی، ہر جگہ", "i8s": "\"لیمونیڈ ختم\" کہیں: رجسٹر، ویب سائٹ، فون اور ایپس سب بدل جاتے ہیں", "i9": "پرنٹر رکے تو آپ کو میسج", "i9s": "گاہک کے دھیان دینے سے پہلے", "i10": "پک اپ کا صحیح وقت", "i10s": "اور کھانا تیار ہونے پر میسج", "i11": "اشتہار جو خود بند ہو جاتے ہیں", "i11s": "ہر ڈالر کا حساب آرڈر سے۔ آرڈر نہیں، تو خرچ نہیں", "i12": "کھانے کی تصویریں اور ویڈیو اشتہار", "i12s": "آپ کی اصلی ڈش سے بنے۔ کوئی شوٹ نہیں", "i13": "پرانے گاہکوں کو واپس لاتا ہے", "i13s": "جو ایک مہینے سے نہیں آئے، انہیں میسج", "i14": "آس پاس کیٹرنگ کے گاہک ڈھونڈتا ہے", "i14s": "دفتر اور گروپ، جب آپ کھانا بنا رہے ہوتے ہیں", "i15": "Google پر زیادہ ریویوز", "i15s": "ہمارے 400 سے 941 ہوئے، 4.5 اسٹار پر", "c_k": "بڑی چین کی ٹیکنالوجی، آپ کے سائز کی", "c_h": "جو McDonald's اور Taco Bell بنا رہے ہیں، وہ ایک ریسٹورنٹ کے لیے بنا: آپ کے لیے۔", "c_l": "بڑی چینز سینکڑوں لوگوں کی ٹیم سے اپنے ریسٹورنٹس میں AI لگا رہی ہیں۔ ہم ویسی ہی ٹیکنالوجی چھوٹے ریسٹورنٹس تک لاتے ہیں، بہت کم خرچ میں۔ اور یہ اس سے آگے جاتی ہے، کیونکہ ہم اسے آپ کے حساب سے بناتے ہیں۔", "ch_big": "بڑی چین کا AI", "ch_you": "آپ کا ریسٹورنٹ، ہمارے ساتھ", "dt1": "کس کے لیے", "dt2": "کیا کرتا ہے", "dt3": "تبدیلی میں وقت", "dt4": "خرچ", "b1": "ہزاروں ریسٹورنٹس، سب ایک جیسے", "b2": "ڈرائیو تھرو کا آرڈر لیتا ہے", "b3": "مہینوں، ہیڈ آفس سے ہو کر", "b4": "کروڑوں، چین بھرتی ہے", "y1": "آپ کا مینو، آپ کے گاہک، آپ کی زبانیں", "y2": "فون، ٹیبل، ویب سائٹ، ایپس، پیمنٹ، اشتہار، کیٹرنگ اور صبح کا حساب", "y3": "کچھ دن۔ کہیں، ہم بنا دیں گے", "y4": "ایک ملازم کے خرچ کا چھوٹا سا حصہ", "f_b": "عباس زوئب نے بنایا، Google کے سابق سافٹ ویئر انجینئر", "f_p": "انہوں نے Hard Rock Cafe کے پہلے AI ایجنٹس پر کام کیا، پھر گھر لوٹ کر خاندان کا ریسٹورنٹ سنبھالا اور اس کے لیے یہ بنایا۔", "cr1": "سابق Google انجینئر", "cr2": "Hard Rock Cafe AI ایجنٹس", "cr3": "اپنا ریسٹورنٹ چلاتے ہیں", "foxlink": "FOX 26 کی خبر پڑھیں ↗", "kprclink": "KPRC 2 کی خبر پڑھیں ↗", "pr_k": "ہمارے اپنے ریسٹورنٹ میں ثابت", "pr_h": "ہمارا اکیلا سرور چلا گیا۔ 24 گھنٹے میں یہ سب سنبھل گیا۔", "pr_l": "20 اکتوبر کو FOX 26 Houston اسے دیکھنے آیا۔ اگلے دن KPRC 2 آیا۔", "cap_fox": "FOX 26 کے ساتھ · 20 اکتوبر", "cap_kprc": "KPRC 2 کے ساتھ · 21 اکتوبر", "n0": "24 گھنٹے", "n1": "سرور سے AI تک", "n2": "ہر مہینے بچت یا واپس کمائی", "n3": "ٹیبل پر زبانیں", "au1": "ایک اصلی گاہک، بغیر پوچھے · 7 سیکنڈ", "au2": "مالک، آواز سے۔ ہر جگہ سے ہٹا · 11 سیکنڈ", "au3": "مالک، اردو میں۔ ہر جگہ واپس · 10 سیکنڈ", "g_k": "اصلی اسکرینیں", "g_h": "آپ کے فون پر کیا دکھتا ہے۔", "g1": "گاہکوں سے ان کی زبان میں بات", "g2": "کچن تک صرف پیڈ آرڈر پہنچتے ہیں", "g3": "ہر آرڈر، اور وہ کہاں سے آیا", "g4": "آپ کے گاہک، نام سے", "g5": "اشتہار، ان سے آئے آرڈرز سے پرکھے گئے", "g6": "آپ کے لیے کیٹرنگ کے گاہک ڈھونڈے گئے", "g7": "آج رات کا رش، شروع ہونے سے پہلے", "g8": "آپ کی اپنی آرڈرنگ، کوئی کمیشن نہیں", "hint": "مزید دیکھنے کے لیے سوائپ کریں ←", "s_k": "شروعات کیسے ہوتی ہے", "s_h": "کام ہم کرتے ہیں۔ ہاں یا نہ آپ کہتے ہیں۔", "s1b": "ہمیں اپنا مینو بھیجیں", "s1p": "ہم اس پر آپ کے ریسٹورنٹ کا ڈیمو بنا کر چلتا ہوا دکھاتے ہیں۔ مفت۔", "s2b": "آپ آزمائیں", "s2p": "آپ اور آپ کا اسٹاف کال کر کے، آرڈر دے کر بتائیں کیا ٹھیک نہیں ہے۔", "s3b": "یہ چلتا ہے", "s3p": "ہم ہر دن اس پر نظر رکھتے ہیں اور جو چاہیے وہ بناتے رہتے ہیں۔", "q1": "مجھے کمپیوٹر نہیں آتا۔", "a1x": "ضرورت بھی نہیں۔ ہم لگاتے ہیں اور چلاتے ہیں۔ آپ بس اپنی زبان میں اس سے بات کریں۔", "q2": "میرے گاہک بزرگ ہیں۔ کیا وہ اسے استعمال کریں گے؟", "a2x": "وہ ایک بٹن دبا کر بول سکتے ہیں کہ کیا چاہیے۔ یا کال کریں، اور یہ انسان کی طرح جواب دیتا ہے۔", "q3": "کیا مجھے نیا رجسٹر چاہیے؟", "a3x": "نہیں۔ آپ کے پاس جو ہے، ہم اسی کے ساتھ کام کرتے ہیں۔ ہمارا اپنا ریسٹورنٹ Clover پر چلتا ہے۔", "q4": "اس کا خرچ کتنا ہے؟", "a4x": "یہ اس پر ہے کہ آپ کیا کیا ہمیں سونپنا چاہتے ہیں، صرف فون یا سب کچھ۔ شروع کرنے سے پہلے آپ کو قیمت پتا ہوگی۔ کوئی لمبا کانٹریکٹ نہیں۔", "q5": "اگر آرڈر غلط ہو جائے تو؟", "a5x": "گاہک پیمنٹ سے پہلے پورا آرڈر اپنے فون پر دیکھتا ہے۔ کچھ گڑبڑ ہو، تو ہم ٹھیک کرتے ہیں، آپ نہیں۔", "cta_h": "اپنا ریسٹورنٹ اس پر چلتا ہوا دیکھیں۔ مفت۔", "cta_p": "ہمیں اپنا مینو بھیجیں۔ ہم بنائیں گے، پھر 10 منٹ میں دکھائیں گے۔", "o1": "آپ کا مینو، آپ کی قیمتیں، آپ کا نام", "o2": "اپنے گاہکوں کی طرح کال کر کے آرڈر دیں", "o3": "دیکھنے کا نہ کوئی خرچ، نہ کانٹریکٹ", "ph_name": "آپ کا نام", "ph_rest": "ریسٹورنٹ اور شہر", "ph_phone": "فون", "ph_email": "ای میل (ضروری نہیں)", "send": "میرا مفت ڈیمو بنائیں", "note": "ہم اسی دن کال کرتے ہیں۔ انگریزی، ہندی، اردو یا ہسپانوی میں۔", "err": "اپنا نام اور فون نمبر ڈالیں تاکہ ہم کال کر سکیں۔", "err_email": "یہ ای میل صحیح نہیں لگتی۔ ٹھیک کریں یا خالی چھوڑ دیں۔", "sending": "بھیج رہے ہیں...", "sent": "بھیج دیا", "ok": "مل گیا۔ ہم آج ہی کال کریں گے۔", "fail": "یہ نہیں گیا۔ <a href=\"tel:+14083936716\">(408) 393-6716</a> پر کال کریں یا <a href=\"mailto:abbas@azrestaurantpartners.com\">abbas@azrestaurantpartners.com</a> پر ای میل کریں۔"}};
+var AZ_I18N={"en": {"err": "Add your name and a phone number so we can call you.", "err_email": "That email doesn't look right. Fix it or leave it empty.", "sending": "Sending...", "sent": "Sent", "ok": "Got it. We'll call you today.", "fail": "That didn't send. Call <a href=\"tel:+14083936716\">(408) 393-6716</a> or email <a href=\"mailto:abbas@azrestaurantpartners.com\">abbas@azrestaurantpartners.com</a>."}, "hi": {"nav_demo": "मुफ़्त डेमो", "seen": "ह्यूस्टन टीवी पर दिखाया गया", "h1": "आप अपने खाने और ग्राहकों पर ध्यान दीजिए। टेक्नोलॉजी हम चलाएंगे।", "sub": "फ़ोन, ऑर्डर, पेमेंट, DoorDash, आपके विज्ञापन। वही AI जो बड़ी चेन इस्तेमाल करती हैं, आपके रेस्टोरेंट में लगाकर हम चलाते हैं। आपको कंप्यूटर जानने की ज़रूरत नहीं।", "cta1": "अपने मेन्यू पर मुफ़्त डेमो पाइए", "cta2": "असली कॉल सुनिए", "hook": "<b>हमें अपना मेन्यू भेजिए।</b> हम उस पर आपका रेस्टोरेंट बनाकर चलता हुआ दिखाएंगे। मुफ़्त।", "t1": "उर्दू में कॉल का जवाब", "t1s": "रात 11:42, बंद होने के बाद", "t2": "40 लोगों की कैटरिंग, कल के लिए बुक", "t3": "पकने से पहले ऑर्डर का पेमेंट हो गया", "t3s": "टेबल 4", "t4": "लेमोनेड हर जगह से हटा, रात 9 बजे तक", "t4s": "आपने एक बार कहा", "p_k": "जाना-पहचाना लगता है?", "p_h": "मालिकों ने हमें यही बताया। हमने भी यह सब झेला है।", "p_l": "हमारे अपने रेस्टोरेंट में आज यह सब ठीक है। ये असली स्क्रीन हैं।", "p1q": "मैं चूल्हे पर हूँ और फ़ोन बजता रहता है।", "p1a": "<b>अब:</b> दिन हो या रात, हर कॉल का जवाब मिलता है, और ऑर्डर पहले से पेड आता है।", "p2q": "मेरा सर्वर फिर नहीं आया।", "p2a": "<b>अब:</b> ग्राहक टेबल पर अपने फ़ोन से ऑर्डर और पेमेंट करते हैं।", "p3q": "DoorDash हर ऑर्डर का 30% ले जाता है।", "p3a": "<b>अब:</b> लोग आपकी अपनी वेबसाइट पर ऑर्डर करते हैं। पैसा भी आपका, ग्राहक भी आपका।", "p4q": "पता ही नहीं चलता पैसा कहाँ गया।", "p4a": "<b>अब:</b> हर सुबह एक मैसेज, और एक स्क्रीन जो बताती है क्या आया और क्यों।", "d_k": "यह कितना गहरा है", "d_h": "आपके रजिस्टर में QR मेन्यू पहले से है। वह तो बस ऊपर का सिरा है।", "d_l": "Clover और Square बुनियादी चीज़ें देते हैं। उसके नीचे का सब कुछ हमने बनाया है, और हम ही उसे चलाते हैं।", "a_h": "आपका रजिस्टर पहले से क्या देता है", "a_p": "काम का है, पर सारा काम फिर भी आप ही करते हैं।", "a1": "QR मेन्यू", "a2": "ऑनलाइन ऑर्डर पेज", "a3": "एक टैबलेट पर डिलीवरी ऐप", "b_h": "नीचे हमने क्या बनाया", "L1": "परत 1", "L1b": "हर ऑर्डर लेता है", "L2": "परत 2", "L2b": "पक्का करता है कि पैसा मिले", "L3": "परत 3", "L3b": "और ग्राहक लाता है", "i1": "हर कॉल का जवाब", "i1s": "दिन-रात, 4 भाषाओं में, इंसान की तरह", "i2": "टेबल पर बोलकर ऑर्डर", "i2s": "बटन दबाइए और बोलिए। बुज़ुर्ग मेहमानों के लिए भी", "i3": "आपके रेगुलर ग्राहकों को पहचानता है", "i3s": "उनका नाम, उनका हमेशा वाला ऑर्डर, उनकी शिकायतें", "i4": "हर बार कुछ और ऑफ़र करता है", "i4s": "10 में से 4 कॉलर हाँ कहते हैं", "i5": "बंद होने के बाद भी कैटरिंग", "i5s": "4 में से 1 से ज़्यादा कॉल तब आती हैं जब आप बंद होते हैं", "i6": "पेमेंट से पहले कुछ नहीं पकता", "i6s": "बिना पैसे दिए कोई नहीं जाता", "i7": "बकाया ऑर्डर का पीछा करता है", "i7s": "19 में से 15 का पैसा आया, आपको कुछ नहीं करना पड़ा", "i8": "एक बदलाव, हर जगह", "i8s": "\"लेमोनेड ख़त्म\" कहिए: रजिस्टर, वेबसाइट, फ़ोन और ऐप सब बदल जाते हैं", "i9": "प्रिंटर रुके तो आपको मैसेज", "i9s": "ग्राहक के ध्यान देने से पहले", "i10": "पिकअप का सही समय", "i10s": "और खाना तैयार होने पर मैसेज", "i11": "विज्ञापन जो ख़ुद बंद हो जाते हैं", "i11s": "हर डॉलर का हिसाब ऑर्डर से। ऑर्डर नहीं, तो ख़र्च नहीं", "i12": "खाने की फ़ोटो और वीडियो विज्ञापन", "i12s": "आपकी असली डिश से बने। कोई शूट नहीं", "i13": "पुराने ग्राहकों को वापस लाता है", "i13s": "जो एक महीने से नहीं आए, उन्हें मैसेज", "i14": "आसपास कैटरिंग के ग्राहक ढूँढता है", "i14s": "दफ़्तर और ग्रुप, जब आप खाना बना रहे होते हैं", "i15": "Google पर ज़्यादा रिव्यू", "i15s": "हमारे 400 से 941 हुए, 4.5 स्टार पर", "c_k": "बड़ी चेन की टेक्नोलॉजी, आपके साइज़ की", "c_h": "जो McDonald's और Taco Bell बना रहे हैं, वह एक रेस्टोरेंट के लिए बना: आपके लिए।", "c_l": "बड़ी चेन सैकड़ों लोगों की टीम से अपने रेस्टोरेंट में AI लगा रही हैं। हम वैसी ही टेक्नोलॉजी छोटे रेस्टोरेंट तक लाते हैं, बहुत कम ख़र्च में। और यह उससे आगे जाती है, क्योंकि हम इसे आपके हिसाब से बनाते हैं।", "ch_big": "बड़ी चेन का AI", "ch_you": "आपका रेस्टोरेंट, हमारे साथ", "dt1": "किसके लिए", "dt2": "क्या करता है", "dt3": "बदलाव में समय", "dt4": "ख़र्च", "b1": "हज़ारों रेस्टोरेंट, सब एक जैसे", "b2": "ड्राइव-थ्रू का ऑर्डर लेता है", "b3": "महीनों, हेड ऑफ़िस से होकर", "b4": "करोड़ों, चेन भरती है", "y1": "आपका मेन्यू, आपके ग्राहक, आपकी भाषाएँ", "y2": "फ़ोन, टेबल, वेबसाइट, ऐप, पेमेंट, विज्ञापन, कैटरिंग और सुबह का हिसाब", "y3": "कुछ दिन। कहिए, हम बना देंगे", "y4": "एक कर्मचारी के ख़र्च का छोटा सा हिस्सा", "f_b": "अब्बास ज़ोएब ने बनाया, Google के पूर्व सॉफ़्टवेयर इंजीनियर", "f_p": "उन्होंने Hard Rock Cafe के पहले AI एजेंट्स पर काम किया, फिर घर लौटकर परिवार का रेस्टोरेंट संभाला और उसके लिए यह बनाया।", "cr1": "पूर्व Google इंजीनियर", "cr2": "Hard Rock Cafe AI एजेंट्स", "cr3": "अपना रेस्टोरेंट चलाते हैं", "foxlink": "FOX 26 की ख़बर पढ़िए ↗", "kprclink": "KPRC 2 की ख़बर पढ़िए ↗", "pr_k": "हमारे अपने रेस्टोरेंट में साबित", "pr_h": "हमारा अकेला सर्वर चला गया। 24 घंटे में यह सब संभल गया।", "pr_l": "20 अक्टूबर को FOX 26 Houston इसे देखने आया। अगले दिन KPRC 2 आया।", "cap_fox": "FOX 26 के साथ · 20 अक्टूबर", "cap_kprc": "KPRC 2 के साथ · 21 अक्टूबर", "n0": "24 घंटे", "n1": "डायरेक्ट ऑर्डर बिना किसी स्टाफ़ के आते हैं", "n2": "का जवाब, बंद होने के बाद भी", "n3": "फिर खाना बनता है", "au1": "एक असली ग्राहक, बिना पूछे · 7 सेकंड", "au2": "मालिक, आवाज़ से। हर जगह से हटा · 11 सेकंड", "au3": "मालिक, उर्दू में। हर जगह वापस · 10 सेकंड", "g_k": "असली स्क्रीन", "g_h": "आपके फ़ोन पर क्या दिखता है।", "g1": "ग्राहकों से उनकी भाषा में बात", "g2": "किचन तक सिर्फ़ पेड ऑर्डर पहुँचते हैं", "g3": "हर ऑर्डर, और वह कहाँ से आया", "g4": "आपके ग्राहक, नाम से", "g5": "विज्ञापन, उनसे आए ऑर्डर से परखे गए", "g6": "आपके लिए कैटरिंग के ग्राहक ढूँढे गए", "g7": "आज रात की भीड़, शुरू होने से पहले", "g8": "आपकी अपनी ऑर्डरिंग, कोई कमीशन नहीं", "hint": "और देखने के लिए स्वाइप करें →", "s_k": "शुरुआत कैसे होती है", "s_h": "काम हम करते हैं। हाँ या ना आप कहते हैं।", "s1b": "हमें अपना मेन्यू भेजिए", "s1p": "हम उस पर आपके रेस्टोरेंट का डेमो बनाकर चलता हुआ दिखाते हैं। मुफ़्त।", "s2b": "आप आज़माइए", "s2p": "आप और आपका स्टाफ़ कॉल करके, ऑर्डर देकर बताइए क्या ठीक नहीं है।", "s3b": "यह चलता है", "s3p": "हम हर दिन इस पर नज़र रखते हैं और जो चाहिए वह बनाते रहते हैं।", "q1": "मुझे कंप्यूटर नहीं आता।", "a1x": "ज़रूरत भी नहीं। हम लगाते हैं और चलाते हैं। आप बस अपनी भाषा में इससे बात कीजिए।", "q2": "मेरे ग्राहक बुज़ुर्ग हैं। क्या वे इसे इस्तेमाल करेंगे?", "a2x": "वे एक बटन दबाकर बोल सकते हैं कि क्या चाहिए। या कॉल करें, और यह इंसान की तरह जवाब देता है।", "q3": "क्या मुझे नया रजिस्टर चाहिए?", "a3x": "नहीं। आपके पास जो है, हम उसी के साथ काम करते हैं। हमारा अपना रेस्टोरेंट Clover पर चलता है।", "q4": "इसका ख़र्च कितना है?", "a4x": "यह इस पर है कि आप क्या-क्या हमें सौंपना चाहते हैं, सिर्फ़ फ़ोन या सब कुछ। शुरू करने से पहले आपको क़ीमत पता होगी। कोई लंबा कॉन्ट्रैक्ट नहीं।", "q5": "अगर ऑर्डर ग़लत हो जाए तो?", "a5x": "ग्राहक पेमेंट से पहले पूरा ऑर्डर अपने फ़ोन पर देखता है। कुछ गड़बड़ हो, तो हम ठीक करते हैं, आप नहीं।", "cta_h": "अपना रेस्टोरेंट इस पर चलता हुआ देखिए। मुफ़्त।", "cta_p": "हमें अपना मेन्यू भेजिए। हम बनाएंगे, फिर 10 मिनट में दिखाएंगे।", "o1": "आपका मेन्यू, आपकी क़ीमतें, आपका नाम", "o2": "अपने ग्राहकों की तरह कॉल करके ऑर्डर दीजिए", "o3": "देखने का न कोई ख़र्च, न कॉन्ट्रैक्ट", "ph_name": "आपका नाम", "ph_rest": "रेस्टोरेंट और शहर", "ph_phone": "फ़ोन", "ph_email": "ईमेल (ज़रूरी नहीं)", "send": "मेरा मुफ़्त डेमो बनाइए", "note": "हम उसी दिन कॉल करते हैं। अंग्रेज़ी, हिंदी, उर्दू या स्पेनिश में।", "err": "अपना नाम और फ़ोन नंबर डालिए ताकि हम कॉल कर सकें।", "err_email": "यह ईमेल सही नहीं लगता। ठीक कीजिए या ख़ाली छोड़ दीजिए।", "sending": "भेज रहे हैं...", "sent": "भेज दिया", "ok": "मिल गया। हम आज ही कॉल करेंगे।", "fail": "यह नहीं गया। <a href=\"tel:+14083936716\">(408) 393-6716</a> पर कॉल करें या <a href=\"mailto:abbas@azrestaurantpartners.com\">abbas@azrestaurantpartners.com</a> पर ईमेल करें।", "nav_try": "आज़माएं", "sub2": "एक AI सिस्टम आपका फ़ोन, टेबल, किचन स्क्रीन और पेमेंट चलाता है। ह्यूस्टन में हमारे अपने रेस्टोरेंट में रोज़ चलता है।", "b_try": "हर हिस्सा ख़ुद आज़माएं", "b_demo": "आपके मेन्यू पर मुफ़्त डेमो", "n2b": "हर कॉल", "n3b": "पहले पेमेंट", "news_h": "इस हफ़्ते ह्यूस्टन टीवी पर", "cr3b": "अपने परिवार के रेस्टोरेंट के लिए बनाया"}, "ur": {"nav_demo": "مفت ڈیمو", "seen": "ہیوسٹن ٹی وی پر دکھایا گیا", "h1": "آپ اپنے کھانے اور گاہکوں پر توجہ دیں۔ ٹیکنالوجی ہم چلائیں گے۔", "sub": "فون، آرڈر، پیمنٹ، DoorDash، آپ کے اشتہار۔ وہی AI جو بڑی چینز استعمال کرتی ہیں، آپ کے ریسٹورنٹ میں لگا کر ہم چلاتے ہیں۔ آپ کو کمپیوٹر جاننے کی ضرورت نہیں۔", "cta1": "اپنے مینو پر مفت ڈیمو لیں", "cta2": "اصلی کال سنیں", "hook": "<b>ہمیں اپنا مینو بھیجیں۔</b> ہم اس پر آپ کا ریسٹورنٹ بنا کر چلتا ہوا دکھائیں گے۔ مفت۔", "t1": "اردو میں کال کا جواب", "t1s": "رات 11:42، بند ہونے کے بعد", "t2": "40 لوگوں کی کیٹرنگ، کل کے لیے بُک", "t3": "پکنے سے پہلے آرڈر کی پیمنٹ ہو گئی", "t3s": "ٹیبل 4", "t4": "لیمونیڈ ہر جگہ سے ہٹا، رات 9 بجے تک", "t4s": "آپ نے ایک بار کہا", "p_k": "جانا پہچانا لگتا ہے؟", "p_h": "مالکوں نے ہمیں یہی بتایا۔ ہم نے بھی یہ سب جھیلا ہے۔", "p_l": "ہمارے اپنے ریسٹورنٹ میں آج یہ سب ٹھیک ہے۔ یہ اصلی اسکرینیں ہیں۔", "p1q": "میں چولہے پر ہوں اور فون بجتا رہتا ہے۔", "p1a": "<b>اب:</b> دن ہو یا رات، ہر کال کا جواب ملتا ہے، اور آرڈر پہلے سے پیڈ آتا ہے۔", "p2q": "میرا سرور پھر نہیں آیا۔", "p2a": "<b>اب:</b> گاہک ٹیبل پر اپنے فون سے آرڈر اور پیمنٹ کرتے ہیں۔", "p3q": "DoorDash ہر آرڈر کا 30% لے جاتا ہے۔", "p3a": "<b>اب:</b> لوگ آپ کی اپنی ویب سائٹ پر آرڈر کرتے ہیں۔ پیسہ بھی آپ کا، گاہک بھی آپ کا۔", "p4q": "پتا ہی نہیں چلتا پیسہ کہاں گیا۔", "p4a": "<b>اب:</b> ہر صبح ایک میسج، اور ایک اسکرین جو بتاتی ہے کیا آیا اور کیوں۔", "d_k": "یہ کتنا گہرا ہے", "d_h": "آپ کے رجسٹر میں QR مینو پہلے سے ہے۔ وہ تو بس اوپر کا سرا ہے۔", "d_l": "Clover اور Square بنیادی چیزیں دیتے ہیں۔ اس کے نیچے کا سب کچھ ہم نے بنایا ہے، اور ہم ہی اسے چلاتے ہیں۔", "a_h": "آپ کا رجسٹر پہلے سے کیا دیتا ہے", "a_p": "کام کا ہے، پر سارا کام پھر بھی آپ ہی کرتے ہیں۔", "a1": "QR مینو", "a2": "آن لائن آرڈر پیج", "a3": "ایک ٹیبلٹ پر ڈیلیوری ایپس", "b_h": "نیچے ہم نے کیا بنایا", "L1": "پرت 1", "L1b": "ہر آرڈر لیتا ہے", "L2": "پرت 2", "L2b": "یقینی بناتا ہے کہ پیسہ ملے", "L3": "پرت 3", "L3b": "اور گاہک لاتا ہے", "i1": "ہر کال کا جواب", "i1s": "دن رات، 4 زبانوں میں، انسان کی طرح", "i2": "ٹیبل پر بول کر آرڈر", "i2s": "بٹن دبائیں اور بولیں۔ بزرگ مہمانوں کے لیے بھی", "i3": "آپ کے ریگولر گاہکوں کو پہچانتا ہے", "i3s": "ان کا نام، ان کا ہمیشہ والا آرڈر، ان کی شکایتیں", "i4": "ہر بار کچھ اور آفر کرتا ہے", "i4s": "10 میں سے 4 کالر ہاں کہتے ہیں", "i5": "بند ہونے کے بعد بھی کیٹرنگ", "i5s": "4 میں سے 1 سے زیادہ کالیں تب آتی ہیں جب آپ بند ہوتے ہیں", "i6": "پیمنٹ سے پہلے کچھ نہیں پکتا", "i6s": "بغیر پیسے دیے کوئی نہیں جاتا", "i7": "بقایا آرڈرز کا پیچھا کرتا ہے", "i7s": "19 میں سے 15 کا پیسہ آیا، آپ کو کچھ نہیں کرنا پڑا", "i8": "ایک تبدیلی، ہر جگہ", "i8s": "\"لیمونیڈ ختم\" کہیں: رجسٹر، ویب سائٹ، فون اور ایپس سب بدل جاتے ہیں", "i9": "پرنٹر رکے تو آپ کو میسج", "i9s": "گاہک کے دھیان دینے سے پہلے", "i10": "پک اپ کا صحیح وقت", "i10s": "اور کھانا تیار ہونے پر میسج", "i11": "اشتہار جو خود بند ہو جاتے ہیں", "i11s": "ہر ڈالر کا حساب آرڈر سے۔ آرڈر نہیں، تو خرچ نہیں", "i12": "کھانے کی تصویریں اور ویڈیو اشتہار", "i12s": "آپ کی اصلی ڈش سے بنے۔ کوئی شوٹ نہیں", "i13": "پرانے گاہکوں کو واپس لاتا ہے", "i13s": "جو ایک مہینے سے نہیں آئے، انہیں میسج", "i14": "آس پاس کیٹرنگ کے گاہک ڈھونڈتا ہے", "i14s": "دفتر اور گروپ، جب آپ کھانا بنا رہے ہوتے ہیں", "i15": "Google پر زیادہ ریویوز", "i15s": "ہمارے 400 سے 941 ہوئے، 4.5 اسٹار پر", "c_k": "بڑی چین کی ٹیکنالوجی، آپ کے سائز کی", "c_h": "جو McDonald's اور Taco Bell بنا رہے ہیں، وہ ایک ریسٹورنٹ کے لیے بنا: آپ کے لیے۔", "c_l": "بڑی چینز سینکڑوں لوگوں کی ٹیم سے اپنے ریسٹورنٹس میں AI لگا رہی ہیں۔ ہم ویسی ہی ٹیکنالوجی چھوٹے ریسٹورنٹس تک لاتے ہیں، بہت کم خرچ میں۔ اور یہ اس سے آگے جاتی ہے، کیونکہ ہم اسے آپ کے حساب سے بناتے ہیں۔", "ch_big": "بڑی چین کا AI", "ch_you": "آپ کا ریسٹورنٹ، ہمارے ساتھ", "dt1": "کس کے لیے", "dt2": "کیا کرتا ہے", "dt3": "تبدیلی میں وقت", "dt4": "خرچ", "b1": "ہزاروں ریسٹورنٹس، سب ایک جیسے", "b2": "ڈرائیو تھرو کا آرڈر لیتا ہے", "b3": "مہینوں، ہیڈ آفس سے ہو کر", "b4": "کروڑوں، چین بھرتی ہے", "y1": "آپ کا مینو، آپ کے گاہک، آپ کی زبانیں", "y2": "فون، ٹیبل، ویب سائٹ، ایپس، پیمنٹ، اشتہار، کیٹرنگ اور صبح کا حساب", "y3": "کچھ دن۔ کہیں، ہم بنا دیں گے", "y4": "ایک ملازم کے خرچ کا چھوٹا سا حصہ", "f_b": "عباس زوئب نے بنایا، Google کے سابق سافٹ ویئر انجینئر", "f_p": "انہوں نے Hard Rock Cafe کے پہلے AI ایجنٹس پر کام کیا، پھر گھر لوٹ کر خاندان کا ریسٹورنٹ سنبھالا اور اس کے لیے یہ بنایا۔", "cr1": "سابق Google انجینئر", "cr2": "Hard Rock Cafe AI ایجنٹس", "cr3": "اپنا ریسٹورنٹ چلاتے ہیں", "foxlink": "FOX 26 کی خبر پڑھیں ↗", "kprclink": "KPRC 2 کی خبر پڑھیں ↗", "pr_k": "ہمارے اپنے ریسٹورنٹ میں ثابت", "pr_h": "ہمارا اکیلا سرور چلا گیا۔ 24 گھنٹے میں یہ سب سنبھل گیا۔", "pr_l": "20 اکتوبر کو FOX 26 Houston اسے دیکھنے آیا۔ اگلے دن KPRC 2 آیا۔", "cap_fox": "FOX 26 کے ساتھ · 20 اکتوبر", "cap_kprc": "KPRC 2 کے ساتھ · 21 اکتوبر", "n0": "24 گھنٹے", "n1": "ڈائریکٹ آرڈر بغیر کسی اسٹاف کے آتے ہیں", "n2": "کا جواب، بند ہونے کے بعد بھی", "n3": "پھر کھانا بنتا ہے", "au1": "ایک اصلی گاہک، بغیر پوچھے · 7 سیکنڈ", "au2": "مالک، آواز سے۔ ہر جگہ سے ہٹا · 11 سیکنڈ", "au3": "مالک، اردو میں۔ ہر جگہ واپس · 10 سیکنڈ", "g_k": "اصلی اسکرینیں", "g_h": "آپ کے فون پر کیا دکھتا ہے۔", "g1": "گاہکوں سے ان کی زبان میں بات", "g2": "کچن تک صرف پیڈ آرڈر پہنچتے ہیں", "g3": "ہر آرڈر، اور وہ کہاں سے آیا", "g4": "آپ کے گاہک، نام سے", "g5": "اشتہار، ان سے آئے آرڈرز سے پرکھے گئے", "g6": "آپ کے لیے کیٹرنگ کے گاہک ڈھونڈے گئے", "g7": "آج رات کا رش، شروع ہونے سے پہلے", "g8": "آپ کی اپنی آرڈرنگ، کوئی کمیشن نہیں", "hint": "مزید دیکھنے کے لیے سوائپ کریں ←", "s_k": "شروعات کیسے ہوتی ہے", "s_h": "کام ہم کرتے ہیں۔ ہاں یا نہ آپ کہتے ہیں۔", "s1b": "ہمیں اپنا مینو بھیجیں", "s1p": "ہم اس پر آپ کے ریسٹورنٹ کا ڈیمو بنا کر چلتا ہوا دکھاتے ہیں۔ مفت۔", "s2b": "آپ آزمائیں", "s2p": "آپ اور آپ کا اسٹاف کال کر کے، آرڈر دے کر بتائیں کیا ٹھیک نہیں ہے۔", "s3b": "یہ چلتا ہے", "s3p": "ہم ہر دن اس پر نظر رکھتے ہیں اور جو چاہیے وہ بناتے رہتے ہیں۔", "q1": "مجھے کمپیوٹر نہیں آتا۔", "a1x": "ضرورت بھی نہیں۔ ہم لگاتے ہیں اور چلاتے ہیں۔ آپ بس اپنی زبان میں اس سے بات کریں۔", "q2": "میرے گاہک بزرگ ہیں۔ کیا وہ اسے استعمال کریں گے؟", "a2x": "وہ ایک بٹن دبا کر بول سکتے ہیں کہ کیا چاہیے۔ یا کال کریں، اور یہ انسان کی طرح جواب دیتا ہے۔", "q3": "کیا مجھے نیا رجسٹر چاہیے؟", "a3x": "نہیں۔ آپ کے پاس جو ہے، ہم اسی کے ساتھ کام کرتے ہیں۔ ہمارا اپنا ریسٹورنٹ Clover پر چلتا ہے۔", "q4": "اس کا خرچ کتنا ہے؟", "a4x": "یہ اس پر ہے کہ آپ کیا کیا ہمیں سونپنا چاہتے ہیں، صرف فون یا سب کچھ۔ شروع کرنے سے پہلے آپ کو قیمت پتا ہوگی۔ کوئی لمبا کانٹریکٹ نہیں۔", "q5": "اگر آرڈر غلط ہو جائے تو؟", "a5x": "گاہک پیمنٹ سے پہلے پورا آرڈر اپنے فون پر دیکھتا ہے۔ کچھ گڑبڑ ہو، تو ہم ٹھیک کرتے ہیں، آپ نہیں۔", "cta_h": "اپنا ریسٹورنٹ اس پر چلتا ہوا دیکھیں۔ مفت۔", "cta_p": "ہمیں اپنا مینو بھیجیں۔ ہم بنائیں گے، پھر 10 منٹ میں دکھائیں گے۔", "o1": "آپ کا مینو، آپ کی قیمتیں، آپ کا نام", "o2": "اپنے گاہکوں کی طرح کال کر کے آرڈر دیں", "o3": "دیکھنے کا نہ کوئی خرچ، نہ کانٹریکٹ", "ph_name": "آپ کا نام", "ph_rest": "ریسٹورنٹ اور شہر", "ph_phone": "فون", "ph_email": "ای میل (ضروری نہیں)", "send": "میرا مفت ڈیمو بنائیں", "note": "ہم اسی دن کال کرتے ہیں۔ انگریزی، ہندی، اردو یا ہسپانوی میں۔", "err": "اپنا نام اور فون نمبر ڈالیں تاکہ ہم کال کر سکیں۔", "err_email": "یہ ای میل صحیح نہیں لگتی۔ ٹھیک کریں یا خالی چھوڑ دیں۔", "sending": "بھیج رہے ہیں...", "sent": "بھیج دیا", "ok": "مل گیا۔ ہم آج ہی کال کریں گے۔", "fail": "یہ نہیں گیا۔ <a href=\"tel:+14083936716\">(408) 393-6716</a> پر کال کریں یا <a href=\"mailto:abbas@azrestaurantpartners.com\">abbas@azrestaurantpartners.com</a> پر ای میل کریں۔", "nav_try": "آزمائیں", "sub2": "ایک AI سسٹم آپ کا فون، ٹیبل، کچن اسکرین اور پیمنٹ چلاتا ہے۔ ہیوسٹن میں ہمارے اپنے ریسٹورنٹ میں روز چلتا ہے۔", "b_try": "ہر حصہ خود آزمائیں", "b_demo": "آپ کے مینو پر مفت ڈیمو", "n2b": "ہر کال", "n3b": "پہلے پیمنٹ", "news_h": "اس ہفتے ہیوسٹن ٹی وی پر", "cr3b": "اپنے خاندان کے ریسٹورنٹ کے لیے بنایا"}};
 (function(){
   var en={}, cur="en";
   document.querySelectorAll("[data-i]").forEach(function(e){ en[e.dataset.i]=e.innerHTML; });

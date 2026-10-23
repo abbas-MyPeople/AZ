@@ -3,7 +3,7 @@
 import pathlib
 HERE=pathlib.Path(__file__).parent; REPO=HERE.parent
 track=(REPO/"v2/track.js").read_text()
-pages={"home-src.html":("index.html","home_v3"),"start-src.html":("start/index.html","start_v1")}
+pages={"home-min-src.html":("index.html","home_v4"),"start-src.html":("start/index.html","start_v1")}
 for src,(out,pid) in pages.items():
     html=(HERE/src).read_text().replace("__TRACKING__",track.replace("__PAGEID__",pid))
     (REPO/out).parent.mkdir(parents=True,exist_ok=True)
