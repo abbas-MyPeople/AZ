@@ -28,6 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}  # backup door if the Anthropic account stops
       STOCKS_RESEARCH_MODEL: claude-sonnet-5
       # Manual "Run workflow" = intentional same-day redo; scheduled/push
       # runs respect the once-per-day cost guard in the script.

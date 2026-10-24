@@ -23,6 +23,7 @@ permissions:
 
 env:
   ANTHROPIC_API_KEY:      ${{ secrets.ANTHROPIC_API_KEY }}
+  OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}  # backup door if the Anthropic account stops
   WK_ENGINE_EMAIL:        ${{ secrets.WK_ENGINE_EMAIL }}
   WK_ENGINE_APP_PASSWORD: ${{ secrets.WK_ENGINE_APP_PASSWORD }}
   WK_ENGINE_TO:           ${{ secrets.WK_ENGINE_TO }}

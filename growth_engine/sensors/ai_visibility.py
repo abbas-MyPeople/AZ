@@ -18,6 +18,24 @@ from __future__ import annotations
 import os, json, re, time, urllib.request, urllib.error
 from .. import model
 
+def _llm_backup():
+    """If the Anthropic account stops, Claude calls go to OpenRouter instead (growth_engine/llm_route.py)."""
+    import importlib.util as _iu
+    d = os.path.dirname(os.path.abspath(__file__))
+    while d != os.path.dirname(d) and not os.path.exists(os.path.join(d, "growth_engine", "llm_route.py")):
+        d = os.path.dirname(d)
+    try:
+        spec = _iu.spec_from_file_location("llm_route", os.path.join(d, "growth_engine", "llm_route.py"))
+        mod = _iu.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        mod.install()
+    except Exception:                                                # noqa: BLE001
+        pass
+
+
+_llm_backup()
+
+
 API = "https://api.anthropic.com/v1/messages"
 STATE_TS = model.STATE / "ai_visibility_last.json"
 MAX_QUERIES = 10
