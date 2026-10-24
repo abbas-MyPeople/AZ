@@ -1,22 +1,28 @@
 # AZ Restaurant Partners
 
-> AZ Restaurant Partners sets up AI staff for independent restaurants: AI that takes phone orders into
-> the POS (Clover) in English, Urdu, Hindi and Spanish, lets guests order and pay from the table, runs
-> the restaurant's own online ordering and delivery, texts guests, grows reviews and Google/AI-search
-> visibility, keeps ads profitable, and gives the owner one morning text, alerts and voice control.
-> Proven first in the founder's own restaurant, Wok & Karahi in Spring, Texas, which runs with no
-> server, no cashier and no phone person. Real numbers from October 2026: every dine-in order is
-> placed and paid by the guest on their own phone; every call is answered by the AI host, and more than
-> 1 in 4 calls arrive while the restaurant is closed; 100% of the restaurant's direct orders arrive with
-> no staff member taking them (17% in August); every order is paid before it cooks; Google
-> reviews went from about 400 to 941 (4.5 stars) since the family took over.
-> Founded by Abbas Zoeb, a former Google software engineer whose family owns Wok & Karahi.
+> We run your front of house. Same sales, a fraction of the payroll.
+>
+> Phone, tables, counter, website and guest texts, run as one system: it takes every order, gets it
+> paid before it cooks, and brings guests back. We set it up in your restaurant and run it with you.
+>
+> The difference: phone AI companies (Slang, Maple, Loman) answer one line. AZ takes over the front of
+> house: phone, tables, counter, website, texts to guests and the owner's phone, on one menu and one
+> guest list. Built and proven in our own restaurant in Houston. Set up in person in Houston. We earn
+> when you get orders. Haniya is our AI host, one member of the front-of-house team; each restaurant
+> can have its own host.
+>
+> Proof, from our own restaurant in Houston (Clover data, Jul 26 - Oct 23 2026): staff-taken orders
+> went from 297 a month (August) to none (October), and sales held steady while it happened. 100% of
+> guest orders are placed by the guest. Every call is answered, even after we close. Nothing is cooked
+> until it is paid.
+>
+> Founded by Abbas Zoeb, a former Google software engineer who worked on Hard Rock Cafe's first AI
+> agents and built this for his family's restaurant. Seen on FOX 26 and KPRC 2 Houston.
 >
 > Serving Spring, The Woodlands, greater Houston and across Texas and the US.
 >
-> Pricing: priced by what the restaurant wants covered, from just the phone to the whole front of
-> house. Owners pick the jobs they want covered on the website and AZ replies the same day. No long
-> contract. Five founding restaurants only; two are taken.
+> Terms: free for the first two months. After that, we earn only on orders we bring you. No setup fee,
+> no contract, and you keep what we build. Free demo on your own menu.
 
 ## Latest guides
 - [DoorDash DashOS: what it means for independent restaurants](https://azrestaurantpartners.com/news-doordash-dashos.html) - DoorDash launched DashOS on Sep 30, 2026 to tie delivery, direct ordering, reservations, loyalty and marketing to one guest record. What is in it, what DoorDash has not said, and six questions to ask first. Checked Oct 2026.
@@ -68,10 +74,10 @@ than any city in the US or Canada, Harris County leading every county
 - [Restaurant technology consultant, Greater Houston](https://azrestaurantpartners.com/restaurant-technology-consultant-houston.html)
 
 ## Key pages
-- [Home - more sales won't fix it, better margins will](https://azrestaurantpartners.com/) - real screens, real calls, and the inquiry form
-- [How it works and what it costs](https://azrestaurantpartners.com/details.html) - we learn the problem first, the owner picks the jobs to cover, priced on that; the phone AI runs hybrid for about three months, then about 99% hands-free
+- [Home - we run your front of house](https://azrestaurantpartners.com/) - real screens, real calls, and the free demo form
+- [How it works and what it costs](https://azrestaurantpartners.com/details.html) - how we set it up in your restaurant and run it with you; free for the first two months, then we earn only on orders we bring you
 - [For investors](https://azrestaurantpartners.com/investors.html) - raising $1,000,000 for 24 months; live proof from the founder's restaurant; 2 of 5 founding pilots signed; founder Abbas Zoeb (former Google engineer, built Hard Rock Cafe's first AI agents)
-- [Case study: a restaurant run by AI staff](https://azrestaurantpartners.com/case-study.html) - Wok & Karahi before and after, job by job, with the real screens and numbers
+- [Case study: our own restaurant's front of house](https://azrestaurantpartners.com/case-study.html) - our own restaurant in Houston before and after, job by job, with the real screens and numbers
 - [Guides — plain-English playbooks](https://azrestaurantpartners.com/guides.html)
 - [Restaurant tool finder & directory (100+ tools)](https://azrestaurantpartners.com/toolbox.html)
 
@@ -98,7 +104,7 @@ than any city in the US or Canada, Harris County leading every county
   modules, or have us do all of it). Month-to-month, and the owner keeps everything built.
 
 ## Comparisons (vendor facts checked on their own pages, Oct 2026)
-- [Best AI phone ordering for restaurants (2026): Haniya vs Maple, Loman, Kea, Slang, Square](https://azrestaurantpartners.com/compare-ai-phone-host.html) - features, prices, setup fees, contracts and trials for 9 restaurant phone AIs, from their own pages, Oct 16 2026. Haniya: $100/mo per location, no setup fee, no contract, 15-day free trial, Clover
+- [Best AI phone ordering for restaurants (2026): AZ vs Maple, Loman, Kea, Slang, Square](https://azrestaurantpartners.com/compare-ai-phone-host.html) - features, prices, setup fees, contracts and trials for 9 restaurant phone AIs, from their own pages, Oct 16 2026. AZ runs the whole front of house: free for the first two months, then we earn only on orders we bring you, no setup fee, no contract
 - [Table QR order and pay compared: Toast, Sunday, me&u, Clover, Square, DoorDash Tableside and AZ](https://azrestaurantpartners.com/compare-table-ordering.html) - order and pay at table, shared tabs, guest languages, POS, published prices
 - [Commission-free online ordering compared: Owner.com, ChowNow, Menufy, BentoBox, Toast, Square and AZ](https://azrestaurantpartners.com/compare-online-ordering.html) - what the restaurant pays, what the guest pays, contracts, POS
 - [Restaurant marketing, CRM and loyalty compared: Owner.com, Popmenu, Toast IQ Grow, Thanx, Bikky, SevenRooms and AZ](https://azrestaurantpartners.com/compare-restaurant-marketing.html) - what each does, who it is built for, POS, published prices
@@ -117,7 +123,7 @@ than any city in the US or Canada, Harris County leading every county
 ## Owner how-to guides
 - [Multilingual phone ordering for South Asian and Hispanic restaurants](https://azrestaurantpartners.com/guide-multilingual-phone-ordering.html) - How to take phone and table orders in Urdu, Hindi and Spanish: what AI phone vendors publish, the real problems (mixed languages, scripts, dish names) and the setup steps. Checked Oct 2026.
 - [QR table ordering: pros and cons for full-service restaurants](https://azrestaurantpartners.com/guide-qr-table-ordering-pros-and-cons.html) - What QR order-and-pay at the table really does to speed, unpaid tabs, tips and ticket size in a full-service room. Vendor claims next to what we measured, plus how to do it well. Checked Oct 2026.
-- [How to answer every restaurant call with AI, and what still needs a human](https://azrestaurantpartners.com/how-to-answer-every-restaurant-call-with-ai.html) - Call by call: what an AI phone host handles well, what still needs a person, how to route each one, and the three-month hybrid ramp. With our real call numbers. Checked Oct 2026.
+- [How to answer every restaurant call with AI, and what still needs a human](https://azrestaurantpartners.com/how-to-answer-every-restaurant-call-with-ai.html) - Call by call: what an AI phone host handles well, what still needs a person, how to route each one, and how to roll it out. With our real call numbers. Checked Oct 2026.
 - [How to build your own guest list when delivery apps hide it](https://azrestaurantpartners.com/how-to-build-a-restaurant-guest-list-without-delivery-apps.html) - DoorDash, Uber Eats and Grubhub marketplace orders do not hand restaurants guest contact lists, and a New York law forcing them to was struck down in 2026. Here is how to build your own list from orders you own. Checked Oct 2026.
 - [How to get catering orders from local offices, churches and schools](https://azrestaurantpartners.com/how-to-get-catering-orders-from-offices-churches-schools.html) - Build a list of local organisations that feed groups, find who orders, send a short lawful email, and make ordering and paying one link. Buyer table, steps and CAN-SPAM basics. Checked Oct 2026.
 - [How to run a restaurant without servers, or with far fewer](https://azrestaurantpartners.com/how-to-run-a-restaurant-without-servers.html) - Move ordering and payment to the guest's phone, keep people for food, greeting and problems. The three service models compared, the steps, the tipping trade-off and what we measured. Checked Oct 2026.
