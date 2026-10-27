@@ -30,8 +30,8 @@ When we turned AZ's methods on our own place, we found exactly what the average 
 ## What we built (all live or deployed today — this is the proof)
 1. **An AI phone agent that actually works.** Answers every call in a locked, human-sounding voice
    (English + Urdu/Hindi), takes orders straight into the Clover POS, sizes catering, upsells like a
-   friend, remembers regulars, handles complaints with real empathy, and warm-transfers to the right
-   person. **Live on Fly.io**, 24 integrated tools, gated so it can never place a bad order, and put
+   friend, remembers regulars, handles complaints with real empathy and alerts the owners, with no hand-off
+   to a person by design. **Live on Fly.io**, 24 integrated tools, gated so it can never place a bad order, and put
    through a 15-scenario QA gate before going live.
 2. **A website AI assistants can actually read.** Rebuilt in code as an **AEO-native** site
    (wokandkarahitexas.com): full Restaurant/Menu/FAQ schema, a menu statically rendered so no-JS
