@@ -25,6 +25,7 @@ Last updated 2026-10-28 from the cloud session. Picks up the AZ social reel work
 5. Connect AZ's Instagram, TikTok, Facebook, LinkedIn for scheduled posting (Wok & Karahi's poster today handles photos only; needs video).
 
 ## Lessons from the first attempts (do not repeat)
+- 2026-10-28: reel 01 was wrongly rebuilt on the Mac as staged photo cards (the old feed-image method). Owner rejected it. Story reels are an ANIMATED WORLD with characters following one journey, per the reference grammar above. No duplicate labels or tags, captions never repeat a card, nothing overlaps the HUD.
 - Real screenshots in reels are unreadable at phone size. Redraw each screen as a teaching card with 2-3 elements.
 - Characters drawn from primitives in code look like toys. Production needs the artist's kit.
 - On-screen text must equal the voice word for word.
