@@ -1,0 +1,227 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap">
+<style>html,body{margin:0;background:#05070c}canvas{display:block}#gl{position:absolute;left:-9999px}</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<canvas id="out" width="1080" height="1920"></canvas>
+<script type="module">
+/* AZ - "The 7:14 call", opening 13 seconds. Engine v2 proof: a lit 3D world, one object's journey (the call as a
+   pulse of light), a stakes number (a real $26.98 order), chapter bar, HUD clock, captions word-synced to the voice. */
+import * as THREE from "three";
+import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
+import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
+
+const W = 1080, H = 1920, P = new URLSearchParams(location.search), FPS = +(P.get("fps") || 30);
+const VO = JSON.parse(P.get("vo") || '{"l1a":1.72,"l1b":1.03,"l2a":1.05,"l2b":0.8,"l3a":1.64,"l3b":0.91,"l4a":1.23,"l4b":0.73}');
+const clamp = (v, a=0, b=1) => Math.max(a, Math.min(b, v)), span = (t, a, b) => clamp((t - a) / (b - a));
+const ease = x => { x = clamp(x); return x < .5 ? 4*x*x*x : 1 - Math.pow(-2*x + 2, 3) / 2; }, out = x => 1 - Math.pow(1 - clamp(x), 3);
+const back = x => { x = clamp(x); const c = 1.7; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const lerp = (a, b, k) => a + (b - a) * k, hash = (a, b=0) => { const x = Math.sin(a*127.1 + b*311.7) * 43758.5453; return x - Math.floor(x); };
+
+/* ---------- timeline from the voice ---------- */
+const LINES = [["l1a","l1b","It's 7:14 on a Friday.","Your phone is ringing."],["l2a","l2b","Every pair of hands","is on the line."],
+               ["l3a","l3b","That's a $26.98 order,","about to hang up."],["l4a","l4b","Now Haniya answers.","Every time."]];
+let tt = .4; const T = LINES.map(([a, b, sa, sb]) => { const r = {a: tt, b: tt + VO[a] + .12, sa, sb, da: VO[a], db: VO[b]}; r.end = r.b + VO[b]; tt = r.end + .45; return r; });
+const DUR = tt + 1.2; window.DURATION = DUR; window.TIMING = T;
+
+/* ---------- renderer ---------- */
+const glc = document.createElement("canvas"); glc.id = "gl"; glc.width = W; glc.height = H; document.body.append(glc);
+const renderer = new THREE.WebGLRenderer({canvas: glc, antialias: true, preserveDrawingBuffer: true});
+renderer.setSize(W, H, false); renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x070b16); scene.fog = new THREE.Fog(0x0d1528, 45, 120);
+const cam = new THREE.PerspectiveCamera(42, W / H, .1, 300);
+const composer = new EffectComposer(renderer); composer.addPass(new RenderPass(scene, cam));
+const bloom = new UnrealBloomPass(new THREE.Vector2(W, H), .85, .55, .72); composer.addPass(bloom); composer.addPass(new OutputPass());
+
+const M = (c, o={}) => new THREE.MeshStandardMaterial({color: c, roughness: .78, metalness: 0, ...o});
+const add = (geo, mat, x, y, z, o={}) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); if (o.rx) m.rotation.x = o.rx; if (o.ry) m.rotation.y = o.ry;
+  m.castShadow = o.cast !== false; m.receiveShadow = true; (o.parent || scene).add(m); return m; };
+
+/* light: cool moon, warm practicals */
+scene.add(new THREE.HemisphereLight(0x7d93cf, 0x2a1a10, 1.1));
+const moon = new THREE.DirectionalLight(0xa9bdf0, 1.3); moon.position.set(-20, 30, 20); moon.castShadow = true; moon.shadow.mapSize.set(2048, 2048);
+Object.assign(moon.shadow.camera, {left: -30, right: 30, top: 30, bottom: -30}); scene.add(moon);
+
+/* ---------- the street: road, sidewalks, houses with lit windows ---------- */
+add(new THREE.PlaneGeometry(200, 200), M(0x1e2638), 0, 0, 0, {rx: -Math.PI/2, cast: false});
+add(new THREE.PlaneGeometry(9, 120), M(0x262d3e, {roughness: .5}), 0, .01, -20, {rx: -Math.PI/2, cast: false});
+for (let z = -70; z < 50; z += 6) add(new THREE.PlaneGeometry(.25, 2.4), new THREE.MeshBasicMaterial({color: 0x6b6250}), 0, .02, z, {rx: -Math.PI/2, cast: false});
+const winMats = [];
+function house(x, z, w, d, h, col, seed) {
+  const g = new THREE.Group(); g.position.set(x, 0, z); scene.add(g);
+  add(new THREE.BoxGeometry(w, h, d), M(col), 0, h/2, 0, {parent: g});
+  add(new THREE.ConeGeometry(Math.max(w, d) * .78, 2.2, 4), M(0x2a2230), 0, h + 1.1, 0, {parent: g, ry: Math.PI/4});
+  const side = x < 0 ? 1 : -1;
+  for (let i = 0; i < 3; i++) for (let j = 0; j < 2; j++) {
+    const on = hash(seed, i*3+j) > .45, m = new THREE.MeshStandardMaterial({color: 0x111, emissive: on ? 0xffb35a : 0x0d1220, emissiveIntensity: on ? 1.4 : 1});
+    const win = add(new THREE.PlaneGeometry(.9, 1.1), m, side * (w/2 + .01), 1.6 + j*2.2, -d/2 + 1.2 + i*(d-2.4)/2, {parent: g, ry: side * Math.PI/2, cast: false}); winMats.push({m, on, seed: seed*7+i*3+j});
+  }
+  return g;
+}
+const HCOL = [0x4a5a86, 0x6a4f72, 0x3f6672, 0x7a5a44, 0x51668a];
+for (let i = 0; i < 9; i++) { house(-10, 32 - i*11, 6, 8, 5 + hash(i,1)*3, HCOL[i%5], i); house(10, 34 - i*11, 6, 8, 5 + hash(i,2)*3, HCOL[(i+2)%5], i+20); }
+// the caller's house: one window that lights up
+const callerWin = new THREE.MeshStandardMaterial({color: 0x111, emissive: 0xffc46b, emissiveIntensity: 0});
+add(new THREE.PlaneGeometry(1.2, 1.4), callerWin, -6.98, 2.2, 32, {ry: Math.PI/2, cast: false});
+for (let i = 0; i < 14; i++) { const z = 40 - i*8; add(new THREE.CylinderGeometry(.07, .07, 4.2), M(0x22262f), i%2 ? 5 : -5, 2.1, z);
+  const bulb = add(new THREE.SphereGeometry(.22), new THREE.MeshBasicMaterial({color: 0xffd9a0}), i%2 ? 5 : -5, 4.25, z, {cast: false}); }
+
+/* ---------- the restaurant at the end of the street, front cut away ---------- */
+const R = new THREE.Group(); R.position.set(0, 0, -16); scene.add(R);
+const RW = 14, RD = 10, RH = 5.2;
+add(new THREE.BoxGeometry(RW, .2, RD), M(0x5b3a24, {roughness: .6}), 0, .1, 0, {parent: R});
+add(new THREE.BoxGeometry(RW, RH, .3), M(0x6d4a32), 0, RH/2, -RD/2, {parent: R});
+add(new THREE.BoxGeometry(.3, RH, RD), M(0x5e3f2a), -RW/2, RH/2, 0, {parent: R});
+add(new THREE.BoxGeometry(.3, RH, RD), M(0x5e3f2a), RW/2, RH/2, 0, {parent: R});
+add(new THREE.BoxGeometry(RW + .6, .5, RD + .6), M(0x2a1d14), 0, RH + .25, 0, {parent: R});
+// sign
+const sc = document.createElement("canvas"); sc.width = 1024; sc.height = 192; { const x = sc.getContext("2d"); x.fillStyle = "#8C2C14"; x.fillRect(0,0,1024,192);
+  x.fillStyle = "#F3E7C4"; x.font = "italic 700 118px 'Playfair Display'"; x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("Wok & Karahi", 512, 100); }
+const signTex = new THREE.CanvasTexture(sc); signTex.colorSpace = THREE.SRGBColorSpace;
+add(new THREE.PlaneGeometry(7, 1.3), new THREE.MeshStandardMaterial({map: signTex, emissive: 0xffffff, emissiveMap: signTex, emissiveIntensity: .55}), 0, RH + .25, RD/2 + .32, {parent: R, cast: false});
+// warm interior light
+const warm = new THREE.PointLight(0xffb070, 30, 22, 1.6); warm.position.set(0, 4.2, 0); R.add(warm);
+for (let i = -1; i <= 1; i++) { add(new THREE.ConeGeometry(.5, .5, 24, 1, true), M(0x1d1a17, {side: THREE.DoubleSide}), i*4 - 1, RH - .4, -2.8, {parent: R});
+  add(new THREE.SphereGeometry(.18), new THREE.MeshBasicMaterial({color: 0xffd28a}), i*4 - 1, RH - .62, -2.8, {parent: R, cast: false}); }
+// the line: counter, wok range with fire, pass shelf
+add(new THREE.BoxGeometry(9, 1.1, 1.4), M(0x9aa1a8, {metalness: .5, roughness: .4}), -1.5, .55, -3.6, {parent: R});
+const wok = add(new THREE.SphereGeometry(.55, 24, 12, 0, Math.PI*2, Math.PI/2, Math.PI/2), M(0x1b1b1b, {metalness: .6, roughness: .35, side: THREE.DoubleSide}), -3, 1.35, -3.6, {parent: R});
+const fireMat = new THREE.MeshBasicMaterial({color: 0xff8a2a, transparent: true, opacity: .9, blending: THREE.AdditiveBlending, depthWrite: false});
+const flames = []; for (let i = 0; i < 26; i++) { const f = add(new THREE.SphereGeometry(.09 + hash(i, 3)*.08, 8, 6), fireMat, -3, 1.3, -3.6, {parent: R, cast: false}); flames.push(f); }
+const fireLight = new THREE.PointLight(0xff7a2a, 8, 7, 1.5); fireLight.position.set(-3, 2, -3.2); R.add(fireLight);
+add(new THREE.BoxGeometry(5.5, 1.1, 1.2), M(0x8a6440), 3.5, .55, 1.5, {parent: R}); // front counter
+add(new THREE.BoxGeometry(.6, .5, .4), M(0x111), 2.2, 1.35, 1.5, {parent: R});     // register
+// the wall phone
+const phone = new THREE.Group(); phone.position.set(5.2, 2.6, -4.82); R.add(phone);
+add(new THREE.BoxGeometry(.55, .9, .12), M(0x14161a, {roughness: .4}), 0, 0, 0, {parent: phone});
+const screenMat = new THREE.MeshStandardMaterial({color: 0x000, emissive: 0x6fa0ff, emissiveIntensity: .4});
+add(new THREE.PlaneGeometry(.42, .6), screenMat, 0, .05, .065, {parent: phone, cast: false});
+const rings = []; for (let i = 0; i < 3; i++) { const r = new THREE.Mesh(new THREE.TorusGeometry(.6, .025, 8, 48), new THREE.MeshBasicMaterial({color: 0xffc46b, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false})); phone.add(r); r.position.z = .1; rings.push(r); }
+
+/* the team: original rounded figures, faceless, each role told by one colour detail */
+function figure(col, accent, o={}) {
+  const g = new THREE.Group(), skin = M(o.skin || 0xc89a74, {roughness: .6}), cloth = M(col, {roughness: .7});
+  add(new THREE.CapsuleGeometry(.14, .55, 6, 10), M(0x23242a), -.17, .42, 0, {parent: g}); add(new THREE.CapsuleGeometry(.14, .55, 6, 10), M(0x23242a), .17, .42, 0, {parent: g});
+  const torso = add(new THREE.CapsuleGeometry(.36, .55, 8, 16), cloth, 0, 1.32, 0, {parent: g}); torso.scale.set(1.15, 1, .8);
+  if (o.apron) add(new THREE.BoxGeometry(.5, .75, .05), M(0xfbf8f2), 0, 1.15, .3, {parent: g});
+  add(new THREE.CylinderGeometry(.11, .13, .16, 12), skin, 0, 1.92, 0, {parent: g});
+  add(new THREE.SphereGeometry(.3, 24, 16), skin, 0, 2.2, 0, {parent: g});
+  if (o.hat) { add(new THREE.CylinderGeometry(.27, .27, .3, 20), M(0xf7f3ea), 0, 2.55, 0, {parent: g}); add(new THREE.SphereGeometry(.33, 20, 12), M(0xf7f3ea), 0, 2.76, 0, {parent: g}); }
+  else if (o.scarf) add(new THREE.SphereGeometry(.36, 24, 16, 0, Math.PI*2, 0, Math.PI*.62), M(accent), 0, 2.24, 0, {parent: g});
+  else add(new THREE.SphereGeometry(.31, 24, 16, 0, Math.PI*2, 0, Math.PI*.45), M(0x1c1612), 0, 2.24, 0, {parent: g});
+  add(new THREE.TorusGeometry(.3, .06, 8, 24), M(accent), 0, 1.78, 0, {parent: g, rx: Math.PI/2});
+  const armL = add(new THREE.CapsuleGeometry(.1, .55, 6, 10), cloth, -.48, 1.32, .05, {parent: g}), armR = add(new THREE.CapsuleGeometry(.1, .55, 6, 10), cloth, .48, 1.32, .05, {parent: g});
+  g.userData = {armL, armR}; return g;
+}
+const chef = figure(0xf2ede4, 0xb23a1e, {hat: true, apron: true, skin: 0x8d5a3b}); chef.position.set(-3, 0, -2.6); chef.rotation.y = Math.PI; R.add(chef);
+const runner = figure(0x3e6b4f, 0xc9a227, {apron: true, skin: 0xe0ac7e}); runner.position.set(2, 0, -1); R.add(runner);
+const front = figure(0x2f4a6b, 0xc9a227, {scarf: true, skin: 0xc68b5e}); front.position.set(-.5, 0, 1.2); front.rotation.y = Math.PI; R.add(front);
+const tray = add(new THREE.BoxGeometry(.9, .06, .5), M(0xcfc6b8), .5, 1.6, .5, {parent: runner});
+
+/* ---------- the call: a pulse of light that travels from the house to the phone ---------- */
+const pulse = new THREE.Mesh(new THREE.SphereGeometry(.28, 20, 14), new THREE.MeshBasicMaterial({color: 0xffd28a})); scene.add(pulse);
+const pulseLight = new THREE.PointLight(0xffc46b, 0, 10, 1.6); pulse.add(pulseLight);
+const trail = []; for (let i = 0; i < 40; i++) { const s = new THREE.Mesh(new THREE.SphereGeometry(.16, 10, 8), new THREE.MeshBasicMaterial({color: 0xffc46b, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false})); scene.add(s); trail.push(s); }
+const path = new THREE.CatmullRomCurve3([new THREE.Vector3(-7.3, 2.2, 32), new THREE.Vector3(-3, 4.5, 22), new THREE.Vector3(1.5, 3.2, 6), new THREE.Vector3(3.5, 3.6, -8), new THREE.Vector3(5.2, 2.6, -20.6)]);
+
+/* ---------- the stakes: a $26.98 coin over the phone ---------- */
+const cc = document.createElement("canvas"); cc.width = cc.height = 512; function drawCoin(){ const x = cc.getContext("2d");
+  const g = x.createRadialGradient(220, 200, 40, 256, 256, 256); g.addColorStop(0, "#ffe69a"); g.addColorStop(1, "#c9a227"); x.fillStyle = g; x.beginPath(); x.arc(256, 256, 256, 0, 7); x.fill();
+  x.strokeStyle = "#a07c18"; x.lineWidth = 18; x.beginPath(); x.arc(256, 256, 222, 0, 7); x.stroke();
+  x.fillStyle = "#4a3608"; x.font = "800 128px Inter"; x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("$26.98", 256, 266); } drawCoin();
+const coinTex = new THREE.CanvasTexture(cc); coinTex.colorSpace = THREE.SRGBColorSpace;
+const coinSide = M(0xc9a227, {metalness: .9, roughness: .3}), coinFace = new THREE.MeshStandardMaterial({map: coinTex, metalness: .6, roughness: .35, emissive: 0x2a1e00, emissiveMap: coinTex, emissiveIntensity: .25});
+const coin = new THREE.Group(); R.add(coin); coin.visible = false;
+{ const rim = new THREE.Mesh(new THREE.CylinderGeometry(.55, .55, .1, 64), coinSide); rim.rotation.x = Math.PI/2; coin.add(rim);
+  const face = new THREE.Mesh(new THREE.CircleGeometry(.55, 64), coinFace); face.position.z = .052; coin.add(face); }
+
+/* ---------- HUD: drawn in 2D over the frame ---------- */
+const outc = document.getElementById("out"), o = outc.getContext("2d");
+const hani = new Image(); hani.src = "./haniya-avatar-192.webp";
+const CHAPTERS = ["THE CALL", "THE ORDER", "THE PAY LINK", "THE TICKET", "YOURS"];
+function hud(t) {
+  // chapter bar
+  o.save(); o.font = "700 25px Inter"; o.textBaseline = "middle"; let x = 64; const y = 210;
+  CHAPTERS.forEach((c, i) => { o.fillStyle = i === 0 ? "#ffc46b" : "rgba(232,236,242,.38)"; o.fillText(c, x, y); x += o.measureText(c).width + 18; if (i < 4) { o.fillStyle = "rgba(232,236,242,.3)"; o.fillText("·", x, y); x += 30; } });
+  // the clock
+  const ca = out(span(t, .1, .7)); o.globalAlpha = ca; o.textAlign = "right"; o.fillStyle = "#e8ecf2"; o.font = "800 74px Inter"; o.fillText("7:14", 1016, 300);
+  o.font = "700 24px Inter"; o.fillStyle = "#ffc46b"; o.fillText("FRIDAY · PM", 1016, 350); o.restore();
+  // captions: setup line, then the payoff word by word in a gold box
+  const L = T.find(l => t < l.end + .45) || T[T.length - 1]; if (t > L.end + .4) return;
+  const fade = 1 - span(t, L.end + .15, L.end + .4);
+  o.save(); o.textAlign = "center"; o.textBaseline = "middle"; o.globalAlpha = fade;
+  wordsIn(L.sa, 540, 560, "800 74px Inter", "#ffffff", null, t - L.a, L.da);
+  if (t >= L.b - .05) wordsIn(L.sb, 540, 660, "800 74px Inter", "#1a1206", "#ffc46b", t - L.b, L.db);
+  o.restore();
+}
+function wordsIn(str, cx, y, font, col, box, lt, dur) {
+  o.font = font; const ws = str.split(" "), widths = ws.map(w => o.measureText(w).width), sp = o.measureText(" ").width;
+  const total = widths.reduce((a, b) => a + b, 0) + sp * (ws.length - 1); let x = cx - total / 2;
+  ws.forEach((w, i) => { const at = dur * i / ws.length, k = clamp((lt - at) / .18);
+    if (k > 0) { const s = .85 + .15 * back(k); o.save(); o.translate(x + widths[i] / 2, y); o.scale(s, s);
+      if (box) { o.fillStyle = box; o.beginPath(); o.roundRect(-widths[i]/2 - 12, -46, widths[i] + 24, 92, 12); o.fill(); }
+      o.globalAlpha *= k; o.fillStyle = col; o.shadowColor = box ? "transparent" : "rgba(0,0,0,.6)"; o.shadowBlur = 18; o.fillText(w, 0, 4); o.restore(); }
+    x += widths[i] + sp; });
+}
+
+/* ---------- camera path, one continuous move ---------- */
+const KEYS = [  // [time, position, look-at]
+  [0,    [0, 16, 58],   [0, 3, 20]],
+  [T[0].a + 1.4, [0, 4.2, 8], [0, 2.6, -16]],
+  [T[0].end, [2, 3.0, -3],  [0, 2.2, -17]],
+  [T[1].a + .6, [-1, 4.2, -10], [-2.5, 1.6, -19.5]],
+  [T[1].end, [1.5, 3.8, -11], [-1, 1.6, -19.5]],
+  [T[2].a + .5, [2.6, 3.4, -13.2], [4.6, 3.0, -20.4]],
+  [T[3].end, [2.2, 3.6, -12.6], [4.6, 3.1, -20.4]],
+  [DUR, [0, 6, -4], [2, 2.4, -18]],
+];
+function camAt(t) { let i = 0; while (i < KEYS.length - 2 && t > KEYS[i+1][0]) i++;
+  const [t0, p0, l0] = KEYS[i], [t1, p1, l1] = KEYS[i+1], k = ease(span(t, t0, t1));
+  cam.position.set(lerp(p0[0], p1[0], k), lerp(p0[1], p1[1], k), lerp(p0[2], p1[2], k)); cam.lookAt(lerp(l0[0], l1[0], k), lerp(l0[1], l1[1], k), lerp(l0[2], l1[2], k)); }
+
+/* ---------- the frame ---------- */
+function render(t) {
+  camAt(t);
+  winMats.forEach(w => { if (w.on) w.m.emissiveIntensity = 1.2 + .25 * Math.sin(t*.7 + w.seed); });
+  callerWin.emissiveIntensity = 3 * out(span(t, .3, .9));
+  // the pulse leaves the caller's house and reaches the phone as line 1 ends
+  const pk = ease(span(t, .9, T[0].end - .2)); pulse.visible = pk > 0 && pk < 1; pulseLight.intensity = pulse.visible ? 6 : 0;
+  if (pulse.visible) pulse.position.copy(path.getPointAt(pk));
+  trail.forEach((s, i) => { const k = pk - i * .012; if (k <= 0 || pk >= 1) { s.material.opacity = 0; return; } s.position.copy(path.getPointAt(k)); s.material.opacity = .55 * (1 - i/40); s.scale.setScalar(1 - i/50); });
+  // ringing: from the pulse arriving until Haniya answers
+  const ringing = t > T[0].end - .3 && t < T[3].a + .2, answered = t > T[3].a + .2;
+  rings.forEach((r, i) => { const ph = ((t * 1.3) + i/3) % 1; r.scale.setScalar(1 + ph * 2.4); r.material.opacity = ringing ? (1 - ph) * .9 : 0; });
+  phone.rotation.z = ringing ? Math.sin(t * 60) * .06 : 0;
+  screenMat.emissive.set(answered ? 0xffc46b : 0x6fa0ff); screenMat.emissiveIntensity = answered ? 1.6 : (ringing ? 1.2 + Math.sin(t*20) : .4);
+  // the team never stops: wok fire, the runner crossing, the chef's arms
+  flames.forEach((f, i) => { const ph = (t * 1.8 + hash(i)) % 1; f.position.set(-3 + (hash(i,1) - .5) * .7 * (1 + ph), 1.35 + ph * 1.6, -3.6 + (hash(i,2) - .5) * .5); f.scale.setScalar(1.4 * (1 - ph)); });
+  fireLight.intensity = 7 + 3 * Math.sin(t * 23) + 2 * Math.sin(t * 37);
+  wok.rotation.z = Math.sin(t * 7) * .25; chef.userData.armR.rotation.x = -1 + Math.sin(t*7) * .4;
+  runner.position.x = 2 + Math.sin(t * .9) * 2.2; runner.position.z = -1 + Math.cos(t * .9) * .6; runner.rotation.y = Math.cos(t * .9) > 0 ? Math.PI/2 : -Math.PI/2;
+  runner.position.y = Math.abs(Math.sin(t * 9)) * .06; front.userData.armL.rotation.x = -.8 + Math.sin(t * 3) * .2;
+  // the coin: appears with line 3, tilts away while it rings, steadies and rises when she answers
+  const ck = back(span(t, T[2].a, T[2].a + .5)); coin.visible = ck > 0; coin.scale.setScalar(Math.max(.001, ck));
+  const tilt = ringing ? span(t, T[2].a, T[3].a) : 0;
+  coin.position.set(4.1 - tilt * .5, 3.75 + (answered ? out(span(t, T[3].a + .2, T[3].a + .9)) * .35 : 0) - tilt * .35, -4.3);
+  coin.rotation.set(answered ? 0 : Math.sin(t*5) * .12, answered ? Math.sin(t*1.2) * .25 : -tilt * .9, answered ? 0 : -tilt * .5);
+  composer.render();
+  // compose: 3D frame, then the HUD and Haniya on top
+  o.drawImage(glc, 0, 0); const g = o.createLinearGradient(0, 0, 0, 760); g.addColorStop(0, "rgba(4,6,12,.85)"); g.addColorStop(1, "rgba(4,6,12,0)"); o.fillStyle = g; o.fillRect(0, 0, W, 760);
+  if (answered && hani.complete) { const k = back(span(t, T[3].a + .25, T[3].a + .8)), cx = 300, cy = 1180;
+    o.save(); for (let i = 0; i < 3; i++) { const ph = ((t * 1.1) + i/3) % 1; o.strokeStyle = `rgba(255,196,107,${(1-ph)*.7})`; o.lineWidth = 5; o.beginPath(); o.arc(cx, cy, 110*k + ph*90, 0, 7); o.stroke(); }
+    o.beginPath(); o.arc(cx, cy, 104*k, 0, 7); o.clip(); o.drawImage(hani, cx - 104*k, cy - 104*k, 208*k, 208*k); o.restore();
+    o.save(); o.strokeStyle = "#ffc46b"; o.lineWidth = 7; o.beginPath(); o.arc(cx, cy, 106*k, 0, 7); o.stroke();
+    o.globalAlpha = out(span(t, T[3].a + .6, T[3].a + 1)); o.fillStyle = "#e8ecf2"; o.font = "800 34px Inter"; o.textAlign = "center"; o.fillText("Haniya", cx, cy + 160); o.font = "600 24px Inter"; o.fillStyle = "#ffc46b"; o.fillText("ON THE CALL", cx, cy + 196);
+    for (let i = 0; i < 9; i++) { const h = 14 + 40 * Math.abs(Math.sin(t*9 + i*1.3)); o.fillStyle = "#ffc46b"; o.fillRect(cx - 80 + i*20, cy + 236 - h/2, 9, h); } o.restore(); }
+  hud(t);
+  const end = span(t, DUR - .6, DUR); if (end > 0) { o.fillStyle = `rgba(0,0,0,${end})`; o.fillRect(0, 0, W, H); }
+}
+window.render = render; window.frame = i => render(i / FPS);
+window.READY = Promise.all([document.fonts.load("800 74px Inter"), document.fonts.load("italic 700 60px 'Playfair Display'"), new Promise(r => hani.complete ? r() : (hani.onload = r, hani.onerror = r))])
+  .then(() => { const x = sc.getContext("2d"); x.fillStyle = "#8C2C14"; x.fillRect(0,0,1024,192); x.fillStyle = "#F3E7C4"; x.font = "italic 700 118px 'Playfair Display'"; x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("Wok & Karahi", 512, 100); signTex.needsUpdate = true;
+    drawCoin(); coinTex.needsUpdate = true; });
+</script></body></html>

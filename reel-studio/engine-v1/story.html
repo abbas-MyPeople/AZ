@@ -1,0 +1,296 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@500;600;700&family=Noto+Nastaliq+Urdu:wght@600&display=swap">
+<style>html,body{margin:0;background:#161310}canvas{display:block}</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+/* Wok & Karahi story reels. One story per video, told before -> after, timed to the voiceover.
+   ?story=dinein | pickup. Beat lengths come from the voiceover (vo_dur.json, injected as ?d=). */
+const W = 1080, H = 1920;
+const P = new URLSearchParams(location.search);
+const FPS = +(P.get("fps") || 60), STORY = P.get("story") || "dinein";
+const C = {
+  ink: "#161310", esp: "#241D14", gold: "#C9A227", goldSoft: "#F3E7C4", cream: "#FAF7F1", cream2: "#F3ECDF",
+  spice: "#B23A1E", spiceDark: "#8C2C14", herb: "#3E6B4F", line: "#E7E0D4", muted: "#6B6258",
+  sBg: "#0B0E13", sCard: "#131820", sLine: "#222A36", sInk: "#E8ECF2",
+  floorA: "#3a2c20", floorB: "#33271c", wallL: "#5a4330", wallR: "#4b3727", wallTop: "#2a1f16",
+  wood: "#7a5634", woodTop: "#9b6f45", seat: "#8C2C14", seatTop: "#a3361b",
+};
+const ctx = document.getElementById("c").getContext("2d");
+const IMG = {};
+const SRC = {menu:"a/g_01_menu.png", call:"a/g_05_call.png", logo:"a/logo-light.png", hav:"a/haniya-avatar-192.webp"};
+</script>
+<script src="lib.js"></script>
+<script>
+window.READY = Promise.all([document.fonts.ready, ...Object.entries(SRC).map(([k,s]) => new Promise(r => {
+  const i = new Image(); i.onload = () => { IMG[k] = i; r(); }; i.onerror = () => r(); i.src = s; }))])
+  .then(() => Promise.all(["700 60px 'Playfair Display'","italic 700 60px 'Playfair Display'","600 30px Inter","700 30px Inter","600 40px 'Noto Nastaliq Urdu'"].map(f => document.fonts.load(f, "abc کیا"))));
+
+/* ---------- the two stories: one title per beat, the voice carries the rest ---------- */
+const STORIES = {
+  dinein: [
+    {id:"hook", pad:1.3, title:"Hand up. Still waiting."},
+    {id:"turn", pad:0.9, title:"Now the table answers."},
+    {id:"ask",  pad:1.5, title:"Ask Haniya anything."},
+    {id:"eta",  pad:1.2, title:"How long? Check your phone."},
+    {id:"more", pad:1.3, title:"One more? Add it from your seat."},
+    {id:"call", pad:1.3, title:"Need a person? One tap."},
+    {id:"end",  pad:1.6, title:""},
+  ],
+  pickup: [
+    {id:"hook", pad:1.0, title:"Is mine ready?"},
+    {id:"turn", pad:0.9, title:"The counter tablet knows."},
+    {id:"list", pad:1.3, title:"Find your name."},
+    {id:"tap",  pad:1.5, title:"Tap “Yes, I'm here.”"},
+    {id:"team", pad:1.5, title:"The team comes to you."},
+    {id:"end",  pad:1.5, title:""},
+  ],
+};
+const VO = JSON.parse(P.get("d") || "{}");
+const BEATS = STORIES[STORY].map(b => ({...b, d: (VO[b.id] || 2.5) + b.pad + .25}));
+let acc = 0; for (const b of BEATS) { b.t0 = acc; b.vo = acc + .25; acc += b.d; b.t1 = acc; }
+window.DURATION = acc; window.BEATS = BEATS;
+const beatAt = t => BEATS.find(b => t < b.t1) || BEATS[BEATS.length-1];
+const B = id => BEATS.find(b => b.id === id) || {t0:-99, t1:-98, d:1, vo:-99};
+
+/* ---------- the room (floor.py's 12 tables), with a counter, a door and the counter tablet ---------- */
+const TAB = [228, 198];                 // the counter tablet's stand, inside the door
+const DIN = STORY === "dinein" ? [[2,2],[4,3],[7,2],[10,4],[12,2],[8,4]] : [[2,2],[4,3],[7,2],[10,4],[12,2],[5,2],[8,4]];
+function room(t, actors) {
+  for (let gx = 10; gx < 350; gx += 20) for (let gy = 10; gy < 236; gy += 20) {
+    const w = Math.min(20, 350-gx), h = Math.min(20, 236-gy);
+    poly([iso(gx,gy), iso(gx+w,gy), iso(gx+w,gy+h), iso(gx,gy+h)], ((gx+gy)/20)%2 ? C.floorA : C.floorB);
+  }
+  const WH = 62;
+  poly([iso(10,10,0), iso(350,10,0), iso(350,10,WH), iso(10,10,WH)], C.wallR);
+  poly([iso(10,10,0), iso(10,236,0), iso(10,236,WH), iso(10,10,WH)], C.wallL);
+  ctx.strokeStyle = C.gold; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(...iso(10,10,40)); ctx.lineTo(...iso(350,10,40)); ctx.moveTo(...iso(10,10,40)); ctx.lineTo(...iso(10,236,40)); ctx.stroke();
+  for (let i = 0; i < 4; i++) { const [lx,ly] = iso(30 + i*50, 10, 52); const g = .8 + .2*Math.sin(t*2.2+i);
+    ctx.fillStyle = `rgba(178,58,30,${g})`; ctx.beginPath(); ctx.ellipse(lx, ly+10, 7, 9, 0, 0, 7); ctx.fill();
+    const rg = ctx.createRadialGradient(lx, ly+10, 2, lx, ly+10, 40); rg.addColorStop(0, `rgba(255,190,90,${.3*g})`); rg.addColorStop(1, "rgba(255,190,90,0)"); ctx.fillStyle = rg; ctx.beginPath(); ctx.arc(lx, ly+10, 40, 0, 7); ctx.fill(); }
+  for (let i = 0; i < 2; i++) { const y0 = 40 + i*80; poly([iso(10,y0,30), iso(10,y0+60,30), iso(10,y0+60,52), iso(10,y0,52)], "#1b1511");
+    for (let r = 0; r < 4; r++) { ctx.strokeStyle = r ? "rgba(243,231,196,.5)" : C.gold; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(...iso(10, y0+8, 47 - r*4.5)); ctx.lineTo(...iso(10, y0+52 - (r%2)*14, 47 - r*4.5)); ctx.stroke(); } }
+  // the cooking line through a window in the back wall
+  const win0 = [iso(232,10,16), iso(346,10,16), iso(346,10,56), iso(232,10,56)];
+  poly(win0, "#120d0a"); ctx.save(); ctx.beginPath(); win0.forEach((q,i) => i ? ctx.lineTo(...q) : ctx.moveTo(...q)); ctx.closePath(); ctx.clip();
+  const [gwx, gwy] = iso(290, 10, 34), wg = ctx.createRadialGradient(gwx, gwy, 4, gwx, gwy, 150); wg.addColorStop(0, "rgba(255,170,70,.6)"); wg.addColorStop(1, "rgba(60,30,15,0)"); ctx.fillStyle = wg; ctx.fillRect(gwx-200, gwy-120, 400, 240);
+  for (let i = 0; i < 3; i++) box(238 + i*36, -6, 30, 12, 0, 18, "#a6acb2", "#6d7378", "#80868c");
+  person(300, 4, 1, {t, spec: CAST.chef, scale: 1.2, wok: true, fire: true, look: -.4});
+  const [wx, wy] = iso(320, 2, 22); for (let i = 0; i < 9; i++) { const fl = Math.abs(Math.sin(t*14 + i*1.7)); ctx.fillStyle = `rgba(255,${110 + 90*fl|0},40,.55)`; ctx.beginPath(); ctx.ellipse(wx - 16 + i*4, wy - (8+12*fl), 3.2, 8+12*fl, 0, 0, 7); ctx.fill(); }
+  embers(wx, wy - 10, t, 18, .8); ctx.restore(); poly(win0, null, C.gold);
+  box(232, 10, 114, 6, 14, 18, "#b08a5a", "#7a5634", "#8a6440");
+  // floor items, depth sorted
+  const Lq = [];
+  for (const n of Object.keys(TABLES).map(Number)) { const [x,y,w,h,k] = TABLES[n];
+    if (k === "b") Lq.push([x + y - 12, () => box(x, y-12, w, 9, 0, 13, C.seatTop, C.seat, "#6f2311")]);
+    Lq.push([x + y + h/2, () => { box(x+4, y+2, w-8, h-4, 0, 16, C.woodTop, C.wood, "#5d4026");
+      const [qx,qy] = iso(x + w - 12, y + 6, 22); ctx.fillStyle = C.cream; ctx.fillRect(qx-5, qy-9, 10, 10); ctx.fillStyle = C.ink; ctx.fillRect(qx-3, qy-7, 2.5, 2.5); ctx.fillRect(qx+.5, qy-7, 2.5, 2.5); ctx.fillRect(qx-3, qy-3.5, 2.5, 2.5);
+      if (n !== 5 && DIN.some(q => q[0] === n)) for (let i = 0; i < 2; i++) { const [px,py] = iso(x + 18 + i*22, y + h/2, 17); plate(px, py, i ? "#c27a32" : "#d9a441"); }
+      if (actors.table5food && n === 5) for (let i = 0; i < 3; i++) { const [px,py] = iso(x + 14 + i*19, y + h/2, 17); plate(px, py, ["#d9a441","#c27a32","#e6c07a"][i]); steam(px, py - 4, t, 50+i, 3, .9); } }]);
+    if (k === "b") Lq.push([x + y + h + 3, () => box(x, y+h+3, w, 9, 0, 13, C.seatTop, C.seat, "#6f2311")]); }
+  // the counter (right, inside the door) with the register and a cashier
+  Lq.push([300 + 150, () => { box(300, 120, 44, 95, 0, 20, "#8a6440", "#5e432a", "#6c4d31"); box(308, 140, 12, 10, 20, 27, "#222", "#111", "#1a1a1a"); }]);
+  Lq.push([328 + 160, () => person(328, 165, 21, {t, spec: {skin:"#a8714a", top:"#3E6B4F", hair:"short", hc:"#1c1612", apron:true}, look: -.8})]);
+  // the counter tablet on its stand
+  Lq.push([TAB[0] + TAB[1], () => { box(TAB[0]-3, TAB[1]-3, 6, 6, 0, 22, "#2a2a2a", "#1a1a1a", "#222");
+    const [sx, sy] = iso(TAB[0], TAB[1], 30), lit = actors.tabletGlow || 0;
+    ctx.save(); ctx.translate(sx, sy); ctx.rotate(-.12); ctx.fillStyle = "#0B0E13"; ctx.fillRect(-15, -12, 30, 20); ctx.fillStyle = mix("#2a3646", "#C9A227", lit); ctx.fillRect(-13, -10, 26, 16);
+    if (lit) { const rg = ctx.createRadialGradient(0, -2, 2, 0, -2, 60); rg.addColorStop(0, `rgba(201,162,39,${.35*lit})`); rg.addColorStop(1, "rgba(201,162,39,0)"); ctx.fillStyle = rg; ctx.beginPath(); ctx.arc(0, -2, 60, 0, 7); ctx.fill(); }
+    ctx.restore(); }]);
+  for (const [n, cnt] of DIN) for (let i = 0; i < cnt; i++) { const [px,py] = seatPos(n, i, cnt); Lq.push([px + py + (i%2 ? 1 : -1), () => person(px, py, n*7+i, {t, look: i%2 ? -.6 : .6})]); }
+  for (const a of actors.people || []) Lq.push([a.x + a.y + (a.dz || 0), () => person(a.x, a.y, a.seed, {t, ...a.o})]);
+  Lq.sort((p, q) => p[0] - q[0]).forEach(d => d[1]());
+  // the door, a gap of light in the front edge
+  const dg = ctx.createLinearGradient(...iso(162,236), ...iso(206,236)); dg.addColorStop(0, "rgba(255,220,150,0)"); dg.addColorStop(.5, "rgba(255,220,150,.5)"); dg.addColorStop(1, "rgba(255,220,150,0)");
+  ctx.strokeStyle = dg; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(...iso(162,236)); ctx.lineTo(...iso(206,236)); ctx.stroke();
+  ctx.strokeStyle = "rgba(201,162,39,.5)"; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(...iso(26,236)); ctx.lineTo(...iso(152,236)); ctx.moveTo(...iso(214,236)); ctx.lineTo(...iso(340,236)); ctx.stroke();
+}
+
+/* ---------- overlay pieces ---------- */
+function bubble(x, y, text, a, opts={}) {          // a thought / speech bubble in screen space
+  if (a <= 0) return; ctx.save(); ctx.globalAlpha = a; const k = back(a);
+  ctx.font = opts.font || "700 40px Inter"; const tw = ctx.measureText(text).width, w = tw + 56, h = opts.h || 84;
+  ctx.translate(x, y); ctx.scale(k, k); ctx.shadowColor = "rgba(0,0,0,.35)"; ctx.shadowBlur = 24; ctx.shadowOffsetY = 8;
+  rr(-w/2, -h/2, w, h, h/2); ctx.fillStyle = opts.bg || C.cream; ctx.fill(); ctx.shadowColor = "transparent";
+  if (opts.tail !== false) { ctx.beginPath(); ctx.moveTo(-14, h/2 - 4); ctx.lineTo(opts.tailX || -30, h/2 + 26); ctx.lineTo(10, h/2 - 4); ctx.fill(); }
+  ctx.fillStyle = opts.fg || C.ink; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.direction = opts.rtl ? "rtl" : "ltr"; ctx.fillText(text, 0, opts.dy || 2);
+  if (opts.sub) { ctx.direction = "ltr"; ctx.font = "500 26px Inter"; ctx.fillStyle = opts.subc || C.muted; ctx.fillText(opts.sub, 0, h/2 + (opts.subGap || 30)); }
+  ctx.restore();
+}
+function clockIcon(x, y, r, t, a) { if (a <= 0) return; ctx.save(); ctx.globalAlpha = a; ctx.translate(x, y);
+  ctx.fillStyle = C.cream; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.strokeStyle = C.spice; ctx.lineWidth = r*.12; ctx.stroke();
+  ctx.strokeStyle = C.ink; ctx.lineCap = "round"; ctx.lineWidth = r*.1; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(Math.cos(t*6 - 1.57)*r*.7, Math.sin(t*6 - 1.57)*r*.7); ctx.moveTo(0, 0); ctx.lineTo(Math.cos(t*.5)*r*.45, Math.sin(t*.5)*r*.45); ctx.stroke(); ctx.restore(); }
+function title(b, t) {
+  if (!b.title) return;
+  const out1 = 1 - ease(span(t, b.t1 - .25, b.t1));
+  ctx.save(); ctx.textAlign = "left"; ctx.shadowColor = "rgba(0,0,0,.65)"; ctx.shadowBlur = 26;
+  ctx.globalAlpha = out1; ctx.fillStyle = C.gold; ctx.fillRect(84, 178, 64 * out(span(t, b.t0, b.t0 + .4)), 6);
+  words(b.title, 84, 270, "700 74px 'Playfair Display'", C.cream, t - b.t0 - .05, out1, 912, 84);
+  ctx.restore();
+}
+/* a phone screen drawn in the site's own style, for screens that only exist after paying */
+function receipt(cx, cy, w, a, t, addK, tapK) {
+  if (a <= 0) return; const h = w * 2.164, x = cx - w/2, y = cy - h/2;
+  ctx.save(); ctx.globalAlpha = a; ctx.shadowColor = "rgba(0,0,0,.55)"; ctx.shadowBlur = 60; ctx.shadowOffsetY = 24;
+  rr(x-14, y-14, w+28, h+28, 62); ctx.fillStyle = "#0c0b0a"; ctx.fill(); ctx.shadowColor = "transparent"; rr(x-14, y-14, w+28, h+28, 62); ctx.strokeStyle = "rgba(201,162,39,.55)"; ctx.lineWidth = 2; ctx.stroke();
+  ctx.save(); rr(x, y, w, h, 48); ctx.clip(); ctx.fillStyle = C.cream; ctx.fillRect(x, y, w, h);
+  const s = w / 390; ctx.translate(x, y); ctx.scale(s, s); ctx.textAlign = "left";
+  ctx.fillStyle = C.herb; ctx.beginPath(); ctx.arc(52, 132, 22, 0, 7); ctx.fill(); ctx.strokeStyle = "#fff"; ctx.lineWidth = 5; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(42, 132); ctx.lineTo(50, 140); ctx.lineTo(63, 124); ctx.stroke();
+  ctx.fillStyle = C.ink; ctx.font = "700 30px 'Playfair Display'"; ctx.fillText("Paid - thank you, Sara", 88, 142);
+  ctx.font = "600 14px Inter"; ctx.fillStyle = C.muted; ctx.fillText("TABLE 5", 24, 200);
+  rr(24, 214, 342, 150, 16); ctx.fillStyle = "#fff"; ctx.fill(); ctx.strokeStyle = C.line; ctx.lineWidth = 1.5; ctx.stroke();
+  ctx.fillStyle = C.ink; ctx.font = "700 21px Inter"; ctx.fillText("Your food is on its way", 44, 256); ctx.fillText("to table 5.", 44, 284);
+  for (let i = 0; i < 4; i++) { rr(44 + i*76, 318, 66, 10, 5); ctx.fillStyle = i < 2 ? C.gold : i === 2 ? mix(C.line, C.gold, .5 + .5*Math.sin(t*5)) : C.line; ctx.fill(); }
+  const items = [["Lari (Street) Style Chowmein"], ["Chowmein"]].concat(addK > 0 ? [["Mango Lassi"]] : []);
+  items.forEach((it, i) => { const yy = 410 + i*56, k = i === 2 ? out(addK) : 1; ctx.globalAlpha = a * k;
+    ctx.fillStyle = C.ink; ctx.font = "600 19px Inter"; ctx.fillText("1  " + it[0], 28 + (1-k)*30, yy); ctx.strokeStyle = C.line; ctx.beginPath(); ctx.moveTo(24, yy + 22); ctx.lineTo(366, yy + 22); ctx.stroke(); });
+  ctx.globalAlpha = a;
+  rr(24, 640, 342, 60, 30); ctx.fillStyle = C.spice; ctx.fill(); ctx.fillStyle = "#fff"; ctx.font = "700 20px Inter"; ctx.textAlign = "center"; ctx.fillText("Add more to this table", 195, 677);
+  rr(24, 716, 342, 60, 30); ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.stroke(); ctx.fillStyle = C.ink; ctx.font = "600 19px Inter"; ctx.fillText("Play while you wait", 195, 753);
+  if (tapK > 0 && tapK < 1) { ctx.strokeStyle = `rgba(201,162,39,${1-tapK})`; ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(195, 670, 18 + 50*tapK, 0, 7); ctx.stroke(); }
+  ctx.restore(); rr(cx - 60, y + 12, 120, 30, 15); ctx.fillStyle = "#0c0b0a"; ctx.fill(); ctx.restore();
+}
+/* the counter tablet, as counter_host.html draws it: Haniya greets, pickups with a four-step tracker */
+const PICKS = [{name:"Priya", order:"1041", step:3, eta:"Ready"}, {name:"Omar", order:"1042", step:2, eta:"About 3 min"}, {name:"James", order:"1043", step:1, eta:"About 9 min"}];
+const STAGES = ["Received", "Being made", "Almost ready", "Ready"];
+function tablet(cx, cy, a, t) {
+  if (a <= 0) return; const w = 940, h = 640, x = cx - w/2, y = cy - h/2, b3 = B("list"), b4 = B("tap");
+  ctx.save(); ctx.globalAlpha = a; ctx.shadowColor = "rgba(0,0,0,.6)"; ctx.shadowBlur = 60; ctx.shadowOffsetY = 20; rr(x-22, y-22, w+44, h+44, 44); ctx.fillStyle = "#050607"; ctx.fill(); ctx.shadowColor = "transparent";
+  ctx.save(); rr(x, y, w, h, 26); ctx.clip(); ctx.fillStyle = C.cream; ctx.fillRect(x, y, w, h);
+  if (IMG.hav) { ctx.save(); ctx.beginPath(); ctx.arc(x + 70, y + 66, 38, 0, 7); ctx.clip(); ctx.drawImage(IMG.hav, x + 32, y + 28, 76, 76); ctx.restore(); }
+  ctx.textAlign = "left"; ctx.fillStyle = C.ink; ctx.font = "700 34px 'Playfair Display'";
+  const checked = t > b4.t0 + 1.6;
+  ctx.fillText(checked ? "Thanks, Omar. The restaurant knows you're here." : "Hi, I'm Haniya.", x + 124, y + 78);
+  ctx.font = "600 24px Inter"; ctx.fillStyle = C.muted; ctx.fillText("Picking up? Tap your order", x + 40, y + 160);
+  PICKS.forEach((p, i) => { const yy = y + 186 + i*138, hot = p.name === "Omar" && t > b3.t0 + 1.2;
+    rr(x + 30, yy, w - 60, 118, 18); ctx.fillStyle = hot ? "#fff8e6" : "#fff"; ctx.fill(); ctx.strokeStyle = hot ? C.gold : C.line; ctx.lineWidth = hot ? 4 : 2; ctx.stroke();
+    ctx.fillStyle = C.ink; ctx.font = "700 30px Inter"; ctx.textAlign = "left"; ctx.fillText(p.name, x + 60, yy + 50);
+    ctx.font = "500 20px Inter"; ctx.fillStyle = C.muted; ctx.fillText("#" + p.order + " · Pickup", x + 60, yy + 82);
+    STAGES.forEach((s, k) => { const sx = x + 250 + k*130, on = k <= p.step, now = k === p.step && p.step < 3;
+      rr(sx, yy + 40, 118, 12, 6); ctx.fillStyle = on ? (p.step === 3 ? C.herb : now ? mix(C.gold, "#e9d48a", .5 + .5*Math.sin(t*5)) : C.gold) : C.line; ctx.fill();
+      ctx.font = "500 16px Inter"; ctx.fillStyle = on ? C.ink : "#a39a8f"; ctx.fillText(s, sx, yy + 80); });
+    ctx.textAlign = "right"; ctx.font = "700 24px Inter"; ctx.fillStyle = p.step === 3 ? C.herb : C.ink; ctx.fillText(p.eta, x + w - 54, yy + 54);
+    if (p.name === "Omar" && checked) { ctx.font = "600 18px Inter"; ctx.fillStyle = C.herb; ctx.fillText("You're checked in", x + w - 54, yy + 84); } });
+  const tk = span(t, b3.t0 + 1.0, b3.t0 + 1.5); if (tk > 0 && tk < 1) { ctx.strokeStyle = `rgba(201,162,39,${1-tk})`; ctx.lineWidth = 7; ctx.beginPath(); ctx.arc(x + 120, y + 186 + 138 + 59, 24 + 60*tk, 0, 7); ctx.stroke(); }
+  // the "Here for Omar's order?" sheet
+  const da = Math.min(out(span(t, b3.t1 - .5, b3.t1)), 1 - out(span(t, b4.t0 + 1.4, b4.t0 + 1.7)));
+  if (da > 0) { ctx.fillStyle = `rgba(22,19,16,${.45*da})`; ctx.fillRect(x, y, w, h); const dw = 620, dh = 340, dx = cx - dw/2, dy = y + h - dh*out(da) - 10;
+    rr(dx, dy, dw, dh + 40, 28); ctx.fillStyle = "#fff"; ctx.fill(); ctx.textAlign = "center"; ctx.fillStyle = C.ink; ctx.font = "700 32px 'Playfair Display'"; ctx.fillText("Here for Omar's order #1042?", cx, dy + 76);
+    ctx.font = "500 22px Inter"; ctx.fillStyle = C.muted; ctx.fillText("We'll let the restaurant know you're here.", cx, dy + 122);
+    rr(dx + 40, dy + 172, 340, 78, 39); ctx.fillStyle = C.spice; ctx.fill(); ctx.fillStyle = "#fff"; ctx.font = "700 28px Inter"; ctx.fillText("Yes, I'm here", dx + 210, dy + 221);
+    rr(dx + 400, dy + 172, 180, 78, 39); ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.stroke(); ctx.fillStyle = C.ink; ctx.fillText("No", dx + 490, dy + 221);
+    const yk = span(t, b4.t0 + .7, b4.t0 + 1.2); if (yk > 0 && yk < 1) { ctx.strokeStyle = `rgba(201,162,39,${1-yk})`; ctx.lineWidth = 7; ctx.beginPath(); ctx.arc(dx + 210, dy + 211, 24 + 60*yk, 0, 7); ctx.stroke(); } }
+  ctx.restore(); ctx.restore();
+}
+/* the staff Ready board alert, staff dark tokens and its real wording */
+function hereAlert(cx, cy, a, t) {
+  if (a <= 0) return; ctx.save(); ctx.globalAlpha = a; const w = 820, h = 230, x = cx - w/2, y = cy - h/2, pulse = .5 + .5*Math.sin(t*10);
+  ctx.shadowColor = "rgba(0,0,0,.6)"; ctx.shadowBlur = 50; rr(x-16, y-16, w+32, h+32, 36); ctx.fillStyle = "#050607"; ctx.fill(); ctx.shadowColor = "transparent";
+  rr(x, y, w, h, 22); ctx.fillStyle = C.sBg; ctx.fill(); ctx.textAlign = "left"; ctx.fillStyle = "#9aa6b8"; ctx.font = "600 24px Inter"; ctx.fillText("Ready board", x + 36, y + 50);
+  rr(x + 30, y + 74, w - 60, 124, 18); ctx.fillStyle = `rgba(201,162,39,${.25 + .2*pulse})`; ctx.fill(); ctx.strokeStyle = C.gold; ctx.lineWidth = 3; ctx.stroke();
+  bell(x + 82, y + 134, t); ctx.fillStyle = "#fff"; ctx.font = "700 40px Inter"; ctx.fillText("Omar is here", x + 124, y + 148);
+  ctx.textAlign = "right"; ctx.font = "600 24px Inter"; ctx.fillStyle = C.goldSoft; ctx.fillText("#1042 · Pickup", x + w - 60, y + 146);
+  for (let i = 0; i < 3; i++) { const k = ((t*1.2) + i/3) % 1; ctx.strokeStyle = `rgba(201,162,39,${(1-k)*.5})`; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(x + 82, y + 134, 24 + 50*k, 0, 7); ctx.stroke(); }
+  ctx.restore();
+}
+function endCard(t, a, b) {
+  if (a <= 0) return; ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = "rgba(22,19,16,.88)"; ctx.fillRect(0, 0, W, H);
+  const k = back(span(t, b.t0 + .1, b.t0 + .7)); if (IMG.logo) { const s = 300 * k; ctx.drawImage(IMG.logo, 540 - s/2, 640 - s/2, s, s); }
+  ctx.textAlign = "center"; ctx.fillStyle = C.cream; ctx.font = "700 96px 'Playfair Display'"; ctx.fillText("Wok & Karahi", 540, 920);
+  ctx.globalAlpha = a * out(span(t, b.t0 + .5, b.t0 + 1.0)); ctx.fillStyle = C.gold; ctx.font = "italic 700 48px 'Playfair Display'"; ctx.fillText(STORY === "dinein" ? "Less waving. More eating." : "No line. No guessing.", 540, 1000);
+  pill("wokandkarahitexas.com", 540, 1120, C.spice, "#fff", "700 36px Inter", 40, 86); ctx.restore();
+}
+
+/* ---------- camera: [room x, room y, zoom] per beat ---------- */
+const CAMS = STORY === "dinein"
+  ? {hook:[150,128,2.6], turn:[150,128,2.0], ask:[141,131,2.0], eta:[141,131,1.9], more:[141,131,1.9], call:[170,140,1.8], end:[160,120,1.1]}
+  : {hook:[260,195,2.0], turn:[240,205,2.6], list:[235,205,2.4], tap:[235,205,2.4], team:[262,190,2.2], end:[180,120,1.1]};
+function camera(t) {
+  const b = beatAt(t), i = BEATS.indexOf(b), prev = BEATS[Math.max(0, i-1)], from = CAMS[prev.id], to = CAMS[b.id];
+  const k = i ? ease(span(t, b.t0, b.t0 + .7)) : 1, push = 1 + span(t, b.t0, b.t1) * .04;   // a slow push inside every beat
+  return [lerp(from[0], to[0], k), lerp(from[1], to[1], k), lerp(from[2], to[2], k) * push];
+}
+
+/* ---------- the stories ---------- */
+function dinein(t) {
+  const hk = B("hook"), tu = B("turn"), as = B("ask"), et = B("eta"), mo = B("more"), cl = B("call"), en = B("end");
+  const fed = t > cl.t1 - .6;
+  // the runner: rushing past table 5 during the hook (never stopping), then coming when called
+  let rx = 296, ry = 175, walk = false;
+  if (t < tu.t0) { const k = ((t - hk.t0) / 2.2) % 1; walk = true; rx = lerp(290, 190, k < .5 ? ease(k*2) : ease(2 - k*2)); ry = 150 + 20*Math.sin(k*Math.PI); }
+  else if (t > cl.vo + .9) { const k = span(t, cl.vo + .9, cl.vo + 2.2); walk = k < 1; rx = lerp(296, 160, ease(k)); ry = lerp(175, 158, ease(k)); }
+  const fam = [["dad", .6], ["mom", .6], ["teen", -.6], ["kid", -.6]].map(([who, look], i) => { const [x, y] = seatPos(5, i, 4);
+    return {x, y, seed: 60+i, dz: i%2 ? 1 : -1, o: {spec: CAST[who], look, scale: 1.12,
+      raise: who === "dad" && t < tu.t0 + .3, phone: t > tu.t0 + .3 && t < cl.t1 && i !== 0, happy: fed ? 1 : 0, talk: who === "mom" && t > as.vo && t < as.vo + 1.6}}; });
+  return {people: [...fam, {x: rx, y: ry, seed: 4, o: {spec: CAST.runner, scale: 1.1, walk, tray: t < tu.t0, look: 0, bag: false}}], table5food: fed};
+}
+function pickup(t) {
+  const hk = B("hook"), tu = B("turn"), li = B("list"), tp = B("tap"), te = B("team");
+  const line = [[284, 150, 31], [284, 172, 32]];                  // two people already in line
+  let ox = 184, oy = 245, walk = false;                            // Omar comes in through the door
+  const k1 = span(t, hk.t0, hk.t0 + 1.6); if (t < tu.t0) { ox = lerp(184, 284, ease(k1)); oy = lerp(245, 196, ease(k1)); walk = k1 > 0 && k1 < 1; }
+  else { const k2 = span(t, tu.t0 + .2, tu.t0 + 1.3); ox = lerp(284, TAB[0] + 6, ease(k2)); oy = lerp(196, TAB[1] + 14, ease(k2)); walk = k2 > 0 && k2 < 1; }
+  let rx = 300, ry = 26, rwalk = false, bag = false;                 // the runner, from the pass with the bag
+  if (t > te.vo + .4) { const k = span(t, te.vo + .4, te.vo + 2.4); rx = lerp(300, TAB[0] + 24, ease(k)); ry = lerp(28, TAB[1] + 4, ease(k)); rwalk = k < 1; bag = true; }
+  const people = line.map(([x, y, s]) => ({x, y, seed: s, o: {look: .9}}));
+  people.push({x: ox, y: oy, seed: 70, o: {spec: {skin:"#8d5a3b", top:"#2f4a6b", hair:"cap", hc:"#1c1612", beard:true}, scale: 1.15, walk, look: t < tu.t0 ? .9 : .3, happy: t > te.vo + 2.2 ? 1 : 0, bag: t > te.vo + 2.6}});
+  people.push({x: rx, y: ry, seed: 4, o: {spec: CAST.runner, scale: 1.1, walk: rwalk, bag: bag && t < te.vo + 2.6, look: 0}});
+  return {people, tabletGlow: t > tu.t0 ? .6 + .4*Math.sin(t*4) : .15};
+}
+
+/* ---------- the frame ---------- */
+function render(t) {
+  ctx.setTransform(1,0,0,1,0,0);
+  const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, "#0f0c0a"); g.addColorStop(.5, C.ink); g.addColorStop(1, "#0c0a08"); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  const actors = STORY === "dinein" ? dinein(t) : pickup(t);
+  const [cxr, cyr, z] = camera(t), [fx, fy] = iso(cxr, cyr);
+  ctx.save(); ctx.translate(W/2, 1150); ctx.scale(z, z); ctx.translate(-fx, -fy); room(t, actors); ctx.restore();
+  const v = ctx.createRadialGradient(W/2, 1150, 300, W/2, 1150, 1250); v.addColorStop(0, "rgba(0,0,0,0)"); v.addColorStop(1, "rgba(8,6,4,.85)"); ctx.fillStyle = v; ctx.fillRect(0, 0, W, H);
+  const tb = ctx.createLinearGradient(0, 0, 0, 520); tb.addColorStop(0, "rgba(12,10,8,.92)"); tb.addColorStop(1, "rgba(12,10,8,0)"); ctx.fillStyle = tb; ctx.fillRect(0, 0, W, 520);
+  // where a character's head is on screen (for bubbles)
+  const scr = (x, y, zz) => { const [px, py] = iso(x, y, zz); return [W/2 + (px - fx) * z, 1150 + (py - fy) * z]; };
+  if (STORY === "dinein") {
+    const hk = B("hook"), tu = B("turn"), as = B("ask"), et = B("eta"), mo = B("more"), cl = B("call"), en = B("end");
+    // the hook: a raised hand, questions piling up, a clock
+    const [dx, dy] = scr(...seatPos(5, 0, 4), 34);
+    const qs = [["How long?", 1.0], ["Is it halal?", 1.7], ["One more lassi?", 2.4], ["Check, please!", 3.1]];
+    qs.forEach(([q, at], i) => bubble(dx + [-160, 170, -120, 190][i], dy - 150 - i*96, q, win(t, hk.t0 + at - .8, tu.t0 + .2, .3), {font: "700 38px Inter"}));
+    clockIcon(dx + 260, dy - 40, 46, t, win(t, hk.t0 + .4, tu.t0 + .2));
+    // the turn: a gold flash, everything stops
+    const fl = span(t, tu.t0, tu.t0 + .5); if (fl > 0 && fl < 1) { ctx.fillStyle = `rgba(243,231,196,${.55*(1 - fl)})`; ctx.fillRect(0, 0, W, H); }
+    // ask: the real menu with Haniya, and an Urdu question answered in Urdu
+    const pa = win(t, tu.t0 + .5, as.t1, .4);
+    phone(IMG.menu, 540, 1180 + (1 - back(span(t, tu.t0 + .5, tu.t0 + 1.2))) * 900, 470, pa, {tap: span(t, as.t0 + .2, as.t0 + .7), tx: .9, ty: .58});
+    bubble(380, 640, "کیا یہ حلال ہے؟", win(t, as.vo + .2, as.t1), {font: "600 40px 'Noto Nastaliq Urdu'", h: 110, dy: -6, rtl: true, sub: "Is this halal?", subc: C.goldSoft, tailX: 30});
+    bubble(660, 880, "جی ہاں، سب کچھ ذبیحہ حلال ہے", win(t, as.vo + 1.3, as.t1), {font: "600 36px 'Noto Nastaliq Urdu'", h: 110, dy: -6, rtl: true, bg: C.herb, fg: "#fff", sub: "Yes, everything is Zabihah halal.", subc: C.goldSoft, tailX: -40});
+    if (IMG.hav) { const hk2 = back(span(t, as.vo + 1.1, as.vo + 1.6)), a2 = win(t, as.vo + 1.1, as.t1); if (a2 > 0) { ctx.save(); ctx.globalAlpha = a2; ctx.beginPath(); ctx.arc(900, 1010, 70*hk2, 0, 7); ctx.clip(); ctx.drawImage(IMG.hav, 830, 940, 140, 140); ctx.restore();
+      ctx.save(); ctx.globalAlpha = a2; ctx.strokeStyle = C.gold; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(900, 1010, 72*hk2, 0, 7); ctx.stroke(); ctx.restore(); } }
+    // eta + more: the receipt screen
+    const ra = win(t, et.t0 + .1, mo.t1, .4), addK = span(t, mo.vo + 1.5, mo.vo + 2.0);
+    receipt(540, 1170 + (1 - out(span(t, et.t0 + .1, et.t0 + .6))) * 300, 470, ra, t, addK, span(t, mo.vo + .9, mo.vo + 1.4));
+    sparkle(540, 1170 + 0, span(t, mo.vo + 1.5, mo.vo + 2.3), 10, 120);
+    // call: the real Call staff sheet, then the runner arrives
+    phone(IMG.call, 540, 1180, 440, win(t, cl.t0 + .1, cl.vo + 1.2, .35), {tap: span(t, cl.vo + .3, cl.vo + .8), tx: .5, ty: .855});
+    if (t > cl.vo + 2.0) { const [rx2, ry2] = scr(160, 158, 50); sparkle(rx2, ry2, span(t, cl.vo + 2.0, cl.vo + 2.8), 8, 90); }
+    // food lands: hearts
+    if (t > cl.t1 - .6 && t < en.t0 + 1) for (let i = 0; i < 6; i++) { const ph = clamp((t - (cl.t1 - .6) - i*.15) / 1.4); if (ph <= 0 || ph >= 1) continue;
+      const [hx, hy] = scr(141 + (i-2.5)*10, 131, 60 + ph*40); ctx.globalAlpha = 1 - ph; heart(hx + Math.sin(ph*6+i)*8, hy, 22, i % 2 ? C.spice : C.gold); ctx.globalAlpha = 1; }
+    endCard(t, out(span(t, en.t0 + .4, en.t0 + .9)), en);
+  } else {
+    const hk = B("hook"), tu = B("turn"), li = B("list"), tp = B("tap"), te = B("team"), en = B("end");
+    const [ox, oy] = scr(284, 196, 44);
+    bubble(ox - 120, oy - 150, "Is mine ready?", win(t, hk.t0 + 1.8, tu.t0 + .2), {font: "700 42px Inter"});
+    clockIcon(ox + 150, oy - 60, 44, t, win(t, hk.t0 + 2.4, tu.t0 + .2));
+    const fl = span(t, tu.t0, tu.t0 + .5); if (fl > 0 && fl < 1) { ctx.fillStyle = `rgba(243,231,196,${.5*(1 - fl)})`; ctx.fillRect(0, 0, W, H); }
+    tablet(540, 1180 + (1 - back(span(t, tu.t1 - .5, tu.t1 + .2))) * 1000, win(t, tu.t1 - .5, tp.t1, .35), t);
+    if (t > tp.t0 + 1.2) sparkle(540, 980, span(t, tp.t0 + 1.2, tp.t0 + 2.0), 10, 140);
+    hereAlert(540, 700, win(t, te.t0 + .1, te.vo + 2.0, .35), t);
+    if (t > te.vo + 2.4) { const [bx, by] = scr(TAB[0] + 12, TAB[1] + 10, 50); sparkle(bx, by, span(t, te.vo + 2.4, te.vo + 3.2), 10, 100); }
+    endCard(t, out(span(t, en.t0 + .4, en.t0 + .9)), en);
+  }
+  title(beatAt(t), t);
+}
+window.render = render;
+window.frame = i => render(i / FPS);
+if (!P.get("render")) READY.then(() => { const s = performance.now(); (function loop(){ render(((performance.now() - s) / 1000) % DURATION); requestAnimationFrame(loop); })(); });
+</script></body></html>

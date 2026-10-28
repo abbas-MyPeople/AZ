@@ -1,0 +1,1 @@
+Read reel-studio/HANDOFF.md, then reel-studio/story-01-the-714-call.md and reel-studio/slate.json. Continue the AZ reel work from "Next steps" in the handoff, following every decision listed there. Report to Abbas in his Rule 0 format: a status table of his asks, then anything that needs his approval.

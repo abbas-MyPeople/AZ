@@ -1,0 +1,15 @@
+{"dinein": [
+ ["hook", "Ever had your hand up this long... just to ask the waiter one little question?"],
+ ["turn", "At Wok and Karahi, the table answers."],
+ ["ask",  "Got a question about a dish? Ask Haniya, in your own language."],
+ ["eta",  "Wondering how long? It's right there on your phone."],
+ ["more", "One more mango lassi? Add it from your seat."],
+ ["call", "Still want a person? One tap, and someone's on the way."],
+ ["end",  "Less waving. More eating. Wok and Karahi, in Spring."]],
+"pickup": [
+ ["hook", "Picking up food usually means one thing. Waiting in line, just to ask... is mine ready?"],
+ ["turn", "Here, the tablet at the counter already knows."],
+ ["list", "Find your name, and see exactly where your order is."],
+ ["tap",  "Tap. Yes, I'm here."],
+ ["team", "The team sees you've arrived, and brings your bag straight to you."],
+ ["end",  "No line. No guessing. Wok and Karahi."]]}

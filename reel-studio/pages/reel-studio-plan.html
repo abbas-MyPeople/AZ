@@ -1,0 +1,198 @@
+<title>Reel Studio Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: evidence first (their frames vs ours), then the rules, then the new engine, the realms, and the first storyboard. AZ v2 tokens, system fonts. */
+:root{
+  --ink:oklch(23% 0.012 60); --ink-2:oklch(45% 0.010 60); --ink-3:oklch(60% 0.010 60);
+  --paper:oklch(97% 0.006 75); --surface:oklch(100% 0 0); --surface-2:oklch(93.5% 0.007 75); --rule:oklch(88% 0.008 70);
+  --deep:oklch(38% 0.070 160); --ticket:oklch(53% 0.150 32); --ticket-soft:oklch(95% 0.022 32);
+  --brand:#1c4739; --on-brand:#ffffff; --slab:#1a1714; --on-slab:#f2ede7; --on-slab-2:#c8c0b6;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; --serif:"Iowan Old Style",Georgia,serif; --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; --r:7px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ink:oklch(94% 0.010 75); --ink-2:oklch(78% 0.010 75); --ink-3:oklch(63% 0.010 75);
+  --paper:oklch(16% 0.008 70); --surface:oklch(20% 0.008 70); --surface-2:oklch(25% 0.008 70); --rule:oklch(31% 0.009 70);
+  --deep:oklch(76% 0.105 162); --ticket:oklch(70% 0.135 34); --ticket-soft:oklch(26% 0.045 32); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ink:oklch(94% 0.010 75); --ink-2:oklch(78% 0.010 75); --ink-3:oklch(63% 0.010 75);
+  --paper:oklch(16% 0.008 70); --surface:oklch(20% 0.008 70); --surface-2:oklch(25% 0.008 70); --rule:oklch(31% 0.009 70);
+  --deep:oklch(76% 0.105 162); --ticket:oklch(70% 0.135 34); --ticket-soft:oklch(26% 0.045 32); color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.55}
+.w{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{padding-block:36px 26px}
+section{padding-block:36px;border-top:1px solid var(--rule)}
+.kick{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ticket);margin:0 0 8px}
+h1{font-size:clamp(2rem,5vw,3rem);font-weight:830;letter-spacing:-.04em;line-height:1.05;margin:0;text-wrap:balance}
+h2{font-size:clamp(1.35rem,3vw,1.85rem);font-weight:790;letter-spacing:-.03em;line-height:1.15;margin:0 0 6px;text-wrap:balance}
+h3{font-size:1.05rem;font-weight:720;margin:0}
+.lede{font-family:var(--serif);color:var(--ink-2);max-width:64ch;margin:10px 0 0;font-size:1.05rem}
+p{max-width:70ch}
+figure{margin:18px 0 0} figure img{width:100%;border-radius:var(--r);display:block;border:1px solid var(--rule)}
+figcaption{font-size:13.5px;color:var(--ink-2);margin-top:6px}
+.tbl{overflow-x:auto;margin-top:16px;border:1px solid var(--rule);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+tr:last-child td{border-bottom:0} td.t{font-family:var(--mono);font-size:13px;color:var(--ink-2);white-space:nowrap}
+.rules{display:grid;gap:10px;margin-top:16px}
+.rule{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--rule);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.rule > div{padding:12px 14px;min-width:0} .rule .them{border-right:1px solid var(--rule)} .rule .us{background:var(--ticket-soft)}
+.rule small{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:4px}
+.rule h3{margin-bottom:4px}
+@media (max-width:620px){.rule{grid-template-columns:1fr}.rule .them{border-right:0;border-bottom:1px solid var(--rule)}}
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:10px;margin-top:16px}
+.layer{border:1px solid var(--rule);border-radius:var(--r);padding:14px;background:var(--surface);min-width:0}
+.layer b{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ticket);display:block;margin-bottom:4px}
+.layer p{margin:6px 0 0;color:var(--ink-2);font-size:14.5px}
+.slab{background:var(--slab);color:var(--on-slab);border-radius:var(--r);padding:18px 20px;margin-top:16px}
+.slab p{color:var(--on-slab-2);margin:6px 0 0}
+.ask{border-left:3px solid var(--ticket);background:var(--surface);border-radius:0 var(--r) var(--r) 0;padding:12px 16px;margin-top:10px}
+.ask b{display:block}
+ul.tight{margin:8px 0 0;padding-left:20px} ul.tight li{margin:3px 0}
+</style>
+
+<header class="w">
+  <p class="kick">AZ Restaurant Partners · How a studio would make this</p>
+  <h1>The Reel Studio Plan</h1>
+  <p class="lede">You're right: what I showed looks like a toy, because I skipped the stages a real team never skips. Here is the whole pipeline a studio runs, who does each part, what this environment can and can't do, and 30 stories re-picked so each one has to earn its first 2 seconds.</p>
+</header>
+
+<section><div class="w">
+  <p class="kick">Why it looked kiddish</p>
+  <h2>The engine wasn't the problem. Art direction was.</h2>
+  <div class="tbl"><table>
+    <tr><th>What a studio has</th><th>What I did</th></tr>
+    <tr><td>An approved hook and script before anything is drawn</td><td>Wrote and drew at the same time</td></tr>
+    <tr><td>An animatic (rough, timed to a scratch voice) approved before production</td><td>Went straight to final renders</td></tr>
+    <tr><td>Three approved style frames that fix the look</td><td>Invented the look shot by shot</td></tr>
+    <tr><td>A world kit made by an artist: characters with real proportions and expressions, sets, props, all modelled and textured</td><td>Characters built from spheres and capsules in code</td></tr>
+    <tr><td>Motion by animation principles: anticipation, overlap, easing, staging</td><td>Things slid and scaled</td></tr>
+    <tr><td>A cast voice and licensed music</td><td>A synthetic voice and synthesized music</td></tr>
+  </table></div>
+  <p class="note">This environment can install Blender, a real 3D renderer, so the engine can be professional. Every source of professional characters and sets is blocked here, and so are image models and premium voices. Without an artist's kit, any engine produces toys.</p>
+</div></section>
+
+<section><div class="w">
+  <p class="kick">The pipeline</p>
+  <h2>Ten stages, four places you sign off</h2>
+  <div class="tbl"><table id="stages"></table></div>
+</div></section>
+
+<section><div class="w">
+  <p class="kick">The team</p>
+  <h2>Every role, and who fills it</h2>
+  <div class="tbl"><table id="roles"></table></div>
+</div></section>
+
+<section><div class="w">
+  <p class="kick">The 2-second test</p>
+  <h2>What a hook has to do for an owner</h2>
+  <div class="layers">
+    <div class="layer"><b>MOMENT</b><h3>A moment they've lived</h3><p>A Friday rush, a ringing phone, a table that left, a statement from the app. Not a feature.</p></div>
+    <div class="layer"><b>SPECIFIC</b><h3>A time, a name or a number</h3><p>"7:14", "since August", "$26.98". Specific reads as true.</p></div>
+    <div class="layer"><b>ONE FRAME</b><h3>Readable with sound off</h3><p>Seven words or fewer on screen, one picture that carries it.</p></div>
+    <div class="layer"><b>TENSION</b><h3>Something is about to be lost</h3><p>An order, a guest, a table, a night. The next 2 seconds have to answer it.</p></div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <p class="kick">The new slate</p>
+  <h2>30 stories, ranked by how hard the hook hits</h2>
+  <p class="lede">Each story is one object's journey: the stakes, the turn, a closing line, the proof from our own restaurant, and why we beat everyone else at that one job. Competitor prices are from their own pages, checked October 2026. Stories marked "reel exists" have a first cut already.</p>
+  <div class="days" id="slate"></div>
+</div></section>
+
+<section><div class="w">
+  <p class="kick">Needs your yes</p>
+  <h2>Three decisions</h2>
+  <div class="ask"><b>1. The world kit (the one thing I can't make here).</b>My pick: commission a 3D or illustration artist once for our cast (owner, chef, runner, guest family, caller), our restaurant set, the street and the props, in our own style. I animate every reel from that kit in Blender. The other route is unblocking the 3D asset libraries and an image model in this environment's network settings, plus their keys. That's faster and cheaper, but the look is less ours.</div>
+  <div class="ask"><b>2. The voice.</b>My pick for AZ: your own voice. Owners trust an owner, and your existing reel-script plan was built for your voice. You record each script on your phone in one take, about 40 seconds, and I clean, time and caption it. Wok &amp; Karahi keeps Haniya's voice.</div>
+  <div class="ask"><b>3. Approve the slate and the four gates.</b>Then the first output you see is an animatic of story 1 ("It's 7:14. Your phone is ringing."), not a final render.</div>
+</div></section>
+<style>
+.days{display:grid;gap:8px;margin-top:18px}
+details.dcard{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r)}
+details.dcard[open]{border-color:var(--deep)}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;padding:12px 16px;min-height:44px}
+summary::-webkit-details-marker{display:none}
+.n{font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.hk{font-weight:760;font-size:1.02rem;letter-spacing:-.01em;overflow-wrap:anywhere}
+.pm{font-family:var(--mono);color:var(--ticket);font-size:18px}
+details[open] .pm::before{content:"−"} details:not([open]) .pm::before{content:"+"}
+.dbody{padding:0 16px 16px 70px;display:grid;gap:6px;font-size:14.5px;color:var(--ink-2)}
+.dbody b{color:var(--ink);font-weight:650}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--brand);color:var(--on-brand);border-radius:4px;padding:2px 6px;margin-left:6px;white-space:nowrap}
+@media (max-width:560px){.dbody{padding-left:16px}}
+.note{font-size:14px;color:var(--ink-2);margin-top:12px}
+</style>
+<script>
+const STAGES = [
+ ["1","Strategy","Who exactly, the one thing they should believe, and the action: a comment, a DM or a demo","Me"],
+ ["2","Hook bank","3 hooks per story, each tested against the 2-second rules below","Me · GATE 1: you pick the hook"],
+ ["3","Script","Beat sheet: hook, stakes, turn, payoff, widen, close. Every line about 2.5 seconds, written to be said aloud","Me"],
+ ["4","Animatic","Rough boards timed to a scratch voice, so you judge the story before anything is made","Me · GATE 2: you approve the story"],
+ ["5","Art direction","Style frames, colour script, type system (captions, highlight box, chapter bar), camera language","Me + artist · GATE 3: you approve 3 frames"],
+ ["6","World kit","Cast with real proportions and expressions, rigs, sets, props, all made once and reused for every reel","Artist (one time)"],
+ ["7","Animation","Blender: camera on the object's journey, animation principles, motion blur, depth of field, light","Me"],
+ ["8","Sound","Voice, music bed, sound design for every tap, ring and print, mixed for phone speakers","You (voice) + me"],
+ ["9","Finish","Word-synced captions, colour grade, safe zones per platform, cover frame, exports","Me · GATE 4: final cut"],
+ ["10","Ship and learn","Post at the owner's clock, pinned comment, replies in the first hour, then retention curves weekly to pick the next hooks","Me"],
+];
+document.getElementById("stages").innerHTML = "<tr><th>#</th><th>Stage</th><th>What happens</th><th>Who</th></tr>" + STAGES.map(r => "<tr>" + r.map((c,i) => i===1 ? "<td><b>"+c+"</b></td>" : "<td>"+c+"</td>").join("") + "</tr>").join("");
+const ROLES = [
+ ["Creative director","Holds the bar on every frame","Me drafting, you deciding at the 4 gates"],
+ ["Strategist and copywriter","Hooks, scripts, captions","Me"],
+ ["Storyboard and animatic","Shot list and timing","Me"],
+ ["Art director","Style frames, colour, type","Me, with the artist"],
+ ["3D or illustration artist","The world kit","Needed: one commission, or unblocked asset libraries"],
+ ["Animator","Every reel from the kit","Me, in Blender"],
+ ["Voice","The narrator","You for AZ; Haniya for Wok & Karahi"],
+ ["Sound designer and mixer","Music, effects, levels","Me; music from a licensed library or the platform's own"],
+ ["Editor","Pacing, captions, grade, exports","Me"],
+ ["Social manager","Posting, first-hour replies","Me, once AZ accounts are connected"],
+ ["Analyst","What held, what lost people, what to make next","Me, weekly"],
+];
+document.getElementById("roles").innerHTML = "<tr><th>Role</th><th>Job</th><th>Filled by</th></tr>" + ROLES.map(r => "<tr><td><b>"+r[0]+"</b></td><td>"+r[1]+"</td><td>"+r[2]+"</td></tr>").join("");
+/* [hook, object, stakes, turn, close, proof, link, reel exists] */
+const S = [
+ ["It's 7:14. Your phone is ringing.","The call","A $26.98 order about to hang up (two chowmeins at our menu prices)","Haniya answers, takes it, texts a link to pay","Every call. Every order. Answered.","Our restaurant's phone has been answered this way since September 8","ai-phone-answering-restaurants.html"],
+ ["Who made more on this order: you or the app?","A takeout bag","The app's cut eaten out of the coin, up to 30%","The regular orders from your own link","Same food. Your margin. Your guest.","Our own site takes orders with no app commission","do-restaurants-lose-money-on-doordash.html"],
+ ["This table just left. Did they pay?","The check","A table walks out mid-rush","Guests pay at the table before the food is made","Every table. Paid.","Every table order at our restaurant is paid first","how-to-stop-dine-and-dash.html"],
+ ["Your regular hasn't been in since August.","A guest's visits","A regular quietly gone","A personal note from the restaurant brings her back","Missed. Messaged. Back.","Our win-back texts go out from our own guest list","restaurant-loyalty-winback.html"],
+ ["ChatGPT just recommended the place next door.","An AI answer","Guests asking AI where to eat, and you're missing","Your menu, hours and ordering readable by AI assistants","Asked. Answered. You.","Our menu can be read and ordered inside AI assistants","get-your-restaurant-recommended-by-ai.html"],
+ ["Google says you're closed. You're open.","Your hours","A guest drives past and keeps going","One source of truth, pushed everywhere","One change. Everywhere.","We keep one record of our hours and push it everywhere","how-to-keep-hours-and-menu-accurate-on-google-and-ai-assistants.html"],
+ ["Three tablets beeping. One order wrong.","A delivery order","Retyped by hand at the rush, item missed","App orders print straight to the line","One printer. No retyping.","Our delivery orders print straight to the line","otter-vs-deliverect-vs-itsacheckmate.html"],
+ ["Saturday, 7 PM. Table for eight. No-show.","The reservation","Your best table, unsold","A reminder the day before and a one-tap cancel","Booked. Reminded. Seated.","Our booking page holds tables and warns the next guest","stop-restaurant-no-shows.html"],
+ ["Out of chowmein at 8 PM. Your website doesn't know.","A sold-out dish","Guests order what you can't make","Mark it sold out once and it's gone everywhere","Sold out. Everywhere. One tap.","Our menu follows the POS; an 86'd dish disappears","how-to-keep-hours-and-menu-accurate-on-google-and-ai-assistants.html"],
+ ["Half your counter line is asking \"is mine ready?\"","The pickup bag","Staff stopped mid-rush to answer","The counter tablet shows every order; the guest taps \"I'm here\"","No line. No asking.","Live at our counter","demo.html",1],
+ ["Hand up. Still waiting for the check.","The guest's question","Questions pile up while one server runs","The table answers: order, ask, add, pay from the seat","Less waving. More eating.","Every phone at our tables shares one order","how-to-run-a-restaurant-without-servers.html",1],
+ ["Friday rush. \"How long for my food?\"","The wait","A guest guessing, then leaving a review about it","An honest wait time, given automatically","Asked. Answered. Honest.","Our ordering pages show how many orders are ahead","how-to-add-ai-ordering-without-losing-guests.html"],
+ ["She wanted to ask in Urdu.","A question","A guest who won't ask in English","Seven languages at the table","Asked in Urdu. Answered in Urdu.","Live at our tables in seven languages","guide-multilingual-phone-ordering.html"],
+ ["Lunch for 40 by Tuesday. Who do they call?","A catering request","The office manager can't find you","A catering page that sizes trays by headcount","Found. Quoted. Booked.","Our catering page: a half tray feeds 8 to 10","how-to-get-catering-orders-from-offices-churches-schools.html"],
+ ["That 1-star review started at table 4.","An unhappy guest","Leaves quietly, posts that night","Feedback reaches the owner privately first","Heard first. Fixed first.","Our feedback goes straight to the owner","get-more-restaurant-reviews.html"],
+ ["Your best-seller might be losing you money.","A dish","Popular, and barely profitable","See every dish by what it earns","Now you know which is which.","We look at our own menu dish by dish","restaurant-inventory-food-cost.html"],
+ ["You spent on ads. Which one sold food?","An ad click","Money out, no idea what came back","Every ad tied to the orders it brought","Click. Order. Counted.","We track our own Google ads to orders","how-to-track-which-ads-bring-restaurant-orders.html"],
+ ["11 PM. Someone's planning tomorrow's lunch.","A scheduled order","Your site can't take it","Orders for later, around the clock","Closed. Still taking orders.","Our site takes scheduled orders while we're closed","online-ordering-without-doordash.html"],
+ ["Costs went up. Your menu didn't.","A price tag","Margin melting every week","Raise the right dishes, by the right amount","Priced on purpose.","We study our own order history before a price changes","how-to-raise-menu-prices-without-losing-guests.html"],
+ ["No server at the table. So who gets the tip?","The tip","Guests hesitate, the team loses out","100% of the tip to the people cooking, said on the page","Every tip, to the team.","Click2Houston covered our tips going straight to the team","case-study.html"],
+ ["You fed her 40 times. You don't know her name.","A guest","The app owns the relationship","Every order, call and table visit lands in a guest list you own","Her name. Your list.","Our guest list comes from our own orders and calls","how-to-build-a-restaurant-guest-list-without-delivery-apps.html"],
+ ["Three news crews came to our restaurant.","The press","Owners picture AI as cold","Show the coverage","Seen on Fox 26, Click2Houston, Muslim Mirror.","Real coverage of our restaurant","case-study.html"],
+ ["Your staff heard \"AI\" and got nervous.","A shift","The team fears for their jobs","Show what it takes off their plate","Less phone. More cooking.","Our team spends its time cooking and bringing food","how-to-introduce-ai-to-restaurant-staff.html"],
+ ["Every chain has a tech department. You have vendors.","Five vendor logins","Nothing talks to anything","One team that uses what works and builds what's missing","Your technology team.","We built it for our own restaurant first","index.html"],
+ ["The POS demo was great. Then came the contract.","A contract","Fees and locked-in hardware","An honest comparison from people who run a restaurant on one","Signed with eyes open.","We run our own restaurant on Clover","best-restaurant-pos.html"],
+ ["Sunday night. Doing the books at the kitchen table.","The week's numbers","The month is gone before a problem shows","One plain screen with sales, labor and food cost","Know Monday what happened Sunday.","Our owners read our numbers on one dashboard","details.html"],
+ ["Diwali party for 40. They called three times.","A party tray order","Confusion over how much food","Trays sized by headcount, quoted the same day","One call. Fed right.","Our catering page sizes trays by headcount","win-more-catering-orders.html"],
+ ["Thanksgiving trays: is your order page ready?","A holiday order","Holiday orders go to whoever is ready first","Catering open early, sized and priced online","Ready before they ask.","Our catering takes orders for a set date and time","win-more-catering-orders.html"],
+ ["The night before Thanksgiving, your phone won't stop.","Every call","Orders lost in the noise","Every call answered and written down right","The busiest night. Every call.","Our phone works the same on our busiest nights","ai-phone-answering-restaurants.html"],
+ ["We don't get paid until we bring you orders.","Our terms","Setup fees for tools that never pay off","Free for two months, then we earn only on orders we bring","No setup fee. No contract.","Same terms on every page of our site","details.html"],
+];
+const EDGE = ["Slang.ai is $399 to $599 a location a month and only texts a link; Maple is $350 a month; Kea lists a $5,998 annual fee. Ours is part of your whole system: she knows your menu, what sells, and who is calling, the same guest from your website and your tables, and the ticket waits until it is paid. Free for two months, then we only earn on orders we bring.", "DoorDash takes 15 to 30%. Owner.com charges your guests 5% on every order; ChowNow adds 2.95% plus 29 cents an order on top of $229 or more a month. We take no percentage from you or your guest.", "Most QR menus still let the check wait until the end. Ours is paid before the food is cooked, with Apple Pay, Google Pay, Zelle and the counter reader, set up and run with your staff.", "Big loyalty platforms are built for chains and don't publish prices. Ours times each note to that guest's own rhythm, from the guest list your POS already has.", "Ordering vendors give you a website. We make your menu readable and orderable inside AI assistants, and measure whether you show up.", "Every vendor updates its own page. We keep one record of your hours and menu and check it everywhere guests look.", "Order-routing middleware is another monthly bill per location. We wire delivery orders into the POS you already have and run it with you.", "Reminders come from the system that knows the guest's history, so a regular gets a warm note, not a form.", "One menu everywhere: mark a dish sold out once and it disappears from web, phone, tables and counter together. Separate vendors each need their own update.", "The counter screen, the phone order, the web order and the Ready board are one system, so the guest who taps \"I'm here\" is known everywhere.", "Most QR menus are English-first and paid at the end. Ours: seven languages, every phone at the table on one ticket, paid before cooking.", "Wait times come from your live order queue, not a number someone typed into a dashboard.", "Seven languages at the table, chosen by the guest, with the menu and Haniya both answering in it.", "Catering lands in the same system as everything else, sized from your own catering menu, with no marketplace in the middle.", "Review tools ask everyone for stars. Ours asks happy guests to post, brings unhappy ones to you first, and drafts replies in your voice.", "Your POS shows what sold. We show what each dish earns, next to what guests search for and when they order.", "Agencies report clicks. We judge every ad on the profit of the orders it brought.", "Owner.com charges guests 5% on every order. Ours takes scheduled orders with no fee to you or the guest.", "We price from your own order history, dish by dish. Template software doesn't know your menu.", "Built around your team: tips go to the people cooking, and the ask comes after the food lands.", "Ordering vendors only know the orders that went through them. Ours joins phone, web, table and counter into one guest list you own.", "No vendor can show you their own restaurant on the news. We can.", "We introduce it with your team, in your restaurant, and change it to fit how they work. Software sends a login.", "Vendors each sell one tool. We are the team that makes them work together and builds what's missing.", "We run a restaurant on our POS every day, so we know what the demo leaves out.", "Accounting tools show last month. Ours shows this week's sales, labor and food cost from your POS, in plain words.", "We cook desi party menus ourselves, so trays are sized for real headcounts and real appetites.", "Catering opens with a set date and time, priced online, with no marketplace commission on your own guests.", "Slang.ai bills usage over your limit at a higher tier. Your busiest night never costs you more with us: we only earn on orders we bring.", "Slang.ai renews automatically and its fees aren't refundable; Kea lists a $5,998 annual fee; Hostie waives setup only on an annual contract. We have no setup fee, no contract, and you keep what we build."];
+const box = document.getElementById("slate");
+S.forEach((s, i) => { const d = document.createElement("details"); d.className = "dcard";
+  d.innerHTML = '<summary><span class="n"></span><span class="hk"></span><span class="pm" aria-hidden="true"></span></summary><div class="dbody"></div>';
+  d.querySelector(".n").textContent = String(i+1).padStart(2, "0"); d.querySelector(".hk").textContent = s[0];
+  if (s[7]) { const t = document.createElement("span"); t.className = "tag"; t.textContent = "reel exists"; d.querySelector(".hk").append(t); }
+  const b = d.querySelector(".dbody"); [["The object",s[1]],["Stakes",s[2]],["The turn",s[3]],["Close",s[4]],["Proof",s[5]],["Why we win",EDGE[i]]].forEach(([k,v]) => { const p = document.createElement("div"); p.innerHTML = "<b></b> "; p.querySelector("b").textContent = k + ":"; p.append(v); b.append(p); });
+  const a = document.createElement("a"); a.href = "https://azrestaurantpartners.com/" + (s[6] === "index.html" ? "" : s[6]); a.target = "_blank"; a.rel = "noopener"; a.textContent = "Links to the AZ page"; b.append(a);
+  box.append(d); });
+</script>

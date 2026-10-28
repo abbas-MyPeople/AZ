@@ -1,0 +1,213 @@
+<title>The 7:14 Call</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: evidence first (their frames vs ours), then the rules, then the new engine, the realms, and the first storyboard. AZ v2 tokens, system fonts. */
+:root{
+  --ink:oklch(23% 0.012 60); --ink-2:oklch(45% 0.010 60); --ink-3:oklch(60% 0.010 60);
+  --paper:oklch(97% 0.006 75); --surface:oklch(100% 0 0); --surface-2:oklch(93.5% 0.007 75); --rule:oklch(88% 0.008 70);
+  --deep:oklch(38% 0.070 160); --ticket:oklch(53% 0.150 32); --ticket-soft:oklch(95% 0.022 32);
+  --brand:#1c4739; --on-brand:#ffffff; --slab:#1a1714; --on-slab:#f2ede7; --on-slab-2:#c8c0b6;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; --serif:"Iowan Old Style",Georgia,serif; --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; --r:7px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ink:oklch(94% 0.010 75); --ink-2:oklch(78% 0.010 75); --ink-3:oklch(63% 0.010 75);
+  --paper:oklch(16% 0.008 70); --surface:oklch(20% 0.008 70); --surface-2:oklch(25% 0.008 70); --rule:oklch(31% 0.009 70);
+  --deep:oklch(76% 0.105 162); --ticket:oklch(70% 0.135 34); --ticket-soft:oklch(26% 0.045 32); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ink:oklch(94% 0.010 75); --ink-2:oklch(78% 0.010 75); --ink-3:oklch(63% 0.010 75);
+  --paper:oklch(16% 0.008 70); --surface:oklch(20% 0.008 70); --surface-2:oklch(25% 0.008 70); --rule:oklch(31% 0.009 70);
+  --deep:oklch(76% 0.105 162); --ticket:oklch(70% 0.135 34); --ticket-soft:oklch(26% 0.045 32); color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.55}
+.w{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{padding-block:36px 26px}
+section{padding-block:36px;border-top:1px solid var(--rule)}
+.kick{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ticket);margin:0 0 8px}
+h1{font-size:clamp(2rem,5vw,3rem);font-weight:830;letter-spacing:-.04em;line-height:1.05;margin:0;text-wrap:balance}
+h2{font-size:clamp(1.35rem,3vw,1.85rem);font-weight:790;letter-spacing:-.03em;line-height:1.15;margin:0 0 6px;text-wrap:balance}
+h3{font-size:1.05rem;font-weight:720;margin:0}
+.lede{font-family:var(--serif);color:var(--ink-2);max-width:64ch;margin:10px 0 0;font-size:1.05rem}
+p{max-width:70ch}
+figure{margin:18px 0 0} figure img{width:100%;border-radius:var(--r);display:block;border:1px solid var(--rule)}
+figcaption{font-size:13.5px;color:var(--ink-2);margin-top:6px}
+.tbl{overflow-x:auto;margin-top:16px;border:1px solid var(--rule);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+tr:last-child td{border-bottom:0} td.t{font-family:var(--mono);font-size:13px;color:var(--ink-2);white-space:nowrap}
+.rules{display:grid;gap:10px;margin-top:16px}
+.rule{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--rule);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.rule > div{padding:12px 14px;min-width:0} .rule .them{border-right:1px solid var(--rule)} .rule .us{background:var(--ticket-soft)}
+.rule small{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:4px}
+.rule h3{margin-bottom:4px}
+@media (max-width:620px){.rule{grid-template-columns:1fr}.rule .them{border-right:0;border-bottom:1px solid var(--rule)}}
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:10px;margin-top:16px}
+.layer{border:1px solid var(--rule);border-radius:var(--r);padding:14px;background:var(--surface);min-width:0}
+.layer b{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ticket);display:block;margin-bottom:4px}
+.layer p{margin:6px 0 0;color:var(--ink-2);font-size:14.5px}
+.slab{background:var(--slab);color:var(--on-slab);border-radius:var(--r);padding:18px 20px;margin-top:16px}
+.slab p{color:var(--on-slab-2);margin:6px 0 0}
+.ask{border-left:3px solid var(--ticket);background:var(--surface);border-radius:0 var(--r) var(--r) 0;padding:12px 16px;margin-top:10px}
+.ask b{display:block}
+ul.tight{margin:8px 0 0;padding-left:20px} ul.tight li{margin:3px 0}
+</style>
+
+<header class="w">
+  <p class="kick">AZ reel 01 · Gates 1 and 2</p>
+  <h1>The 7:14 Call</h1>
+  <p class="lede">Everything needed before a single frame is made: the rules every shot must pass, the hook, your script, the shot list, how to record, and the brief to hire the artist.</p>
+</header>
+
+<section><div class="w">
+  <p class="kick">The reality bible</p>
+  <h2>Every shot must pass all of these</h2>
+  <div class="rules" id="bible"></div>
+</div></section>
+
+<section><div class="w">
+  <p class="kick">Gate 1 · the hook</p>
+  <h2>Three openings, one pick</h2>
+  <div class="tbl"><table>
+    <tr><th></th><th>First 2 seconds on screen</th><th>Why</th></tr>
+    <tr><td><b>A · my pick</b></td><td>"It's 7:14. Your phone is ringing." over a phone shaking on a wall while every hand is busy</td><td>Every owner has lived this exact second. It's a time, a sound and a problem in one frame.</td></tr>
+    <tr><td><b>B</b></td><td>"That ringing phone is a $26.98 order."</td><td>Puts the money first, but the picture needs a second to make sense.</td></tr>
+    <tr><td><b>C</b></td><td>"Friday, 7:14 PM. Nobody can pick up."</td><td>Strong tension, but it names the problem before showing it.</td></tr>
+  </table></div>
+</div></section>
+
+<section><div class="w">
+  <p class="kick">Gate 2 · your script</p>
+  <h2>About 50 seconds in your voice</h2>
+  <div class="caprow"><div class="caphead"><span>Read this aloud</span><button class="copy" type="button" data-copy="script">Copy</button></div><pre class="cap" id="script"></pre></div>
+  <p class="note">Competitor price from Slang.ai's own page (checked October 2026, $399 or $599 per location a month). Every claim about us is live at Wok &amp; Karahi, including returning-caller memory and popularity-based suggestions: Haniya answers the line, builds the order, reads it back and texts a pay link. The ticket prints only after payment, and the guest gets a text when staff tap Ready. $26.98 is two dishes at our menu prices.</p>
+</div></section>
+
+<section><div class="w">
+  <p class="kick">Gate 2 · the shot list</p>
+  <h2>Each line, what we see, and why it is believable</h2>
+  <div class="tbl"><table id="shots"></table></div>
+</div></section>
+
+<section><div class="w">
+  <p class="kick">For you</p>
+  <h2>Recording in 10 minutes</h2>
+  <ul class="tight">
+    <li>A small room with soft things in it (a closet or a car works). No fan, no AC, no kitchen noise.</li>
+    <li>Phone voice memo, held a hand's width from your mouth, slightly to the side.</li>
+    <li>Read it like you're telling another owner across the table, not reading an ad. Smile on "Answered."</li>
+    <li>Three full takes, back to back. Leave a one-second pause between lines; I cut and time it.</li>
+    <li>Send the file here. I clean it, time every shot to it, and caption it word for word.</li>
+  </ul>
+</div></section>
+
+<section><div class="w">
+  <p class="kick">For the artist</p>
+  <h2>The commission brief</h2>
+  <p class="lede">Ready to post on Upwork or ArtStation, or to send to an artist directly. Ask three artists for a quote and a portfolio link, then send me the shortlist.</p>
+  <div class="caprow"><div class="caphead"><span>Job post</span><button class="copy" type="button" data-copy="brief">Copy</button></div><pre class="cap" id="brief"></pre></div>
+</div></section>
+<style>
+.caprow{display:grid;gap:6px;margin-top:14px}
+.caphead{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.caphead span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.cap{white-space:pre-wrap;font-size:14.5px;line-height:1.55;background:var(--surface-2);border-radius:5px;padding:14px 16px;margin:0;font-family:var(--sans);overflow-wrap:anywhere}
+button.copy{font:600 13px var(--sans);border:1px solid var(--rule);background:var(--surface);color:var(--ink);border-radius:5px;padding:8px 14px;min-height:40px;cursor:pointer}
+button.copy.done{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+.note{font-size:14px;color:var(--ink-2);margin-top:12px}
+td.t{white-space:nowrap}
+</style>
+<script>
+const BIBLE = [
+ ["Physics","Everything has weight. A phone on a wall vibrates against its mount and the cord swings; a ticket curls as it prints; a wok toss has wind-up, lift, catch and the food arcs under gravity; bags sag with what's inside; a coin lands, bounces once and settles. Shadows touch the floor; nothing floats unless it's a screen card, and screen cards rise from their device on a beam of light."],
+ ["Logic","Cause comes before effect, on screen. The ticket prints only after the pay link is paid, because that's how it works. Every screen shows only what that person would really see, worded exactly as our real screens word it. No step happens that our system doesn't do."],
+ ["Time","The HUD clock is the truth. Time compresses only in the open: the clock spins forward with a whoosh (7:16 to 7:31) while the food cooks. The food never appears ready in two seconds."],
+ ["Continuity","Every object stays where it was left. The same chef, the same apron, the same plate count, the same moon. The street lights are on the whole time; the restaurant's warm light spills onto the pavement in every exterior shot."],
+ ["Camera","Real lenses (35mm for the room, 50 to 85mm for faces and hands), a real camera body: it eases in and out, never snaps, and never passes through a wall except through the cut-away front we establish in shot 1. Motion blur on everything moving, shallow focus on close-ups."],
+ ["Characters","Real proportions, real hands with five fingers, faces that act: the caller's relief, the chef's calm, the owner's shoulders dropping. People shift their weight, breathe, and look at what they touch."],
+ ["The weight lifts","The owner carries the night as a visible load: small icons of what needs them (a ringing phone, a waiting order, a bill) gathered over their shoulders. Each time the system takes one, it lifts off and the owner straightens. By the end the owner is free to do the one thing only they can: greet a guest."],
+ ["Easy to explain","One idea per line, one card per idea, three elements per card at most, readable at phone size with the sound off. If a frame needs a second look to understand, it gets redrawn."],
+ ["Entertaining","A small human story runs underneath: the hungry caller's kids hanging off his arm, cheering when the text lands; the chef who never once looks up. A smile every 10 seconds, never a joke at the guest's expense."],
+ ["Sound","Every visible action has its sound: the ring, the vibration, the wok, the printer, the text ping, the door. Music sits under your voice and lifts on the close."],
+];
+const box = document.getElementById("bible");
+BIBLE.forEach(([h, p]) => { const d = document.createElement("div"); d.className = "rule"; d.style.gridTemplateColumns = "minmax(0,200px) minmax(0,1fr)";
+  d.innerHTML = '<div class="them"><h3></h3></div><div><p style="margin:0"></p></div>'; d.querySelector("h3").textContent = h; d.querySelector("p").textContent = p; box.append(d); });
+const SCRIPT = `It's 7:14. Your phone is ringing.
+Every pair of hands is on the line.
+And that's a $26.98 order, about to hang up.
+
+I own Wok & Karahi. That used to be every Friday.
+
+Now Haniya answers. Every call.
+She takes the order,
+reads it back,
+and texts him a link to pay.
+He pays. The ticket prints.
+Nobody stopped cooking.
+
+And she's not a phone robot bolted on.
+She knows our menu, what sells,
+and who's calling, from our website and our tables too.
+Phone AI elsewhere runs up to $599 a month.
+Ours is free for two months, then we only earn on orders we bring.
+
+When it's ready, one tap,
+and he gets a text to come in.
+
+That's one call, off my plate.
+Every call. Every order. Answered.
+
+Want this for your restaurant? Comment CALL.`;
+document.getElementById("script").textContent = SCRIPT;
+const SHOTS = [
+ ["0:00","It's 7:14. Your phone is ringing.","Close on a wall phone shaking against its mount, cord swinging; behind it, out of focus, the wok line in full fire. HUD: FRI 7:14 PM.","Ring, the buzz against the wall, the wok roar"],
+ ["0:03","Every pair of hands is on the line.","Slow dolly along the line at hand height: the chef tossing, the runner plating, the host bagging. Nobody's hand is free; three heads glance at the phone and back to work.","Clatter, sizzle, a ticket rail"],
+ ["0:06","And that's a $26.98 order, about to hang up.","Match cut down the phone line to a house across the street: a dad on hold, two kids tugging his sleeve. His thumb hovers over End. A $26.98 coin hangs over the restaurant and starts to tip.","Hold tone, kids: \"Daddy, food?\""],
+ ["0:11","I own Wok & Karahi. That used to be every Friday.","The owner at the pass, mid-rush, the load of small icons over their shoulders (phone, orders, bill), shoulders heavy.","Music thins out"],
+ ["0:15","Now Haniya answers. Every call.","The phone stops ringing as the line lights gold. The coin steadies. A card rises from the phone: Haniya, on the call. The ringing-phone icon lifts off the owner's load.","Ring cuts, a soft chime, the owner exhales"],
+ ["0:19","She takes the order, reads it back,","At the dad's house: he talks, relaxed now. Card over his phone builds line by line: Lari (Street) Style Chowmein $13.99, Chowmein $12.99, then two checks.","Two soft ticks"],
+ ["0:23","and texts him a link to pay.","The text travels as light from the restaurant across the street to his phone; the kids lean in to see.","Text ping"],
+ ["0:26","He pays. The ticket prints. Nobody stopped cooking.","He taps Pay. Across the street the printer feeds a curling ticket, PAID. The chef tears it and keeps tossing without looking up.","Printer, tear, wok"],
+ ["0:30","And she's not a phone robot bolted on. She knows our menu, what sells, and who's calling.","Cut to the dad's phone history card: his usual from last month, the most-ordered dish on top, his name. Three thin lines connect it to the website and a table QR in the restaurant.","Three soft chimes, one per line"],
+ ["0:35","Phone AI elsewhere runs up to $599 a month. Ours is free for two months, then we only earn on orders we bring.","Two price tags side by side, theirs a monthly bill that keeps printing, ours empty until an order arrives and a coin drops in.","A receipt printer that won't stop; then a single coin"],
+ ["0:41","When it's ready, one tap,","HUD clock spins 7:16 to 7:31 with a whoosh while the dish is plated. A hand taps Ready on the board.","Clock whoosh, a tap"],
+ ["0:44","and he gets a text to come in.","The dad's phone lights: it's ready. The kids cheer; one is already at the door with shoes on the wrong feet.","Ping, cheer"],
+ ["0:47","That's one call, off my plate.","The owner's last icon lifts; the owner straightens and walks out from the pass to greet a guest at the door.","Music lifts"],
+ ["0:50","Every call. Every order. Answered.","Crane up over the whole block at night: dozens of small lights travelling between homes and the restaurant. Three words land one by one.","Music peak"],
+ ["0:53","Want this for your restaurant? Comment CALL.","End card: AZ Restaurant Partners, azrestaurantpartners.com/start/","Final chord"],
+];
+document.getElementById("shots").innerHTML = "<tr><th>Time</th><th>Your line</th><th>What we see</th><th>Sound</th></tr>" + SHOTS.map(r => "<tr><td class=\"t\">"+r[0]+"</td><td><b></b></td><td></td><td></td></tr>").join("");
+document.querySelectorAll("#shots tr").forEach((tr, i) => { if (!i) return; const r = SHOTS[i-1], td = tr.children; td[1].querySelector("b").textContent = r[1]; td[2].textContent = r[2]; td[3].textContent = r[3]; });
+const BRIEF = `3D artist for a reusable character and set kit (restaurant explainer reels, Blender)
+
+We make short vertical explainer reels about how our restaurant runs. We need a one-time kit of original, production-quality assets that we will animate ourselves in Blender for many reels. Style: stylized realism, warm and human, soft PBR materials, believable proportions. Not chibi, not low-poly toys. Please share 3 portfolio pieces closest to this.
+
+CHARACTERS (7), rigged and animation-ready
+- Restaurant owner (South Asian, 40s), chef (wok cook, apron, cap), runner, counter host (hijab), a dad caller, two kids (about 6 and 9)
+- Real hands with articulated fingers; facial rig with blinks, smile, and mouth shapes for talking (A, E, O, M, F at minimum)
+- Humanoid skeleton compatible with Rigify; clothing that moves believably
+- Around 30-50k triangles each, 2K PBR textures
+- A front, side and back turnaround sheet for approval before modelling
+
+SETS (5)
+- A halal Chinese, Indian and Pakistani restaurant: dining room of 12 tables (floor plan provided), an open wok line with burners, a pickup counter, a storefront with sign
+- A residential street at night (houses, street lights) leading to the restaurant
+- The caller's home: kitchen and living area
+- The owner's small back office
+- Correct real-world scale in meters
+
+PROPS
+- Wall phone with cord, smartphones, a counter tablet on a stand, a ticket printer with paper, takeout bags, woks, plates of our dishes (chowmein, biryani, karahi), a wall screen
+- Every screen as a separate material slot so we can drive its content
+
+DELIVERY
+- Blender files (version 4.x or later), organized collections, plus GLB exports
+- Milestones: 1) concept and turnarounds, 2) characters, 3) sets and props
+- Full commercial rights to all work, as work for hire
+- Please quote by milestone and give your timeline.`;
+document.getElementById("brief").textContent = BRIEF;
+const TXT = {script: SCRIPT, brief: BRIEF};
+document.querySelectorAll("button.copy").forEach(b => b.addEventListener("click", () => { const t = TXT[b.dataset.copy];
+  const done = () => { b.textContent = "Copied"; b.classList.add("done"); setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 1600); };
+  const fb = () => { const pre = document.getElementById(b.dataset.copy); const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected"; };
+  try { navigator.clipboard.writeText(t).then(done, fb); } catch (e) { fb(); } }));
+</script>
