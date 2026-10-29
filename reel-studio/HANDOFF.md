@@ -58,3 +58,7 @@ Owner: cost cuts must not make reels feel like the same video; keep hooks and CT
 - Hooks never carry numbers we can't back up. Research sources were vendor blogs only (Oct 2026), so treat their % claims as directional.
 - Every reel uses a DIFFERENT real order priced from the W&K menu (WokAndKarahiTexas.com website-v2/assets/data/menu.json, base prices; e.g. Chowmein 12.99 + Lari Chowmein 13.99 = 26.98 in reels 01-02, Dum Biryani 17.99 + Naan 3.99 + 2 Mango Lassi 9.98 = 31.96 in reel 03). Never repeat a stakes number.
 - Each reel gets its own comment keyword and its own auto-reply (CALL 01, APP 02, TABLE 03). TikTok + YouTube Shorts get a 25-35s short cut (AZ-reels/shorts/cut.py), the other platforms the full reel.
+
+## Hook text and covers (owner, 2026-10-29)
+- Every reel opens with its hook line as big on-screen text over the first shot, from frame 0 until the hook is spoken (captions hidden meanwhile, so it is never shown twice). Tool: AZ-reels/shorts/hook.py.
+- Cover per platform: Instagram gets a custom Reel cover, Facebook and LinkedIn a custom thumbnail (cover = frame at 1.0s, hook text inside the 4:5 grid crop; poster field "cover", falls back to the platform cover if refused). YouTube Shorts take no custom thumbnail, and TikTok and X show the first frame, so frame 0 always carries the hook.
