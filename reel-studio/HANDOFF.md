@@ -62,3 +62,10 @@ Owner: cost cuts must not make reels feel like the same video; keep hooks and CT
 ## Hook text and covers (owner, 2026-10-29)
 - Every reel opens with its hook line as big on-screen text over the first shot, from frame 0 until the hook is spoken (captions hidden meanwhile, so it is never shown twice). Tool: AZ-reels/shorts/hook.py.
 - Cover per platform: Instagram gets a custom Reel cover, Facebook and LinkedIn a custom thumbnail (cover = frame at 1.0s, hook text inside the 4:5 grid crop; poster field "cover", falls back to the platform cover if refused). YouTube Shorts take no custom thumbnail, and TikTok and X show the first frame, so frame 0 always carries the hook.
+
+## Reach without paying (owner, 2026-10-29)
+- Instagram: every reel gets a Trial Reel first (short cut, non-followers only, W&K location tag) and the full reel 3 days later as its own upload, as a Collab with @wokandkarahitexas (W&K must accept the invite in the app). Poster fields: trial, collaborators, location_id, cover, yt_title.
+- Captions carry one plain search line (what owners type into search) and 4-5 specific hashtags. YouTube gets a searchable title (yt_title).
+- Website: reels appear by themselves on the matching AZ page (AZ repo reels/sync.py + reels/reels.js, workflow az-reels-sync every 3 h). New story pages need a rule in RULES.
+- Facebook groups: 6 owner groups joined on his personal profile; one post a day with a short, texts approved first.
+- Poster holds any post whose media is a plan note or a missing file (media_ready); never post a broken image.
