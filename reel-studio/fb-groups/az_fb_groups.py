@@ -6,9 +6,9 @@ this is resilient and always trustable."
 
 HOW IT RUNS
   * On the owner's Mac from launchd (com.az.fb-groups.plist): at login and at 10:05 and 16:05. Once a day it
-    posts; every run it reads replies. Facebook has no API for groups, so this uses a browser profile kept
-    only for this job (~/.az-fb-browser), signed in once by the owner (`--login`). Same machine and network
-    as his normal Facebook, so it never looks like a strange login.
+    posts; every run it reads replies. Facebook has no API for groups (Meta removed it in April 2024), so it
+    works inside the owner's own Chrome, already signed in (chrome.py, AppleScript), in its own minimized
+    window that it closes. Owner, 2026-10-29: a separate browser login "logs out after some time".
   * Posting: one post a day, the next approved text + its short video, into the group that has waited
     longest. Each group gets each post at most once, and no group gets two posts within 6 days.
   * Replies: every post from the last 30 days is reread. A new comment that reads like interest (price,
@@ -22,7 +22,6 @@ from __future__ import annotations
 import base64, datetime as dt, hashlib, json, os, re, subprocess, sys, time, traceback, urllib.request
 
 HOME = os.path.expanduser("~/Library/Application Support/az-fb-groups")
-PROFILE = os.path.expanduser("~/.az-fb-browser")
 STATE = os.path.join(HOME, "state.json")
 CONF = os.path.join(HOME, "config.json")
 LOG = os.path.expanduser("~/Library/Logs/az-fb-groups.log")
@@ -65,14 +64,11 @@ def heartbeat(st):
                         "cat > /opt/az-social/fb-groups-heartbeat.json"], input=json.dumps(beat).encode(), timeout=40, check=True)
     except Exception as e: log("heartbeat FAIL", str(e)[:120])
 
-def browser(p, headless=True):
-    return p.chromium.launch_persistent_context(PROFILE, channel="chrome", headless=headless,
-        args=["--disable-blink-features=AutomationControlled"], ignore_default_args=["--use-mock-keychain", "--enable-automation"],
-        viewport={"width": 1280, "height": 1600}, locale="en-US")
+DLG = "const d=[...document.querySelectorAll('[role=dialog]')].find(d=>d.querySelector('[contenteditable=true]'));"
 
-def signed_in(pg):
-    pg.goto("https://www.facebook.com/", wait_until="domcontentloaded", timeout=60000); pg.wait_for_timeout(5000)
-    return "login" not in pg.url and pg.locator('[aria-label="Your profile"], [aria-label="Account controls and settings"]').count() > 0
+def signed_in(w):
+    w.go("https://www.facebook.com/", 8)
+    return w.js("return !location.href.includes('login') && !!document.querySelector('[aria-label=\"Your profile\"],[aria-label=\"Account controls and settings\"],[aria-label=\"Create\"]')")
 
 def next_pair(conf, st, today):
     """The approved post each group has not had yet, into the group that waited longest (6+ days)."""
@@ -86,74 +82,78 @@ def next_pair(conf, st, today):
             if (g, i) not in done: return g, i
     return None
 
-def post_one(pg, group, post):
-    pg.goto(group, wait_until="domcontentloaded", timeout=60000); pg.wait_for_timeout(6000)
-    pg.get_by_role("button", name=re.compile(r"^Write something", re.I)).first.click(timeout=20000)
-    dlg = pg.locator('div[role="dialog"]').filter(has=pg.locator('[contenteditable="true"]')).last
-    dlg.wait_for(timeout=20000); pg.wait_for_timeout(1500)
-    box = dlg.locator('[contenteditable="true"]').first; box.click()
-    for k, line in enumerate(post["text"].split("\n")):
-        if k: pg.keyboard.press("Shift+Enter")
-        if line: pg.keyboard.insert_text(line)
-    pg.wait_for_timeout(1000)
+def post_one(w, group, post):
+    w.go(group, 9)
+    if not w.js("const b=[...document.querySelectorAll('[role=button]')].find(b=>/^Write something/i.test((b.innerText||'').trim()));if(!b)return false;b.click();return true"):
+        raise RuntimeError("no post box in this group (posting may be off for members)")
+    time.sleep(4)
+    if not w.js(DLG + "return !!d"): raise RuntimeError("the post window did not open")
+    lines = post["text"].split("\n")
+    w.js(DLG + "const e=d.querySelector('[contenteditable=true]');e.focus();const L=" + json.dumps(lines) + ";"
+         "L.forEach((l,i)=>{if(i)e.dispatchEvent(new InputEvent('beforeinput',{inputType:'insertParagraph',bubbles:true,cancelable:true}));"
+         "if(l)document.execCommand('insertText',false,l)});return 1")
+    time.sleep(1.5)
+    got = w.js(DLG + "return d.querySelector('[contenteditable=true]').innerText")
+    if lines[0][:25] not in (got or ""): raise RuntimeError("the text did not land in the post box")
     if post.get("video"):
-        inp = dlg.locator('input[type="file"]')
-        if not inp.count():
-            dlg.get_by_role("button", name=re.compile(r"Photo/video|photo or video", re.I)).first.click(); pg.wait_for_timeout(1500)
-            inp = dlg.locator('input[type="file"]')
-        inp.first.set_input_files(os.path.join(HOME, post["video"])); pg.wait_for_timeout(8000)
-    btn = dlg.get_by_role("button", name=re.compile(r"^Post$", re.I)).last
-    for _ in range(90):  # the Post button wakes up once the video has uploaded
-        if btn.is_enabled() and btn.get_attribute("aria-disabled") != "true": break
-        pg.wait_for_timeout(2000)
-    btn.click(); pg.wait_for_timeout(12000)
-    body = pg.inner_text("body")
+        w.push_file(os.path.join(HOME, post["video"]))
+        r = w.js(DLG + "let i=d.querySelector('input[type=file]');if(!i){const b=[...d.querySelectorAll('[aria-label]')].find(x=>/photo\\/video|photo or video/i.test(x.getAttribute('aria-label')));if(b)b.click();i=d.querySelector('input[type=file]')}"
+                 "if(!i)return 'no input';const dt=new DataTransfer();dt.items.add(window.__azFile);i.files=dt.files;i.dispatchEvent(new Event('change',{bubbles:true}));return 'ok'")
+        if r != "ok": raise RuntimeError("could not attach the video")
+    for _ in range(100):  # the Post button wakes up once the video has uploaded
+        time.sleep(3)
+        s = w.js(DLG + "if(!d)return {gone:true};const p=[...d.querySelectorAll('[role=button],[aria-label]')].find(b=>/^Post$/i.test((b.getAttribute('aria-label')||b.innerText||'').trim()));"
+                 "return {ready:!!p&&p.getAttribute('aria-disabled')!=='true', video:!post_video||!!d.querySelector('video')}".replace("post_video", "false" if not post.get("video") else "true"))
+        if s.get("ready") and s.get("video"): break
+    else: raise RuntimeError("the video never finished uploading")
+    w.js(DLG + "const p=[...d.querySelectorAll('[role=button],[aria-label]')].find(b=>/^Post$/i.test((b.getAttribute('aria-label')||b.innerText||'').trim()));p.click();return 1")
+    for _ in range(40):
+        time.sleep(3)
+        if not w.js(DLG + "return !!d"): break
+    else: raise RuntimeError("the post window stayed open after Post")
+    body = w.js("return document.body.innerText.slice(0,4000)") or ""
     pending = bool(re.search(r"pending|admin approval|will be reviewed|submitted for review", body, re.I))
-    return {"pending": pending, "url": find_post(pg, group, post["text"])}
+    return {"pending": pending, "url": None}
 
-def find_post(pg, group, txt):
+def find_post(w, group, txt):
     """The permalink of our post in the group feed, newest first; None while it waits for an admin."""
-    key = txt.split("\n")[0][:50]
-    pg.goto(group.rstrip("/") + "/?sorting_setting=CHRONOLOGICAL", wait_until="domcontentloaded", timeout=60000); pg.wait_for_timeout(7000)
-    for a in pg.locator('div[role="article"], div[aria-posinset]').all()[:12]:
-        try:
-            if key[:30] in a.inner_text():
-                for h in a.locator('a[href*="/posts/"], a[href*="/permalink/"]').all():
-                    u = h.get_attribute("href") or ""
-                    if "/groups/" in u: return u.split("?")[0]
-        except Exception: continue
-    return None
+    w.go(group.rstrip("/") + "/?sorting_setting=CHRONOLOGICAL", 10)
+    key = txt.split("\n")[0][:30]
+    return w.js("const k=" + json.dumps(key) + ";for(const a of [...document.querySelectorAll('[role=article],[aria-posinset]')].slice(0,15)){"
+                "if(!(a.innerText||'').includes(k))continue;for(const h of a.querySelectorAll('a[href]')){const u=h.href||'';"
+                "if(/\\/groups\\/[^/]+\\/(posts|permalink)\\//.test(u))return u.split('?')[0]}}return null")
 
-def read_comments(pg, url):
-    pg.goto(url, wait_until="domcontentloaded", timeout=60000); pg.wait_for_timeout(6000)
-    for _ in range(4):  # open "View more comments" / "most relevant" collapses
-        more = pg.get_by_role("button", name=re.compile(r"View (more|all|\d+ more) (comments|replies)", re.I))
-        if not more.count(): break
-        try: more.first.click(); pg.wait_for_timeout(2500)
-        except Exception: break
-    out = []
-    for c in pg.locator('div[role="article"][aria-label^="Comment by"], div[role="article"][aria-label^="Reply by"]').all():
-        try:
-            who = re.sub(r"^(Comment|Reply) by\s+", "", c.get_attribute("aria-label") or "").split(" ")[0:3]
-            body = c.inner_text().strip()
-            out.append({"who": " ".join(who).strip(), "text": body[:400]})
-        except Exception: continue
-    return out
+def read_comments(w, url):
+    w.go(url, 8)
+    for _ in range(4):
+        n = w.js("const b=[...document.querySelectorAll('[role=button]')].filter(b=>/^View (more|all|\\d+ more) (comments|replies)|^View \\d+ repl/i.test((b.innerText||'').trim()));b.forEach(x=>x.click());return b.length")
+        if not n: break
+        time.sleep(3)
+    return w.js("return [...document.querySelectorAll('[role=article][aria-label^=\"Comment by\"],[role=article][aria-label^=\"Reply by\"]')].map(c=>({"
+                "who:(c.getAttribute('aria-label')||'').replace(/^(Comment|Reply) by\\s+/,'').replace(/\\s+\\d+\\s+\\w+\\s+ago$/,''),"
+                "text:(c.innerText||'').trim().slice(0,400)}))") or []
 
 def run(force_post=False):
-    from playwright.sync_api import sync_playwright
+    import chrome
     os.makedirs(HOME, exist_ok=True)
     conf = load(CONF, None); st = load(STATE, {"posts": [], "seen": {}, "status": "new"})
     if not conf: log("no config.json"); return
     today = dt.date.today(); now = dt.datetime.now().isoformat(timespec="seconds")
-    with sync_playwright() as p:
-        ctx = browser(p); pg = ctx.pages[0] if ctx.pages else ctx.new_page()
+    if True:
+        try: w = chrome.Window()
+        except Exception as e:  # Chrome closed, or the Mac has not allowed this job to control Chrome yet
+            log("CHROME FAIL", str(e)[:200]); st["status"] = "no_chrome"; save(st); heartbeat(st)
+            if st.get("chrome_noted") != str(today):
+                note("Facebook groups could not reach Chrome", ["The daily Facebook job could not open a Chrome window.",
+                     "If your Mac asked whether to let it control Google Chrome, click OK. Otherwise just keep Chrome open; the next run retries."], urgent=True)
+                st["chrome_noted"] = str(today); save(st)
+            return
         try:
-            if not signed_in(pg):
+            if not signed_in(w):
                 st["status"] = "signed_out"; save(st); log("signed out")
                 if st.get("signed_out_noted") != str(today):
-                    note("Facebook groups paused: sign-in needed", ["The daily Facebook group posts are paused because Facebook signed this job out.",
-                         "On your Mac run: python3 ~/Library/Application\\ Support/az-fb-groups/az_fb_groups.py --login", "Sign in once in the window that opens, then close it."], urgent=True)
+                    note("Facebook groups paused: Chrome is signed out of Facebook", ["The daily Facebook group posts need your Chrome to be signed in to Facebook.",
+                         "Open facebook.com in Chrome and sign in. The next run picks up by itself."], urgent=True)
                     st["signed_out_noted"] = str(today); save(st)
                 return
             st["status"] = "ok"
@@ -163,37 +163,53 @@ def run(force_post=False):
                 if pair:
                     g, i = pair; name = next((x["name"] for x in conf["groups"] if x["url"] == g), g)
                     try:
-                        r = post_one(pg, g, conf["posts"][i])
+                        r = post_one(w, g, conf["posts"][i])
+                        if not r["pending"]:  # some groups hold every post for the admin; check the queue
+                            w.go(g.rstrip("/") + "/my_pending_content", 10)
+                            r["pending"] = bool(w.js("return (document.querySelector('[role=main]')||document.body).innerText.includes(" + json.dumps(conf["posts"][i]["text"].split("\n")[0][:30]) + ")"))
                         st["posts"].append({"group": g, "name": name, "post": i, "at": now, "url": r["url"], "pending": r["pending"]})
                         st["posted_day"] = str(today); save(st)
                         log("posted", name, "post", i, r)
                     except Exception as e:
-                        shot = os.path.join(HOME, f"fail-{today}.png")
-                        try: pg.screenshot(path=shot)
-                        except Exception: pass
                         log("POST FAIL", name, str(e)[:300]); st["posted_day"] = str(today); save(st)
                         note("Facebook group post did not go out", [f"Group: {name}", f"What happened: {str(e)[:150]}", "Tomorrow's run tries again. Nothing else changed."])
                 else: log("nothing to post today (every group had a post in the last 6 days or all posts used)")
-            # 2. find permalinks still missing (held for admin approval), then read replies
-            leads, fresh = [], []
-            for x in st["posts"]:
-                if dt.date.fromisoformat(x["at"][:10]) < today - dt.timedelta(days=30): continue
-                if not x.get("url"):
-                    x["url"] = find_post(pg, x["group"], conf["posts"][x["post"]]["text"])
-                    if x["url"]: x["pending"] = False; log("now live", x["name"])
-                    continue
-                for c in read_comments(pg, x["url"]):
-                    h = hashlib.sha1((x["url"] + c["who"] + c["text"]).encode()).hexdigest()[:16]
-                    if h in st["seen"]: continue
-                    st["seen"][h] = now; item = {**c, "group": x["name"], "url": x["url"]}
-                    (leads if LEAD.search(c["text"]) else fresh).append(item)
+            # 2. replies: read each group's "your posts" page once (Facebook hides post links from scripts)
+            leads, fresh, counts = [], [], st.setdefault("counts", {})
+            recent = [x for x in st["posts"] if dt.date.fromisoformat(x["at"][:10]) >= today - dt.timedelta(days=30)]
+            for g in sorted({x["group"] for x in recent}):
+                mine = [x for x in recent if x["group"] == g]; gname = mine[0]["name"]
+                keys = {x["post"]: conf["posts"][x["post"]]["text"].split("\n")[0][:30] for x in mine}
+                for x in mine:
+                    if x.get("pending"):
+                        w.go(g.rstrip("/") + "/my_pending_content", 10)
+                        still = w.js("return (document.querySelector('[role=main]')||document.body).innerText.includes(" + json.dumps(keys[x["post"]]) + ")")
+                        if not still: x["pending"] = False; log("now live", gname)
+                w.go(g.rstrip("/") + "/my_posted_content", 10)
+                for _ in range(3):  # open the comment lists under our posts
+                    n = w.js("const b=[...document.querySelectorAll('[role=button]')].filter(b=>/^\\d+ comments?$|^View (more|all|\\d+ more) (comments|replies)/i.test((b.innerText||'').trim()));b.forEach(x=>x.click());return b.length")
+                    if not n: break
+                    time.sleep(3)
+                found = w.js("const K=" + json.dumps(keys) + ";const out={};for(const a of document.querySelectorAll('[role=article],[aria-posinset]')){const t=a.innerText||'';"
+                             "for(const [p,k] of Object.entries(K)){if(!t.includes(k)||out[p])continue;const m=t.match(/(\\d+)\\s+comments?/i);"
+                             "out[p]={n:m?+m[1]:0,c:[...a.querySelectorAll('[role=article][aria-label^=\"Comment by\"],[role=article][aria-label^=\"Reply by\"]')].map(c=>({"
+                             "who:(c.getAttribute('aria-label')||'').replace(/^(Comment|Reply) by\\s+/,'').replace(/\\s+\\d+\\s+\\w+\\s+ago$/,''),text:(c.innerText||'').trim().slice(0,400)}))}}}return out") or {}
+                for p, r in found.items():
+                    ck = f"{g}|{p}"; before = counts.get(ck, 0); counts[ck] = max(before, r["n"])
+                    new = []
+                    for c in r["c"]:
+                        h = hashlib.sha1((ck + c["who"] + c["text"]).encode()).hexdigest()[:16]
+                        if h not in st["seen"]: st["seen"][h] = now; new.append({**c, "group": gname, "url": g.rstrip("/") + "/my_posted_content"})
+                    for c in new: (leads if LEAD.search(c["text"]) else fresh).append(c)
+                    if r["n"] > before and not new:  # comments we could not read: still tell him, with the link
+                        leads.append({"who": f"{r['n'] - before} new comment(s)", "text": "open the post to read them", "group": gname, "url": g.rstrip("/") + "/my_posted_content"})
             save(st)
             for l in leads:
                 text(f"Possible lead in FB group {l['group'][:40]}: {l['who']} said \"{l['text'][:150]}\" {l['url']}")
                 log("LEAD", l["group"], l["who"], l["text"][:80])
             if st.get("noted_day") != str(today) and dt.datetime.now().hour >= 16:
                 todays = [x for x in st["posts"] if x["at"][:10] == str(today)]
-                lines = [f"Posted in {x['name']}" + (" (waiting for the group admin)" if not x.get("url") else "") for x in todays] or ["No new group post today."]
+                lines = [f"Posted in {x['name']}" + (" (waiting for the group admin)" if x.get("pending") else "") for x in todays] or ["No new group post today."]
                 lines += [f"{c['who']} in {c['group'][:30]}: {c['text'][:120]}" for c in (leads + fresh)[:12]]
                 lines.append(f"Groups posted so far: {len(st['posts'])}. Leads texted today: {len(leads)}.")
                 note("Facebook groups today", lines); st["noted_day"] = str(today); save(st)
@@ -202,16 +218,8 @@ def run(force_post=False):
             if st.get("error_noted") != str(today):
                 note("Facebook groups job hit an error", ["It will retry at its next run.", traceback.format_exc()[-180:]]); st["error_noted"] = str(today); save(st)
         finally:
-            ctx.close(); heartbeat(st)
-
-def login():
-    from playwright.sync_api import sync_playwright
-    with sync_playwright() as p:
-        ctx = browser(p, headless=False); pg = ctx.pages[0] if ctx.pages else ctx.new_page()
-        pg.goto("https://www.facebook.com/login")
-        print("Sign in to Facebook in this window, then close the window.")
-        while ctx.pages: time.sleep(2)
+            w.close(); heartbeat(st)
 
 if __name__ == "__main__":
-    if "--login" in sys.argv: login()
-    else: run(force_post="--post-now" in sys.argv)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    run(force_post="--post-now" in sys.argv)
