@@ -39,3 +39,8 @@ Last updated 2026-10-28 from the cloud session. Picks up the AZ social reel work
 - artist-brief.md - the commission brief
 - pages/ - the two pages Abbas reviewed
 - engine-v1/ - the first code engine (2D canvas story reels, Kokoro voice, score mixer, Three.js prototype). Reference only; superseded by the Blender + artist-kit pipeline.
+
+## Cost and voice rule (owner, 2026-10-29)
+- Keep reel 01 quality, but under about $1 a reel. Build the cast and restaurant set once and reuse them (kontext edits, not fresh ultra renders). Logic-check every keyframe before generating; re-makes were most of the spend. Animate only 6-8 key shots (Wan 2.2 turbo, $0.10 each); the other beats are a still keyframe with a camera move plus the overlay cards.
+- Voice: on-screen narration line for each beat, read by our own free Kokoro TTS voice picked to fit the story. Platform text-to-speech can't be switched on when posts go out automatically. His own voice only when he sends a recording.
+- No approval needed on voice or narration choices.
