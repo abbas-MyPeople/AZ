@@ -47,3 +47,12 @@ Last updated 2026-10-28 from the cloud session. Picks up the AZ social reel work
 
 ## Offer wording (owner, 2026-10-29)
 - Never "free for the first two months". Say: "No setup fee, no contract, and for the first two months you only cover what the technology costs to run." No price number in public copy. Older slate lines that say "free" are superseded by this.
+
+## Keep it fresh, hooks and CTAs (owner, 2026-10-29)
+Owner: cost cuts must not make reels feel like the same video; keep hooks and CTAs strong.
+- Reuse only the world (set, core cast). Every reel brings something new: a new guest character or location, a new card type (check with stamp, printing ticket, split bar), a new camera grammar (close, top-down, wide).
+- Rotate the hook format: cold open with a time (01), who-wins question (02), cold open plus question (03), then next: direct address ("Restaurant owners:"), POV, mistake framing, before/after. First second shows the problem on screen, never a wide establishing shot.
+- End on a line that loops back into the opening.
+- CTA: Comment DEMO on IG/FB/YT/LinkedIn (auto-reply live). TikTok/X: link in bio. Add a send line on IG ("Send this to an owner who..."). Track each reel with ?r=NN on the link.
+- Planned: a 25-35s cut of each reel for TikTok and Shorts; rotate a story keyword per reel (needs a new auto-reply each time).
+- Hooks never carry numbers we can't back up. Research sources were vendor blogs only (Oct 2026), so treat their % claims as directional.
