@@ -56,3 +56,4 @@ Owner: cost cuts must not make reels feel like the same video; keep hooks and CT
 - CTA: Comment DEMO on IG/FB/YT/LinkedIn (auto-reply live). TikTok/X: link in bio. Add a send line on IG ("Send this to an owner who..."). Track each reel with ?r=NN on the link.
 - Planned: a 25-35s cut of each reel for TikTok and Shorts; rotate a story keyword per reel (needs a new auto-reply each time).
 - Hooks never carry numbers we can't back up. Research sources were vendor blogs only (Oct 2026), so treat their % claims as directional.
+- Every reel uses a DIFFERENT real order priced from the W&K menu (WokAndKarahiTexas.com website-v2/assets/data/menu.json, base prices; e.g. Chowmein 12.99 + Lari Chowmein 13.99 = 26.98 in reels 01-02, Dum Biryani 17.99 + Naan 3.99 + 2 Mango Lassi 9.98 = 31.96 in reel 03). Never repeat a stakes number.
