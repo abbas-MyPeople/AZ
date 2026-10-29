@@ -204,6 +204,7 @@ def run(force_post=False):
                     if r["n"] > before and not new:  # comments we could not read: still tell him, with the link
                         leads.append({"who": f"{r['n'] - before} new comment(s)", "text": "open the post to read them", "group": gname, "url": g.rstrip("/") + "/my_posted_content"})
             save(st)
+            log("run ok:", f"posted today={st.get('posted_day') == str(today)}", f"new comments={len(leads) + len(fresh)}", f"leads={len(leads)}")
             for l in leads:
                 text(f"Possible lead in FB group {l['group'][:40]}: {l['who']} said \"{l['text'][:150]}\" {l['url']}")
                 log("LEAD", l["group"], l["who"], l["text"][:80])
