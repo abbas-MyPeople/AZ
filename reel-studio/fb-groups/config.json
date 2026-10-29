@@ -23,6 +23,30 @@
   {
    "url": "https://www.facebook.com/groups/874472600787963/",
    "name": "North Texas Restaurant Owners"
+  },
+  {
+   "url": "https://www.facebook.com/groups/2258028821207873/",
+   "name": "Restaurant Owners & Investors"
+  },
+  {
+   "url": "https://www.facebook.com/groups/restaurantownersonly/",
+   "name": "Restaurant Owners ONLY"
+  },
+  {
+   "url": "https://www.facebook.com/groups/sandiegorestaurantownersnetwork/",
+   "name": "Restaurant Owners Network"
+  },
+  {
+   "url": "https://www.facebook.com/groups/restaurantsflorida/",
+   "name": "Restaurant Owners Networking - FL"
+  },
+  {
+   "url": "https://www.facebook.com/groups/HoustonBusinessNetwork/",
+   "name": "Houston Business Network"
+  },
+  {
+   "url": "https://www.facebook.com/groups/276613784434509/",
+   "name": "Small Business - Houston, Tx"
   }
  ],
  "posts": [
@@ -42,5 +66,7 @@
    "text": "When did your best regular last order? A regular who stops coming rarely complains. They just go quiet, and in a busy week nobody notices.\n\nAt our place, the guest list flags regulars who go quiet and sends a personal note from the restaurant, timed to their own rhythm, not a blast to everyone. Short animation below. Anyone else doing win-back texts?",
    "video": "short04.mp4"
   }
- ]
+ ],
+ "posts_per_day": 2,
+ "min_group_gap_days": 4
 }

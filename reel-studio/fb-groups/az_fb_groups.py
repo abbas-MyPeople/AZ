@@ -5,12 +5,13 @@ every single day and keep track of replies and tell me if there's any lead ... d
 this is resilient and always trustable."
 
 HOW IT RUNS
-  * On the owner's Mac from launchd (com.az.fb-groups.plist): at login and at 10:05 and 16:05. Once a day it
-    posts; every run it reads replies. Facebook has no API for groups (Meta removed it in April 2024), so it
+  * On the owner's Mac from launchd (com.az.fb-groups.plist): at login, on wake, and every 2 hours 9 AM-11 PM.
+    Two posts a day (one after 10 AM, one after 3 PM, 3+ hours apart); a run that was missed while the Mac
+    was shut catches up at the next run. Every run reads replies. Chrome is opened if it is not running. Facebook has no API for groups (Meta removed it in April 2024), so it
     works inside the owner's own Chrome, already signed in (chrome.py, AppleScript), in its own minimized
     window that it closes. Owner, 2026-10-29: a separate browser login "logs out after some time".
-  * Posting: one post a day, the next approved text + its short video, into the group that has waited
-    longest. Each group gets each post at most once, and no group gets two posts within 6 days.
+  * Posting: two posts a day, the next text + its short video, into the group that has waited longest
+    (4+ days since our last post there). Posts are reused once a group has had them all.
   * Replies: every post from the last 30 days is reread. A new comment that reads like interest (price,
     demo, how, DM me, my restaurant ...) is texted to the owner at once; everything else goes in the
     daily note in the Haniya app. It never replies or comments on its own.
@@ -71,15 +72,22 @@ def signed_in(w):
     return w.js("return !location.href.includes('login') && !!document.querySelector('[aria-label=\"Your profile\"],[aria-label=\"Account controls and settings\"],[aria-label=\"Create\"]')")
 
 def next_pair(conf, st, today):
-    """The approved post each group has not had yet, into the group that waited longest (6+ days)."""
-    done = {(x["group"], x["post"]) for x in st.get("posts", [])}
-    last = {}
-    for x in st.get("posts", []): last[x["group"]] = max(last.get(x["group"], ""), x["at"][:10])
+    """Next (group, post): the group that has waited longest (at least min_group_gap_days), with a post it
+    has not had yet; once every post has run there, the post it has seen least, never the same one twice
+    in a row. Owner, 2026-10-29: "every day we need to do 2 posts ... You can reuse posts"."""
+    gapmin = conf.get("min_group_gap_days", 4)
+    last, used = {}, {}
+    for x in st.get("posts", []):
+        last[x["group"]] = max(last.get(x["group"], ""), x["at"][:10])
+        used.setdefault(x["group"], []).append(x["post"])
     gap = lambda g: (today - dt.date.fromisoformat(last[g])).days if g in last else 999
     for g in sorted([g["url"] for g in conf["groups"]], key=gap, reverse=True):
-        if gap(g) < 6: continue
-        for i, post in enumerate(conf["posts"]):
-            if (g, i) not in done: return g, i
+        if gap(g) < gapmin: continue
+        seen = used.get(g, []); n = len(conf["posts"])
+        fresh = [i for i in range(n) if i not in seen]
+        if fresh: return g, fresh[0]
+        prev = seen[-1] if seen else None
+        return g, min((i for i in range(n) if i != prev), key=lambda i: (seen.count(i), i))
     return None
 
 def post_one(w, group, post):
@@ -158,7 +166,12 @@ def run(force_post=False):
                 return
             st["status"] = "ok"
             # 1. one post a day
-            if (force_post or st.get("posted_day") != str(today)) and dt.datetime.now().hour >= 10:
+            todays = [x for x in st["posts"] if x["at"][:10] == str(today)]
+            fails = st.get("fails", {}).get(str(today), 0)
+            hour = dt.datetime.now().hour
+            slot_open = (len(todays) == 0 and hour >= 10) or (len(todays) == 1 and hour >= 15 and
+                         (dt.datetime.now() - dt.datetime.fromisoformat(todays[-1]["at"])).total_seconds() > 3 * 3600)
+            if force_post or (slot_open and len(todays) < conf.get("posts_per_day", 2) and fails < 3):
                 pair = next_pair(conf, st, today)
                 if pair:
                     g, i = pair; name = next((x["name"] for x in conf["groups"] if x["url"] == g), g)
@@ -171,8 +184,9 @@ def run(force_post=False):
                         st["posted_day"] = str(today); save(st)
                         log("posted", name, "post", i, r)
                     except Exception as e:
-                        log("POST FAIL", name, str(e)[:300]); st["posted_day"] = str(today); save(st)
-                        note("Facebook group post did not go out", [f"Group: {name}", f"What happened: {str(e)[:150]}", "Tomorrow's run tries again. Nothing else changed."])
+                        st.setdefault("fails", {})[str(today)] = fails + 1; save(st)
+                        log("POST FAIL", name, str(e)[:300])
+                        if fails + 1 >= 3: note("Facebook group posts stopped for today", [f"Last try: {name}", f"What happened: {str(e)[:150]}", "Three tries failed today. Tomorrow starts fresh."])
                 else: log("nothing to post today (every group had a post in the last 6 days or all posts used)")
             # 2. replies: read each group's "your posts" page once (Facebook hides post links from scripts)
             leads, fresh, counts = [], [], st.setdefault("counts", {})
@@ -208,7 +222,7 @@ def run(force_post=False):
             for l in leads:
                 text(f"Possible lead in FB group {l['group'][:40]}: {l['who']} said \"{l['text'][:150]}\" {l['url']}")
                 log("LEAD", l["group"], l["who"], l["text"][:80])
-            if st.get("noted_day") != str(today) and dt.datetime.now().hour >= 16:
+            if st.get("noted_day") != str(today) and dt.datetime.now().hour >= 19:
                 todays = [x for x in st["posts"] if x["at"][:10] == str(today)]
                 lines = [f"Posted in {x['name']}" + (" (waiting for the group admin)" if x.get("pending") else "") for x in todays] or ["No new group post today."]
                 lines += [f"{c['who']} in {c['group'][:30]}: {c['text'][:120]}" for c in (leads + fresh)[:12]]
