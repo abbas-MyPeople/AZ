@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AZ: one post a day into a restaurant-owner Facebook group, and a watch on the replies
+     (reel-studio/fb-groups/az_fb_groups.py). Runs at login and at 10:05 and 16:05. -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.az.fb-groups</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/python3</string>
+    <string>/Users/abbaspersonal/Library/Application Support/az-fb-groups/az_fb_groups.py</string>
+  </array>
+  <key>RunAtLoad</key><true/>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>10</integer><key>Minute</key><integer>5</integer></dict>
+    <dict><key>Hour</key><integer>16</integer><key>Minute</key><integer>5</integer></dict>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict><key>PATH</key><string>/opt/homebrew/bin:/usr/bin:/bin</string></dict>
+  <key>StandardOutPath</key><string>/Users/abbaspersonal/Library/Logs/az-fb-groups.log</string>
+  <key>StandardErrorPath</key><string>/Users/abbaspersonal/Library/Logs/az-fb-groups.log</string>
+</dict>
+</plist>
