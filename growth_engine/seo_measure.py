@@ -377,7 +377,7 @@ def run_gsc():
 
 # ── WEAKEST PAGES ────────────────────────────────────────────────────────────────────────────
 _NOT_REWRITABLE = {"index.html", "investors.html", "onepager.html", "demo.html", "case-study.html",
-                   "v2-home.html", "details.html", "toolbox.html", "guides.html", "glossary.html"}
+                   "details.html", "toolbox.html", "guides.html", "glossary.html"}
 
 
 def _page_file(url):
