@@ -1,0 +1,44 @@
+name: AZ · reels on the site
+
+# Every few hours: read the AZ YouTube channel and refresh reels/reels.json, so each new reel
+# appears on the page that matches its story (reels/reels.js renders it). No keys needed.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'reels/sync.py'
+      - '.github/workflows/az-reels-sync.yml'
+  schedule:
+    - cron: '17 */3 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: az-reels-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Refresh reels list
+        run: python reels/sync.py
+      - name: Commit if changed
+        run: |
+          git config user.name  "az-reels-bot"
+          git config user.email "az-reels-bot@users.noreply.github.com"
+          git add reels/reels.json
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "chore(reels): refresh reels list [skip ci]"
+            git pull --rebase --autostash
+            git push
+          fi
