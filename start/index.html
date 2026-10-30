@@ -278,6 +278,18 @@ if(saved&&saved!=="en") setLang(saved);
 /* Which post sent this person: ?src=x|li|rd&d=<calendar day>. Kept per visit so the lead carries it. */
 var qs=new URLSearchParams(location.search), SRC=qs.get("src")||"", DAY=qs.get("d")||"", POST=qs.get("p")||"";
 try{ if(SRC){ sessionStorage.setItem("azsocial", JSON.stringify({src:SRC,d:DAY,p:POST})); } else { var s=JSON.parse(sessionStorage.getItem("azsocial")||"null"); if(s){ SRC=s.src; DAY=s.d; POST=s.p; } } }catch(e){}
+/* Which free check a DM keyword asked for: ?k=CALLS etc. The page and the lead both say it. */
+var CHECKS={
+  CALLS:["Does your phone get answered in the rush?","Tell us your restaurant. We call it during your dinner rush and show you exactly what a hungry caller gets.","Test my phone line","rush-hour phone test"],
+  FEES:["What are the apps really keeping?","Tell us your restaurant. We work out what DoorDash, Uber Eats and Grubhub keep from your orders, and how much of it you could keep.","Show me my app fees","delivery app fee check"],
+  NOSHOW:["What are no-shows costing you?","Tell us your restaurant. We show you what an empty booked table costs and how restaurants like yours stop it.","Show me my no-show cost","no-show check"],
+  MENU:["Can AI assistants find your menu?","Tell us your restaurant. We show you what ChatGPT and Google say about you today.","Show me what AI says","AI menu visibility check"],
+  REVIEWS:["Which reviews are costing you guests?","Tell us your restaurant. We show you the reviews that need an answer and what to say back.","Show me my reviews","review check"]
+};
+var KW=(qs.get("k")||"").toUpperCase(), CK=CHECKS[KW]||null;
+try{ if(CK){ sessionStorage.setItem("azcheck",KW); } else { KW=sessionStorage.getItem("azcheck")||""; CK=CHECKS[KW]||null; } }catch(e){}
+if(CK){ var h=document.querySelector("h1"), sb=document.querySelector(".sub"), bt=document.getElementById("leadSend");
+  h.textContent=CK[0]; h.removeAttribute("data-i"); sb.textContent=CK[1]; sb.removeAttribute("data-i"); bt.textContent=CK[2]; bt.removeAttribute("data-i"); }
 function socialTag(){ return SRC ? ("social="+SRC+(DAY?" d="+DAY:"")+(POST?" p="+POST:"")) : ""; }
 
 var f=document.getElementById("leadForm"), btn=document.getElementById("leadSend"), note=document.getElementById("leadNote");
@@ -289,10 +301,10 @@ f.addEventListener("submit",function(e){
   fd.forEach(function(v,k){ d[k]=String(v).trim(); });
   if(!d.name||!d.restaurant||(d.phone||"").replace(/\D/g,"").length<10){ note.className="formnote err"; note.textContent=azT("err"); return; }
   if(d.email&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){ note.className="formnote err"; note.textContent=azT("err_email"); return; }
-  d.role="A restaurant owner"; d.interests="Free demo on my menu";
+  d.role="A restaurant owner"; d.interests=CK?("Free check "+KW+": "+CK[3]):"Free demo on my menu";
   d.message="Signed up on /start. Page language: "+document.documentElement.lang+(socialTag()?". From: "+socialTag():"");
   d._website=d._honey||""; delete d._honey;
-  d._subject="AZ free demo request - "+d.restaurant;
+  d._subject=(CK?"AZ free check "+KW+" - ":"AZ free demo request - ")+d.restaurant;
   var base=(window.azSource&&window.azSource())||"direct / none";
   d.source=socialTag() ? (socialTag()+" · "+base) : base;
   d._template="table"; d._captcha="false";
@@ -303,7 +315,7 @@ f.addEventListener("submit",function(e){
     .then(function(b){ if(!b||b.received!==true) throw 0;
       f.reset(); btn.textContent=azT("sent"); note.className="formnote ok"; note.textContent=azT("ok");
       track("form_success",{form:"start",src:SRC,day:DAY,post:POST}); })
-    .catch(function(){ btn.disabled=false; btn.textContent=azT("send"); note.className="formnote err"; note.innerHTML=azT("fail");
+    .catch(function(){ btn.disabled=false; btn.textContent=CK?CK[2]:azT("send"); note.className="formnote err"; note.innerHTML=azT("fail");
       track("form_error",{form:"start"}); });
 });
 })();
