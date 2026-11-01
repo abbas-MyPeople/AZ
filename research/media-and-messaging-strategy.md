@@ -46,3 +46,9 @@ Approved all four: Owner Night (Tue Nov 17, 2:30-4 PM, /owner-night/ live, on hi
 change (live); keep the "2 Houston restaurants signed on" line as is (his call, do not remove);
 start sending (blocked only on Gmail sign-in; queue of 19 outlets + 2 co-host invites is in the
 artifact). Also approved: invite TRA Greater Houston chapter and IACCGH to co-host Owner Night.
+
+## Angle change (owner, 2026-11-01, before round 1 sent)
+He said a voice agent answering in Urdu is not news: "a lot of places now have voice agents". Lead angle is now
+"a family restaurant built the whole system itself (table order + pay, phone host, kitchen gets only paid
+tickets, tips to cooks, owner app) - chains spend millions on this - now other Houston family restaurants run
+on it." Haniya/languages = one supporting line only. All 13 round-1 emails went out on this angle.

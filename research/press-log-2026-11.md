@@ -1,23 +1,26 @@
 # Press log - November 2026
 
+Angle (owner pick, 2026-11-01): "A family restaurant built the whole system itself, now other Houston family
+restaurants run on it." Haniya/Urdu is one supporting line, never the headline. Follow-up due Thu Nov 5.
+
 From azoeb27@gmail.com (Chrome, Gmail u/3). One follow-up only, 3+ days after send, non-repliers only:
 "Still happy to have your reporter come order dinner from a table." Never a third email.
 
 | Date | Outlet | Address / route | Pitch | Status | Reply |
 |---|---|---|---|---|---|
-| 2026-11-01 | IACCGH | info@iaccgh.com | Co-host invite | Draft ready, send awaiting owner yes in chat | - |
-| 2026-11-01 | Modern Restaurant Mgmt, Barbara Castiglia | bcastiglia@modernrestaurantmanagement.com | 800-word byline offer | Draft ready | - |
-| 2026-11-01 | Restaurant Business, Jonathan Maze | jmaze@winsightmedia.com | Independents + AI | Draft ready | - |
-| 2026-11-01 | Restaurant Misfits | ana@dineline.co | Owner podcast | Draft ready | - |
-| 2026-11-01 | Restaurant Unstoppable, Eric Cacciatore | eric@restaurantunstoppable.com | Owner podcast | Draft ready | - |
-| 2026-11-01 | CultureMap Houston | eric@culturemap.com | Diners + Owner Night invite | Draft ready | - |
-| 2026-11-01 | Community Impact, Jessica Shorten | jshorten@communityimpact.com | Diners + Owner Night invite | Draft ready | - |
-| 2026-11-01 | Houston Matters | talk@houstonmatters.org | Live call to Haniya | Draft ready | - |
-| 2026-11-01 | ABC13 | newstips@abc13.com | Diners + Owner Night invite | Draft ready | - |
-| 2026-11-01 | Houston Chronicle | tips@chron.com | Diners | Draft ready | - |
-| 2026-11-01 | Indo American News | indoamericannews@yahoo.com | Diners, Urdu/Hindi | Draft ready | - |
-| 2026-11-01 | Restaurant Rockstars, Roger Beaudoin | roger@restaurantrockstars.com (confirmed on site) | Owner podcast | Draft ready | - |
-| 2026-11-01 | FSR, Danny Klein | dklein@arrowfly.com (from fsrmagazine.com/contact-us) | Independents + AI | Draft ready | - |
+| 2026-11-01 | IACCGH | info@iaccgh.com | Co-host invite | SENT 2:10 PM | - |
+| 2026-11-01 | Modern Restaurant Mgmt, Barbara Castiglia | bcastiglia@modernrestaurantmanagement.com | 800-word byline offer | SENT | - |
+| 2026-11-01 | Restaurant Business, Jonathan Maze | jmaze@winsightmedia.com | Independents + AI | SENT | - |
+| 2026-11-01 | Restaurant Misfits | ana@dineline.co | Owner podcast | SENT | - |
+| 2026-11-01 | Restaurant Unstoppable, Eric Cacciatore | eric@restaurantunstoppable.com | Owner podcast | SENT | - |
+| 2026-11-01 | CultureMap Houston | eric@culturemap.com | Diners + Owner Night invite | SENT | - |
+| 2026-11-01 | Community Impact, Jessica Shorten | jshorten@communityimpact.com | Diners + Owner Night invite | SENT | - |
+| 2026-11-01 | Houston Matters | talk@houstonmatters.org | Live call to Haniya | SENT | - |
+| 2026-11-01 | ABC13 | newstips@abc13.com | Diners + Owner Night invite | SENT | - |
+| 2026-11-01 | Houston Chronicle | tips@chron.com | Diners | SENT | - |
+| 2026-11-01 | Indo American News | indoamericannews@yahoo.com | Diners, Urdu/Hindi | SENT | - |
+| 2026-11-01 | Restaurant Rockstars, Roger Beaudoin | roger@restaurantrockstars.com (confirmed on site) | Owner podcast | SENT | - |
+| 2026-11-01 | FSR, Danny Klein | dklein@arrowfly.com (from fsrmagazine.com/contact-us) | Independents + AI | SENT | - |
 
 ## Not drafted - route problem
 | Outlet | Problem |
