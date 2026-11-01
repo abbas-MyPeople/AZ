@@ -33,3 +33,11 @@ From azoeb27@gmail.com (Chrome, Gmail u/3). One follow-up only, 3+ days after se
 | KHOU Great Day | Typeform tip form only |
 | Voice of Asia | voiceasia@aol.com only in a 2016 masthead; 2018 lists ads@voiceofasiagroup.com |
 | Business Insider, Lauryn Haas | email not confirmed |
+
+## Forms and calls (2026-11-01, mission angle: chain-level tech for small restaurants)
+| Date | Outlet | Route | Status |
+|---|---|---|---|
+| 2026-11-01 | RestroCast | restroworks.com/restrocast/become-guest form | SUBMITTED |
+| 2026-11-01 | KHOU Great Day Houston (Kathy Richey) | khou.com contact Typeform | SUBMITTED |
+| 2026-11-01 | Restaurant Technology Guys | form has a bot check; host email on contact page | waiting on owner |
+| 2026-11-02 | TRA Greater Houston | Haniya calls 512-457-4114 at 10:30 AM CT | scheduled |
