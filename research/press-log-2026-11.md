@@ -48,3 +48,7 @@ From azoeb27@gmail.com (Chrome, Gmail u/3). One follow-up only, 3+ days after se
   - Voice of Asia: voiceofasia.news now redirects to a games ad; paper looks defunct. DROPPED.
   - Restaurant Dive op-ed: needs a finished ~1,000-word exclusive written without AI tools. Owner must write it or drop.
   - Follow-up Nov 5: the 2:10-2:14 PM emails carried "now other restaurants run on it" in subjects; follow-ups must not repeat that line.
+- 2026-11-01 2:50 PM CT: owner said "send both". SENT from azoeb27, confirmed in Sent:
+  - NRN joanna.fantozzi@informa.com - "Story idea: a family restaurant that built its own chain-level tech"
+  - Business Insider lhaas@businessinsider.com - "Pitch: Ex-Google engineer built his family restaurant its own tech"
+- Restaurant Dive: page says generative AI is not permitted in writing op-eds and AI submissions are rejected. Not drafted by Claude; owner to dictate or drop.
