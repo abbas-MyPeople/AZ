@@ -41,6 +41,8 @@ never "AI replaced workers" or a layoff angle; frame = server quit, family kept 
 influencers; never claim the family is Pakistani or that his dad runs the dining room; Top 10 Halal is
 unranked; never name his current employer (default, pending his answer).
 
-## Open asks to the owner
-1. Owner Night yes / slot. 2. AZ headline change. 3. Name the 2 signed restaurants; one on record.
-4. Start sending; how to introduce him.
+## Owner decisions (2026-11-01)
+Approved all four: Owner Night (Tue Nov 17, 2:30-4 PM, /owner-night/ live, on his calendar); headline
+change (live); keep the "2 Houston restaurants signed on" line as is (his call, do not remove);
+start sending (blocked only on Gmail sign-in; queue of 19 outlets + 2 co-host invites is in the
+artifact). Also approved: invite TRA Greater Houston chapter and IACCGH to co-host Owner Night.
