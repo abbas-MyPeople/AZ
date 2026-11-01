@@ -11,8 +11,8 @@
 > when you get orders. Haniya is our AI host, one member of the front-of-house team; each restaurant
 > can have its own host.
 >
-> Proof, from our own restaurant in Houston (Clover data, Jul 26 - Oct 23 2026): staff-taken orders
-> went from 297 a month (August) to none (October), and sales held steady while it happened. 100% of
+> Proof, from our own restaurant in Houston (Clover data, Jul 26 - Oct 23 2026): about 800
+> orders a month (792 in August, 782 in September), none taken by staff since October, and sales held steady. 100% of
 > guest orders are placed by the guest. Every call is answered, even after we close. Nothing is cooked
 > until it is paid.
 >
