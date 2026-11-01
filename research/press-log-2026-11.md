@@ -41,3 +41,10 @@ From azoeb27@gmail.com (Chrome, Gmail u/3). One follow-up only, 3+ days after se
 | 2026-11-01 | KHOU Great Day Houston (Kathy Richey) | khou.com contact Typeform | SUBMITTED |
 | 2026-11-01 | Restaurant Technology Guys | form has a bot check; host email on contact page | waiting on owner |
 | 2026-11-02 | TRA Greater Houston | Haniya calls 512-457-4114 at 10:30 AM CT | scheduled |
+- 2026-11-01 2:35 PM CT: Restaurant Technology Guys - emailed host Jeremy.julian@cbsnorthstar.com (owner said "email jeremy") from azoeb27, subject "Guest idea: chain-level restaurant tech for independents", mission angle. Confirmed in Sent.
+- 2026-11-01 ~4 PM CT (x02 session): remaining round-1 routes checked.
+  - NRN Joanna Fantozzi: no email on author page; NRN contact page shows every staffer as first.last@informa.com -> joanna.fantozzi@informa.com. Mission-angle pitch DRAFTED in azoeb27 (saved draft, not sent - send blocked pending owner OK on an inferred address).
+  - Business Insider Lauryn Haas: BI's own contributor page uses firstinitial+last@businessinsider.com -> lhaas@businessinsider.com fits; her last byline is 2022. Not sent, waiting on owner.
+  - Voice of Asia: voiceofasia.news now redirects to a games ad; paper looks defunct. DROPPED.
+  - Restaurant Dive op-ed: needs a finished ~1,000-word exclusive written without AI tools. Owner must write it or drop.
+  - Follow-up Nov 5: the 2:10-2:14 PM emails carried "now other restaurants run on it" in subjects; follow-ups must not repeat that line.
