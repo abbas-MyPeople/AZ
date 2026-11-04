@@ -1,21 +1,22 @@
 {
   "symbol": "SPY",
-  "asOf": "2026-11-04T14:48:12Z",
-  "price": 764.19,
+  "asOf": "2026-11-04T14:55:51Z",
+  "price": 765.78,
   "prevClose": 754.35,
-  "change": 9.84,
-  "changePct": 1.304,
+  "change": 11.43,
+  "changePct": 1.515,
   "open": 763.1,
-  "dayHigh": 764.35,
-  "dayLow": 762.88,
-  "volume": 1213064,
-  "vix": 17.85,
-  "dailyMovePct": 1.385,
+  "dayHigh": 765.95,
+  "dayLow": 762.64,
+  "volume": 3115029,
+  "vix": 17.39,
+  "dailyMovePct": 1.309,
   "spark": [
     762.88,
-    765.92,
+    765.93,
     767.71,
-    767.91,
-    767.91
+    767.16,
+    766.54,
+    766.72
   ]
 }
