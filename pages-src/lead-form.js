@@ -35,7 +35,7 @@
         f.reset(); btn.textContent="Sent"; note.className="formnote ok"; note.textContent="Got it. We'll come back to you today.";
         track("form_success",{form:formName}); })
       .catch(function(){ btn.disabled=false; btn.textContent="Send"; note.className="formnote err";
-        note.innerHTML='That didn’t send. Email <a href="mailto:abbas@azrestaurantpartners.com">abbas@azrestaurantpartners.com</a> or call (408) 393-6716.';
+        note.innerHTML='That didn’t send. Email <a href="mailto:azoeb27@gmail.com">azoeb27@gmail.com</a> or call (408) 393-6716.';
         track("form_error",{form:formName}); });
   });
 })();
