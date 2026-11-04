@@ -83,7 +83,7 @@ def business(area_name: str, url: str, extra: dict | None = None) -> dict:
         "@id": f"{SITE}/#organization",
         "name": "AZ Restaurant Partners",
         "url": url,
-        "email": "azoeb27@gmail.com",
+        "email": "hello@azrestaurantpartners.com",
         "telephone": "+1-408-393-6716",
         "priceRange": "$$",
         "image": f"{SITE}/assets/og.png",
