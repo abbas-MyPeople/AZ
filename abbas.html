@@ -38,6 +38,7 @@ h1{font:normal clamp(58px,8vw,104px)/.94 Georgia,Times New Roman,serif;letter-sp
 .btn:hover{transform:translateY(-2px)}
 .btn.main{background:var(--green);color:white}
 .btn.line{background:transparent;color:var(--green)}
+.save-top{display:none}
 .direct{font-size:15px;color:var(--mute);display:flex;gap:9px 16px;flex-wrap:wrap}
 .direct a{text-decoration:none;border-bottom:1px solid #a8b4ac;overflow-wrap:anywhere}
 .portrait{position:relative;max-width:380px;justify-self:end}
@@ -69,7 +70,7 @@ h2{font:normal clamp(30px,4.4vw,46px)/1.12 Georgia,serif;letter-spacing:-.035em;
 footer{padding:35px 0 60px;font-size:13px;color:var(--mute)}
 footer .wrap{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
 footer a{color:var(--green)}
-@media(max-width:780px){.hero{padding:48px 0;gap:28px;grid-template-columns:1fr}.portrait{justify-self:start;width:180px;grid-row:1}.portrait .plate{display:none}.cards{grid-template-columns:1fr}.cred{min-height:0}.grid{grid-template-columns:1fr;gap:26px}.hero h1{font-size:clamp(52px,13vw,75px)}.hero{grid-template-columns:min(36%,170px) 1fr;gap:0 20px;align-items:start}.intro{display:contents}.hero .portrait{width:auto;grid-column:1;grid-row:1/4;align-self:start}.hero .tag,.hero h1,.hero .role{grid-column:2}.hero .tag{align-self:end;font-size:10px;letter-spacing:.12em}.hero h1{font-size:clamp(40px,11vw,60px);margin:8px 0 10px}.hero .role{font-size:12px;letter-spacing:.1em;align-self:start}.hero .lead,.hero .text,.hero .buttons,.hero .direct{grid-column:1/-1}.hero .lead{margin-top:30px}.sectionline{margin-bottom:20px}}
+@media(max-width:780px){.hero{padding:48px 0;gap:28px;grid-template-columns:1fr}.portrait{justify-self:start;width:180px;grid-row:1}.portrait .plate{display:none}.cards{grid-template-columns:1fr}.cred{min-height:0}.grid{grid-template-columns:1fr;gap:26px}.hero h1{font-size:clamp(52px,13vw,75px)}.hero{grid-template-columns:min(36%,170px) 1fr;gap:0 20px;align-items:start}.intro{display:contents}.hero .portrait{width:auto;grid-column:1;grid-row:1/5;align-self:start}.hero .tag,.hero h1,.hero .role,.hero .save-top{grid-column:2}.hero .save-top{display:inline-flex;justify-self:start;margin-top:14px;white-space:nowrap;padding:12px 14px}.hero .save-main{display:none}.hero .tag{align-self:end;font-size:10px;letter-spacing:.12em}.hero h1{font-size:clamp(40px,11vw,60px);margin:8px 0 10px}.hero .role{font-size:12px;letter-spacing:.1em;align-self:start}.hero .lead,.hero .text,.hero .buttons,.hero .direct{grid-column:1/-1}.hero .lead{margin-top:30px}.sectionline{margin-bottom:20px}}
 @media(max-width:480px){.wrap{width:calc(100% - 34px)}.buttons .btn{flex:1 1 140px;white-space:nowrap;padding:12px 12px}.capabilities,.links{grid-template-columns:1fr}section.sec{padding:52px 0}.navlink{font-size:12px}.brand{font-size:13px}.brand img{width:38px;height:38px}.portrait:before{inset:8px -8px -8px 8px}}
 @media print{body{background:white}nav,.buttons{display:none}.hero{padding:30px 0}.portrait img{max-height:230px}}
 </style>
@@ -85,10 +86,11 @@ footer a{color:var(--green)}
 <div class="tag">Founder / Engineer / Restaurant Operator</div>
 <h1>Abbas<br>Zoeb.</h1>
 <div class="role">Founder &amp; CEO · AZ Restaurant Partners</div>
+<a class="btn main save-top" href="/abbas.vcf" download>↓ Save my contact</a>
 <p class="lead">I build the technology that independent restaurants were never supposed to be able to afford.</p>
 <p class="text">Enterprise-grade AI, ordering, payments and growth systems — designed around how a real restaurant runs, installed for its owner, and kept working every day.</p>
 <div class="buttons">
-<a class="btn main" href="/abbas.vcf" download>↓ Save my contact</a>
+<a class="btn main save-main" href="/abbas.vcf" download>↓ Save my contact</a>
 <a class="btn line" href="tel:+14083936716">Call me ↗</a>
 <a class="btn line" href="mailto:hello@azrestaurantpartners.com">Email me ↗</a>
 </div>
