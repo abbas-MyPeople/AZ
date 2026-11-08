@@ -55,6 +55,16 @@ h2{font-size:clamp(1.55rem,3vw,2.1rem);font-weight:790;letter-spacing:-.03em;mar
 form{display:grid;gap:10px}
 input{width:100%;min-height:48px;border-radius:8px;border:1px solid #ffffff40;background:#ffffff14;color:#fff;font:16px var(--sans);padding:0 14px}
 input::placeholder{color:#cfe6dc}
+select{width:100%;min-height:48px;border-radius:8px;border:1px solid #ffffff40;background:#ffffff14 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23cfe6dc' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;color:#fff;font:16px var(--sans);padding:0 40px 0 14px;-webkit-appearance:none;appearance:none}
+html[dir=rtl] select{background-position:left 14px center;padding:0 14px 0 40px}
+select option{color:#1a1714;background:#fff}
+select:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px}
+.fl{display:block;font-size:14.5px;font-weight:700;color:#fff;margin:4px 0 -4px}
+.own{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;color:#fff;cursor:pointer;padding:6px 0}
+.own input{width:22px;height:22px;min-height:0;margin:1px 0 0;flex:none;accent-color:#fff}
+.ferr{font-size:14px;color:#ffd9cf;margin:-4px 0 0;display:none}.ferr.on{display:block}
+.rules{border:1px solid #ffffff33;border-radius:10px;padding:14px 16px;margin:14px 0 10px;background:#ffffff0d}
+.rules p{margin:0 0 8px;color:#fff}.rules p:last-child{margin:0;color:#cfe6dc}
 .honey{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);opacity:0;pointer-events:none}
 form{position:relative}
 button.send{min-height:50px;border:0;border-radius:8px;background:#fff;color:#1c4739;font:800 16px var(--sans);cursor:pointer}
@@ -104,15 +114,30 @@ html[dir=rtl] .when{direction:rtl}
   <div class="box">
     <div>
       <h2 data-i="h_rsvp">Save your seat</h2>
-      <p data-i="p_rsvp">Tell us who is coming and we will text you the day before. Bring a partner or your manager.</p>
+      <p data-i="p_rsvp">Tell us who is coming and we will text you the day before.</p>
+      <div class="rules">
+        <p data-i="p_only">This lunch is for restaurant owners. You can bring your business partner or your chef, and no one else.</p>
+        <p data-i="p_verify">We may ask you to show that you own the restaurant, for example your business license or your Google listing. Please help us with that so we can keep your seat.</p>
+      </div>
       <p data-i="p_lang">We speak English, Hindi and Urdu.</p>
     </div>
     <form id="rsvp-form" novalidate>
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="honey">
-      <input type="text" name="name" autocomplete="name" aria-label="Your name" placeholder="Your name" data-ph="ph_name" required>
-      <input type="text" name="restaurant" autocomplete="organization" aria-label="Restaurant and city" placeholder="Restaurant and city" data-ph="ph_rest">
-      <input type="tel" name="phone" autocomplete="tel" inputmode="tel" aria-label="Phone" placeholder="Phone" data-ph="ph_phone" required>
-      <input type="number" name="guests" min="1" max="4" inputmode="numeric" aria-label="How many people are coming" placeholder="How many people are coming" data-ph="ph_guests">
+      <input type="text" name="name" autocomplete="name" aria-label="Your name" placeholder="Your name" data-ph="ph_name" required aria-describedby="e-name">
+      <p class="ferr" id="e-name" data-i="e_name">Add your name.</p>
+      <input type="text" name="restaurant" autocomplete="organization" aria-label="Restaurant and city" placeholder="Restaurant and city" data-ph="ph_rest" required aria-describedby="e-rest">
+      <p class="ferr" id="e-rest" data-i="e_rest">Add your restaurant's name and city.</p>
+      <input type="tel" name="phone" autocomplete="tel" inputmode="tel" aria-label="Phone" placeholder="Phone" data-ph="ph_phone" required aria-describedby="e-phone">
+      <p class="ferr" id="e-phone" data-i="e_phone">Add a phone number so we can reach you.</p>
+      <label class="fl" for="who" data-i="l_who">Who is coming with you?</label>
+      <select id="who" name="who">
+        <option value="me" data-i="o_me">Just me</option>
+        <option value="partner" data-i="o_partner">Me + my business partner</option>
+        <option value="chef" data-i="o_chef">Me + my chef</option>
+        <option value="both" data-i="o_both">Me + my partner and my chef</option>
+      </select>
+      <label class="own"><input type="checkbox" name="owner" value="yes" aria-describedby="e-own"><span data-i="own">I own this restaurant</span></label>
+      <p class="ferr" id="e-own" data-i="e_own">This lunch is for owners. Tick this box if you own the restaurant.</p>
       <button type="submit" class="send" id="send" data-i="send">Save my seat</button>
       <p class="note" id="note" aria-live="polite"></p>
     </form>
@@ -125,8 +150,8 @@ html[dir=rtl] .when{direction:rtl}
 
 <script>
 var T={
-hi:{k:"ओनर नाइट",h1:"लंच हमारी तरफ़ से। देखिए एक रेस्टोरेंट बिना वेटर और बिना कैशियर के कैसे चलता है।",lede:"ह्यूस्टन के रेस्टोरेंट मालिकों के लिए। स्प्रिंग में हमारे परिवार के रेस्टोरेंट वोक एंड कड़ाही आइए, और असली लंच के दौरान पूरा फ़्रंट ऑफ़ हाउस चलते हुए देखिए।",d_when:"कब",v_when:"मंगलवार, 17 नवंबर, दोपहर 2:30 से 4 बजे तक",d_where:"कहाँ",d_cost:"खर्च",v_cost:"मुफ़्त। लंच हमारी तरफ़ से।",d_host:"मेज़बान",v_host:"अब्बास ज़ोएब, सह-मालिक और पूर्व Google इंजीनियर",cap:"KPRC 2 ह्यूस्टन की टीम के साथ, अक्टूबर 2026",h_see:"आप क्या देखेंगे",s1b:"टेबल से ऑर्डर",s1:"फ़ोन से स्कैन, ऑर्डर और पेमेंट। वेटर या बिल का इंतज़ार नहीं।",s2b:"रेस्टोरेंट को कॉल कीजिए",s2:"हमारी AI होस्ट हानिया अंग्रेज़ी, उर्दू या हिंदी में जवाब देती है और ऑर्डर रजिस्टर में डालती है।",s3b:"सिर्फ़ पेड ऑर्डर कुक्स तक",s3:"हर ऑर्डर बनने से पहले पेड होता है, और टिप सीधे कुक्स को जाती है।",s4b:"मालिक का फ़ोन",s4:"हर ऑर्डर और हर ग्राहक एक ऐप में, और हर सुबह दिन के बारे में एक मैसेज।",h_rsvp:"अपनी सीट बुक कीजिए",p_rsvp:"बताइए कौन आ रहा है, हम एक दिन पहले आपको मैसेज करेंगे। अपने पार्टनर या मैनेजर को साथ लाइए।",p_lang:"हम अंग्रेज़ी, हिंदी और उर्दू बोलते हैं।",send:"मेरी सीट बुक करें",ph_name:"आपका नाम",ph_rest:"रेस्टोरेंट और शहर",ph_phone:"फ़ोन",ph_guests:"कितने लोग आ रहे हैं",err:"अपना नाम और फ़ोन नंबर लिखिए ताकि हम आपसे संपर्क कर सकें।",sending:"भेज रहे हैं...",ok:"आपकी सीट बुक हो गई। हम एक दिन पहले मैसेज करेंगे।",fail:"यह नहीं भेजा जा सका। कॉल करें (408) 393-6716."},
-ur:{k:"اونر نائٹ",h1:"لنچ ہماری طرف سے۔ دیکھیں ایک ریسٹورنٹ بغیر ویٹر اور بغیر کیشیئر کے کیسے چلتا ہے۔",lede:"ہیوسٹن کے ریسٹورنٹ مالکان کے لیے۔ اسپرنگ میں ہمارے خاندان کے ریسٹورنٹ ووک اینڈ کڑاہی آئیں، اور اصل لنچ کے دوران پورا فرنٹ آف ہاؤس چلتا ہوا دیکھیں۔",d_when:"کب",v_when:"منگل، 17 نومبر، دوپہر 2:30 سے 4 بجے تک",d_where:"کہاں",d_cost:"خرچ",v_cost:"مفت۔ لنچ ہماری طرف سے۔",d_host:"میزبان",v_host:"عباس زوئب، شریک مالک اور سابق Google انجینئر",cap:"KPRC 2 ہیوسٹن کی ٹیم کے ساتھ، اکتوبر 2026",h_see:"آپ کیا دیکھیں گے",s1b:"ٹیبل سے آرڈر",s1:"فون سے اسکین، آرڈر اور پیمنٹ۔ ویٹر یا بل کا انتظار نہیں۔",s2b:"ریسٹورنٹ کو کال کریں",s2:"ہماری AI ہوسٹ ہانیہ انگریزی، اردو یا ہندی میں جواب دیتی ہے اور آرڈر رجسٹر میں ڈالتی ہے۔",s3b:"صرف پیڈ آرڈر کُکس تک",s3:"ہر آرڈر بننے سے پہلے پیڈ ہوتا ہے، اور ٹپ سیدھی کُکس کو جاتی ہے۔",s4b:"مالک کا فون",s4:"ہر آرڈر اور ہر گاہک ایک ایپ میں، اور ہر صبح دن کے بارے میں ایک میسج۔",h_rsvp:"اپنی سیٹ بک کریں",p_rsvp:"بتائیں کون آ رہا ہے، ہم ایک دن پہلے آپ کو میسج کریں گے۔ اپنے پارٹنر یا مینیجر کو ساتھ لائیں۔",p_lang:"ہم انگریزی، ہندی اور اردو بولتے ہیں۔",send:"میری سیٹ بک کریں",ph_name:"آپ کا نام",ph_rest:"ریسٹورنٹ اور شہر",ph_phone:"فون",ph_guests:"کتنے لوگ آ رہے ہیں",err:"اپنا نام اور فون نمبر لکھیں تاکہ ہم آپ سے رابطہ کر سکیں۔",sending:"بھیج رہے ہیں...",ok:"آپ کی سیٹ بک ہو گئی۔ ہم ایک دن پہلے میسج کریں گے۔",fail:"یہ نہیں بھیجا جا سکا۔ کال کریں (408) 393-6716."},
+hi:{k:"ओनर नाइट",h1:"लंच हमारी तरफ़ से। देखिए एक रेस्टोरेंट बिना वेटर और बिना कैशियर के कैसे चलता है।",lede:"ह्यूस्टन के रेस्टोरेंट मालिकों के लिए। स्प्रिंग में हमारे परिवार के रेस्टोरेंट वोक एंड कड़ाही आइए, और असली लंच के दौरान पूरा फ़्रंट ऑफ़ हाउस चलते हुए देखिए।",d_when:"कब",v_when:"मंगलवार, 17 नवंबर, दोपहर 2:30 से 4 बजे तक",d_where:"कहाँ",d_cost:"खर्च",v_cost:"मुफ़्त। लंच हमारी तरफ़ से।",d_host:"मेज़बान",v_host:"अब्बास ज़ोएब, सह-मालिक और पूर्व Google इंजीनियर",cap:"KPRC 2 ह्यूस्टन की टीम के साथ, अक्टूबर 2026",h_see:"आप क्या देखेंगे",s1b:"टेबल से ऑर्डर",s1:"फ़ोन से स्कैन, ऑर्डर और पेमेंट। वेटर या बिल का इंतज़ार नहीं।",s2b:"रेस्टोरेंट को कॉल कीजिए",s2:"हमारी AI होस्ट हानिया अंग्रेज़ी, उर्दू या हिंदी में जवाब देती है और ऑर्डर रजिस्टर में डालती है।",s3b:"सिर्फ़ पेड ऑर्डर कुक्स तक",s3:"हर ऑर्डर बनने से पहले पेड होता है, और टिप सीधे कुक्स को जाती है।",s4b:"मालिक का फ़ोन",s4:"हर ऑर्डर और हर ग्राहक एक ऐप में, और हर सुबह दिन के बारे में एक मैसेज।",h_rsvp:"अपनी सीट बुक कीजिए",p_rsvp:"बताइए कौन आ रहा है, हम एक दिन पहले आपको मैसेज करेंगे।",p_only:"यह लंच रेस्टोरेंट मालिकों के लिए है। आप अपने बिज़नेस पार्टनर या अपने शेफ़ को साथ ला सकते हैं, किसी और को नहीं।",p_verify:"हम आपसे यह दिखाने को कह सकते हैं कि रेस्टोरेंट आपका है, जैसे आपका बिज़नेस लाइसेंस या आपकी Google लिस्टिंग। कृपया इसमें मदद करें ताकि आपकी सीट पक्की रहे।",l_who:"आपके साथ कौन आ रहा है?",o_me:"सिर्फ़ मैं",o_partner:"मैं + मेरा बिज़नेस पार्टनर",o_chef:"मैं + मेरा शेफ़",o_both:"मैं + मेरा पार्टनर और मेरा शेफ़",own:"यह रेस्टोरेंट मेरा है",e_name:"अपना नाम लिखिए।",e_rest:"अपने रेस्टोरेंट का नाम और शहर लिखिए।",e_phone:"फ़ोन नंबर लिखिए ताकि हम आपसे संपर्क कर सकें।",e_own:"यह लंच मालिकों के लिए है। अगर रेस्टोरेंट आपका है तो इस बॉक्स पर टिक कीजिए।",p_lang:"हम अंग्रेज़ी, हिंदी और उर्दू बोलते हैं।",send:"मेरी सीट बुक करें",ph_name:"आपका नाम",ph_rest:"रेस्टोरेंट और शहर",ph_phone:"फ़ोन",ph_guests:"कितने लोग आ रहे हैं",err:"अपना नाम और फ़ोन नंबर लिखिए ताकि हम आपसे संपर्क कर सकें।",sending:"भेज रहे हैं...",ok:"आपकी सीट बुक हो गई। हम एक दिन पहले मैसेज करेंगे।",fail:"यह नहीं भेजा जा सका। कॉल करें (408) 393-6716."},
+ur:{k:"اونر نائٹ",h1:"لنچ ہماری طرف سے۔ دیکھیں ایک ریسٹورنٹ بغیر ویٹر اور بغیر کیشیئر کے کیسے چلتا ہے۔",lede:"ہیوسٹن کے ریسٹورنٹ مالکان کے لیے۔ اسپرنگ میں ہمارے خاندان کے ریسٹورنٹ ووک اینڈ کڑاہی آئیں، اور اصل لنچ کے دوران پورا فرنٹ آف ہاؤس چلتا ہوا دیکھیں۔",d_when:"کب",v_when:"منگل، 17 نومبر، دوپہر 2:30 سے 4 بجے تک",d_where:"کہاں",d_cost:"خرچ",v_cost:"مفت۔ لنچ ہماری طرف سے۔",d_host:"میزبان",v_host:"عباس زوئب، شریک مالک اور سابق Google انجینئر",cap:"KPRC 2 ہیوسٹن کی ٹیم کے ساتھ، اکتوبر 2026",h_see:"آپ کیا دیکھیں گے",s1b:"ٹیبل سے آرڈر",s1:"فون سے اسکین، آرڈر اور پیمنٹ۔ ویٹر یا بل کا انتظار نہیں۔",s2b:"ریسٹورنٹ کو کال کریں",s2:"ہماری AI ہوسٹ ہانیہ انگریزی، اردو یا ہندی میں جواب دیتی ہے اور آرڈر رجسٹر میں ڈالتی ہے۔",s3b:"صرف پیڈ آرڈر کُکس تک",s3:"ہر آرڈر بننے سے پہلے پیڈ ہوتا ہے، اور ٹپ سیدھی کُکس کو جاتی ہے۔",s4b:"مالک کا فون",s4:"ہر آرڈر اور ہر گاہک ایک ایپ میں، اور ہر صبح دن کے بارے میں ایک میسج۔",h_rsvp:"اپنی سیٹ بک کریں",p_rsvp:"بتائیں کون آ رہا ہے، ہم ایک دن پہلے آپ کو میسج کریں گے۔",p_only:"یہ لنچ ریسٹورنٹ مالکان کے لیے ہے۔ آپ اپنے بزنس پارٹنر یا اپنے شیف کو ساتھ لا سکتے ہیں، کسی اور کو نہیں۔",p_verify:"ہم آپ سے یہ دکھانے کو کہہ سکتے ہیں کہ ریسٹورنٹ آپ کا ہے، جیسے آپ کا بزنس لائسنس یا آپ کی Google لسٹنگ۔ براہ کرم اس میں مدد کریں تاکہ آپ کی سیٹ پکی رہے۔",l_who:"آپ کے ساتھ کون آ رہا ہے؟",o_me:"صرف میں",o_partner:"میں + میرا بزنس پارٹنر",o_chef:"میں + میرا شیف",o_both:"میں + میرا پارٹنر اور میرا شیف",own:"یہ ریسٹورنٹ میرا ہے",e_name:"اپنا نام لکھیں۔",e_rest:"اپنے ریسٹورنٹ کا نام اور شہر لکھیں۔",e_phone:"فون نمبر لکھیں تاکہ ہم آپ سے رابطہ کر سکیں۔",e_own:"یہ لنچ مالکان کے لیے ہے۔ اگر ریسٹورنٹ آپ کا ہے تو اس باکس پر ٹک کریں۔",p_lang:"ہم انگریزی، ہندی اور اردو بولتے ہیں۔",send:"میری سیٹ بک کریں",ph_name:"آپ کا نام",ph_rest:"ریسٹورنٹ اور شہر",ph_phone:"فون",ph_guests:"کتنے لوگ آ رہے ہیں",err:"اپنا نام اور فون نمبر لکھیں تاکہ ہم آپ سے رابطہ کر سکیں۔",sending:"بھیج رہے ہیں...",ok:"آپ کی سیٹ بک ہو گئی۔ ہم ایک دن پہلے میسج کریں گے۔",fail:"یہ نہیں بھیجا جا سکا۔ کال کریں (408) 393-6716."},
 en:{err:"Add your name and a phone number so we can reach you.",sending:"Sending...",ok:"Your seat is saved. We will text you the day before.",fail:"That didn't send. Call (408) 393-6716."}
 };
 var EN={},EP={},lang="en";
@@ -140,13 +165,22 @@ document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("ar
 try{localStorage.setItem("az_lang",l)}catch(e){}}
 document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
 try{var s=localStorage.getItem("az_lang");if(s&&s!=="en"&&T[s])setLang(s)}catch(e){}
+(function(){var f=document.getElementById("rsvp-form");
+  function ok(n,el){if(n==="name")return !!el.value.trim();if(n==="rest")return !!el.value.trim();if(n==="phone")return el.value.replace(/\D/g,"").length>=10;return el.checked}
+  [["name","name"],["rest","restaurant"],["phone","phone"],["own","owner"]].forEach(function(p){var el=f.elements[p[1]];
+    el.addEventListener(el.type==="checkbox"?"change":"input",function(){var e=document.getElementById("e-"+p[0]);if(e.classList.contains("on")&&ok(p[0],el)){e.classList.remove("on");el.setAttribute("aria-invalid","false")}})})})();
 document.getElementById("rsvp-form").addEventListener("submit",function(ev){
   ev.preventDefault();var f=ev.target,note=document.getElementById("note"),btn=document.getElementById("send"),d={};
   new FormData(f).forEach(function(v,k){d[k]=String(v).trim()});
-  if(!d.name||(d.phone||"").replace(/\D/g,"").length<10){note.className="note err";note.textContent=t("err");return}
-  var g=d.guests||"1";delete d.guests;
+  var bad={name:!d.name,rest:!d.restaurant,phone:(d.phone||"").replace(/\D/g,"").length<10,own:d.owner!=="yes"},first=null;
+  [["name","name"],["rest","restaurant"],["phone","phone"],["own","owner"]].forEach(function(p){
+    var e=document.getElementById("e-"+p[0]),i=f.elements[p[1]];e.classList.toggle("on",bad[p[0]]);i.setAttribute("aria-invalid",String(bad[p[0]]));
+    if(bad[p[0]]&&!first)first=i});
+  if(first){note.className="note";note.textContent="";first.focus();return}
+  var WHO={me:["1","owner only"],partner:["2","owner + business partner"],chef:["2","owner + chef"],both:["3","owner + business partner + chef"]};
+  var w=WHO[d.who]||WHO.me;delete d.who;delete d.owner;
   d.role="A restaurant owner";d.interests="Owner Night RSVP - Tue Nov 17, 2:30 PM";
-  d.message="Owner Night RSVP for Tue Nov 17, 2:30 PM. People coming: "+g+". Page language: "+lang;
+  d.message="Owner Night RSVP for Tue Nov 17, 2:30 PM. People coming: "+w[0]+" ("+w[1]+"). Confirmed they own the restaurant. Page language: "+lang;
   d._website=d._honey||"";delete d._honey;
   d._subject="Owner Night RSVP - "+(d.restaurant||d.name);
   d.source="owner-night";d._template="table";d._captcha="false";
