@@ -2,6 +2,18 @@
  "channel": "UCj-qILzeofW87kiOCZXnVyw",
  "reels": [
   {
+   "id": "sNHyZrZkvcE",
+   "title": "My restaurant in Spring, TX. The food is the point. The tech is the help.",
+   "published": "2026-11-10T01:04:43+00:00",
+   "page": null
+  },
+  {
+   "id": "6IHsvk2NCiw",
+   "title": "How to introduce AI to your restaurant staff without scaring them",
+   "published": "2026-11-09T21:30:36+00:00",
+   "page": null
+  },
+  {
    "id": "L7arGXn9tAU",
    "title": "ChatGPT Recommended the Restaurant Next Door. Here's the Fix",
    "published": "2026-11-09T03:34:25+00:00",
@@ -78,18 +90,6 @@
    "title": "I say \"take the lemonade off\" once. Register, website, phone, delivery apps. 11 seconds.",
    "published": "2026-11-01T01:02:23+00:00",
    "page": "ai-phone-answering-restaurants.html"
-  },
-  {
-   "id": "GIqf2iIEwnE",
-   "title": "How to hear from unhappy restaurant guests and fix it the same night",
-   "published": "2026-10-31T22:44:59+00:00",
-   "page": null
-  },
-  {
-   "id": "wzhK9Mr1uJU",
-   "title": "How to hear from unhappy restaurant guests and fix it the same night",
-   "published": "2026-10-31T20:32:40+00:00",
-   "page": null
   }
  ]
 }
