@@ -491,6 +491,17 @@ button.o-alert{width:100%;text-align:start;font:inherit}
 .dash__key{display:inline-flex;align-items:center;gap:6px;margin-inline-end:14px}.dash__key i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .dash__q{color:var(--o-muted);font-size:12px;margin-top:2px;white-space:normal}
 .dash .chart text{fill:var(--o-ink)}
+
+/* buffets + catering suggestion (optional, prospect.yaml) */
+.g-buf{display:grid;gap:10px;margin-top:14px}
+.g-buf__c{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px}
+.g-buf__top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.g-buf__top b{font:700 1.3rem/1.1 var(--t-display);color:#fff}.g-buf__top span{font:700 1.5rem/1 var(--t-display);color:var(--t-accent);white-space:nowrap}
+.g-buf__w{margin:4px 0 8px;font-size:.88rem;color:#fff;opacity:.85}
+.g-buf__c ul{margin:0;padding:0 0 0 16px;font-size:.88rem;line-height:1.45;color:#fff;opacity:.85}
+.g-sugg{margin-top:12px;background:var(--t-accent-soft);border:1px solid var(--t-accent);border-radius:12px;padding:12px 14px;display:grid;gap:4px}
+.g-sugg b{font-size:1rem;line-height:1.35}.g-sugg span{font-size:.86rem;color:var(--t-accent-text);font-weight:600}
+.g-tray__q{color:var(--t-primary);font-weight:800}.g-tray__rm{background:none;border:0;padding:6px 2px 0;color:var(--t-muted);font-size:.8rem;text-decoration:underline;cursor:pointer}
 </style>
 <header class="az-top">
   <div class="az-top__row">
@@ -624,6 +635,23 @@ button.o-alert{width:100%;text-align:start;font:inherit}
   const fmtT = (hm) => { let [h, m] = hm.split(":").map(Number); const ap = h >= 12 ? "PM" : "AM"; h = h % 12 || 12; return h + (m ? ":" + String(m).padStart(2, "0") : "") + " " + ap; };
   const hoursFor = (d) => (P.hours.find((x) => x[0] === d) || [d, ""])[1].split(",").filter(Boolean).map((w) => w.split("-"));
   const todayClose = () => { const w = hoursFor(TODAY); return w.length ? fmtT(w[w.length - 1][1]) : ""; };
+  /* The next day the restaurant opens after the demo's Saturday night, so the after-hours call never assumes Sunday.
+     Days with no hours (or no hours row) are closed; if nothing is listed at all, fall back to tomorrow at 12. */
+  const nextOpen = () => {
+    const toMin = (hm) => { const [h, m] = hm.split(":").map(Number); return h * 60 + (m || 0); };
+    const fromMin = (n) => `${Math.floor(n / 60)}:${String(n % 60).padStart(2, "0")}`;
+    const t = DAYS.indexOf(TODAY), FULL = { Sun: "Sunday", Mon: "Monday", Tue: "Tuesday", Wed: "Wednesday", Thu: "Thursday", Fri: "Friday", Sat: "Saturday" };
+    for (let k = 1; k <= 7; k++) {
+      const d = DAYS[(t + k) % 7], w = hoursFor(d).filter((x) => x.length === 2 && x[0] && x[1]);
+      if (!w.length) continue;
+      const noon = 12 * 60, inWin = w.find(([a, b]) => toMin(a) <= noon && noon + 30 <= toMin(b));
+      const at = inWin ? noon : Math.min(toMin(w[0][0]) + 60, toMin(w[0][1]));  /* noon if open then, else an hour after opening */
+      const skipped = DAYS.slice(1, k).map((_, j) => FULL[DAYS[(t + 1 + j) % 7]]);
+      return { day: d, word: k === 1 ? "tomorrow" : FULL[d], on: k === 1 ? "tomorrow" : "on " + FULL[d], opens: w[0][0], at: fromMin(at), closedToo: skipped };
+    }
+    return { day: "Sun", word: "tomorrow", on: "tomorrow", opens: "12:00", at: "12:00", closedToo: [] };
+  };
+  const tryWords = () => { const w = (X.chat && X.chat.try_words) || (P.featured || []).slice(0, 2).map((n) => n.replace(/\s*\(.*$/, "").trim().toLowerCase()).filter(Boolean); return w.length ? w.join(", ") : "our most popular dishes"; };
 
   /* ---------- tabs ---------- */
   $$(".az-tab").forEach((t) => t.addEventListener("click", () => {
@@ -712,6 +740,7 @@ button.o-alert{width:100%;text-align:start;font:inherit}
       <section class="g-tiles">${tile('data-go="menu"', "bag", "Pickup", "Ready in about 20 min")}${tile('data-go="menu" data-mode-go="delivery"', "car", "Delivery", "To your door")}${tile('data-go="cater"', "tray", "Catering", "10 to 150 guests")}${tile("", "phone", "Call", esc(P.phone))}<\/section>
       <section class="g-sec g-sec--flush"><div class="g-sec__head"><div><p class="g-eyebrow">Most loved<\/p><h2 class="g-h2">What ${esc(P.location_label)} orders<\/h2><\/div><button class="g-link" data-go="menu">Full menu →<\/button><\/div>
         <div class="g-carousel">${feat.map((m, i) => `<button class="g-dish" data-item="${m.id}"><span class="g-dish__img">${photo(m.name) ? `<img src="${photo(m.name)}" alt="" loading="lazy">` : art(m.name, i)}<\/span><span class="g-dish__b"><b>${esc(m.name)}<\/b><span class="g-dish__d">${esc(m.desc)}<\/span><span class="g-dish__f"><span class="g-price">${m.sizes.length > 1 ? `<span class="g-from">from <\/span>` : ""}${money(fromPrice(m))}<\/span><span class="g-add" aria-hidden="true">+<\/span><\/span><\/span><\/button>`).join("")}<\/div><\/section>
+      ${P.buffets ? `<section class="g-sec g-sec--dark" id="gBuf"><p class="g-eyebrow">Eat with us<\/p><h2 class="g-h2">${esc(P.buffets.title)}<\/h2><div class="g-buf">${P.buffets.items.map((b) => `<div class="g-buf__c"><div class="g-buf__top"><b>${esc(b.name)}<\/b><span>${esc(b.price)}<\/span><\/div><p class="g-buf__w">${esc(b.when)}<\/p><ul>${b.lines.map((l) => `<li>${esc(l)}<\/li>`).join("")}<\/ul><\/div>`).join("")}<\/div><\/section>` : ""}
       <section class="g-sec g-sec--soft"><div class="g-sec__head"><div><p class="g-eyebrow">Reviews<\/p><h2 class="g-h2">${P.google.rating} ${stars()} on Google<\/h2><\/div><\/div><p class="g-muted">${P.google.reviews} reviews and counting.<\/p>
         <div class="g-revs">${(P.reviews || []).map((r) => `<figure class="g-rev"><span class="g-rev__g">G<\/span><blockquote>${esc(r.text)}<\/blockquote><figcaption><b>${esc(r.name)}<\/b> · ${esc(r.when)}<\/figcaption><\/figure>`).join("")}<\/div><\/section>
       ${(D.gallery || []).length ? `<section class="g-strip" aria-label="Photos">${D.gallery.map((g) => `<img src="${g}" alt="" loading="lazy">`).join("")}<\/section>` : ""}
@@ -841,8 +870,15 @@ button.o-alert{width:100%;text-align:start;font:inherit}
   /* catering */
   const C = { people: 40, pick: {} };
   function traySuggest(n) {
-    const t = P.catering.trays; const full = Math.max(1, Math.floor(n / 22)), half = n % 22 >= 8 ? 1 : 0;
-    const pick = {}; pick[0] = full >= 2 ? "full" : (full ? "full" : "half"); if (n >= 30) pick[2] = half || full >= 2 ? "half" : "full"; if (n >= 60) pick[3] = "half"; if (n >= 25) pick[5] = n >= 40 ? "full" : "half";
+    const t = P.catering.trays;
+    if (t[0].feeds_full) {  /* half-tray units for the head count, shared across the signature trays */
+      const units = Math.ceil(n / (t[0].feeds_full / 2)), order = (P.catering.suggest || [0, 1]).slice(0, units >= 6 ? 3 : units >= 2 ? 2 : 1), u = {};
+      for (let k = 0; k < units; k++) { const i = order[k % order.length]; u[i] = (u[i] || 0) + 1; }
+      return Object.fromEntries(Object.entries(u).map(([i, q]) => [i, { f: Math.floor(q / 2), h: q % 2 }]));
+    }
+    const full = Math.max(1, Math.floor(n / 22)), half = n % 22 >= 8 ? 1 : 0;
+    const one = (z) => (z === "full" ? { f: 1, h: 0 } : { f: 0, h: 1 });
+    const pick = {}; pick[0] = one("full"); if (n >= 30) pick[2] = one(half || full >= 2 ? "half" : "full"); if (n >= 60) pick[3] = one("half"); if (n >= 25) pick[5] = one(n >= 40 ? "full" : "half");
     return pick;
   }
   /* Catering = the ordering app with its door set to catering: trays, a date and time, pickup or
@@ -851,8 +887,10 @@ button.o-alert{width:100%;text-align:start;font:inherit}
   const CDAYS = ["Today", "Tomorrow", "Monday", "Next Saturday"], CTIMES = ["12 PM", "1 PM", "6 PM", "7 PM"];
   Object.assign(C, { day: 3, time: 2, how: "pickup" });
   const CN = () => P.catering.notice_trays || 2;
-  const cTrays = () => Object.values(C.pick).length;
-  const cSub = () => { const t = P.catering.trays; return Object.entries(C.pick).reduce((a, [i, s]) => a + (s === "full" ? t[i].full : t[i].half), 0); };
+  const cTrays = () => Object.values(C.pick).reduce((a, q) => a + q.f + q.h, 0);
+  const cFeeds = () => { const t = P.catering.trays; return Object.entries(C.pick).reduce((a, [i, q]) => a + (t[i].feeds_full ? t[i].feeds_full * q.f + Math.floor(t[i].feeds_full / 2) * q.h : 0), 0); };
+  const cItems = () => { const t = P.catering.trays, o = []; Object.entries(C.pick).forEach(([i, q]) => { if (q.f) o.push(`${q.f > 1 ? q.f + " × " : ""}Full ${t[i].name}`); if (q.h) o.push(`${q.h > 1 ? q.h + " × " : ""}Half ${t[i].name}`); }); return o; };
+  const cSub = () => { const t = P.catering.trays; return Object.entries(C.pick).reduce((a, [i, q]) => a + q.f * t[i].full + q.h * t[i].half, 0); };
   const cFee = () => (C.how === "delivery" ? (P.catering.delivery_fee ?? 25) : 0);
   const cBlocked = () => C.day === 0 && cTrays() > CN();
   function vCater() {
@@ -861,11 +899,12 @@ button.o-alert{width:100%;text-align:start;font:inherit}
     const chips = (arr, key) => `<div class="g-slots">${arr.map((x, i) => `<button data-c${key}="${i}" aria-pressed="${C[key] === i}">${esc(x)}<\/button>`).join("")}<\/div>`;
     return `<header class="g-head"><button class="g-btn g-btn--sm g-btn--line" data-go="home">← Home<\/button><b style="margin-inline-start:auto">Catering<\/b><\/header>
       <div class="g-tabs3" role="group"><button data-go="menu" data-mode-go="delivery" aria-pressed="false">Delivery<\/button><button data-go="menu" data-mode-go="pickup" aria-pressed="false">Pickup<\/button><button aria-pressed="true">Catering<\/button><\/div>
-      <div class="g-sec" style="padding-top:16px"><h2 class="g-h2">Trays for your party<\/h2><p class="g-muted">Pick your headcount and we'll suggest trays. Change anything you like.<\/p>${P.catering_review ? `<figure class="g-rev g-rev--wide"><blockquote>${esc(P.catering_review.text)}<\/blockquote><figcaption><b>${esc(P.catering_review.name)}<\/b> · on Google<\/figcaption><\/figure>` : ""}
+      <div class="g-sec" style="padding-top:16px"><h2 class="g-h2">${esc(P.catering.headline || "Trays for your party")}<\/h2><p class="g-muted">${P.catering.headline ? "Move the slider. We work out the trays. Change anything you like." : "Pick your headcount and we'll suggest trays. Change anything you like."}<\/p>${P.catering_review ? `<figure class="g-rev g-rev--wide"><blockquote>${esc(P.catering_review.text)}<\/blockquote><figcaption><b>${esc(P.catering_review.name)}<\/b> · on Google<\/figcaption><\/figure>` : ""}
       <div class="g-people" style="margin-top:16px"><span>Guests<\/span><input id="gPeople" type="range" min="10" max="150" step="5" value="${C.people}" aria-label="Number of guests"><b id="gPeopleN" class="tnum">${C.people}<\/b><\/div>
+      ${t[0].feeds_full ? `<div class="g-sugg"><b>${cItems().map(esc).join("<br>")}<\/b><span>Feeds about ${cFeeds()} · ${money(s)} before tax<\/span><\/div>` : ""}
       ${t.map((tr, i) => `<div class="g-tray"><div class="g-tray__top"><p class="g-tray__n">${esc(tr.name)}<\/p><\/div><div class="g-tray__row">
-        <button data-tray="${i}" data-sz="half" aria-pressed="${C.pick[i] === "half"}"><b>Half tray · ${money(tr.half)}<\/b>feeds ${tr.serves_half}<\/button>
-        <button data-tray="${i}" data-sz="full" aria-pressed="${C.pick[i] === "full"}"><b>Full tray · ${money(tr.full)}<\/b>feeds ${tr.serves_full}<\/button><\/div><\/div>`).join("")}
+        ${[["h", "half", "Half"], ["f", "full", "Full"]].map(([k, z, L]) => { const q = (C.pick[i] || {})[k] || 0; return `<button data-tray="${i}" data-sz="${k}" aria-pressed="${q > 0}"><b>${L} tray · ${money(tr[z])}${q ? ` <span class="g-tray__q">× ${q}<\/span>` : ""}<\/b>feeds ${tr["serves_" + z]}<\/button>`; }).join("")}<\/div>
+        ${C.pick[i] ? `<button class="g-tray__rm" data-trm="${i}">Remove<\/button>` : ""}<\/div>`).join("")}
       <p class="g-opt-h">Day<\/p>${chips(CDAYS, "day")}
       ${cBlocked() ? `<p class="g-limit">More than ${CN()} trays needs a day's notice. Tomorrow onward is open.<\/p>` : ""}
       <p class="g-opt-h">Time<\/p>${chips(CTIMES, "time")}
@@ -879,14 +918,15 @@ button.o-alert{width:100%;text-align:start;font:inherit}
   }
   function wireCater() {
     $("#gPeople").addEventListener("input", (e) => { C.people = +e.target.value; C.pick = traySuggest(C.people); go("cater", true); });
-    $$("[data-tray]").forEach((b) => b.addEventListener("click", () => { const i = b.dataset.tray; C.pick[i] = C.pick[i] === b.dataset.sz ? undefined : b.dataset.sz; if (!C.pick[i]) delete C.pick[i]; go("cater", true); }));
+    $$("[data-tray]").forEach((b) => b.addEventListener("click", () => { const i = b.dataset.tray, k = b.dataset.sz; const q = C.pick[i] || (C.pick[i] = { f: 0, h: 0 }); q[k]++; go("cater", true); }));
+    $$("[data-trm]").forEach((b) => b.addEventListener("click", () => { delete C.pick[b.dataset.trm]; go("cater", true); }));
     $$("[data-cday]").forEach((b) => b.addEventListener("click", () => { C.day = +b.dataset.cday; go("cater", true); }));
     $$("[data-ctime]").forEach((b) => b.addEventListener("click", () => { C.time = +b.dataset.ctime; go("cater", true); }));
     $$("[data-chow]").forEach((b) => b.addEventListener("click", () => { C.how = b.dataset.chow; go("cater", true); }));
     $("#gQuote").addEventListener("click", () => openHaniya("I need a full-service event with staff. Can I get a quote?"));
     $("#gCat").addEventListener("click", async (e) => {
       e.target.disabled = true; e.target.textContent = "Paying…"; await sleep(1100);
-      const t = P.catering.trays, items = Object.entries(C.pick).map(([i, s]) => `${s === "full" ? "Full" : "Half"} ${t[i].name}`);
+      const items = cItems();
       const s = cSub(), tot = s + cFee() + s * TAX, no = ++S.orderNo;
       const when = `${CDAYS[C.day]} at ${CTIMES[C.time]}`;
       const lead = { no, name: $("#gCName").value || "Daniel", people: C.people, when, items, est: tot, how: C.how, paid: true, channel: "website" };
@@ -927,7 +967,7 @@ button.o-alert{width:100%;text-align:start;font:inherit}
       else if (/full.service|staff|quote|servers/.test(s)) a = `Happy to. Tell me the date, how many guests and where it is, and I'll text you a quote.`;
       else if (/cater|party|tray|event|people/.test(s)) a = `We do! Pick your trays, a day and a time, and pay right here. It's booked the moment it's paid.<br><button class="g-btn g-btn--sm" data-go="cater" style="margin-top:6px">Plan my catering<\/button>`;
       else if (new RegExp(X.chat.signature_word, "i").test(s)) a = `${esc(X.chat.signature_line)}<br>${X.chat.signature.map(dish).join("")}`;
-      else { const hit = MENU.find((m) => s.split(/\W+/).filter((w) => w.length > 3).some((w) => m.name.toLowerCase().includes(w))); a = hit ? `Here's what I found:<br>${dish(hit.name)}` : `I can help with any dish on our menu, our hours or catering. Try asking about mandi, biryani or something spicy.`; }
+      else { const hit = MENU.find((m) => s.split(/\W+/).filter((w) => w.length > 3).some((w) => m.name.toLowerCase().includes(w))); a = hit ? `Here's what I found:<br>${dish(hit.name)}` : `I can help with any dish on our menu, our hours or catering. Try asking about ${esc(tryWords())} or something spicy.`; }
       log.push({ h: a }); draw();
     };
     draw();
@@ -951,7 +991,7 @@ button.o-alert{width:100%;text-align:start;font:inherit}
     const sc = P.scenarios, d1 = byName(sc.pickup.dish1), s1 = d1.sizes.find((s) => s.l === sc.pickup.size1) || d1.sizes[0], d2 = byName(sc.pickup.dish2);
     const pickTotal = s1.p + d2.sizes[0].p * sc.pickup.qty2;
     const sz = s1.l && s1.l !== "Regular" ? s1.l.toLowerCase().replace(" piece", "-piece") + " " : "";  // "a 2-piece X" / "a X"
-    const bc = byName(X.late[0]), gn = byName(X.late[1]), vb = byName(X.question.dishes[0]), mb = byName(X.question.dishes[1]);
+    const bc = byName(X.late[0]), gn = byName(X.late[1]), vb = byName(X.question.dishes[0]), mb = byName(X.question.dishes[1]), NO = nextOpen();
     const t = P.catering.trays, cEst = t[0].full * 2 + t[2].full;
     const nm = P.name, loc = P.address_short.split(",")[0];
     return [
@@ -986,13 +1026,13 @@ button.o-alert{width:100%;text-align:start;font:inherit}
         ["c", "Okay… done."], ["s", `Paid · booked for ${sc.catering.when}`, 4],
         ["h", `Got your payment, you're all booked for ${sc.catering.when}. Enjoy the party!`], ["c", "Great, thanks!"]],
         ticket: { kind: "CATERING", name: sc.catering.name, head: sc.catering.when + " · pickup", lines: [`2  Full ${t[0].name}`, `1  Full ${t[2].name} · Mild`], total: cEst * (1 + TAX) } },
-      { id: "late", label: "Calling after closing", steps: ["Opens with what she can do, not 'we're closed'", "Order scheduled for tomorrow", "Pay link texted", "Prints in the morning, on time"], lines: [
+      { id: "late", label: "Calling after closing", steps: ["Opens with what she can do, not 'we're closed'", `Order scheduled for ${NO.word}`, "Pay link texted", `Prints ${NO.word === "tomorrow" ? "in the morning" : NO.word + " morning"}, on time`], lines: [
         ["s", "10:41 PM · closed for the night"],
-        ["h", `Thank you for calling ${nm}, this is Haniya. I can take your order now for tomorrow, we open at ${fmtT(hoursFor("Sun")[0][0])}. We're closed for tonight.`], ["s", "", 0],
-        ["c", `Oh okay. Can I get ${bc.name} and a ${gn.name} for tomorrow, around 12?`],
-        ["h", `Sure, ${bc.name} and a ${gn.name} for twelve o'clock tomorrow. That's ${money(bc.sizes[0].p + gn.sizes[0].p)} plus tax. Shall I go ahead?`], ["c", "Yes."], ["s", "Scheduled for 12:00 PM tomorrow", 1],
-        ["h", "I've texted you the link. Once it's paid, it's booked for twelve."], ["s", "Pay link texted", 2],
-        ["c", "Done, thanks."], ["h", "Got it, you're all set for twelve tomorrow. Good night!"], ["s", "Ticket prints in the morning", 3]] },
+        ["h", `Thank you for calling ${nm}, this is Haniya. I can take your order now for ${NO.word}, we open at ${fmtT(NO.opens)}. We're closed for tonight${NO.closedToo.length ? " and " + NO.closedToo.join(" and ") : ""}.`], ["s", "", 0],
+        ["c", `Oh okay. Can I get ${bc.name} and a ${gn.name} for ${NO.word}, around ${fmtT(NO.at).replace(/ [AP]M$/, "")}?`],
+        ["h", `Sure, ${bc.name} and a ${gn.name} for ${fmtT(NO.at)} ${NO.word}. That's ${money(bc.sizes[0].p + gn.sizes[0].p)} plus tax. Shall I go ahead?`], ["c", "Yes."], ["s", `Scheduled for ${fmtT(NO.at)} ${NO.word}`, 1],
+        ["h", `I've texted you the link. Once it's paid, it's booked for ${fmtT(NO.at)} ${NO.on}.`], ["s", "Pay link texted", 2],
+        ["c", "Done, thanks."], ["h", `Got it, you're all set for ${fmtT(NO.at)} ${NO.on}. Good night!`], ["s", `Ticket prints ${NO.word === "tomorrow" ? "in the morning" : NO.word + " morning"}`, 3]] },
       { id: "sales", label: "A sales call", steps: ["Spotted as a sales call", "Politely ended", "You were never interrupted"], lines: [
         ["h", `Thank you for calling ${nm}, this is Haniya. What can I get for you today?`],
         ["c", "Hi, I'm calling about your Google business listing. Can I speak with the owner about your ranking?"], ["s", "Sales call detected", 0],
@@ -1142,7 +1182,7 @@ button.o-alert{width:100%;text-align:start;font:inherit}
         ? `<div class="dash__alert"><b>What went wrong today<\/b>One caller hung up before paying. Haniya texted the link again and it was paid at 6:48 PM. Two callers asked for a dish you don't carry.<\/div>
           <div class="dash__grid">${kpi("Calls answered", 31 + S.calls, null)}${kpi("Orders won", 14 + S.orders.filter((o) => o.channel === "phone").length, null)}${kpi("Phone sales", money0(14 * P.money_defaults.call_order_value + liveBy("phone")), null)}${kpi("Missed calls", 0, null)}<\/div>
           <div class="dash__two"><div class="dash__card"><h4>What callers wanted today<\/h4><p>Every call sorted by Haniya.<\/p><table class="dash__tbl"><tr><th>Reason<\/th><th>Calls<\/th><\/tr>${[["Place an order", 15], ["Menu question", 6], ["Hours or directions", 5], ["Sales calls turned away", 3], ["Catering", 2 + S.leads.filter((l) => l.channel === "phone").length]].map(([r, n]) => `<tr><td>${r}<\/td><td>${n}<\/td><\/tr>`).join("")}<\/table><\/div>
-          <div class="dash__card"><h4>Asked for, not on the menu<\/h4><p>Worth adding if it keeps coming up.<\/p><table class="dash__tbl"><tr><th>Dish<\/th><th>Asked<\/th><\/tr>${(X.not_on_menu || ["Lamb chops", "Fish curry", "Haleem", "Nihari", "Paya", "Masala dosa"].filter((d) => !MENU.some((m) => m.name.toLowerCase().includes(d.toLowerCase().split(" ").pop()))).slice(0, 2)).map((d, i) => `<tr><td>${esc(d)}<\/td><td>${2 - i || 1}<\/td><\/tr>`).join("")}<\/table><\/div><\/div>`
+          <div class="dash__card"><h4>Asked for, not on the menu<\/h4><p>Worth adding if it keeps coming up.<\/p><table class="dash__tbl"><tr><th>Dish<\/th><th>Asked<\/th><\/tr>${(X.not_on_menu || (/indian|pakistan|biryani|curry|karahi|desi/i.test(P.cuisine_line || "") ? ["Lamb chops", "Fish curry", "Haleem", "Nihari", "Paya", "Masala dosa"] : []).filter((d) => !MENU.some((m) => m.name.toLowerCase().includes(d.toLowerCase().split(" ").pop()))).slice(0, 2)).map((d, i) => `<tr><td>${esc(d)}<\/td><td>${2 - i || 1}<\/td><\/tr>`).join("")}<\/table><\/div><\/div>`
         : `<div class="dash__grid">${kpi("Calls answered", (2840 + S.calls).toLocaleString("en-US"), null)}${kpi("Order calls won", "81%", null)}${kpi("Cost per won order", "$0.74", null)}${kpi("Staff hours handed back", "412", null)}<\/div>
           <div class="dash__two"><div class="dash__card"><h4>Order calls, month by month<\/h4><p>Won = paid. Lost = hung up, or wanted something you don't carry.<\/p><table class="dash__tbl"><tr><th>Month<\/th><th>Won<\/th><th>Lost<\/th><th>Won %<\/th><\/tr>${[["Month 1", 212, 71], ["Month 2", 298, 64], ["Month 3", 344, 58]].map(([m, w, l]) => `<tr><td>${m}<\/td><td>${w}<\/td><td>${l}<\/td><td>${(w / (w + l) * 100).toFixed(0)}%<\/td><\/tr>`).join("")}<\/table><\/div>
           <div class="dash__card"><h4>Why orders were lost<\/h4><p>So you know what to fix.<\/p><table class="dash__tbl"><tr><th>Reason<\/th><th>Share<\/th><\/tr>${[["Hung up before paying", "38%"], ["Dish not on the menu", "27%"], ["Wanted delivery further out", "19%"], ["Other", "16%"]].map(([r, n]) => `<tr><td>${r}<\/td><td>${n}<\/td><\/tr>`).join("")}<\/table><\/div><\/div>`),
@@ -1172,7 +1212,7 @@ button.o-alert{width:100%;text-align:start;font:inherit}
   /* ---------- what it's worth ---------- */
   const MD = Object.assign({}, P.money_defaults);
   const SL = [
-    ["app_sales_month", "Delivery-app sales a month", 0, 40000, 500, money0, "What DoorDash, Uber Eats and Grubhub pay out before fees."],
+    ["app_sales_month", "Delivery-app sales a month", 0, 40000, 500, money0, "What " + ((P.delivery_apps || []).length ? P.delivery_apps.join(", ").replace(/, ([^,]*)$/, " and $1") : "the delivery apps") + " pay out before fees."],
     ["app_commission_pct", "What the apps keep", 10, 35, 1, (v) => v + "%", "Most plans take 15 to 30% of each order."],
     ["shift_to_direct_pct", "App orders that switch to you", 0, 60, 5, (v) => v + "%", "Guests who find you on Google and order from your site instead." + (P.research.app_markup_pct ? " Your site prices are about " + P.research.app_markup_pct + "% lower for them." : "")],
     ["phone_hours_week", "Hours a week someone is on the phone", 0, 70, 1, (v) => v + " hrs", "Across both shifts, all week."],
@@ -1207,7 +1247,7 @@ button.o-alert{width:100%;text-align:start;font:inherit}
       <div class="who"><div><h5>For you<\/h5><ul><li>${money0(r.kept + r.more)} a month<\/li><li>Answers on your phone, not a report<\/li><li>Your guest list, not the app's<\/li><\/ul><\/div>
       <div><h5>For your staff<\/h5><ul><li>No phone in the rush<\/li><li>Tickets arrive paid and clear<\/li><li>${r.hours} hours a week back<\/li><\/ul><\/div>
       <div><h5>For your guests<\/h5><ul><li>${r.guestSave ? `About ${money0(r.guestSave)} a month less than app prices` : "Lower prices than the apps"}<\/li><li>Every call answered<\/li><li>A text when the food is ready<\/li><\/ul><\/div><\/div>
-      <p class="az-note" style="margin-top:16px">Founding pilot: no setup fee, and for the first two months you only cover what the technology costs to run, at cost, on accounts in your name. After that, a small share of the orders that come through Haniya and your own website. Extra sales are shown as sales, not profit.<\/p><\/div>`;
+      <p class="az-note" style="margin-top:16px">${esc(P.money_note || "Your first month is free, setup and running costs included. After that, each provider bills you directly, and our partnership is one flat monthly amount plus a small fixed amount per order.")} Extra sales are shown as sales, not profit.<\/p><\/div>`;
   }
 
   /* ---------- the plan ---------- */
