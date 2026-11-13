@@ -995,7 +995,7 @@ button.o-alert{width:100%;text-align:start;font:inherit}
     const t = P.catering.trays, cEst = t[0].full * 2 + t[2].full;
     const nm = P.name, loc = P.address_short.split(",")[0];
     return [
-      { id: "pickup", label: "Pickup order in the rush", steps: ["Answered on the first ring", "Dishes matched to your menu", "Pay link texted to the caller", "Paid, so the ticket prints", "Ready text sent"], lines: [
+      { id: "pickup", label: "Pickup order in the rush", steps: ["Answered on the first ring", "Dishes matched to your menu", "Pay link texted to the caller", (P.pos === "Clover" ? "Paid, so the ticket prints" : "Paid, so the kitchen gets it"), "Ready text sent"], lines: [
         ["s", "7:12 PM Saturday · 3 guests waiting at the counter", 0],
         ["h", `Thank you for calling ${nm} in ${P.location_label}, this is Haniya. What can I get for you today?`],
         ["c", `Hi, can I get the ${d1.name.toLowerCase()}${sc.pickup.size1 ? ", " + sc.pickup.size1.toLowerCase() : ""}?`],
@@ -1009,7 +1009,7 @@ button.o-alert{width:100%;text-align:start;font:inherit}
         ["c", "Yes please."], ["h", "And what name should I put it under?"], ["c", `${sc.pickup.name}.`],
         ["s", "Pay link texted to the caller's phone", 2],
         ["h", `Thanks ${sc.pickup.name}. I've texted you a link with your order on it. Once it's paid we start cooking. I can stay on while you pay.`],
-        ["c", "Okay… done."], ["s", "Payment verified · ticket printed", 3],
+        ["c", "Okay… done."], ["s", (P.pos === "Clover" ? "Payment verified · ticket printed" : "Payment verified · sent to the kitchen"), 3],
         ["h", `Got your payment, it's gone to be made. It'll be ready in about 20 to 25 minutes, we're on ${loc}. We'll text you the moment it's ready.`],
         ["c", "Perfect, thank you!"], ["h", `Thanks for calling, ${sc.pickup.name}. See you soon!`], ["s", "Ready text sent when the counter taps ready", 4]],
         ticket: { name: sc.pickup.name, lines: [`1  ${d1.name}${sz ? " (" + s1.l + ")" : ""} · Medium`, `${sc.pickup.qty2}  ${d2.name}`], total: pickTotal * (1 + TAX) } },
@@ -1032,7 +1032,7 @@ button.o-alert{width:100%;text-align:start;font:inherit}
         ["c", `Oh okay. Can I get ${bc.name} and a ${gn.name} for ${NO.word}, around ${fmtT(NO.at).replace(/ [AP]M$/, "")}?`],
         ["h", `Sure, ${bc.name} and a ${gn.name} for ${fmtT(NO.at)} ${NO.word}. That's ${money(bc.sizes[0].p + gn.sizes[0].p)} plus tax. Shall I go ahead?`], ["c", "Yes."], ["s", `Scheduled for ${fmtT(NO.at)} ${NO.word}`, 1],
         ["h", `I've texted you the link. Once it's paid, it's booked for ${fmtT(NO.at)} ${NO.on}.`], ["s", "Pay link texted", 2],
-        ["c", "Done, thanks."], ["h", `Got it, you're all set for ${fmtT(NO.at)} ${NO.on}. Good night!`], ["s", `Ticket prints ${NO.word === "tomorrow" ? "in the morning" : NO.word + " morning"}`, 3]] },
+        ["c", "Done, thanks."], ["h", `Got it, you're all set for ${fmtT(NO.at)} ${NO.on}. Good night!`], ["s", `${P.pos === "Clover" ? "Ticket prints" : "Kitchen gets it"} ${NO.word === "tomorrow" ? "in the morning" : NO.word + " morning"}`, 3]] },
       { id: "sales", label: "A sales call", steps: ["Spotted as a sales call", "Politely ended", "You were never interrupted"], lines: [
         ["h", `Thank you for calling ${nm}, this is Haniya. What can I get for you today?`],
         ["c", "Hi, I'm calling about your Google business listing. Can I speak with the owner about your ranking?"], ["s", "Sales call detected", 0],
