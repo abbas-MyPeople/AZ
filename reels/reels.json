@@ -2,6 +2,12 @@
  "channel": "UCj-qILzeofW87kiOCZXnVyw",
  "reels": [
   {
+   "id": "RFW5UyahEKc",
+   "title": "The text my guests get after the meal.",
+   "published": "2026-11-19T01:02:34+00:00",
+   "page": null
+  },
+  {
    "id": "XJfd-O95I1w",
    "title": "How we stop no-shows at our restaurant: a reminder text and a one-tap cancel",
    "published": "2026-11-18T03:36:13+00:00",
@@ -84,12 +90,6 @@
    "title": "How to let restaurant guests pay at the table with Apple Pay, Google Pay or Zelle",
    "published": "2026-11-08T21:34:31+00:00",
    "page": "how-to-stop-dine-and-dash.html"
-  },
-  {
-   "id": "FcoJTsnNi1I",
-   "title": "Questions to ask a restaurant software vendor before you sign",
-   "published": "2026-11-07T21:30:45+00:00",
-   "page": null
   }
  ]
 }
