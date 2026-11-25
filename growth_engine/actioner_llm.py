@@ -78,12 +78,18 @@ _SCHEMA_HINT = (
 )
 
 
+def request_body(model: str, system: str, user: str) -> dict:
+    """No `temperature`: Opus 4.8 and Haiku 5.5 both answer 400 "temperature is deprecated for this
+    model" (checked live 2026-11-25), so with it every call - primary and fallback - failed."""
+    body = {"model": model, "max_tokens": MAX_TOKENS, "system": system,
+            "messages": [{"role": "user", "content": user}]}
+    if model.startswith("claude-haiku-5"):
+        body["thinking"] = {"type": "disabled"}     # it thinks by default; the whole budget is for the JSON
+    return body
+
+
 def _call(api_key: str, model: str, system: str, user: str) -> str:
-    body = json.dumps({
-        "model": model, "max_tokens": MAX_TOKENS, "temperature": 0,
-        "system": system,
-        "messages": [{"role": "user", "content": user}],
-    }).encode()
+    body = json.dumps(request_body(model, system, user)).encode()
     req = urllib.request.Request(API_URL, data=body, headers={
         "x-api-key": api_key,
         "anthropic-version": "2023-06-01",
