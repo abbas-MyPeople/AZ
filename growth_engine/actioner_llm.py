@@ -41,7 +41,7 @@ _llm_backup()
 
 API_URL = "https://api.anthropic.com/v1/messages"
 MODEL = "claude-opus-4-8"
-FALLBACK_MODEL = "claude-3-5-haiku-latest"
+FALLBACK_MODEL = "claude-haiku-5-5"
 MAX_LLM_CALLS = 5
 MAX_TOKENS = 900
 PAGE_CHAR_CAP = 16000            # bound the context we send (cost guard)
