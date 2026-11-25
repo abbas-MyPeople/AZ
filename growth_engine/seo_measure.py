@@ -141,7 +141,8 @@ ENGINES = [
     # key, display, env var, kind, endpoint, model, mode
     ("sonar", "Perplexity Sonar", "OPENROUTER_API_KEY", "openai", _OR, "perplexity/sonar", LIVE_WEB),
     ("gpt_web", "ChatGPT (GPT-4o mini + live web)", "OPENROUTER_API_KEY", "openai", _OR, "openai/gpt-4o-mini:online", LIVE_WEB),
-    ("gemini_web", "Gemini 2.5 Flash (+ live web)", "OPENROUTER_API_KEY", "openai", _OR, "google/gemini-2.5-flash:online", LIVE_WEB),
+    # Gemini 2.5 Flash leaves OpenRouter 2026-12-01; 3.8 Flash is the current Flash on its live list (2026-11-25).
+    ("gemini_web", "Gemini 3.8 Flash (+ live web)", "OPENROUTER_API_KEY", "openai", _OR, "google/gemini-3.8-flash:online", LIVE_WEB),
     ("claude_web", f"Claude ({CLAUDE_MODEL}, Anthropic direct, live web)", "ANTHROPIC_API_KEY", "anthropic", _ANTHROPIC, CLAUDE_MODEL, LIVE_WEB),
     ("groq", "Llama 3.3 70B (Groq) - memory control", "GROQ_API_KEY", "openai", _GROQ, "llama-3.3-70b-versatile", MODEL_MEMORY),
 ]
