@@ -224,8 +224,11 @@ html[dir=rtl] .when,html[dir=rtl] .rules summary{direction:rtl}
 <script>
 /* Prize calendar. Add a line here each morning to reveal that day's prize. */
 var PRIZES={
-  "2026-12-01":{p:{en:"$250 catering party",hi:"$250 की कैटरिंग पार्टी",ur:"$250 کی کیٹرنگ پارٹی"},s:"Wok & Karahi"}
+  "2026-12-01":{p:{en:"$250 catering party",hi:"$250 की कैटरिंग पार्टी",ur:"$250 کی کیٹرنگ پارٹی"},s:"Wok & Karahi"},
+  "2026-12-02":{p:{en:"2 winners, $50 each",hi:"2 विजेता, हर एक को $50",ur:"2 فاتح، ہر ایک کو $50"},s:"Kohinoor",from:"2026-11-27T12:00:00-06:00"}
 };
+/* An entry with "from" stays hidden until that moment (it is revealed on Instagram then). */
+Object.keys(PRIZES).forEach(function(k){var f=PRIZES[k].from;if(f&&Date.now()<Date.parse(f))delete PRIZES[k]});
 var T={
 hi:{k:"पहला सालाना",h1a:"ह्यूस्टन",h1b:"हॉलिडे गिवअवे",lede:"1 दिसंबर से 1 जनवरी तक हर दिन एक मुफ़्त इनाम, ह्यूस्टन के बिज़नेस की तरफ़ से ह्यूस्टन के लिए। इंस्टाग्राम पर मुफ़्त में हिस्सा लें।",d_when:"कब",v_when:"1 दिसंबर 2026 से 1 जनवरी 2027",d_where:"कहाँ",v_where:"इंस्टाग्राम पर",d_day1:"पहला दिन",v_day1:"वोक एंड कड़ाही की तरफ़ से $250 की कैटरिंग पार्टी",d_cost:"खर्च",v_cost:"मुफ़्त। कुछ खरीदने की ज़रूरत नहीं।",cta1:"इंस्टाग्राम पर फ़ॉलो करें",cta2:"हिस्सा कैसे लें",
 k_enter:"हिस्सा कैसे लें",h_enter:"हर दिन, तीन कदम",p_enter:"हर सुबह हम उस दिन का इनाम @azrestaurantpartners पर पोस्ट करते हैं। उसी पोस्ट पर हिस्सा लें।",s1b:"फ़ॉलो करें",s1:"@azrestaurantpartners और उस दिन का इनाम देने वाले बिज़नेस को फ़ॉलो करें।",s2b:"कमेंट करें",s2:"उस दिन की इनाम वाली पोस्ट पर कमेंट करें। यही आपकी एंट्री है।",s3b:"दोस्त को टैग करें",s3:"अपने कमेंट में एक दोस्त को टैग करें और 1 बोनस एंट्री पाएँ। हर दिन एक व्यक्ति की ज़्यादा से ज़्यादा 2 एंट्री।",p_bonus:"हमारी <a href=\"https://www.instagram.com/p/DgOCzWVClOr/\">थैंक्सगिविंग पोस्ट</a> पर कमेंट करके दोस्त को टैग किया था? पहले दिन के ड्रॉ में आपकी 1 बोनस एंट्री पहले से है।",
