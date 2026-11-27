@@ -18,8 +18,9 @@ def page(p, files):
     reel = "reel.mp4" if "reel.mp4" in files else None
     h = p["handle"]
     customer = (f"{p['name']} is giving away {p['prize_plain']} on {p['day_say']} in the Houston Holiday Giveaway. "
-                f"To enter: follow @{h} and @azrestaurantpartners on Instagram, then comment on the Day {p['day']} post on "
-                f"{p['day_short']}. Tag a friend for a bonus entry. Free to enter. Rules: {RULES}")
+                f"To enter: follow @{h}, @wokandkarahitexas and @azrestaurantpartners on Instagram, then comment on the Day {p['day']} "
+                f"post on {p['day_short']} (2 entries, tag a friend for 1 more). Post a Reel tagging us for 5 more. "
+                f"Free to enter, and everyone who enters gets a gift. Rules: {RULES}")
     story_day = f"Our day is live! Comment on this post for a chance to win {p['prize_plain']} from {p['name']}."
     nextmsg = (f"Hi! {p['name']} has a day in the Houston Holiday Giveaway: a free prize every day from Dec 1 to Jan 1, "
                f"posted by @azrestaurantpartners on Instagram. You give one prize worth $100 or more, and your business "
