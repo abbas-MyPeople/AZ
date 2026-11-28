@@ -190,10 +190,11 @@ JS = r"""
 (()=>{const D=__DATA__,K='intel:'+D.slug;
 const load=()=>{try{return JSON.parse(localStorage.getItem(K)||'[]')}catch(e){return[]}};
 const save=a=>{try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}};
-function send(ev){const all=load();all.push(ev);save(all);
- if(!D.endpoint)return;
+function post(ev){if(!D.endpoint)return;
  fetch(D.endpoint,{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify({slug:D.slug,event:ev})})
-  .then(r=>{if(r.ok){ev.sent=1;save(load().map(x=>x.id===ev.id?ev:x))}}).catch(()=>{});}
+  .then(r=>{if(r.ok){save(load().map(x=>x.id===ev.id?Object.assign(x,{sent:1}):x))}}).catch(()=>{});}
+function send(ev){const all=load();all.push(ev);save(all);post(ev);}
+load().filter(x=>!x.sent).forEach(post);   // anything a weak signal held back goes now
 function mark(box,text){const p=document.createElement('p');p.className='done';p.textContent=text;box.replaceWith(p);}
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
  if(b.dataset.go){document.getElementById(b.dataset.go).scrollIntoView();return;}
