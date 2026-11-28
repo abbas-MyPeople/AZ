@@ -1,0 +1,119 @@
+{
+  "slug": "wok-and-karahi-spring",
+  "name": "Wok & Karahi",
+  "area": "Spring, TX",
+  "built_at": "2026-11-28",
+  "purpose": "Proving run on our own restaurant, so the owner can check every line against what he knows.",
+  "headline": {
+    "insight": "A halal family can get Chinese and Pakistani food in one order here. Very few places in Spring offer both.",
+    "plain_proof": "Your menu covers Chinese, Indian and Pakistani food, and everything is halal.",
+    "finding_ids": ["f-cuisine", "f-rare-combo"]
+  },
+  "credibility": ["f-cuisine", "f-crispy-beef", "f-break"],
+  "findings": [
+    {
+      "id": "f-cuisine", "dimension": "cuisine", "kind": "fact",
+      "claim": "One menu covers Chinese, Indian and Pakistani food, all halal.",
+      "evidence": [{"url": "https://wokandkarahitexas.com/", "title": "Wok & Karahi website",
+                    "quote": "Halal Chinese & Indo-Pak Cuisine", "observed_at": "2026-11-28"}],
+      "confidence": 1.0
+    },
+    {
+      "id": "f-crispy-beef", "dimension": "marketing", "kind": "fact",
+      "claim": "The restaurant leads with one dish: it calls itself the Home of the Crispy Beef.",
+      "evidence": [{"url": "https://wokandkarahitexas.com/", "title": "Wok & Karahi website",
+                    "quote": "Home of the Crispy Beef", "observed_at": "2026-11-28"}],
+      "confidence": 1.0
+    },
+    {
+      "id": "f-own-ordering", "dimension": "ordering", "kind": "fact",
+      "claim": "Guests can order pickup on the restaurant's own site, without a delivery app.",
+      "evidence": [{"url": "https://wokandkarahitexas.com/menu/", "title": "Online ordering page",
+                    "observed_at": "2026-11-28"}],
+      "confidence": 1.0
+    },
+    {
+      "id": "f-break", "dimension": "operations", "kind": "fact",
+      "claim": "The restaurant closes from 4 to 5 PM every open day, and all day Monday.",
+      "evidence": [{"url": "https://wokandkarahitexas.com/", "title": "Hours on the website", "observed_at": "2026-11-28"}],
+      "confidence": 1.0
+    },
+    {
+      "id": "f-catering", "dimension": "catering", "kind": "fact",
+      "claim": "Catering has its own page and its own phone line, separate from the restaurant line.",
+      "evidence": [{"url": "https://wokandkarahitexas.com/catering/", "title": "Catering page",
+                    "observed_at": "2026-11-28"}],
+      "confidence": 1.0
+    },
+    {
+      "id": "f-location", "dimension": "geography", "kind": "fact",
+      "claim": "It sits on FM 2920 in Spring (77388), a commuter road near Klein.",
+      "evidence": [{"url": "https://wokandkarahitexas.com/", "title": "Address on the site",
+                    "quote": "3422 FM 2920 Rd, Unit #120, Spring, TX 77388", "observed_at": "2026-11-28"}],
+      "confidence": 1.0
+    },
+    {
+      "id": "f-rare-combo", "dimension": "competition", "kind": "inference",
+      "claim": "Few restaurants near Spring serve halal Chinese and Pakistani food from one kitchen, so mixed-taste groups have little choice.",
+      "evidence": [],
+      "confidence": 0.7,
+      "open_question": "When a group can't agree on Chinese or desi food, do they end up here? Do guests tell you that?",
+      "owner_check": "Count last month's orders that had a Chinese dish and a desi dish in the same order."
+    },
+    {
+      "id": "f-group-demand", "dimension": "community", "kind": "hypothesis",
+      "claim": "Halal families and community events nearby create group meals where one order has to please everyone.",
+      "evidence": [],
+      "confidence": 0.5,
+      "open_question": "How often do you get group or tray orders for family or community events?",
+      "owner_check": "Count tray and catering orders in the last 90 days."
+    }
+  ],
+  "patterns": [
+    {
+      "id": "p-one-order-everyone",
+      "title": "One order that pleases the whole group",
+      "explanation": "The menu covers three cuisines, it is halal, and catering has its own line. Together that fits group meals where people want different food. A single-cuisine competitor can't serve that group with one order.",
+      "finding_ids": ["f-cuisine", "f-rare-combo", "f-catering", "f-group-demand"]
+    },
+    {
+      "id": "p-break-orders",
+      "title": "The 4 to 5 PM break doesn't have to stop orders",
+      "explanation": "The doors close for an hour every open day, but the site takes orders on its own. Dinner pickups can be ordered during the break, as long as the phone is answered then too.",
+      "finding_ids": ["f-break", "f-own-ordering"]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "o-mixed-trays", "kind": "catering",
+      "title": "Sell mixed trays for groups that want both cuisines",
+      "why": "This rests on the three-cuisine menu and on group demand. The owner still needs to confirm the group demand.",
+      "finding_ids": ["f-cuisine", "f-rare-combo", "f-group-demand"],
+      "scenario": {
+        "formula": "extra tray orders a month x average tray order",
+        "assumptions": [
+          {"label": "Extra tray orders a month", "value": null, "source": "owner", "note": "Only you know this. We fill it in with you."},
+          {"label": "Average tray order", "value": null, "source": "owner", "note": "From your own catering orders."}
+        ],
+        "result_text": "We work this out together from your numbers. We never guess it."
+      }
+    },
+    {
+      "id": "o-crispy-beef", "kind": "signature_dish",
+      "title": "Build a campaign around the Crispy Beef",
+      "why": "The site already calls the restaurant the Home of the Crispy Beef. One famous dish is easier to market than a long menu.",
+      "finding_ids": ["f-crispy-beef"]
+    },
+    {
+      "id": "o-break-phone", "kind": "haniya_demo",
+      "title": "Haniya answers during the 4 to 5 PM break and takes dinner orders",
+      "why": "The break and the online ordering are both facts we saw. Haniya can show this live on your own number.",
+      "finding_ids": ["f-break", "f-own-ordering"]
+    }
+  ],
+  "unknowns": [
+    {"id": "u-calls", "question": "How many calls go unanswered in a busy week?", "why_it_matters": "This is the biggest gap a phone assistant fills, and only your phone records show it."},
+    {"id": "u-best-seller", "question": "Which dish do regulars order most?", "why_it_matters": "It tells us whether the Crispy Beef or another dish should lead the marketing."},
+    {"id": "u-trays", "question": "How many tray orders do you take in a month?", "why_it_matters": "It sets the starting point for the tray scenario."}
+  ]
+}
